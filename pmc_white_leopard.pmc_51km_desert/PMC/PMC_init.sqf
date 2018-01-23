@@ -28,6 +28,7 @@ PMC_loc = call compile preprocessFileLineNumbers "PMC\PMC_locationFinder.sqf";
 
 PMC_debug = true;
 publicVariable "PMC_debug";
+[] execVM "PMC\PMC_targets.sqf";
 // corpse removal script
 PMC_corpses = [];
 PMC_killedNum = 0;
@@ -37,6 +38,9 @@ PMC_killedNum = 0;
 PMC_grp_blufor = 0;
 PMC_grp_opfor = 0;
 PMC_grpNum = 0;
+PMC_blufor = 0;
+PMC_opfor = 0;
+PMC_war_blufor = true;
 
 // for infantry transport
 PMC_InfTransport = 0;
@@ -103,12 +107,12 @@ sleep 2;
 [80, 20] execVM "PMC\War_Vehicles_OPFOR.sqf";
 
 // aircrafts
-[] execVM "PMC\PMC_Aircraft_BLUFOR_MODIFIED.sqf";
-[] execVM "PMC\PMC_Aircraft_OPFOR_MODIFIED.sqf";
+[[-1000,-1000,200]] execVM "PMC\PMC_Aircraft_BLUFOR_MODIFIED.sqf";
+[[10000,-1000,200]] execVM "PMC\PMC_Aircraft_OPFOR_MODIFIED.sqf";
 
 // helicopters
-[] execVM "PMC\PMC_HeloBLUFOR_MODIFIED.sqf";
-[] execVM "PMC\PMC_HeloOPFOR_MODIFIED.sqf";
+[[-1000,-1000,200]] execVM "PMC\PMC_HeloBLUFOR_MODIFIED.sqf";
+[[10000,-1000,200]] execVM "PMC\PMC_HeloOPFOR_MODIFIED.sqf";
 
 // BLUFOR convoy
 [[1854, 2448, 0]] execVM "PMC\PMC_Create_Convoy_BLUFOR.sqf";
