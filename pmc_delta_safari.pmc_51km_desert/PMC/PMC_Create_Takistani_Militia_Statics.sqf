@@ -17,7 +17,7 @@ PMC_Create_Takistani_Militia_Statics =
 		"CUP_O_D30_TK_INS",
 		"CUP_O_DSHkM_MiniTriPod_ChDKZ",
 		"CUP_O_DSHKM_TK_INS",
-		"SPG9_TK_INS_EP1",
+		"CUP_I_SPG9_TK_GUE",
 		"CUP_O_ZU23_TK_INS"
 	];
 

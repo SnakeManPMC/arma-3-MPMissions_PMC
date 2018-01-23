@@ -173,7 +173,7 @@ while {true} do
 	// do the random patrolling waypoints
 	_wp = 0;
 	// twenty waypoints is more than enough
-	while {count _wp < 20} do
+	while { _wp < 20 } do
 	{
 		// choose random target.
 		_ran = (floor random _ptNum);
@@ -197,6 +197,8 @@ while {true} do
 //		[_grp, _wp] setWaypointTimeout [min, mid, max];
 		[_grp, _wp] setWaypointTimeout [60*2, 60*10, 60*20];
 	};
+
+	diag_log format["PMC_Convoy_OPFOR.sqf created %1 waypoints.", _wp];
 
 	// add one last for cycle, so if he survives, he does it all over again.
 	_wp = _wp + 1;

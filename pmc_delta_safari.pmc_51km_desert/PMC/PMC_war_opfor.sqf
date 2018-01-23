@@ -155,9 +155,10 @@ while { _a < 15 } do
 	// random starting location
 	_respawnpoint = [_PMC_temp_array] call _PMC_select_static_start_posit;
 
+	// object mapper stuff requires arma2 module stuff which arma3 doesnt have, sorry, disabled...
 	// create composition
 	//[_respawnpoint, (random 360), "FuelDump1_TK_EP1"] call (compile (preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf"));
-	[_respawnpoint, (random 360), ["tk_local"]] call (compile (preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf"));
+	//[_respawnpoint, (random 360), ["tk_local"]] call (compile (preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf"));
 /*
 MediumTentCamp_GUE_EP1
 SmallTentCamp_GUE_EP1
