@@ -15,6 +15,6 @@ PMC_corpses = [];
 PMC_killedNum = 0;
 
 [] execVM "PMC\PMC_targets.sqf";
-waitUntil { count PMC_targets > 0 };
+sleep 1;
 [] execVM "PMC\PMC_unit_arrays.sqf";
 [] execVM "PMC\PMC_opfor.sqf";
