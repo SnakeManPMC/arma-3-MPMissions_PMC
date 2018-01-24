@@ -83,5 +83,10 @@ while {true} do
 		diag_log format["Created RU vehicles: %1, total: %2", ([_grp] call _countUnits), ('landVehicle' countType list pmc_opfor_list)];
 	};
 
+	if (PMC_debug) then
+	{
+		diag_log format["PMC War_Vehicles_BLUFOR.sqf tickTime %1", diag_tickTime];
+	};
+
 	sleep 60;
 };

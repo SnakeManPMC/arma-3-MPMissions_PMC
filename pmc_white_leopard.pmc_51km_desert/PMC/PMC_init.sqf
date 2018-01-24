@@ -85,7 +85,7 @@ _tmp = [] execVM "PMC\Initial_Unit_Creation.sqf";
 waitUntil { scriptDone _tmp; };
 
 // debug
-diag_log format["Initial_Unit_Creation done at %1", time];
+diag_log format["Initial_Unit_Creation done at %1", diag_tickTime];
 
 // small wait...
 sleep 1;
@@ -123,5 +123,4 @@ sleep 1;
 // new experimental airforce HQ thing :)
 [[1854, 2448, 0]] execVM "PMC\PMC_Airforce_HQ.sqf";
 
-// some debug
-if (PMC_debug) then { diag_log "PMC_init.sqf complete."; };
+if (PMC_debug) then { diag_log format["PMC_init.sqf complete: %1", diag_tickTime]; };

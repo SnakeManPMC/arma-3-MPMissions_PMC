@@ -24,60 +24,60 @@ while {true} do
 		{
 			case 0:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Motorized" >> "US_MotorizedSection")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Motorized" >> "CUP_B_US_Army_MotorizedSection")] call BIS_fnc_spawnGroup;
 			};
 			case 1:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Motorized" >> "US_MotorizedSectionAT")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Motorized" >> "CUP_B_US_Army_MotorizedSectionAT")] call BIS_fnc_spawnGroup;
 			};
 			case 2:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Motorized" >> "US_DeltaPatrolATV")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Motorized" >> "CUP_B_US_Army_DeltaPatrolHMMWV")] call BIS_fnc_spawnGroup;
 			};
 			case 3:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Motorized" >> "US_DeltaPatrolHMMWV")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Motorized" >> "CUP_B_US_Army_DeltaPatrolHMMWV")] call BIS_fnc_spawnGroup;
 			};
 			case 4:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Mechanized" >> "US_MechanizedInfantrySquadICVM2")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Mechanized" >> "CUP_B_US_Army_MechanizedInfantrySquadICVM2")] call BIS_fnc_spawnGroup;
 			};
 			case 5:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Mechanized" >> "US_MechanizedInfantrySquadICVMK19")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Mechanized" >> "CUP_B_US_Army_MechanizedInfantrySquadICVMK19")] call BIS_fnc_spawnGroup;
 			};
 			case 6:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Mechanized" >> "US_MechanizedReconSection")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Mechanized" >> "CUP_B_US_Army_MechanizedReconSection")] call BIS_fnc_spawnGroup;
 			};
 			case 7:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Armored" >> "US_MGSPlatoon")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Armored" >> "CUP_B_US_Army_MGSPlatoon")] call BIS_fnc_spawnGroup;
 			};
 			case 8:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Armored" >> "US_M1A2Platoon")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Armored" >> "CUP_B_US_Army_M1A2Platoon")] call BIS_fnc_spawnGroup;
 			};
 			case 9:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Armored" >> "US_M1A1Platoon")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Armored" >> "CUP_B_US_Army_M1A1Platoon")] call BIS_fnc_spawnGroup;
 			};
 			case 10:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Armored" >> "US_M1A2Section")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_US_Army" >> "Armored" >> "CUP_B_US_Army_M1A2Section")] call BIS_fnc_spawnGroup;
 			};
 			// Czech :)
 			case 11:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_CZ" >> "Motorized" >> "ACR_MotorizedPatrol")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_CZ" >> "Motorized" >> "CUP_B_CZMotorizedPatrol")] call BIS_fnc_spawnGroup;
 			};
 			case 12:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_CZ" >> "Motorized" >> "ACR_SpecialForcesPatrolLandRover")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_CZ" >> "Motorized" >> "CUP_B_CZSpecialForcesPatrolLandRover")] call BIS_fnc_spawnGroup;
 			};
 			case 13:
 			{
-				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "BIS_CZ" >> "Motorized" >> "ACR_SpecialForcesPatrolATV")] call BIS_fnc_spawnGroup;
+				_grp = [_safePos, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_CZ" >> "Motorized" >> "CUP_B_CZSpecialForcesPatrolLandRover")] call BIS_fnc_spawnGroup;
 			};
 		};
 
@@ -93,6 +93,11 @@ while {true} do
 		[_grp, _targetpoint, 100] call PMC_Guard_Vehicle_Waypoints;
 
 		diag_log format["Created US vehicles: %1, total: %2", ([_grp] call _countUnits), ('landVehicle' countType list pmc_blufor_list)];
+	};
+
+	if (PMC_debug) then
+	{
+		diag_log format["PMC War_Vehicles_BLUFOR.sqf tickTime %1", diag_tickTime];
 	};
 
 	sleep 60;
