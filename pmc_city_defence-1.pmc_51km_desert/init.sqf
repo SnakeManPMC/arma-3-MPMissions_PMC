@@ -1,7 +1,7 @@
 
 if (isServer) then
 {
-	[] execVM "PMC_war.sqf";
+	[] execVM "PMC\PMC_war.sqf";
 };
 
 [] execVM "briefing.sqf";
