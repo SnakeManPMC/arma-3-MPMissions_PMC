@@ -11,7 +11,7 @@ _PMC_MakeGuardInfOPFOR =
 
         _respawnpoint = _this select 0;
         _targetpoint = _this select 1;
-        
+
         _grp = objNull;
 	_grp = createGroup east;
 	waitUntil {!(isNull _grp)};
@@ -25,6 +25,10 @@ _PMC_MakeGuardInfOPFOR =
 	"CUP_O_RU_Soldier_GL" createUnit [_respawnpoint, _grp, "", (random 1), "PRIVATE"];
 	"CUP_O_RU_Soldier_MG" createUnit [_respawnpoint, _grp, "", 1, "PRIVATE"];
 	"CUP_O_RU_Sniper" createUnit [_respawnpoint, _grp, "", 1, "PRIVATE"];
+
+	{
+		_x addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	} foreach units _grp;
 
 	_grp setBehaviour "AWARE";
 	_grp setCombatMode "RED";
@@ -44,25 +48,11 @@ _maxOPFORUnits = 200;
 // counter
 PMC_opfor = 0;
 publicVariable "PMC_opfor";
-// starting locations
-PMC_targets = [];
 // destination, ie attack point for enemies.
 _targetpoint = getPosASL racsflag;
 
-// choose new digit for the gamelogic "pmc_*"
-_a = 1;
-_p = call compile format["pmc_%1",_a];
-
-// loop until we have no gamelogics left, it then should return 0.
-while {(getPosASL _p select 0) != 0} do
-{
-	// just make array out of the gamelogics
-	PMC_targets = PMC_targets + [_p];
-
-	// add one digit to our gamelogic name.
-	_a = _a + 1;
-	_p = call compile format["pmc_%1",_a];
-};
+[] execVM "PMC\PMC_targets.sqf";
+sleep 1;
 
 _targetNum = count PMC_targets;
 
