@@ -2,6 +2,7 @@
 if (isServer) then
 {
 	// initialized variables and settings
+	PMC_blufor = 0;
 	PMC_killedNum = 0;
 	publicVariable "PMC_killedNum";
 	
