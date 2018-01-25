@@ -9,6 +9,6 @@ if (isServer) then
   ["PMC_objective3","Clear south end","You must clear the <marker name='markerTask3'>south end</marker> of enemy FARP.", true, ["markerTask3", getPosASL pmc_3]]
 ],[
 	["Credits","Mission by Snake Man, PMC."]
-]] call compile preprocessfilelinenumbers "shk_taskmaster.sqf";
+]] call compile preprocessfilelinenumbers "PMC\shk_taskmaster.sqf";
 
 enableSaving [ false, false ];
