@@ -18,9 +18,11 @@ private
 	"_direction",
 	"_distance",
 	"_grp",
-	"_respawnpoint"
+	"_respawnpoint",
+	"_targetpoint"
 ];
 
+_targetpoint = _this select 0;
 _direction = random 360;
 _distance = (500 + random 1000);
 _respawnpoint = [((_targetpoint select 0)  + (_distance * sin _direction)), ((_targetpoint select 1) + (_distance * cos _direction)), 0];
