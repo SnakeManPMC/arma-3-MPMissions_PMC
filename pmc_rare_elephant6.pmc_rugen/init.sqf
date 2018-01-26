@@ -5,7 +5,7 @@
   ["task4","Objective 4","Clear <marker name='target4'>objective 4</marker>"]
 ],[
 	["Credits","Mission by Snake Man, PMC."]
-]] call compile preprocessfilelinenumbers "shk_taskmaster.sqf";
+]] call compile preprocessfilelinenumbers "PMC\shk_taskmaster.sqf";
 
 player setVariable ["BIS_noCoreConversations", true];
 
