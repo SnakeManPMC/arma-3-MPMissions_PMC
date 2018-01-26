@@ -9,7 +9,7 @@ if (isServer) then
   ["PMC_objective3", "Clear Obj3", "You must clear the <marker name='markerTask3'>Obj3</marker>.", true, ["markerTask3", getPosASL pmc_3]]
 ],[
   ["Credits","Mission by PMC"]
-]] call compile preprocessfilelinenumbers "shk_taskmaster.sqf";
+]] call compile preprocessfilelinenumbers "PMC\shk_taskmaster.sqf";
 
 player setVariable ["BIS_noCoreConversations", true];
 
