@@ -9,7 +9,7 @@ if (isServer) then
 	["Intel", "<marker name='markerTask1'>High Value Target (HVT)</marker> is located inside a building somewhere south west from the Zalman marker. Your target is a Colonel, wearing an Beret and possibly armed only with a handgun.<br/><br/>In the area there is Anti Air threat, possibly several ZU-23 guns, use caution when approaching the area."],
 	["Viewdistance", "Change viewdistance from the flag pole."],
 	["Credits", "Mission by Snake Man, PMC."]
-]] call compile preprocessfilelinenumbers "shk_taskmaster.sqf";
+]] call compile preprocessfilelinenumbers "PMC\shk_taskmaster.sqf";
 
 player setVariable ["BIS_noCoreConversations", true];
 
