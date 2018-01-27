@@ -17,8 +17,8 @@ switch (side player) do
 		PMC_objective1 setSimpleTaskDescription
 		[
 			"Defend <marker name='usa'>harbor south</marker>",
-			"Defend harbor sourth",
-			"Defend harbor sourth"
+			"Defend harbor south",
+			"Defend harbor south"
 		];
 		PMC_objective1 setSimpleTaskDestination (getMarkerPos "usa");
 		player setCurrentTask PMC_objective1;
