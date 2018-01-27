@@ -9,3 +9,6 @@ skiptime (((paramsarray select 0) - daytime + 24) % 24);
 
 // set our weather using multiplayer parameter array
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
+
+PMC_active_fob = getMarkerPos "start";
+publicVariable "PMC_active_fob";

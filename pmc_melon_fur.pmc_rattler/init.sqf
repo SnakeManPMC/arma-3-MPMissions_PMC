@@ -10,12 +10,8 @@ else
 	
 	player setVariable ["BIS_noCoreConversations", true];
 	
-	// if first FOB is in place already
-	if (!isNil PMC_active_fob) then
-	{
-		player setPos PMC_active_fob;
-		"respawn_west" setMarkerPosLocal PMC_active_fob;
-	};
+	player setPos PMC_active_fob;
+	"respawn_west" setMarkerPosLocal PMC_active_fob;
 };
 
 // setup briefing
