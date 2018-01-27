@@ -18,3 +18,6 @@ PMC_killedNum = 0;
 sleep 1;
 [] execVM "PMC\PMC_unit_arrays.sqf";
 [] execVM "PMC\PMC_opfor.sqf";
+
+PMC_active_fob = getMarkerPos "start";
+publicVariable "PMC_active_fob";
