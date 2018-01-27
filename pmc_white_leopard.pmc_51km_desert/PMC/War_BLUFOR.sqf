@@ -107,7 +107,7 @@ while {_PMC_blufor < _victoryCondition} do
 		};
 	};
 
-	diag_log format["[(list pmc_blufor_list)] call PMC_countGroups: %1", ([(list pmc_blufor_list)] call PMC_countGroups)];
+	//if (PMC_debug) then { diag_log format["[(list pmc_blufor_list)] call PMC_countGroups: %1", ([(list pmc_blufor_list)] call PMC_countGroups)]; };
 
 	sleep _sleeptime;
 };
