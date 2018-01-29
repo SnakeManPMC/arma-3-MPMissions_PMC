@@ -25,7 +25,7 @@ while {_PMC_blufor < _victoryCondition} do
 	// new added check is && (diag_fps > 15), hopefully it wont kill gameplay totally :)
 	if (('man' countType list pmc_blufor_list) < _Max_BLUFOR_On_Map) then
 	{
-		if ((PMC_InfTransport < 10) && (diag_fps > 15) && ([(list pmc_blufor_list)] call PMC_countGroups) < 144) then
+		if ((PMC_InfTransport < 10) && (diag_fps > 25) && ([(list pmc_blufor_list)] call PMC_countGroups) < 144) then
 		{
 			_ran = floor (random 8);
 			switch (_ran) do

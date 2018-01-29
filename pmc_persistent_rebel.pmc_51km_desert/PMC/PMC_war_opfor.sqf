@@ -61,7 +61,7 @@ sleep 1;
 
 while {PMC_opfor < _victoryCondition} do
 {
-	if ((EAST countSide (list pmc_opforunits)) < _Max_OPFOR_On_Map && (PMC_InfTransport < 10) && (diag_fps > 20)) then
+	if ((EAST countSide (list pmc_opforunits)) < _Max_OPFOR_On_Map && (PMC_InfTransport < 10) && (diag_fps > 25)) then
 	{
 		// random starting location
 		_respawnpoint = ["OPFOR"] call PMC_SelectStartPosit;

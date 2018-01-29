@@ -70,7 +70,7 @@ sleep 1;
 
 while {PMC_blufor < _victoryCondition} do
 {
-	if ((WEST countSide (list pmc_bluforunits)) < _Max_BLUFOR_On_Map && (PMC_InfTransport < 10) && (diag_fps > 20)) then
+	if ((WEST countSide (list pmc_bluforunits)) < _Max_BLUFOR_On_Map && (PMC_InfTransport < 10) && (diag_fps > 25)) then
 	{
 		// random starting location
 		_respawnpoint = ["BLUFOR"] call PMC_SelectStartPosit;

@@ -25,7 +25,7 @@ while {_PMC_opfor < _victoryCondition} do
 	// new added feature is && (diag_fps > 15), hopefully it wont kill gameplay totally :)
 	if (('man' countType list pmc_opfor_list) < _Max_OPFOR_On_Map) then
 	{
-		if ((PMC_InfTransport < 10) && (diag_fps > 15) && ([(list pmc_opfor_list)] call PMC_countGroups) < 144) then
+		if ((PMC_InfTransport < 10) && (diag_fps > 25) && ([(list pmc_opfor_list)] call PMC_countGroups) < 144) then
 		{
 			_ran = floor (random 5);
 			switch (_ran) do

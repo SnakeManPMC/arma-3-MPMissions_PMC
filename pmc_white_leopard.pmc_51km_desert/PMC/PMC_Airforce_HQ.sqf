@@ -192,7 +192,7 @@ diag_log format["PMC_Airforce_HQ: _vcl: %1, PMC_blufor: %2, PMC_grp_blufor: %3",
 	waitUntil
 	{
 		sleep 5;
-		(diag_fps > 20);
+		(diag_fps > 25);
 	};
 };
 

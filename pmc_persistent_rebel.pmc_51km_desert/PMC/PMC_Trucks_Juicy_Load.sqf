@@ -247,7 +247,7 @@ while {true} do
 	waitUntil
 	{
 		sleep 10;
-		((count units _grp) == 0 && (diag_fps > 15));
+		((count units _grp) == 0 && (diag_fps > 25));
 	};
 
 	// then we delete its group.
