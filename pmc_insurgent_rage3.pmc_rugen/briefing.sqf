@@ -10,15 +10,15 @@ switch (side player) do
 			"Diary",
 			[
 				"Mission",
-				"OPFOR <marker name='attack'>Attack</marker> is under way for <marker name='usa'>base</marker>. Defend it at all costs!"
+				"OPFOR <marker name='attack'>Attack</marker> is under way for <marker name='usa'>airbase</marker>. Defend it at all costs!"
 			]
 		];
 		PMC_objective1 = player createSimpleTask ["Defend base"];
 		PMC_objective1 setSimpleTaskDescription
 		[
-			"Defend <marker name='usa'>base</marker>",
-			"Defend base",
-			"Defend base"
+			"Defend <marker name='usa'>airbase</marker>",
+			"Defend airbase",
+			"Defend airbase"
 		];
 		PMC_objective1 setSimpleTaskDestination (getMarkerPos "usa");
 		player setCurrentTask PMC_objective1;
