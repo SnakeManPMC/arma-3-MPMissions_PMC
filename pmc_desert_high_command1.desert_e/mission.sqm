@@ -1,0 +1,5227 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=242;
+	};
+	class MarkerIDProvider
+	{
+		nextID=1;
+	};
+	class Camera
+	{
+		pos[]={1000.6487,102.8961,1058.061};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Ui_F",
+	"CUP_Creatures_Military_USMC",
+	"A3_Modules_F_Hc",
+	"CUP_TrackedVehicles_AAV",
+	"CUP_TrackedVehicles_M1_Abrams",
+	"CUP_Creatures_Military_Chedaki",
+	"CUP_TrackedVehicles_BMP",
+	"CUP_TrackedVehicles_T72"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=8;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="CUP_Creatures_Military_USMC";
+			name="CUP_Creatures_Military_USMC";
+		};
+		class Item2
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="CUP_TrackedVehicles_AAV";
+			name="CUP_TrackedVehicles_AAV";
+		};
+		class Item4
+		{
+			className="CUP_TrackedVehicles_M1_Abrams";
+			name="CUP_TrackedVehicles_M1_Abrams";
+		};
+		class Item5
+		{
+			className="CUP_Creatures_Military_Chedaki";
+			name="CUP_Creatures_Military_Chedaki";
+		};
+		class Item6
+		{
+			className="CUP_TrackedVehicles_BMP";
+			name="CUP_TrackedVehicles_BMP";
+			author="Community Cupgrade Project";
+		};
+		class Item7
+		{
+			className="CUP_TrackedVehicles_T72";
+			name="CUP_TrackedVehicles_T72";
+		};
+	};
+};
+randomSeed=5618795;
+class ScenarioData
+{
+	author="PMC Since 1984";
+};
+class Intro
+{
+	class Intel
+	{
+		startWeather=0.30000001;
+		startWind=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		year=2012;
+		month=6;
+		day=24;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="PMC Desert High Command";
+		startWeather=0.30000001;
+		startWind=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		year=2012;
+		month=6;
+		day=24;
+		hour=0;
+		minute=0;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+	class Entities
+	{
+		items=48;
+		class Item0
+		{
+			dataType="Marker";
+			position[]={1366.4713,40.875217,1454.4805};
+			name="target1";
+			type="mil_objective";
+			colorName="ColorRed";
+			id=0;
+		};
+		class Item1
+		{
+			dataType="Trigger";
+			position[]={1365.3835,40.811344,1464.2821};
+			class Attributes
+			{
+				text="opfor dead 1";
+				onActivation="pmc_opfordead1 = true; hint ""Objective 1 completed."";";
+				sizeA=500;
+				sizeB=500;
+				timeout[]={3,5,7};
+				interuptable=1;
+				activationType="NOT PRESENT";
+				activationBy="EAST";
+			};
+			id=1;
+			type="EmptyDetector";
+		};
+		class Item2
+		{
+			dataType="Trigger";
+			position[]={1317.6022,48.964069,1078.2595};
+			class Attributes
+			{
+				text="mission complete - music";
+				condition="pmc_opfordead1";
+				onActivation="pmc_mcomplete = true;";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={3,5,7};
+				interuptable=1;
+				effectMusic="Track01_Dead_Forest";
+				effectTitle="Mission Accomplished!";
+				effectTitleType="TEXT";
+			};
+			id=2;
+			type="EmptyDetector";
+		};
+		class Item3
+		{
+			dataType="Trigger";
+			position[]={1367.4441,48.586433,1047.0645};
+			class Attributes
+			{
+				text="END1";
+				condition="pmc_mcomplete";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={25,35,45};
+				interuptable=1;
+				type="END1";
+			};
+			id=3;
+			type="EmptyDetector";
+		};
+		class Item4
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1000.6487,77.897537,1083.1111};
+						angles[]={6.2631893,0,0.0075011365};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="COLONEL";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=5;
+					type="CUP_B_USMC_Officer";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=4;
+		};
+		class Item5
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1011.861,70.266045,1113.9319};
+			};
+			id=6;
+			type="HighCommand";
+		};
+		class Item6
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1029.6819,75.110901,1093.5};
+			};
+			id=7;
+			type="HighCommandSubordinate";
+		};
+		class Item7
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=13;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1006.9889,76.708504,1064.1727};
+						angles[]={6.2133002,0,6.1959076};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.59999996;
+						rank="LIEUTENANT";
+					};
+					id=9;
+					type="CUP_B_USMC_Soldier_SL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1011.9889,75.820549,1059.2228};
+						angles[]={6.220767,0,6.2108116};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=10;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1001.9889,76.337555,1059.2228};
+						angles[]={6.2058411,0,6.2631893};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=11;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1016.9889,74.949844,1054.2228};
+						angles[]={6.2407088,0,6.1884708};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=12;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={996.98889,76.030556,1054.2228};
+						angles[]={6.1736274,0,6.2731848};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=13;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1021.9889,74.112305,1049.2228};
+						angles[]={6.151453,0,6.2407103};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=14;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={991.98889,75.701447,1049.2228};
+						angles[]={6.2058401,0,0.079830162};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=15;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1026.9889,73.539833,1044.2228};
+						angles[]={6.1909475,0,0.0075011365};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=16;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={986.98889,74.983597,1044.2228};
+						angles[]={6.2307339,0,6.2307339};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=17;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1031.9889,73.010529,1039.2228};
+						angles[]={6.1859927,0,0.022495884};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=18;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={981.98889,74.789955,1039.2228};
+						angles[]={6.2033539,0,0.027494613};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=19;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1036.9889,72.827477,1034.2228};
+						angles[]={6.1416388,0,0.09719272};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=20;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={976.98889,74.257668,1034.2228};
+						angles[]={6.1859932,0,0.054944519};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=21;
+					type="CUP_B_USMC_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=8;
+		};
+		class Item8
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=13;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={979.23334,76.348038,1064.173};
+						angles[]={6.1810412,0,0.059927464};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.59999996;
+						rank="LIEUTENANT";
+					};
+					id=23;
+					type="CUP_B_USMC_Soldier_SL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={984.23334,76.015503,1059.223};
+						angles[]={6.2731905,0,0.0099949092};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=24;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={974.23334,75.837379,1059.223};
+						angles[]={0.0099949092,0,6.2731905};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=25;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={989.23334,75.928268,1054.223};
+						angles[]={6.1785693,0,0.079829417};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=26;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={969.23334,75.213776,1054.223};
+						angles[]={6.2432079,0,0.012501417};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=27;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={994.23334,75.624184,1049.223};
+						angles[]={6.2058401,0,6.248199};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=28;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={964.23334,74.642616,1049.223};
+						angles[]={6.1760969,0,0.10708838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=29;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={999.23334,75.408104,1044.223};
+						angles[]={6.2581916,0,0.010000871};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=30;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={959.23334,73.870598,1044.223};
+						angles[]={6.1269674,0,6.2806721};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=31;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1004.2333,74.457092,1039.223};
+						angles[]={6.2058401,0,6.1123662};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=32;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={954.23334,73.419533,1039.223};
+						angles[]={6.2157884,0,6.2357211};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=33;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1009.2333,73.203217,1034.223};
+						angles[]={6.1736274,0,6.1563692};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=34;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={949.23334,73.234612,1034.223};
+						angles[]={6.2307339,0,6.2257481};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=35;
+					type="CUP_B_USMC_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=22;
+		};
+		class Item9
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=13;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={953.71173,75.935738,1063.6178};
+						angles[]={6.1909475,0,0.0024897563};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.59999996;
+						rank="LIEUTENANT";
+					};
+					id=37;
+					type="CUP_B_USMC_Soldier_SL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={958.71173,75.424713,1058.6678};
+						angles[]={6.1440883,0,0.0025135824};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=38;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={948.71173,75.758255,1058.6678};
+						angles[]={6.1686883,0,6.2631865};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=39;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={963.71173,74.97142,1053.6678};
+						angles[]={6.2531939,0,6.278182};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=40;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={943.71173,75.551613,1053.6678};
+						angles[]={6.1859927,0,6.1711578};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=41;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={968.71173,74.970352,1048.6678};
+						angles[]={6.2357211,0,0.027492445};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=42;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={938.71173,75.398514,1048.6678};
+						angles[]={6.1785698,0,6.2581892};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=43;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={973.71173,74.900719,1043.6678};
+						angles[]={6.188468,0,0.049960449};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=44;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={933.71173,74.921822,1043.6678};
+						angles[]={6.183517,0,6.2706842};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=45;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={978.71173,74.638634,1038.6678};
+						angles[]={6.1959062,0,0.032489564};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=46;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={928.71173,74.79528,1038.6678};
+						angles[]={6.225749,0,6.2457032};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=47;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={983.71173,74.468201,1033.6678};
+						angles[]={6.2357221,0,0.034986377};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=48;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={923.71173,74.262314,1033.6678};
+						angles[]={6.228241,0,0.097192109};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=49;
+					type="CUP_B_USMC_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=36;
+		};
+		class Item10
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=16;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={551.91052,32.901028,967.46204};
+						angles[]={0.044969428,0,6.2482009};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.59999996;
+						rank="LIEUTENANT";
+					};
+					id=51;
+					type="CUP_B_USMC_Soldier_SL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={565.41052,33.297207,949.01202};
+						angles[]={0.0049914722,0,0.0075011365};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=53;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={565.41052,33.297207,949.01202};
+						angles[]={0.0049914722,0,0.0075011365};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=54;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={565.41052,33.297207,949.01202};
+						angles[]={0.0049914722,0,0.0075011365};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=55;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={545.91052,32.801121,961.51202};
+						angles[]={6.2432079,0,0.042475242};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=56;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={577.91052,33.205643,931.51202};
+						angles[]={0.042473838,0,6.268187};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=57;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={540.91052,32.587727,956.51202};
+						angles[]={0.032489564,0,6.2407117};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=58;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={582.91052,33.321686,926.51202};
+						angles[]={6.1983886,0,0.044970755};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=59;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={535.91052,32.597599,951.51202};
+						angles[]={6.2257481,0,0.032489564};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=60;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={587.91052,33.460228,921.51202};
+						angles[]={6.2506957,0,0.09719272};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=61;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={530.91052,32.493492,946.51202};
+						angles[]={0.0025135824,0,0.019996032};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=62;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={592.91052,33.589977,916.51202};
+						angles[]={0.047464538,0,0.022495884};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=63;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={525.91052,32.521404,941.51202};
+						angles[]={0.062418513,0,6.268187};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=64;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={597.91052,33.700855,911.51202};
+						angles[]={0.019996032,0,0.014998405};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=65;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={520.91052,32.53717,936.51202};
+						angles[]={6.2531939,0,0.034986377};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=66;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item15
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={602.91052,33.802803,906.51202};
+						angles[]={6.255693,0,0.014998405};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=67;
+					type="CUP_B_USMC_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=3;
+				};
+				class Links
+				{
+					items=3;
+					class Item0
+					{
+						linkID=0;
+						item0=53;
+						item1=52;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=54;
+						item1=52;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=55;
+						item1=52;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={1};
+						};
+					};
+				};
+			};
+			id=50;
+		};
+		class Item11
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={565.26782,35.777626,948.82556};
+				angles[]={0.0049914722,0,0.0075011365};
+			};
+			side="West";
+			flags=4;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=52;
+			type="CUP_B_AAV_USMC";
+			atlOffset=-0.0075569153;
+		};
+		class Item12
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=16;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={599.72296,34.470764,964.12622};
+						angles[]={0.034986377,0,0.064909652};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.59999996;
+						rank="LIEUTENANT";
+					};
+					id=69;
+					type="CUP_B_USMC_Soldier_SL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={613.22296,35.397568,945.67621};
+						angles[]={0.047465794,0,0.059927464};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=71;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={613.22296,35.397568,945.67621};
+						angles[]={0.047465794,0,0.059927464};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=72;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={613.22296,35.397568,945.67621};
+						angles[]={0.047465794,0,0.059927464};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=73;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={593.72296,34.178005,958.17621};
+						angles[]={0.037482351,0,0.06739822};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=74;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={625.72296,36.177135,928.17621};
+						angles[]={6.278182,0,0.089758366};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=75;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={588.72296,33.999352,953.17621};
+						angles[]={0.0025135824,0,0.042473838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=76;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={630.72296,36.610043,923.17621};
+						angles[]={6.2806959,0,0.13173209};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=77;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={583.72296,33.875336,948.17621};
+						angles[]={6.2656889,0,0.02999169};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=78;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={635.72296,37.02169,918.17621};
+						angles[]={6.1983895,0,0.10955887};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=79;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={578.72296,33.70549,943.17621};
+						angles[]={6.228241,0,0.037482351};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=80;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={640.72296,37.704796,913.17621};
+						angles[]={6.2506976,0,0.11942852};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=81;
+					type="CUP_B_USMC_Soldier";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={573.72296,33.392292,938.17621};
+						angles[]={0.019996032,0,0.059927464};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=82;
+					type="CUP_B_USMC_Soldier_TL";
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={645.72296,37.830311,908.17621};
+						angles[]={6.1465416,0,0.17324564};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=83;
+					type="CUP_B_USMC_Soldier_AR";
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={568.72296,32.972343,933.17621};
+						angles[]={6.225749,0,0.049958061};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=84;
+					type="CUP_B_USMC_Soldier_LAT";
+				};
+				class Item15
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={650.72296,37.999706,903.17621};
+						angles[]={6.255693,0,0.099669173};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=85;
+					type="CUP_B_USMC_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=3;
+				};
+				class Links
+				{
+					items=3;
+					class Item0
+					{
+						linkID=0;
+						item0=71;
+						item1=70;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=72;
+						item1=70;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=73;
+						item1=70;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={1};
+						};
+					};
+				};
+			};
+			id=68;
+		};
+		class Item13
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={613.02448,37.877132,945.68823};
+				angles[]={0.047465794,0,0.059927464};
+			};
+			side="West";
+			flags=4;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=70;
+			type="CUP_B_AAV_USMC";
+			atlOffset=-0.001121521;
+		};
+		class Item14
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=16;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={623.29901,32.905434,810.51477};
+						angles[]={0.02999169,0,0.059927464};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=88;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={623.29901,32.905434,810.51477};
+						angles[]={0.02999169,0,0.059927464};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=89;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={623.29901,32.905434,810.51477};
+						angles[]={0.02999169,0,0.059927464};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=90;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={623.29901,32.905434,810.51477};
+						angles[]={0.02999169,0,0.059927464};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=91;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={602.15417,32.810677,779.58685};
+						angles[]={6.278182,0,0.042473838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=93;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={602.15417,32.810677,779.58685};
+						angles[]={6.278182,0,0.042473838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=94;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={602.15417,32.810677,779.58685};
+						angles[]={6.278182,0,0.042473838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=95;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={602.15417,32.810677,779.58685};
+						angles[]={6.278182,0,0.042473838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=96;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={581.15417,32.420498,748.58685};
+						angles[]={0.0099949092,0,0.012496647};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=98;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={581.15417,32.420498,748.58685};
+						angles[]={0.0099949092,0,0.012496647};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=99;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={581.15417,32.420498,748.58685};
+						angles[]={0.0099949092,0,0.012496647};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=100;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={581.15417,32.420498,748.58685};
+						angles[]={0.0099949092,0,0.012496647};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=101;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={560.15417,32.123405,717.58685};
+						angles[]={0.02999169,0,6.2706842};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=103;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={560.15417,32.123405,717.58685};
+						angles[]={0.02999169,0,6.2706842};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=104;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={560.15417,32.123405,717.58685};
+						angles[]={0.02999169,0,6.2706842};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=105;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item15
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={560.15417,32.123405,717.58685};
+						angles[]={0.02999169,0,6.2706842};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=106;
+					type="CUP_B_USMC_Crew";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=16;
+				};
+				class Links
+				{
+					items=16;
+					class Item0
+					{
+						linkID=0;
+						item0=88;
+						item1=87;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=89;
+						item1=87;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=90;
+						item1=87;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=91;
+						item1=87;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,1};
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=93;
+						item1=92;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=94;
+						item1=92;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=95;
+						item1=92;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=96;
+						item1=92;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,1};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=98;
+						item1=97;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=99;
+						item1=97;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=100;
+						item1=97;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=101;
+						item1=97;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,1};
+						};
+					};
+					class Item12
+					{
+						linkID=12;
+						item0=103;
+						item1=102;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item13
+					{
+						linkID=13;
+						item0=104;
+						item1=102;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item14
+					{
+						linkID=14;
+						item0=105;
+						item1=102;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item15
+					{
+						linkID=15;
+						item0=106;
+						item1=102;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,1};
+						};
+					};
+				};
+			};
+			id=86;
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={623.15417,35.310863,810.53687};
+				angles[]={0.02999169,0,0.059927464};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333329;
+				rank="CAPTAIN";
+			};
+			id=87;
+			type="CUP_B_M1A2_TUSK_MG_USMC";
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={602.15375,35.221264,779.50055};
+				angles[]={6.278182,0,0.042473838};
+			};
+			side="West";
+			flags=4;
+			class Attributes
+			{
+				skill=0.59999996;
+				rank="LIEUTENANT";
+			};
+			id=92;
+			type="CUP_B_M1A2_TUSK_MG_USMC";
+			atlOffset=-0.002281189;
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={581.06335,34.828896,748.4765};
+				angles[]={0.0099949092,0,0.012496647};
+			};
+			side="West";
+			flags=4;
+			class Attributes
+			{
+				skill=0.59999996;
+				rank="LIEUTENANT";
+			};
+			id=97;
+			type="CUP_B_M1A2_TUSK_MG_USMC";
+			atlOffset=-0.002243042;
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={560.10553,34.533707,717.51868};
+				angles[]={0.02999169,0,6.2706842};
+			};
+			side="West";
+			flags=4;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=102;
+			type="CUP_B_M1A2_TUSK_MG_USMC";
+			atlOffset=-0.002986908;
+		};
+		class Item19
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=16;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={715.63013,34.694141,807.01056};
+						angles[]={6.2432079,0,0.042473838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=109;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={715.63013,34.694141,807.01056};
+						angles[]={6.2432079,0,0.042473838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=110;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={715.63013,34.694141,807.01056};
+						angles[]={6.2432079,0,0.042473838};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=111;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={715.63013,34.694141,807.01056};
+						angles[]={6.2432079,0,0.042473838};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=112;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={694.52734,33.989559,775.91412};
+						angles[]={0.024993783,0,6.2731905};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=114;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={694.52734,33.989559,775.91412};
+						angles[]={0.024993783,0,6.2731905};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=115;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={694.52734,33.989559,775.91412};
+						angles[]={0.024993783,0,6.2731905};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=116;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={694.52734,33.989559,775.91412};
+						angles[]={0.024993783,0,6.2731905};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=117;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={673.52734,33.662083,744.91412};
+						angles[]={6.2731905,0,0.027492445};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=119;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={673.52734,33.662083,744.91412};
+						angles[]={6.2731905,0,0.027492445};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=120;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={673.52734,33.662083,744.91412};
+						angles[]={6.2731905,0,0.027492445};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=121;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={673.52734,33.662083,744.91412};
+						angles[]={6.2731905,0,0.027492445};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=122;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={652.52734,33.17952,713.91412};
+						angles[]={0.014998405,0,6.2756925};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=124;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={652.52734,33.17952,713.91412};
+						angles[]={0.014998405,0,6.2756925};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=125;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={652.52734,33.17952,713.91412};
+						angles[]={0.014998405,0,6.2756925};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=126;
+					type="CUP_B_USMC_Crew";
+				};
+				class Item15
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={652.52734,33.17952,713.91412};
+						angles[]={0.014998405,0,6.2756925};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=127;
+					type="CUP_B_USMC_Crew";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=16;
+				};
+				class Links
+				{
+					items=16;
+					class Item0
+					{
+						linkID=0;
+						item0=109;
+						item1=108;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=110;
+						item1=108;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=111;
+						item1=108;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=112;
+						item1=108;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,1};
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=114;
+						item1=113;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=115;
+						item1=113;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=116;
+						item1=113;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=117;
+						item1=113;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,1};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=119;
+						item1=118;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=120;
+						item1=118;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=121;
+						item1=118;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=122;
+						item1=118;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,1};
+						};
+					};
+					class Item12
+					{
+						linkID=12;
+						item0=124;
+						item1=123;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item13
+					{
+						linkID=13;
+						item0=125;
+						item1=123;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item14
+					{
+						linkID=14;
+						item0=126;
+						item1=123;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item15
+					{
+						linkID=15;
+						item0=127;
+						item1=123;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,1};
+						};
+					};
+				};
+			};
+			id=107;
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={715.52734,37.100883,806.86414};
+				angles[]={6.2432079,0,0.042473838};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333329;
+				rank="CAPTAIN";
+			};
+			id=108;
+			type="CUP_B_M1A2_TUSK_MG_USMC";
+		};
+		class Item21
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={694.3291,36.38596,775.69019};
+				angles[]={0.024993783,0,6.2731905};
+			};
+			side="West";
+			flags=4;
+			class Attributes
+			{
+				skill=0.59999996;
+				rank="LIEUTENANT";
+			};
+			id=113;
+			type="CUP_B_M1A2_TUSK_MG_USMC";
+			atlOffset=-0.021671295;
+		};
+		class Item22
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={673.42462,36.067741,744.74365};
+				angles[]={6.2731905,0,0.027492445};
+			};
+			side="West";
+			flags=4;
+			class Attributes
+			{
+				skill=0.59999996;
+				rank="LIEUTENANT";
+			};
+			id=118;
+			type="CUP_B_M1A2_TUSK_MG_USMC";
+			atlOffset=-0.002204895;
+		};
+		class Item23
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={652.48474,35.588524,713.77966};
+				angles[]={0.014998405,0,6.2756925};
+			};
+			side="West";
+			flags=4;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=123;
+			type="CUP_B_M1A2_TUSK_MG_USMC";
+			atlOffset=-0.0037841797;
+		};
+		class Item24
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1395.8549,41.531219,1428.166};
+						angles[]={6.2756844,0,0.0075011365};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=129;
+					type="CUP_O_INS_Officer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1400.8549,41.473045,1423.2161};
+						angles[]={6.2756844,0,6.2806959};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=130;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1390.8549,41.419666,1423.2161};
+						angles[]={6.2656889,0,0.014998405};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=131;
+					type="CUP_O_INS_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1405.8549,41.427734,1418.2161};
+						angles[]={6.2731848,0,0.0024897563};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=132;
+					type="CUP_O_INS_Soldier_AT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1385.8549,41.255661,1418.2161};
+						angles[]={6.2681909,0,0.022493234};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=133;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1410.8549,41.404564,1413.2161};
+						angles[]={6.270689,0,0.0099949092};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=134;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1380.8549,41.132122,1413.2161};
+						angles[]={-0,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=135;
+					type="CUP_O_INS_Soldier_AK74";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1415.8549,41.372841,1408.2161};
+						angles[]={6.268187,0,0.0074931863};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=136;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=128;
+		};
+		class Item25
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1336.2249,40.747269,1448.8073};
+						angles[]={6.2806959,0,0.01749678};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=138;
+					type="CUP_O_INS_Officer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1341.2249,40.79224,1443.8573};
+						angles[]={6.2756925,0,0.010000871};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=139;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1331.2249,40.635445,1443.8573};
+						angles[]={0.0074931863,0,0.022495884};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=140;
+					type="CUP_O_INS_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1346.2249,40.802563,1438.8573};
+						angles[]={-0,0,0.0049914722};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=141;
+					type="CUP_O_INS_Soldier_AT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1326.2249,40.546005,1438.8573};
+						angles[]={0.0075011365,0,0.024993783};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=142;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1351.2249,40.846909,1433.8573};
+						angles[]={0.012496647,0,0.0024897563};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=143;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1321.2249,40.588356,1433.8573};
+						angles[]={0.019996032,0,0.0025135824};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=144;
+					type="CUP_O_INS_Soldier_AK74";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1356.2249,40.925854,1428.8573};
+						angles[]={0.019996032,0,0.0025135824};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=145;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=137;
+		};
+		class Item26
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1346.7747,40.565529,1509.3544};
+						angles[]={0.0075011365,0,0.0049914722};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=147;
+					type="CUP_O_INS_Officer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1351.7747,40.69371,1504.4044};
+						angles[]={0.0074931863,0,0.022493234};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=148;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1341.7747,40.589668,1504.4044};
+						angles[]={0.0049914722,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=149;
+					type="CUP_O_INS_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1356.7747,40.73209,1499.4044};
+						angles[]={0.0075011365,0,0.0075011365};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=150;
+					type="CUP_O_INS_Soldier_AT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1336.7747,40.559826,1499.4044};
+						angles[]={6.2806959,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=151;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1361.7747,40.795395,1494.4044};
+						angles[]={6.278194,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=152;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1331.7747,40.503944,1494.4044};
+						angles[]={6.2806959,0,0.014998405};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=153;
+					type="CUP_O_INS_Soldier_AK74";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1366.7747,40.818699,1489.4044};
+						angles[]={6.2806959,0,0.0049914722};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=154;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=146;
+		};
+		class Item27
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1399.7534,41.288975,1523.3444};
+						angles[]={-0,0,0.0099949092};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=156;
+					type="CUP_O_INS_Officer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1404.7534,41.339787,1518.3944};
+						angles[]={6.268187,0,0.01749678};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=157;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1394.7534,41.229298,1518.3944};
+						angles[]={6.2731905,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=158;
+					type="CUP_O_INS_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1409.7534,41.378845,1513.3944};
+						angles[]={6.278194,0,0.01749678};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=159;
+					type="CUP_O_INS_Soldier_AT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1389.7534,41.142124,1513.3944};
+						angles[]={-0,0,0.01749678};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=160;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1414.7534,41.420574,1508.3944};
+						angles[]={0.0024897563,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=161;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1384.7534,41.074089,1508.3944};
+						angles[]={0.012496647,0,0.022495884};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=162;
+					type="CUP_O_INS_Soldier_AK74";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1419.7534,41.42878,1503.3944};
+						angles[]={6.278194,0,6.2806959};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=163;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=155;
+		};
+		class Item28
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1429.5684,41.40797,1475.6406};
+						angles[]={6.2756925,0,0.012496647};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=165;
+					type="CUP_O_INS_Officer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1434.5684,41.426926,1470.6907};
+						angles[]={6.2756844,0,0.010000871};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=166;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1424.5684,41.351078,1470.6907};
+						angles[]={0.0049914722,0,0.0049914722};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=167;
+					type="CUP_O_INS_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1439.5684,41.439423,1465.6907};
+						angles[]={6.2756925,0,0.010000871};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=168;
+					type="CUP_O_INS_Soldier_AT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1419.5684,41.39827,1465.6907};
+						angles[]={0.010000871,0,6.2756844};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=169;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1444.5684,41.481384,1460.6907};
+						angles[]={-0,0,0.01749678};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=170;
+					type="CUP_O_INS_Soldier_AR";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1414.5684,41.441437,1460.6907};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=171;
+					type="CUP_O_INS_Soldier_AK74";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1449.5684,41.547485,1455.6907};
+						angles[]={6.278194,0,0.0049914722};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=172;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=164;
+		};
+		class Item29
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1296.0106,40.460094,1432.5768};
+						angles[]={0.0024897563,0,6.2806959};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=174;
+					type="CUP_O_INS_Officer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1309.5106,40.706131,1414.1268};
+						angles[]={0.039979152,0,0.024993783};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=176;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1309.5106,40.706131,1414.1268};
+						angles[]={0.039979152,0,0.024993783};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=177;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1309.5106,40.706131,1414.1268};
+						angles[]={0.039979152,0,0.024993783};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=178;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1290.0106,40.425156,1426.6268};
+						angles[]={0.0024897563,0,0.014998405};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=179;
+					type="CUP_O_INS_Soldier_MG";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1322.0106,41.237705,1396.6268};
+						angles[]={0.014998405,0,6.2756925};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=180;
+					type="CUP_O_INS_Soldier_AT";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1285.0106,40.412247,1421.6268};
+						angles[]={0.0074931863,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=181;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1327.0106,41.283897,1391.6268};
+						angles[]={0.01749678,0,0.0049914722};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=182;
+					type="CUP_O_INS_Soldier_GL";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1280.0106,40.397167,1416.6268};
+						angles[]={0.0075011365,0,0.0049914722};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=183;
+					type="CUP_O_INS_Soldier_AK74";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1332.0106,41.393486,1386.6268};
+						angles[]={0.022495884,0,0.0024897563};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=184;
+					type="CUP_O_INS_Soldier_AR";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=3;
+				};
+				class Links
+				{
+					items=3;
+					class Item0
+					{
+						linkID=0;
+						item0=176;
+						item1=175;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=177;
+						item1=175;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=178;
+						item1=175;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=173;
+		};
+		class Item30
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1309.4799,42.752609,1414.0819};
+				angles[]={0.039979152,0,0.024993783};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=175;
+			type="CUP_O_BMP2_CHDKZ";
+			atlOffset=-0.001537323;
+		};
+		class Item31
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1300.8269,40.136181,1507.114};
+						angles[]={0.0024897563,0,0.014998405};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+					};
+					id=186;
+					type="CUP_O_INS_Officer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1314.3269,40.290524,1488.6641};
+						angles[]={-0,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=188;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1314.3269,40.290524,1488.6641};
+						angles[]={-0,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=189;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1314.3269,40.290524,1488.6641};
+						angles[]={-0,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=190;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1294.8269,40.08707,1501.1641};
+						angles[]={0.0049914722,0,0.0075011365};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=191;
+					type="CUP_O_INS_Soldier_MG";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1326.8269,40.487663,1471.1641};
+						angles[]={0.014998405,0,6.2806959};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=192;
+					type="CUP_O_INS_Soldier_AT";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1289.8269,40.069992,1496.1641};
+						angles[]={6.2806959,0,0.010000871};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=193;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1331.8269,40.574013,1466.1641};
+						angles[]={0.01749678,0,0.0024897563};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333331;
+						rank="CORPORAL";
+					};
+					id=194;
+					type="CUP_O_INS_Soldier_GL";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1284.8269,40.021774,1491.1641};
+						angles[]={-0,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=195;
+					type="CUP_O_INS_Soldier_AK74";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1336.8269,40.69743,1461.1641};
+						angles[]={0.019996032,0,0.010000871};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=196;
+					type="CUP_O_INS_Soldier_AR";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=3;
+				};
+				class Links
+				{
+					items=3;
+					class Item0
+					{
+						linkID=0;
+						item0=188;
+						item1=187;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=189;
+						item1=187;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=190;
+						item1=187;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=185;
+		};
+		class Item32
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1314.3115,42.337154,1488.6243};
+				angles[]={-0,0,0.012496647};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=187;
+			type="CUP_O_BMP2_CHDKZ";
+			atlOffset=-5.3405762e-005;
+		};
+		class Item33
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1245.5253,39.660572,1506.7988};
+						angles[]={0.0049914722,0,0.014998405};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=199;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1245.5253,39.660572,1506.7988};
+						angles[]={0.0049914722,0,0.014998405};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=200;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1245.5253,39.660572,1506.7988};
+						angles[]={0.0049914722,0,0.014998405};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=201;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1268.4958,40.005955,1504.8086};
+						angles[]={6.2656889,0,0.0024897563};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=203;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1268.4958,40.005955,1504.8086};
+						angles[]={6.2656889,0,0.0024897563};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=204;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1268.4958,40.005955,1504.8086};
+						angles[]={6.2656889,0,0.0024897563};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=205;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=6;
+				};
+				class Links
+				{
+					items=6;
+					class Item0
+					{
+						linkID=0;
+						item0=199;
+						item1=198;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=200;
+						item1=198;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=201;
+						item1=198;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=203;
+						item1=202;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=204;
+						item1=202;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=205;
+						item1=202;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=197;
+		};
+		class Item34
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1245.4958,41.620022,1506.7585};
+				angles[]={0.0049914722,0,0.014998405};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=198;
+			type="CUP_O_T72_CHDKZ";
+		};
+		class Item35
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1268.5007,41.965637,1504.7537};
+				angles[]={6.2656889,0,0.0024897563};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333331;
+				rank="CORPORAL";
+			};
+			id=202;
+			type="CUP_O_T72_CHDKZ";
+			atlOffset=-0.00024414063;
+		};
+		class Item36
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1255.6556,40.301697,1405.0039};
+						angles[]={0.022495884,0,6.278194};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=208;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1255.6556,40.301697,1405.0039};
+						angles[]={0.022495884,0,6.278194};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=209;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1255.6556,40.301697,1405.0039};
+						angles[]={0.022495884,0,6.278194};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=210;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1278.6654,40.604832,1403.048};
+						angles[]={0.029989703,0,0.0050033992};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=212;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1278.6654,40.604832,1403.048};
+						angles[]={0.029989703,0,0.0050033992};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=213;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1278.6654,40.604832,1403.048};
+						angles[]={0.029989703,0,0.0050033992};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=214;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=6;
+				};
+				class Links
+				{
+					items=6;
+					class Item0
+					{
+						linkID=0;
+						item0=208;
+						item1=207;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=209;
+						item1=207;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=210;
+						item1=207;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=212;
+						item1=211;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=213;
+						item1=211;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=214;
+						item1=211;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=206;
+		};
+		class Item37
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1255.6654,42.260868,1404.9979};
+				angles[]={0.022495884,0,6.278194};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=207;
+			type="CUP_O_T72_CHDKZ";
+		};
+		class Item38
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1278.6654,42.564133,1403.0371};
+				angles[]={0.029989703,0,0.0050033992};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333331;
+				rank="CORPORAL";
+			};
+			id=211;
+			type="CUP_O_T72_CHDKZ";
+			atlOffset=-0.00011825562;
+		};
+		class Item39
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1362.7646,41.421791,1389.8328};
+						angles[]={0.0049914722,0,6.2756844};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=217;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1362.7646,41.421791,1389.8328};
+						angles[]={0.0049914722,0,6.2756844};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=218;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1362.7646,41.421791,1389.8328};
+						angles[]={0.0049914722,0,6.2756844};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=219;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1385.7793,41.526791,1387.8425};
+						angles[]={0.014998405,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=221;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1385.7793,41.526791,1387.8425};
+						angles[]={0.014998405,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=222;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1385.7793,41.526791,1387.8425};
+						angles[]={0.014998405,0,0.012496647};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=223;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=6;
+				};
+				class Links
+				{
+					items=6;
+					class Item0
+					{
+						linkID=0;
+						item0=217;
+						item1=216;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=218;
+						item1=216;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=219;
+						item1=216;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=221;
+						item1=220;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=222;
+						item1=220;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=223;
+						item1=220;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=215;
+		};
+		class Item40
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1362.7793,43.381405,1389.7925};
+				angles[]={0.0049914722,0,6.2756844};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=216;
+			type="CUP_O_T72_CHDKZ";
+		};
+		class Item41
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1385.7842,43.486324,1387.817};
+				angles[]={0.014998405,0,0.012496647};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333331;
+				rank="CORPORAL";
+			};
+			id=220;
+			type="CUP_O_T72_CHDKZ";
+			atlOffset=-0.00022888184;
+		};
+		class Item42
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1465.4869,42.000805,1387.0955};
+						angles[]={0.012496647,0,0.0049914722};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=226;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1465.4869,42.000805,1387.0955};
+						angles[]={0.012496647,0,0.0049914722};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=227;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1465.4869,42.000805,1387.0955};
+						angles[]={0.012496647,0,0.0049914722};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=228;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1488.4772,42.291431,1385.12};
+						angles[]={0.0024897563,0,0.047463283};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=230;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1488.4772,42.291431,1385.12};
+						angles[]={0.0024897563,0,0.047463283};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=231;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1488.4772,42.291431,1385.12};
+						angles[]={0.0024897563,0,0.047463283};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=232;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=6;
+				};
+				class Links
+				{
+					items=6;
+					class Item0
+					{
+						linkID=0;
+						item0=226;
+						item1=225;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=227;
+						item1=225;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=228;
+						item1=225;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=230;
+						item1=229;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=231;
+						item1=229;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=232;
+						item1=229;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=224;
+		};
+		class Item43
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1465.4772,43.96032,1387.0699};
+				angles[]={0.012496647,0,0.0049914722};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=225;
+			type="CUP_O_T72_CHDKZ";
+		};
+		class Item44
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1488.4331,44.250237,1385.1091};
+				angles[]={0.0024897563,0,0.047463283};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333331;
+				rank="CORPORAL";
+			};
+			id=229;
+			type="CUP_O_T72_CHDKZ";
+			atlOffset=-0.00090789795;
+		};
+		class Item45
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1346.9055,40.595119,1549.9011};
+						angles[]={6.2806959,0,0.010000871};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=235;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1346.9055,40.595119,1549.9011};
+						angles[]={6.2806959,0,0.010000871};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=236;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1346.9055,40.595119,1549.9011};
+						angles[]={6.2806959,0,0.010000871};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=237;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1369.8859,41.050308,1547.8962};
+						angles[]={0.0075011365,0,0.019996032};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=239;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1369.8859,41.050308,1547.8962};
+						angles[]={0.0075011365,0,0.019996032};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=240;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1369.8859,41.050308,1547.8962};
+						angles[]={0.0075011365,0,0.019996032};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=241;
+					type="CUP_O_INS_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=6;
+				};
+				class Links
+				{
+					items=6;
+					class Item0
+					{
+						linkID=0;
+						item0=235;
+						item1=234;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=236;
+						item1=234;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=237;
+						item1=234;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=239;
+						item1=238;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=240;
+						item1=238;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=241;
+						item1=238;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=233;
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1346.8859,42.55471,1549.8462};
+				angles[]={6.2806959,0,0.010000871};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.46666664;
+				rank="SERGEANT";
+			};
+			id=234;
+			type="CUP_O_T72_CHDKZ";
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1369.8662,43.009899,1547.8511};
+				angles[]={0.0075011365,0,0.019996032};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333331;
+				rank="CORPORAL";
+			};
+			id=238;
+			type="CUP_O_T72_CHDKZ";
+			atlOffset=-0.00012207031;
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=8;
+		};
+		class Links
+		{
+			items=8;
+			class Item0
+			{
+				linkID=0;
+				item0=6;
+				item1=5;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=9;
+				item1=7;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=23;
+				item1=7;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=37;
+				item1=7;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=51;
+				item1=7;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=69;
+				item1=7;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item6
+			{
+				linkID=6;
+				item0=90;
+				item1=7;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item7
+			{
+				linkID=7;
+				item0=111;
+				item1=7;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};
+class OutroLoose
+{
+	class Intel
+	{
+		startWeather=0.30000001;
+		startWind=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		year=2012;
+		month=6;
+		day=24;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};
+class OutroWin
+{
+	class Intel
+	{
+		startWeather=0.30000001;
+		startWind=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		year=2012;
+		month=6;
+		day=24;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};
