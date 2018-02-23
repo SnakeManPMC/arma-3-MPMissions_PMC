@@ -81,9 +81,12 @@ publicVariable "PMC_corpses";
 
 // count for opfor
 PMC_opfor = 0;
+pmc_grp_opfor = 0;
 
 // count for blufor
 PMC_blufor = 0;
+pmc_grp_blufor = 0;
+pmc_inftransport = 0;
 
 // PMC_Select_Target
 call compile preProcessFileLineNumbers "PMC\PMC_Select_Target.sqf";
@@ -96,6 +99,9 @@ call compile preProcessFileLineNumbers "PMC\PMC_Guard_Inf_Waypoints.sqf";
 
 // PMC_Sentry_Inf_Waypoints
 call compile preProcessFileLineNumbers "PMC\PMC_Sentry_Inf_Waypoints.sqf";
+
+// PMC_Time_Used_Update
+call compile preProcessFileLineNumbers "PMC\PMC_Time_Used_Update.sqf";
 
 // insert all locations into an array
 PMC_Locations = [];

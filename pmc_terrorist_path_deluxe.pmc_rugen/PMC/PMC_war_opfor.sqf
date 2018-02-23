@@ -11,18 +11,11 @@ private
 ];
 
 // maximum number of opfor on the map at one time
-_Max_OPFOR_On_Map = 25;
+_Max_OPFOR_On_Map = ["PMC_OPFOR_Strength"] call BIS_fnc_getParamValue;
 
 // random sleep time
 // debug long that we don't have many helos ferrying soldiers which then "explode" the unit numbers when disembarked.
 _sleeptime = (360 + random 360);
-
-call compile preProcessFileLineNumbers "PMC\PMC_Create_Russian_Infantry_Squad.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_Russian_Infantry_Section.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_Russian_Infantry_Section_AA.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_Russian_Infantry_Section_AT.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_Russian_Infantry_Section_MG.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_Russian_Infantry_Sniper_Team.sqf";
 
 while {true} do
 {
@@ -30,14 +23,14 @@ while {true} do
 	{
 		// random starting location
 		//_respawnpoint = ["OPFOR"] call PMC_SelectStartPosit;
-		_respawnpoint = opfor_airlift_start;
+		_respawnpoint = getPosATL opfor_airlift_start;
 
 		_ran = floor (random 6);
 		switch (_ran) do
 		{
 			case 0:
 			{
-				_grp = [_respawnpoint] call PMC_Create_Russian_Infantry_Squad;
+				_grp = [_respawnpoint, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Infantry" >> "CUP_O_RU_InfSquad")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_opfor = PMC_opfor + 10;
@@ -45,7 +38,7 @@ while {true} do
 			};
 			case 1:
 			{
-				_grp = [_respawnpoint] call PMC_Create_Russian_Infantry_Section;
+				_grp = [_respawnpoint, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Infantry" >> "CUP_O_RU_InfSection")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_opfor = PMC_opfor + 10;
@@ -53,7 +46,7 @@ while {true} do
 			};
 			case 2:
 			{
-				_grp = [_respawnpoint] call PMC_Create_Russian_Infantry_Section_AA;
+				_grp = [_respawnpoint, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Infantry" >> "CUP_O_RU_InfSection_AT")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_opfor = PMC_opfor + 10;
@@ -61,7 +54,7 @@ while {true} do
 			};
 			case 3:
 			{
-				_grp = [_respawnpoint] call PMC_Create_Russian_Infantry_Section_AT;
+				_grp = [_respawnpoint, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Infantry" >> "CUP_O_RU_InfSection_AA")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_opfor = PMC_opfor + 10;
@@ -69,7 +62,7 @@ while {true} do
 			};
 			case 4:
 			{
-				_grp = [_respawnpoint] call PMC_Create_Russian_Infantry_Section_MG;
+				_grp = [_respawnpoint, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Infantry" >> "CUP_O_RU_InfSection_MG")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_opfor = PMC_opfor + 10;
@@ -77,7 +70,7 @@ while {true} do
 			};
 			case 5:
 			{
-				_grp = [_respawnpoint] call PMC_Create_Russian_Infantry_Sniper_Team;
+				_grp = [_respawnpoint, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Infantry" >> "CUP_O_RU_SniperTeam")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_opfor = PMC_opfor + 10;
@@ -98,7 +91,7 @@ while {true} do
 		_targetpoint = PMC_temporary_location;
 
 		// ferry them into target area
-		[_grp, _respawnpoint, _targetpoint] execVM "PMC\PMC_Infantry_Transport_Airborne_Russian.sqf";
+		[_grp, opfor_airlift_start, _targetpoint] execVM "PMC\PMC_Infantry_Transport_Airborne_Russian.sqf";
 
 		// debug
 		hintSilent "Russian Reinforcements Arrive!";

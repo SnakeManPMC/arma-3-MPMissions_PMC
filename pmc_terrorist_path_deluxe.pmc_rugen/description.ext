@@ -4,7 +4,12 @@ respawn = "BASE";
 respawndelay = 3;
 
 onLoadIntro = "PMC Tactical";
-onLoadMission = "Terrorist Path";
+onLoadName = "PMC Terrorist Path";
+disabledAI = 1;
+
+author = "Snake Man, PMC.";
+overviewText = "Legendary Chernarus mission ported to PMC Rugen. You are insurgent mixing in between fighting BLUFOR/OPFOR after you first lure them into contact with each other. MAYHEM.";
+overviewPicture = "";
 
 class Header
 {
@@ -24,13 +29,59 @@ class Params
 		texts[] = {"0000","0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100","1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300"};
 		default = 8;
 	};
-};
 
-author = "Snake Man, PMC.";
-overviewText = "Legendary Chernarus mission ported to PMC Rugen. You are insurgent mixing in between fighting BLUFOR/OPFOR after you first lure them into contact with each other. MAYHEM.";
-overviewPicture = "";
-// shown at mission load even though real mission name is something else.
-//onLoadName = "onLoadName";
+	class PMC_viewdistance
+	{
+		title = "View distance (in meters)";
+		values[] =
+		{
+			500,
+			1000,
+			2000,
+			3000,
+			4000,
+			5000,
+			6000,
+			7000,
+			8000,
+			9000,
+			10000,
+			11000,
+			12000,
+			13000,
+			14000,
+			15000,
+			16000,
+			17000,
+			18000,
+			19000,
+			20000,
+			25000,
+			30000,
+			35000,
+			40000,
+		};
+		// When 'texts' are missing, values will be displayed directly instead
+		default = 2000;
+		file = "PMC\PMC_setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
+	};
+
+	class PMC_BLUFOR_Strength
+	{
+		title = "BLUFOR Strength";
+		values[] = {50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000};
+		texts[] = {"50","100","150","200","250","300","350","400","450","500","550","600","650","700","750","800","850","900","950","1000"};
+		default = 100;
+	};
+
+	class PMC_OPFOR_Strength
+	{
+		title = "OPFOR Strength";
+		values[] = {50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000};
+		texts[] = {"50","100","150","200","250","300","350","400","450","500","550","600","650","700","750","800","850","900","950","1000"};
+		default = 100;
+	};
+};
 
 class CfgDebriefing
 {

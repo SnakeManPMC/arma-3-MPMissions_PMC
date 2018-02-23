@@ -11,19 +11,11 @@ private
 ];
 
 // maximum number of opfor on the map at one time
-_Max_BLUFOR_On_Map = 25;
+_Max_BLUFOR_On_Map = ["PMC_BLUFOR_Strength"] call BIS_fnc_getParamValue;
 
 // random sleep time
 // debug long that we don't have many helos ferrying soldiers which then "explode" the unit numbers when disembarked.
 _sleeptime = (360 + random 360);
-
-call compile preProcessFileLineNumbers "PMC\PMC_Create_USMC_Rifle_Squad.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_USMC_Fire_Team.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_USMC_Fire_Team_MG.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_USMC_Fire_Team_AT.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_USMC_Fire_Team_Support.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_USMC_Heavy_AT.sqf";
-call compile preProcessFileLineNumbers "PMC\PMC_Create_USMC_Sniper_Team.sqf";
 
 while {true} do
 {
@@ -31,14 +23,14 @@ while {true} do
 	{
 		// random starting location
 		//_respawnpoint = ["BLUFOR"] call PMC_SelectStartPosit;
-		_respawnpoint = blufor_airlift_start;
+		_respawnpoint = getPosATL blufor_airlift_start;
 
-		_ran = floor (random 7);
+		_ran = floor (random 8);
 		switch (_ran) do
 		{
 			case 0:
 			{
-				_grp = [_respawnpoint] call PMC_Create_USMC_Rifle_Squad;
+				_grp = [_respawnpoint, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_USMC" >> "Infantry" >> "CUP_B_USMC_InfSquad")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_blufor = PMC_blufor + 9;
@@ -46,7 +38,7 @@ while {true} do
 			};
 			case 1:
 			{
-				_grp = [_respawnpoint] call PMC_Create_USMC_Fire_Team;
+				_grp = [_respawnpoint, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_USMC" >> "Infantry" >> "CUP_B_USMC_FireTeam")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_blufor = PMC_blufor + 9;
@@ -54,7 +46,7 @@ while {true} do
 			};
 			case 2:
 			{
-				_grp = [_respawnpoint] call PMC_Create_USMC_Fire_Team_MG;
+				_grp = [_respawnpoint, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_USMC" >> "Infantry" >> "CUP_B_USMC_FireTeam_MG")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_blufor = PMC_blufor + 9;
@@ -62,7 +54,7 @@ while {true} do
 			};
 			case 3:
 			{
-				_grp = [_respawnpoint] call PMC_Create_USMC_Fire_Team_AT;
+				_grp = [_respawnpoint, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_USMC" >> "Infantry" >> "CUP_B_USMC_FireTeam_AT")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_blufor = PMC_blufor + 9;
@@ -70,7 +62,7 @@ while {true} do
 			};
 			case 4:
 			{
-				_grp = [_respawnpoint] call PMC_Create_USMC_Fire_Team_Support;
+				_grp = [_respawnpoint, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_USMC" >> "Infantry" >> "CUP_B_USMC_FireTeam_Support")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_blufor = PMC_blufor + 9;
@@ -78,7 +70,7 @@ while {true} do
 			};
 			case 5:
 			{
-				_grp = [_respawnpoint] call PMC_Create_USMC_Heavy_AT;
+				_grp = [_respawnpoint, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_USMC" >> "Infantry" >> "CUP_B_USMC_HeavyATTeam")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_blufor = PMC_blufor + 9;
@@ -86,10 +78,18 @@ while {true} do
 			};
 			case 6:
 			{
-				_grp = [_respawnpoint] call PMC_Create_USMC_Sniper_Team;
+				_grp = [_respawnpoint, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_USMC" >> "Infantry" >> "CUP_B_USMC_SniperTeam")] call BIS_fnc_spawnGroup;
 				waitUntil {!(isNull _grp)};
 
 				PMC_blufor = PMC_blufor + 9;
+				publicVariable "PMC_blufor";
+			};
+			case 7:
+			{
+				_grp = [_respawnpoint, WEST, (configFile >> "CfgGroups" >> "West" >> "CUP_B_USMC" >> "Infantry" >> "CUP_B_USMC_FRTeam")] call BIS_fnc_spawnGroup;
+				waitUntil {!(isNull _grp)};
+
+				PMC_blufor = PMC_blufor + 6;
 				publicVariable "PMC_blufor";
 			};
 		};
@@ -107,7 +107,7 @@ while {true} do
 		_targetpoint = PMC_temporary_location;
 
 		// ferry them into target area
-		[_grp, _respawnpoint, _targetpoint] execVM "PMC\PMC_Infantry_Transport_Airborne.sqf";
+		[_grp, blufor_airlift_start, _targetpoint] execVM "PMC\PMC_Infantry_Transport_Airborne.sqf";
 
 		// debug
 		hintSilent "US Reinforcements Arrive!";
