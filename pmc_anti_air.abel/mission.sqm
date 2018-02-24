@@ -97,7 +97,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Anti Air";
+		briefingName="PMC Anti Air v0.1.2";
 		startWeather=1;
 		startWind=0.1;
 		forecastWeather=1;
@@ -485,8 +485,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5012.6055,414.25986,7422.8394};
-						angles[]={0.0084924707,5.5850534,6.2515039};
+						position[]={5012.605,414.25986,7422.8398};
+						angles[]={0.0084997527,5.5850534,6.2515073};
 					};
 					side="West";
 					flags=6;
@@ -569,8 +569,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5012.688,416.85995,7422.812};
-				angles[]={0.0084924707,5.5850534,6.2515039};
+				position[]={5012.6875,416.85995,7422.8125};
+				angles[]={0.0084997527,5.5850534,6.2515073};
 			};
 			side="West";
 			flags=6;
@@ -581,6 +581,29 @@ class Mission
 			};
 			id=517;
 			type="CUP_B_HMMWV_Unarmed_USMC";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[""CUP_Stinger_M""],[12]],[[""FirstAidKit""],[1]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item11
 		{
@@ -731,11 +754,34 @@ class Mission
 			{
 				skill=1;
 				rank="LIEUTENANT";
-				init="call{supplys=group this; this addweaponcargo [""CUP_launch_FIM92Stinger"",1]; this addmagazinecargo [""CUP_Stinger_M"",4];}";
+				init="call{supplys=group this;}";
 				name="truckster";
 			};
 			id=523;
 			type="CUP_B_MTVR_USMC";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""CUP_launch_FIM92Stinger""],[1]],[[""CUP_Stinger_M""],[12]],[[""FirstAidKit""],[1]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item13
 		{
