@@ -1,0 +1,1090 @@
+; disabled for now
+exit
+
+;Improved AI script v1.0
+;By Bremmer
+;Developed in v1.85, but should work with v1.46
+
+;To execute the script:
+;set up east/west/resistance present triggers to specify enemy units with the following conditions:-
+
+;	East/West/Resistance present (whichever side is to be considered the enemy of the side using Improved AI)
+;	Single
+;	Size and shape to cover the entire mission area
+;	Condition : this
+;	On Activation : eastunits/westunits/guerunits = thislist (whichever unit type the trigger is set for)
+
+;Alternatively an array of units (eastunits/westunits/guerunits) may be manually specified.
+;The improved AI can be applied to any group using the following execution line:
+
+;["initialise",groupname,[artillery,name],[armour,name],[ground,name1,name2,name3],flaring,retreating] exec "ai_control.sqs"
+
+;groupname	-	either the group name, or some path to the group name (eg. group this)
+;artillery	-	availability of artillery support (1 for available, not available otherwise)
+;armour		-	availability of armoured support (1 for available, not available otherwise)
+;ground		-	availability of ground support (1 for available, not available otherwise)
+;name		-	name of the supporting group in each support class.
+;flaring	-	specify whether group will use flares (1 for available, not available otherwise)
+;retreating	-	specify whether group will use tactical retreats (1 for available, not available otherwise)
+
+;IMPORTANT! Make sure all group names initialise before calling the script (eg. initialise the groups in their init fields,
+;but run the AI script from the groups first waypoint, or a trigger). If no support is available then enter [0] for that
+;support type.
+
+;Check the bottom of this file for commentary on best use of this script.
+;Note: this script uses global variables eastunits, westunits, guerunits, spotter.
+;If the retreat option is enabled the additional global variables yellow, groupdead, look, exitcheck and chicken are used.
+;Do not use these variables elsewhere in your mission!
+
+
+;---------------------------------------------------- START -----------------------------------------------------------------
+
+;run the appropriate script section
+goto (_this select 0)
+
+;----------------------------------------------------- MAIN -----------------------------------------------------------------
+
+#initialise
+	;delay to allow triggers to initialise
+	;random so multiple scripts do not run concurrently
+	~ (random 2) + 2
+	
+	;get the group that is using the ai script
+	_group = _this select 1
+	_units = units _group
+	_side = side (_units select 0)
+
+	;get parameters for artillery support
+	_arts = _this select 2
+	_arta = _arts select 0
+	_art1 = _arts select 1
+	
+	;get parameters for armoured support
+	_arms = _this select 3
+	_arma = _arms select 0
+	_arm1 = _arms select 1
+
+	;get parameters for ground support
+	_gros = _this select 4
+	_groa = _gros select 0
+	_groi = 1
+
+	;get availability of flaring
+	_flara = _this select 5
+	
+	;get availability of retreating
+	_retrta = _this select 6
+
+	;set up some variables to be used in the script
+	_know = []
+	_hurt = []
+	_armour = []
+	_accuracy = 0
+	_lastx = 0
+	_lasty = 0
+	_xgrd = ["A","B","C","D","E","F","G","H","I","J"]
+	_ygrd = ["9","8","7","6","5","4","3","2","1","0"]
+
+	;check the global groups for errors
+	? (count eastunits > 0) : goto "checked_east"
+	eastunits = []
+#checked_east
+	? (count westunits > 0) : goto "checked_west"
+	westunits = []
+#checked_west
+	? (count guerunits > 0) : goto "checked_guer"
+	guerunits = []
+#checked_guer
+	
+	;initialise the appropriate varibles dependant upon the group side
+	? (_side == east) : goto "east"
+	? (_side == resistance) : goto "guer"
+	
+#west
+	;initialise relevant parameters
+	_spt = ["eng12","eng24","eng25","eng26","eng29","eng30","eng31","eng37","eng40","eng41"]
+	_inj = ["eng22","eng23","eng32","eng33","eng34","eng39"]
+	_com = ["eng4","eng5","eng18","eng19","eng20","eng21","eng27","eng28"]
+	_rep = ["eng1","eng2","eng3","eng4","eng5","eng8","eng9","eng10","eng27","eng28"]
+	_enemy = eastunits
+	_friend = westunits + guerunits
+	goto "armour"
+
+#east
+	;initialise relevant parameters
+	_spt = ["rus4","rus5","rus6","rus6","rus14","rus14","rus15","rus15"]
+	_inj = ["rus2","rus8","rus13"]
+	_com = ["rus1","rus1","rus3","rus10","rus14","rus14","rus15","rus18","rus20","rus20"]
+	_rep = ["rus1","rus3","rus3","rus4","rus5","rus10","rus10","rus14","rus20","rus2"]
+	_enemy = westunits + guerunits
+	_friend = eastunits
+	goto "armour"
+
+#guer
+	;initialise relevant parameters
+	_spt = ["rus4","rus5","rus6","rus6","rus14","rus14","rus15","rus15"]
+	_inj = ["rus2","rus8","rus13"]
+	_com = ["rus1","rus1","rus3","rus10","rus14","rus14","rus15","rus18","rus20","rus20"]
+	_rep = ["rus1","rus3","rus3","rus4","rus5","rus10","rus10","rus14","rus20","rus2"]
+	_enemy = eastunits
+	_friend = guerunits + westunits
+
+#armour
+	;create an array of all armoured units from the enemy array
+	_i = (count _enemy) - 1
+	? (_i < 0) : exit
+
+#count_armour
+	;select the next unit
+	_unit = _enemy select _i
+
+	;add the unit to the armour array if it is a tank, APC or ship
+	? ("tank" counttype [_unit] == 1) : _armour = _armour + [_unit]
+	? ("APC"  counttype [_unit] == 1) : _armour = _armour + [_unit]
+	? ("ship" counttype [_unit] == 1) : _armour = _armour + [_unit]
+	
+	;select the next enemy unit
+	_i = _i - 1
+	? (_i >= 0) : goto "count_armour"
+
+#start
+	;variables to be reset on every loop
+	_maxknows = 0
+	_target = objnull
+
+	;begin the cycle through the applicable units.
+	_i = (count _units) - 1
+	? (_i < 0) : exit
+
+#cycle
+	;select the next unit
+	_unit = _units select _i	
+
+	;check if enemy units have been spotted, or the group is under fire
+	;keep cycle time long to avoid multiple scripts using the global variable spotter at the same time
+	~0.3
+
+	;check if unit is dead
+	? (not alive _unit) : _units = _units - [_unit]; _hurt = _hurt - [_unit]; _know = _know - [_unit]; goto "start"
+
+	;check the unit is not in a vehicle
+	;these lines should be disabled to allow spotting from vehicles (eg air recon)
+	? (vehicle _unit != _unit) : goto "next"
+	? ("man" CountType [_unit] == 0) : goto "next"
+
+	;check if the unit is already injured
+	? (_unit in _hurt) : goto "check_injured"
+
+	;check units for injury
+	? (getdammage _unit > 0.5) : goto "injured"
+
+#cycle2
+	;check if the unit already knows about the enemy
+	? (_unit in _know) : goto "check_spotted"
+	
+	;check if the unit knows about the enemy
+	;need to find a way to work this with a local variable
+	;seems like it is possible in 1.85, but script should be available to previous version
+	spotter = _unit
+	? {spotter knowsabout _x > 0.25} count _enemy > 0 : goto "spotted"
+
+#next
+	;select next group member
+	_i = _i - 1
+	? (_i >= 0) : goto "cycle"
+	goto "start"
+
+#spotted
+	;add the unit to the knows list
+	_know = _know + (units group _unit)
+	
+	;random chance of spotted comment
+	? (random 10 < 8) : ["comment", _spt, _rep, _unit] exec "ai_control.sqs"
+
+	;flare if allowed and it is dark (based on winter hours of darkness)
+	? (_flara != 1) : goto "check_spotted"
+	? (daytime > 7 and daytime < 17) : goto "check_spotted"
+
+	;find most known target
+	_j = (count _enemy) - 1
+	? (_j < 0) : goto "next"
+
+	;run the most known enemy routine
+	_return = "flare_xy"
+	_check = _enemy
+	goto "most_known"
+
+#flare_xy
+	;fire the flare
+	["flare", _unit, _target, _arta, _art1] exec "ai_control.sqs"
+
+#check_spotted
+	;remove the unit from the knows list if it no longer knows about the enemy
+	spotter = _unit
+	? {spotter knowsabout _x > 0.20} count _enemy == 0 : _know = _know - (units group _unit) ; goto "next"
+
+	;random chance of comment
+	? (random 10 < 0.05) and (count _units > 1) : ["comment", _com, _rep, _unit] exec "ai_control.sqs"
+		
+	;only allow the group leader to call for support
+	? leader group _unit != _unit : goto "next"
+
+	;random chance of no action (adjust this to represent the competence of the AI group)
+	? random 10 < 5 : goto "next"
+	;this can be replaced with the following line in v1.75+ to account for the group leaders skill
+	;? random 1 > skill _unit : goto "next"
+
+	;count list of friendly and enemy units
+	_goodguys = _unit countfriendly _friend
+	spotter = _unit
+	_badguys = {spotter knowsabout _x > 0.25} count _enemy
+	spotter = _unit
+	_badtanks = {spotter knowsabout _x > 0.25} count _armour
+
+#call_armour
+	;check whether to call armoured support
+	? (_arma != 1) : goto "call_artillery"
+	? ({canfire _x} count units _arm1 == 0) : _arma = 0 ; goto "call_artillery"
+	? (_badtanks == 0) : goto "call_artillery"
+	? _supporteda : goto "check_armour"
+
+	;find most known armoured target
+	_j = (count _armour) - 1
+	? (_j < 0) : goto "call_artillery"
+
+	;run the most known enemy routine
+	_return = "armour_xy"
+	_check = _armour
+	goto "most_known"
+
+#armour_xy	
+	;call in armoured support
+	_supporteda = true
+	["general_support", _target, _arm1] exec "ai_control.sqs"
+	~2
+	_message = format ["ENEMY ARMOUR SPOTTED. REQUEST SUPPORT AT GRID %1%2 %3%4. OVER.", _x1, _x2, _y1, _y2]
+	_unit sidechat _message
+	~4
+	leader _arm1 sidechat "ON THE WAY. OVER."
+	goto "next"
+
+#check_armour
+	;check the condition of the supporting group
+	? (unitready leader _arm1) : _supporteda = false; goto "wait"
+
+#call_artillery
+	;check whether to call an artillery strike
+	? (_arta != 1) : goto "call_ground"
+	? ({canfire _x} count units _art1 == 0) : _arta = 0 ; goto "call_ground"
+	? ((_badguys - _badtanks) < 4) : goto "call_ground"
+	spotter = _unit
+	? ({spotter distance _x < 85} count _enemy > 0) : goto "call_ground"
+	
+	;find most known target
+	_j = (count _enemy) - 1
+	? (_j < 0) : goto "next"
+
+	;run the most known enemy routine
+	_return = "artillery_xy"
+	_check = _enemy
+	goto "most_known"
+
+#artillery_xy
+	;check if the target is in the same location as last called
+	? (sqrt ((_xpos - _lastx)^2 + (_ypos - _lasty)^2) > 50) : _accuracy = 0
+	? (_accuracy < 5) : _accuracy = _accuracy + 1
+	_lastx = _xpos
+	_lasty = _ypos
+
+	;call in the artillery strike
+	~2
+	_message = format ["REQUEST ARTILLERY SUPPORT. TARGET GRID %1%2 %3%4. OVER.", _x1, _x2, _y1, _y2]
+	_unit sidechat _message
+	~4
+	leader _art1 sidechat "ROGER. ARTILLERY FIRE COMMENCING. OVER"
+	["artillery_support", _target, _accuracy] exec "ai_control.sqs"
+		
+	;delay to allow artillery to reload
+	~(random 30) + 30
+	goto "next"
+	
+#call_ground
+	;check whether to call for ground reinforcements
+	? (_groi > ((count _gros) - 1)) : _groa = 0
+	? (_groa != 1) : goto "call_retreat"
+	? ((_badguys - _badtanks) < count units group _unit) : goto "next" 
+	? _supportedg : goto "check_ground"
+
+	;select the group to provide support
+	_gro = (_gros select _groi)
+
+	;find most known target
+	_j = (count _enemy) - 1
+	? (_j < 0) : goto "next"
+
+	;run the most known enemy routine
+	_return = "ground_xy"
+	_check = _enemy
+	goto "most_known"
+
+#ground_xy	
+	;call in ground support
+	_supportedg = true
+	["general_support", _target, _gro] exec "ai_control.sqs"
+	~2
+	_message = format ["ENEMY SPOTTED. REQUEST SUPPORT AT GRID %1%2 %3%4. OVER.", _x1, _x2, _y1, _y2]
+	_unit sidechat _message
+	~4
+	leader _gro sidechat "ROGER. SUPPORT EN-ROUTE. OVER."
+	goto "next"
+
+#check_ground
+	;check the condition of the supporting group
+	? ({canfire _x} count units _gro == 0) : _groi = _groi + 1; _supportedg = false; goto "call_ground"
+	? (unitready leader _gro) : _supportedg = false; goto "wait"
+	goto "next"
+
+#call_retreat
+	;check whether to allow the group to retreat
+	? (_retrta != 1) : goto "next"
+	? (_badguys / _goodguys < 2) : goto "next"
+	goto "retreat"
+
+#injured
+	;add the unit to the hurt list
+	_hurt = _hurt + [_unit]
+	
+	;random chance of injured comment
+	? (random 10 < 8) : ["comment", _inj, _rep, _unit] exec "ai_control.sqs"
+	goto "next"
+
+#check_injured
+	;remove the unit from the hurt list if it no longer hurt
+	? (getdammage _unit < 0.2) : _hurt = _hurt - [_unit] ; goto "next"
+	goto "cycle2"
+
+#wait
+	;delay after support is complete
+	~(random 15) + 15
+	goto "next"
+
+#most_known	
+	;get the most known about enemy unit
+	_temptarget = _check select _j
+	? (_unit knowsabout _temptarget > _maxknows) : _maxknows = _unit knowsabout _temptarget ; _target = _temptarget
+	_j = _j - 1
+	? (_j >= 0) : goto "most_known"
+	? not (_target in _check) : goto "next"
+	
+	;get the target position
+	_xpos = getpos _target select 0
+	_ypos = getpos _target select 1
+
+#x
+	;calculate the X coordinate
+	;check the coord is inside the map screen
+	?_xpos < 0 or _xpos >= 12800 : _x1="?" ; _x2="?" ; goto "y"
+
+	;get the first coordinate
+	_num = (_xpos / 1280) - (_xpos / 1280) % 1
+	_x1 = _xgrd select _num
+
+	;reset the coord for a smaller square
+	_xpos = _xpos - (1280 * _num)
+
+	;get the second coordinate
+	_num = (_xpos / 128) - (_xpos / 128) % 1
+	_x2 = _xgrd select _num
+
+#y
+	;calculate the Y coordinate
+	;check the coord is inside the map screen
+	?_ypos < 0 or _ypos >= 12800 : _y1="?" ; _y2="?" ; goto _return
+
+	;get the first coordinate
+	_num = (_ypos / 1280) - (_ypos / 1280) % 1
+	_y1 = _ygrd select _num
+
+	;reset the coord for a smaller square
+	_ypos = _ypos - (1280 * _num)
+
+	;get the second coordinate
+	_num = (_ypos / 128) - (_ypos / 128) % 1
+	_y2 = _ygrd select _num
+
+	;return to the appropriate script section
+	goto _return
+
+
+;--------------------------------------------------- COMMENT ----------------------------------------------------------------
+
+
+#comment
+	;get the required information to execute the comment
+	_com = _this select 1
+	_rep = _this select 2
+	_unit = _this select 3
+
+	;randomise the selected voicefile
+	_random = random (count _com)
+	_random = _random - _random % 1
+
+	;pause
+	~2
+
+	;say the comment
+	_unit say (_com select _random)
+
+	;random chance of a reply
+	? (random 10 < 3) : ["reply", _rep, _unit] exec "ai_control.sqs"
+
+	exit
+
+
+;---------------------------------------------------- REPLY -----------------------------------------------------------------
+
+
+#reply
+	;get the required information to execute the reply
+	_rep = _this select 1
+	_unit = _this select 2
+		
+	;randomise the selected voicefile
+	_random = random (count _rep)
+	_random = _random - _random % 1
+	
+	;set the maximum distance a unit can reply from
+	_distance = 30
+
+	;short delay before the reply
+	~(2 + random 3)
+
+	_units = units group _unit
+	_count = count _units
+
+	;find closest group member
+	_i = _count - 1
+	? (_i < 0) : exit
+
+#nearest
+	;cycle through the possible units to reply
+	_bloke = _units select _i
+
+	;select the nearest possible unit
+	? (_bloke != _unit) and (_bloke distance _unit < _distance) : _observer = _bloke; _distance = _bloke distance _unit
+		
+	_i = _i - 1
+	? (_i >= 0) : goto "nearest"
+
+	;check if the unit is close enough
+	? _distance == 30 : exit
+
+	;say the reply
+	_observer say (_rep select _random)
+				
+	;allow for additional reply
+	? (random 10 < 2) : ["reply", _rep, _observer] exec "ai_control.sqs"
+
+	exit
+
+
+;-------------------------------------------------- ARTILLERY ---------------------------------------------------------------
+
+	
+#artillery_support
+	;get the information for the artillery barrage
+	_target = _this select 1
+	_accuracy = _this select 2
+
+	;get the target coordinates
+	_posx = getpos _target select 0
+	_posy = getpos _target select 1
+
+	;calculate the accuracy spread
+	_spread = 75 / _accuracy
+	
+	_i = 0
+	_no = (random 5) + 3
+	~(random 4) + 4
+
+#artillery_loop
+	_x = (_posx + random (2 * _spread) - _spread)
+	_y = (_posy + random (2 * _spread) - _spread)
+	_z = (random 20) + 20
+	_bomb = "mortarshell" createvehicle [_x, _y, _z]
+	~ (random 0.5) + 0.5
+	_i = _i + 1
+	? _i < _no : goto "artillery_loop"
+
+	exit
+
+
+;--------------------------------------------------- SUPPORT ----------------------------------------------------------------
+
+
+#general_support
+	;get the information for the support
+	_target = _this select 1
+	_support = _this select 2
+
+	;get target and support positions
+	_pos = getpos _target
+	_xtag = _pos select 0
+	_ytag = _pos select 1
+	_pos = getpos leader _support
+	_xsup = _pos select 0
+	_ysup = _pos select 1
+
+	;calculate random position near target
+	_randx = (random 25) + 25
+	_randy = (random 25) + 25
+	? _xsup < _xtag : _randx = _randx * -1
+	? _ysup < _ytag : _randy = _randy * -1
+	_pos = [_xtag + _randx, _ytag + _randy]
+	
+	;move the support group	
+	_support move _pos
+	_support setspeedmode "normal"
+	_support setbehaviour "aware"
+	_support setcombatmode "red"
+
+	exit
+
+
+;---------------------------------------------------- FLARE -----------------------------------------------------------------
+
+
+#flare
+	;get the group to flare
+	_unit = _this select 1
+
+	;get the target
+	_target = _this select 2
+
+	;get artillery options
+	_arta = _this select 3
+	_art1 = _this select 4
+
+	;random flare colour
+	_flare = ["flare","flare","flarered","flaregreen","flareyellow"]
+	_random = random 5
+	_random = _random - _random % 1
+	_flare = _flare select _random
+
+	;variable for controling the check loop
+	_units = units group _unit
+	_count = count _units
+	_i = _count - 1
+	
+#check_flare
+	;select the next unit from the group
+	_unit = _units select _i
+	
+	;check if the unit is a grenadier
+	? (_unit hasweapon "M16grenadelauncher")  : _muzzle = "M203muzzle"     ; _mag = "M16"  ; goto "fire_flare"
+	? (_unit hasweapon "AK47grenadelauncher") : _muzzle = "grenadesmuzzle" ; _mag = "AK47" ; goto "fire_flare" 
+	? (_unit hasweapon "AK74grenadelauncher") : _muzzle = "grenadesmuzzle" ; _mag = "AK74" ; goto "fire_flare" 
+	;get the next unit
+	_i = _i - 1
+	? (_i >= 0) : goto "check_flare"
+
+	;check if artillery is available
+	? _arta == 0 : exit
+	? {canfire _x} count units _art1 == 0 : exit
+		
+	;artillery flare messing
+	_i = 0
+	~(random 4) + 4
+
+#messing_flare
+	;create flares at position centred on the calling group
+	~ (random 1) + 1
+	_randx = (random 150) - 75
+	_randy = (random 150) - 75
+	_fl = _flare createvehicle [(getpos _target select 0) + _randx, (getpos _target select 1) + _randy, (random 50) + 100]
+	_i = _i + 1
+	? _i != 3 : goto "messing_flare"
+
+	exit
+
+#fire_flare
+	;get the unit to fire off a flare
+	_unit dotarget _target
+	@ unitready _unit
+	_unit removemagazine _mag
+	_unit addmagazine _flare
+	_unit fire [_muzzle,_flare,_flare]
+	~3
+	_unit addmagazine _mag
+
+	exit
+
+
+;--------------------------------------------------- SMOKE ------------------------------------------------------------------
+
+
+#smoke
+	;get the unit to throw the smoke
+	_unit = _this select 1
+
+	;random smoke colour
+	_smoke = ["smokeshell","smokeshell","smokeshell","smokeshellred","smokeshellgreen"]
+	_random = random 5
+	_random = _random - _random % 1
+	_smoke = _smoke select _random
+
+	;add the smoke shell
+	_mags = magazines _unit
+	_mag = _mags select 0	
+	_unit removemagazine _mag
+	_unit addmagazine _smoke
+
+	;fire the smoke shell
+	_unit fire ["throw",_Smoke,_Smoke]
+	~1
+	_unit addmagazine _mag
+
+	exit
+
+
+;------------------------------------------------- RETREAT MAIN -------------------------------------------------------------
+
+
+#retreat
+	_unit sidechat "All PREPARE TO FALL BACK"
+	_unit setbehaviour "aware"
+	~4
+
+	;find most known target
+	_j = (count _enemy) - 1
+	? (_j < 0) : goto "next"
+
+	;run the most known enemy routine
+	_return = "retreat_xy"
+	_check = _enemy
+	goto "most_known"
+
+#retreat_xy
+	;get the unit position
+	_x1 = getpos _unit select 0
+	_y1 = getpos _unit select 1
+
+	;get the target position
+	_x2 = getpos _target select 0
+	_y2 = getpos _target select 1
+
+	;calculate the retreat angle
+	_x = _x2 - _x1
+	_y = _y2 - _y1
+	? _x == 0 : _x = 0.001
+	? _x > 0  : _ang = 180 + atan (_y / _x)
+	? _x < 0  : _ang = atan (_y / _x)
+	
+	;calculate the retreat position
+	_x = _x1 + (150 * cos (_ang))
+	_y = _y1 + (150 * sin (_ang))
+
+#single
+	;get the name, units and number in the group
+	_units = units group _unit
+	_count = count _units
+	_group = group _unit
+	? _count < 4 : goto "general_retreat1"
+
+	;create a new group leader
+	_select = (_count / 2) - ((_count / 2) % 1)
+	_unit = _units select _select
+	[_unit] join grpnull
+	yellow = group _unit
+	_select = _select + 1
+
+#assign
+	;assign half the existing group to the new group
+	_unit = _units select _select
+	[_unit] join yellow
+	_select = _select + 1
+	?_select < _count : goto "assign"
+
+	;reassign the group tags
+	_group1 = group (_units select 0)
+	_group2 = group _unit
+	_groups = [_group1, _group2]
+	_group1 = _groups select 0
+	_group2 = _groups select 1
+
+	;execute scripts to check the groups are still alive
+	groupdead = false
+	["group_check", _group1] exec "ai_control.sqs"
+	["group_check", _group2] exec "ai_control.sqs"
+
+	;get the current coords of group leaders
+	_x1 = getpos leader _group1 select 0
+	_y1 = getpos leader _group1 select 1
+	_x2 = getpos leader _group2 select 0
+	_y2 = getpos leader _group2 select 1
+	_posx = [_x1, _x2]
+	_posy = [_y1, _y2]
+
+	;get the relative coords between the current coords and the muster point
+	_dstx = [(_x-_x1),(_x-_x2)]
+	_dsty = [(_y-_y1),(_y-_y2)]
+
+	;calculate the distance for each group to travel and calculate the average distance
+	_dst1 = sqrt ((_dstx select 0) ^ 2 + (_dsty select 0) ^ 2)
+	_dst2 = sqrt ((_dstx select 1) ^ 2 + (_dsty select 1) ^ 2)
+	_dsta = (_dst1 + _dst2) / 2
+
+	;calculate how many retreat steps are required
+	_cycles = _dsta / 65
+	_cycles = _cycles - _cycles % 1
+
+	;calculate relative coordinates of each retreat step
+	_mvex = [(_dstx select 0) / _cycles, (_dstx select 1) / _cycles]
+	_mvey = [(_dsty select 0) / _cycles, (_dsty select 1) / _cycles]
+
+	;initialise some parameters
+	_i = 1
+	_c = 0
+	_r = 1
+	_firsttime = 0
+	_single = true
+	_smoked = false
+	chicken = 0
+
+#start_retreat
+	;select the retreating and covering groups
+	_cov = _groups select _c
+	_run = _groups select _r
+
+#cover
+	;make the covering group halt, and cover the area from which they have retreated
+	leader _cov groupchat "ALL, COVERING FIRE!"
+	_cov move getpos leader _cov
+	_cov setcombatmode "yellow"
+	_cov setformation "line"
+	look = [(_posx select _c) - (_mvex select _c), (_posy select _c) - (_mvey select _c)]
+	"_x dowatch look" foreach units _cov
+	"_x allowfleeing 0" foreach units _cov
+	"_x setunitpos ""down""" foreach units _cov
+
+	;chuck smoke
+	? _smoked : goto "skip_smoke"
+	@ unitready leader _cov
+	["smoke", leader _cov] exec "ai_control.sqs"
+	_smoked = true
+	~1
+		
+#skip_smoke
+	;code for when player is squad leader
+	? leader _cov != player : goto "runners"
+	_message = format ["%1 HOLD POSITION AND COVER OUR RETREAT. OVER.", name player]
+	leader _run sidechat _message
+	~2
+	? _firsttime < 2 : hint "Hold position and cover the retreating units."; _firsttime = _firsttime + 1
+	"retreatmarker" setmarkertype "empty"
+	"playermarker"setmarkertype "empty"
+	retreatlogic setpos getpos player
+
+	;execute the script that will check that the player is holding position
+	["chicken_check", _run] exec "ai_control.sqs"
+	leader _run groupchat "ALL, RETREAT!"
+
+#runners
+	;make the retreating group move on
+	_pos = [(_posx select _r) + ((_mvex select _r) * _i), (_posy select _r) + ((_mvey select _r) * _i)]
+	_run move _pos
+	_run setcombatmode "green"
+	_run setformation "line"
+	"_x allowfleeing 0" foreach units _run
+	"_x dotarget objnull" foreach units _run
+	"_x setunitpos ""up""" foreach units _run
+
+	;code for when player is squad leader
+	? leader _run != player : goto "check_retreat"
+	exitcheck = true
+	_message = format ["%1 YOU ARE FREE TO RETREAT. %2 IS PROVIDING COVERING FIRE. OVER.", name player, _cov]
+	leader _cov sidechat _message
+	~2
+	? _firsttime < 2 : hint "Retreat to the position marked on your map."; _firsttime = _firsttime + 1
+	"retreatmarker" setmarkertype "end"
+	"playermarker" setmarkertype "start"
+	"retreatmarker" setmarkercolor "colorred"
+	"playermarker" setmarkercolor "colorred"
+	"retreatmarker" setmarkerpos _pos
+	"playermarker" setmarkerpos getpos player
+	retreatlogic setpos _pos
+	@ groupdead or (player distance retreatlogic < 15)
+	? groupdead : goto "group_dead"
+	goto "cycle_retreat"
+
+#check_retreat
+	~1
+	? groupdead : goto "group_dead"
+	? chicken > 2 : goto "general_retreat2"
+	? (getdammage leader _run > 0.9) : goto "runners"
+	? (unitready leader _run) : goto "cycle_retreat"
+	goto "check_retreat"
+	
+#cycle_retreat
+	;logic to swap the retreating and covering groups
+	? _c == 0 : _c = 1; _r = 0; goto "start_retreat"
+	_c = 0
+	_r = 1
+	;increment the retreat cycle counter and check if the retreat is complete
+	_i = _i + 1
+	? _i > _cycles : goto "end_retreat"
+	~1
+	goto "start_retreat"
+
+#general_retreat1
+	;make the remaining units retreat
+	["smoke", leader _group] exec "ai_control.sqs"
+	~4
+	leader _group move [_x, _y]
+	leader _group setbehaviour "aware"
+	"_x setunitpos ""auto""" foreach units _group
+	_group setcombatmode "yellow"
+
+	;wait for the group to complete the retreat
+	@ unitready leader _cov
+	goto "end_retreat"
+
+#group_dead
+	~4
+	_messagecov = format ["OH NO! %1 IS DOWN.", _run]
+	_messagerun = format ["OH NO! %1 IS DOWN.", _cov]
+	leader _cov groupchat _messagecov
+	leader _run groupchat _messagerun
+
+#general_retreat2
+	"retreatmarker" setmarkertype "empty"
+	"playermarker" setmarkertype "empty"
+	exitcheck = true
+
+	;make remaining units retreat
+	leader _cov move [_x, _y]
+	leader _cov setbehaviour "aware"
+	"_x setunitpos ""auto""" foreach units _cov
+	_cov setcombatmode "yellow"
+
+	leader _run move [_x, _y]
+	leader _run setbehaviour "aware"
+	"_x setunitpos ""auto""" foreach units _run
+	_run setcombatmode "yellow"
+
+	;wait for the groups to complete the retreat
+	@ unitready leader _cov
+	@ unitready leader _run
+
+#end_retreat
+	;if retreat was performed by a single group then rejoin the two halves
+	? _single : units _group2 join _group
+
+	leader _group setbehaviour "aware"
+	"_x setunitpos ""auto""" foreach units _group1
+	_group setcombatmode "yellow"
+
+	~(random 90) + 30
+	["initialise", _group, _arts, _arms, _gros, _flara, _retrta] exec "ai_control.sqs"
+
+	exit
+
+
+;-------------------------------------------------- GROUP DEAD --------------------------------------------------------------
+
+
+#group_check
+	;get the group to check
+	_group = _this select 1
+
+	;get the side the scripts are being run for
+	_side = side (units _group select 0)
+
+	;set the limit at which to consider the group eliminated
+	_i = 0
+
+	;when the group is dead set the variable to allow a general retreat
+	@ _side countside units _group == _i 
+	groupdead = true
+
+	exit
+	
+	
+;---------------------------------------------------- CHICKEN ---------------------------------------------------------------
+
+
+#chicken_check
+	;get the retreating group
+	_run = _this select 1
+
+	;reset some parameters
+	exitcheck = false
+	chicken = 0
+	retreatlogic setpos getpos player
+
+#chicken_loop
+	;check the player is where he should be
+	~5
+	? exitcheck : exit
+	? player distance retreatlogic > 8 : goto "chicken"
+	goto "chicken_loop"
+
+#chicken
+	;warn the player that he is not providing sufficient cover
+	_message1 = format ["%1 HOLD POSITION!", name player]
+	_message2 = format ["%1 WE NEED COVERING FIRE!", name player]
+	_message3 = format ["%1 ARE YOU COMPLETELY INCOMPETENT? ALL UNITS - GENERAL RETREAT!", name player]
+	_message = [_message1, _message2, _message3]
+	leader _run sidechat (_message select chicken)
+	retreatlogic setpos getpos player
+	chicken = chicken + 1
+	? chicken > 2 : exit
+	goto "chicken_loop"	
+
+
+;-------------------------------------------------- COMMENTARY --------------------------------------------------------------
+
+
+;General
+;-------
+
+;This script is designed to make life harder for the player by making the AI a wilier opponent, capable of calling for 
+;appropriate support, using artillery fire, and even knowing when it call it a day and fall back (in the most akward manner
+;possible of course). The script will also get the group members talking to each other - shouting when they spot an enemy, 
+;crying out when they are shot, and just being generally abusive to those guys that are shooting at them.
+
+;This script wasn't really designed for use by the players squad, but I haven't found any obvious bugs to stop it being used
+;this way, and it generates some atmosphere by getting the group members talking to each other. I most often use a minimal 
+;version for the players group with no options specified ie. executed using:
+
+;["initialise",group player,[0],[0],[0],0,0] exec "ai_control.sqs"
+
+;Below I have detailed the options available in this script, and outlined how I intended them to be used. Please also have a
+;look at the example missions. They should give you an idea of what I intended better than words ever could.
+
+;Thanks to Rubble_Maker who was the inspiration for this script.
+;Any comments or questions about this script, e-mail ian@289gwr.fsnet.co.uk or IM me at the operation flashpoint editing
+;centre forums (www.ofpec.com).
+
+
+;Known Issues
+;------------
+
+;Chopper response to support call is unpredictable.
+;Artillery fire can be called when friendly troops are in the strike area.
+;Support radio messages are not seen if the calling group and supporting group are not on the same side (eg West and Guer).
+;Occasionally units may ignore move orders during retreats and try to engage the enemy.
+
+
+;Support
+;-------
+
+;Armoured support is called when any enemy armoured units (tanks, APCs or ships) are spotted.
+;The supporting group is directed to the location of the most known about hostile armoured unit and should be capable of
+;dealing with the armoured threat. ie. the group should consist of tanks, APCs, a specialised AT infantry squad, or air 
+;support. Take care if using choppers - they are very fickle. Sometimes they respond OK, sometimes only the group leader 
+;responds, and occasionally they don't respond at all.
+
+;Artillery support is called when four or more hostile infantry units are spotted, and all these units are outwith a radius 
+;in which it would be dangerous to call an artillery strike. This radius is centred on the leader of the AI group and it is 
+;possible that some group members, or another friendly squad may be in the strike zone. This is a problem I know about, but 
+;am willing to live with, as there is no easy way to check the distance of every side member from every opposition side 
+;member. Worth noting is that artillery accuracy will increase if the target remains stationary - if you come under AI 
+;artillery fire you should definitely think about moving somewhere else! You should also realise that the artillery support
+;group doesn't actually do anything (due to the lack of indirect fire options in OFP), they are just required to give the
+;player a chance to eliminate the artillery support. If you want artillery to be constantly available simply put the support
+;units somewhere safe. Also note that the artillery units must be able to satisfy the condition : canfire unit = true
+;Hence placing gamelogics or objects will not work - I usually use mortar soldiers or grenadiers.
+
+;Ground support is called when the total number of enemy infantry contacts is greater than or equal to the number of units in
+;the AI squad. You can change this so that support is called regardless of the number of contacts by removing the line :
+;? ((_badguys - _badtanks) < count units group _unit) : goto "next" 
+;from the 'call_ground' subsection. This is particularly useful for black-op and rambo style missions where the player is 
+;solo. Up to three support groups can be specified, with the second not being called until all members of the first are 
+;incapacitated, and the third not called until the second is eliminated. It is usually preferable to specify only one group,
+;but have the support group running the AI script with its own support group etc. This can lead to chain reaction and result
+;in an intense firefight :) Small groups of infantry and light armour (eg APCs) are the best units to use for ground support,
+;although any type may be utilised.
+
+;A good tip for setting up support groups is to set them on cyclic waypoint routes. When a group is finished supporting it 
+;will then return to whatever it was doing before.
+;eg. a patrol around a base may be called if an enemy is spotted lurking nearby, but if they find nothing at the reported 
+;location they will go back on patrol.
+
+
+;Flaring
+;-------
+
+;If flaring is made available (and it is dark), the first time an enemy unit is spotted the AI group will attempt to flare. 
+;If the group contains a grenadier he will be used to fire the flare, otherwise artillery units may be utilised. If neither
+;grenadier or artillery is available flaring cannot be carried out. Flaring should be enabled only where the AI group is at
+;a disadvantage fighting in the dark (eg. they do not have any NV capability).
+
+
+;Retreating
+;----------
+
+;If available, a group will retreat if the total number of enemy spotted is greater than or equal to twice the total number
+;of friendly troops in the area, and no additional relevant support is available. For retreating to work correctly a trigger
+;specifying friendly units must be set up as follows:
+
+;	East/West/Resistance present (whichever side is using Improved AI)
+;	Single
+;	Size and shape to cover the entire mission area
+;	Condition : this
+;	On Activation : eastunits/westunits/guerunits = thislist (whichever is appropriate)
+
+;Note that if you are using the AI script for both sides then this trigger should already be set up.
+;The group will retreat 150m away from the most known enemy in a staggered formation (if there are four or more group members)
+;or as a complete group. If retreating is enabled for the players group you should place empty markers called 'retreatmarker'
+;and 'playermarker' and a gamelogic called 'retreatlogic' on the map. 
+;Once a group has retreated they will hold position for up to two minutes before deciding what action to take (eg. retreat 
+;again). You should not enable retreating for a group when it is likely to be largely outnumbered from the 
+;start - such a group will always be in retreat. 
+
+
+;Resistance
+;----------
+
+;Resistance units are set as friendly to west/hostile to east by default. The alligence of resistance units may be changed
+;by altering the following lines:
+
+;To make resistance friendly to east/hostile to west:
+
+;#west
+;_enemy = eastunits + guerunits
+;_friend = westunits
+;#east
+;_enemy = westunits
+;_friend = eastunits + guerunits
+;#guer
+;_enemy = westunits
+;_friend = guerunits + eastunits
+
+
+;To make resistance hostile to east and west:
+
+;#west
+;_enemy = eastunits + guerunits
+;_friend = westunits
+;#east
+;_enemy = westunits + guerunits
+;_friend = eastunits
+;#guer
+;_enemy = eastunits + westunits
+;_friend = guerunits
+
+
+;To make resistance friendly to east and west:
+
+;#west
+;_enemy = eastunits
+;_friend = westunits + guerunits
+;#east
+;_enemy = westunits
+;_friend = eastunits + guerunits
+;#guer
+;_enemy = []
+;_friend = guerunits + westunits + eastunits
+
+;Make sure your script matches your intel screen, otherwise some unusual behaviour may result.

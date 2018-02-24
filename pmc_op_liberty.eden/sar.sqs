@@ -1,0 +1,138 @@
+; ##############################################################################
+;
+; Special Air Rescue script. To make SAR team appear, disembark and move into
+; the downed blackhawk. activated by user radio 0-0-1 command.
+;
+; ##############################################################################
+
+;
+; players radio call to HQ
+;
+leader assault1 sideradio "Rsecureforsar";
+~15
+
+;
+; hq replies SAR package on way
+;
+PAPABEAR sideradio "Rsaronway";
+
+;
+; move sar1 chopper into the downed helo.
+;
+sar1 move getpos helo;
+@unitready sar1;
+
+sar1 land "land";
+
+;
+; wait until the helo is 1.5meters off the ground
+;
+#sarloop
+~.2
+_hx=getpos vehicle sar1 select 2;
+
+?(_hx > 2): goto "sarloop";
+
+;
+; set the helo for zero altitude
+;
+sar1 flyinheight 0;
+
+act="eject";
+
+"unassignvehicle _x" foreach units sar2;
+
+;
+; get ALL the assault team members out of the helo
+;
+_listunits = units sar2
+
+_A = 0
+_B = count _listunits
+#KEEPSENDING
+
+(_listunits select _A) action [act,sar1];
+_A=_A+1
+~0.2
+?_B >_A:goto "KEEPSENDING"
+
+;
+; get the spec ops off the helo
+;
+unassignvehicle seal1
+seal1 action [act,sar1];
+
+;
+; move sar bird back to west base
+;
+sar1 flyinheight 50;
+sar1 move getpos WestBase;
+
+;
+; run the demolition script for the demo guy
+;
+[] exec "demol.sqs";
+
+;
+; move sar squad into the crash site
+;
+sar2 setbehaviour "aware";
+sar2 setcombatmode "yellow";
+leader sar2 move getpos helo;
+
+if (pmcdb == 1) then {hint "okay into the SAR loop... should read next: SAR FORCES AT THE CRASH SITE. OVER.";};
+
+;
+; timer if the sar guys fuck up
+;
+_tmr=0;
+
+;
+; loop until sar squad is on the crash site
+;
+#SarAction
+~1
+_tmr=_tmr+1
+?(leader sar2 distance helo > 20 AND _tmr < 600): goto "SarAction";
+?(count units sar2 == 0): goto "SAR_Team_Failed";
+
+;
+; radio in
+;
+leader sar2 sideradio "Rsaronlocation";
+
+;
+; you secured the site until SAR arrived, good job.
+;
+"4" objstatus "DONE";
+
+if (pmcdb == 1) then {hint "sarloop finished, wait 30sec for extract call.";};
+~60
+
+;
+; sar squad is done its business
+;
+leader sar2 sideradio "Rsardone";
+~10
+
+_sarguy1 = (units sar2) select 1;
+_sarguy2 = (units sar2) select 2;
+
+if (alive _sarguy1) then {[_sarguy1,flyer] exec "sardrag.sqs";};
+if (alive _sarguy2) then {[_sarguy2,gunman] exec "sardrag.sqs";};
+
+#SAR_Team_Failed
+;
+; mission end starts
+;
+PAPABEAR sideradio "Rextractioncoming"
+"5" objstatus "DONE";
+"6" objstatus "Active";
+
+leader assault2 move getmarkerpos "start";
+leader sar2 move getmarkerpos "start";
+
+extractor setfuel 1;
+gunship setfuel 1;
+
+exit

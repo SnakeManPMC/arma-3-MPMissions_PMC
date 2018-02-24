@@ -1,0 +1,43 @@
+_team = _this select 0;
+_helo = _this select 1;
+
+_helo sideradio "Rofficers";
+
+"_x assignascargo helo1" foreach units _team;
+"[_x] ordergetin true" foreach units _team;
+
+;
+; get people out
+;
+_helo land "land";
+
+#landing
+~.5
+
+_z = getpos vehicle _helo select 2;
+
+;
+; loop until helo height is 2 meters.
+;
+?(_z > 2): goto "landing"
+
+_helo flyinheight 0;
+
+
+;
+; wait until whole squad is on board.
+;
+_A = 0;
+
+#WAITING
+_listunits = units _team;
+_B = count _listunits
+~1
+?(_listunits select _A in _helo): _A=_A+1
+?!(alive helo1): exit
+?(_B > _A): goto "WAITING"
+
+_helo flyinheight 50;
+_helo sideradio "Rdustoff";
+
+exit

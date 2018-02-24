@@ -1,0 +1,23 @@
+
+eastscore=0;
+westscore=0;
+
+westp=0;
+eastp=0;
+
+#Loop
+~60
+
+if (eastp==1 && westp==0) then { eastscore = eastscore + 1 };
+if (westp==1 && eastp==0) then { westscore = westscore + 1 };
+
+publicvariable "eastscore";
+publicvariable "westscore";
+
+hint format["eastscore: %1\nwestscore: %2",eastscore,westscore];
+
+if (eastscore < 20 || westscore < 20) then { goto "Loop"; };
+
+mcomplete=true;
+
+exit

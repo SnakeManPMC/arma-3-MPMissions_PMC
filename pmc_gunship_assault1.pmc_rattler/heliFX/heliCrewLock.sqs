@@ -1,0 +1,19 @@
+_heli = _this
+?(locked _heli): exit
+#loop1
+?(!alive _heli): goto "end"
+?(vehicle player == _heli): goto "inheli"
+~5
+goto "loop1"
+#inheli
+?(player == driver _heli || player == gunner _heli): goto "increw"
+~5
+goto "inheli"
+#increw
+if ((player == driver _heli || player == gunner _heli) && (getPos _heli select 2) > 4) then {_heli lock true} else {_heli lock false}
+~1
+?(player == driver _heli || player == gunner _heli): goto "increw"
+_heli lock false
+goto "loop1"
+#end
+exit

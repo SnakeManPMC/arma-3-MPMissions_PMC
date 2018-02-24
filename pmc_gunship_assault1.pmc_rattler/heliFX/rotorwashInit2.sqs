@@ -1,0 +1,45 @@
+_spinupTime = 15
+_heli = _this
+_logic = "EmptyDetector" camCreate [0,0,0]
+~(random 1)
+
+?(!alive _heli): goto "end"
+?(isEngineOn _heli): goto "flying"
+
+#cold
+~1
+?(!alive _heli): goto "end"
+?(isEngineOn _heli): goto "spinUpStart"
+goto "cold"
+
+#spinUpStart
+_i = 0
+#spinUpLoop
+?(getPos _heli select 2 < 40 AND _i > 0): [_heli,_logic,_i,_spinupTime] exec "heliFX\rotorwashCalc.sqs"
+~1
+_i = _i + 1
+?(isEngineOn _heli AND _i < _spinUpTime): goto "spinUpLoop"
+?(!isEngineOn _heli): goto "spinDownLoop"
+goto "flying"
+
+#spinDownStart
+_i = _spinUpTime
+#spinDownLoop
+?(getPos _heli select 2 < 40 AND _i > 0): [_heli,_logic,_i,_spinupTime] exec "heliFX\rotorwashCalc.sqs"
+~1
+_i = _i - 1
+?(!isEngineOn _heli AND _i > 0): goto "spinDownLoop"
+?(isEngineOn _heli): goto "spinUpLoop"
+goto "cold"
+
+#flying
+_i = _spinUpTime
+?(getPos _heli select 2 < 40): [_heli,_logic,_i,_spinupTime] exec "heliFX\rotorwashCalc.sqs"
+~1
+?(!alive _heli): goto "end"
+?(isEngineOn _heli): goto "flying"
+goto "spinDownStart"
+
+#end
+deleteVehicle _logic
+exit

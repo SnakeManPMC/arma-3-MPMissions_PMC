@@ -1,0 +1,98 @@
+_helo = _this select 0;
+_team1 = _this select 1;
+_team2 = _this select 2;
+
+
+;
+; land and get the crew out from the SAR bird
+;
+sar1 land "land";
+
+;
+; chinook working as extraction helo
+;
+_helo land "land";
+
+_helo sideradio "Rlandextract";
+
+#landing
+~.5
+
+_z = getpos vehicle _helo select 2;
+
+;
+; loop until helo height is 2 meters.
+;
+?(_z > 2): goto "landing"
+
+_helo flyinheight 0;
+
+;
+; assault1 assault team into the chinook
+;
+"_x assignascargo _helo" foreach units _team1
+"[_x] ordergetin true" foreach units _team1
+
+;
+; assault2 team into the chinook
+;
+"_x assignascargo _helo" foreach units _team2
+"[_x] ordergetin true" foreach units _team2
+
+
+;
+; wait until whole assault1 is on board.
+;
+_A = 0;
+_B = 0;
+
+#WAITING0
+_listunits = units _team1;
+_B = count _listunits
+~.2
+?(_listunits select _A in _helo): _A=_A+1
+?(_B > _A): goto "WAITING0"
+
+?(_B > 0): leader _team1 sideradio "Rassault1extract";
+
+;
+; wait until whole assault2 is on board.
+;
+_A = 0;
+_B = 0;
+
+#WAITING1
+_listunits = units _team2;
+_B = count _listunits
+~.2
+?(_listunits select _A in _helo): _A=_A+1
+?(_B > _A): goto "WAITING1"
+
+?(_B > 0): leader _team2 sideradio "Rsar2extract";
+
+
+
+_helo flyinheight 50;
+
+_helo sideradio "Rdustoff";
+
+
+group M1Tanks setbehaviour "safe";
+group M1Tanks setcombatmode "yellow";
+group M1Tanks setspeedmode "full";
+group M1Tanks move getpos WestBase
+
+group Apache1 setbehaviour "safe";
+group Apache1 setcombatmode "yellow";
+group Apache1 move getpos WestBase
+
+group Apache2 setbehaviour "safe";
+group Apache2 setcombatmode "yellow";
+group Apache2 move getpos WestBase
+
+assault2 setbehaviour "aware";
+assault2 setcombatmode "green";
+assault2 setspeedmode "normal";
+leader assault2 move getpos WestBase;
+
+exit

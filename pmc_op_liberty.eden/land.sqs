@@ -1,0 +1,37 @@
+flyer sideradio "Rlzinsight"
+
+helo land "land";
+
+;
+; wait until the helo is 1.5meters off the ground
+;
+#loop
+~.2
+_hi=getpos vehicle helo select 2;
+?(_hi > 1.5): goto "loop";
+
+;
+; set the helo for zero altitude
+;
+helo flyinheight 0;
+
+act="eject";
+
+;
+; get ALL the assault team members out of the helo
+;
+_listunits = units assault1
+
+_A = 0
+_B = count _listunits
+#KEEPSENDING
+
+(_listunits select _A) action [act,helo];
+(_listunits select _A) sidechat "I'M OUT!";
+_A=_A+1
+~0.3
+?_B >_A:goto "KEEPSENDING"
+
+helo flyinheight 50;
+
+exit

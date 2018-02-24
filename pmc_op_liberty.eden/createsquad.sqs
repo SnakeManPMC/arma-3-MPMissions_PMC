@@ -1,0 +1,106 @@
+;----------------------------------------------------------------------------------------------------
+;CreateSquad.sqs v 1.00
+;By Backoff & DeaDMeaT Productions
+;
+;Create an entire squad.
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+?!(local Server): goto "end"
+CreateSquadRunning = True
+_squad = _this select 0
+_pos = _this select 1
+_group = _this select 2
+_group2 = _this select 3
+_vclmode = _this select 4
+_squadvcl = []
+_squadsld = []
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+_itemcount = 0
+#CreateSquad
+	_item = _squad select _itemcount
+	_unitClass = _item select 0
+	_unitCount = _item select 1
+	_unitType = _item select 2
+	
+	goto _unitType
+;----------------------------------------------------------------------------------------------------
+	
+;----------------------------------------------------------------------------------------------------
+	#sld
+		_unitInit = _item select 3
+		_unitSkill = _item select 4
+		_unitRank = _item select 5
+		_count = 0
+		#CreateUnit
+			_unitClass createUnit [_pos, _group, _unitInit, _unitSkill, _unitRank]
+			_newsld = (Units _group) select 1
+			_squadsld = _squadsld + [_newsld]
+			[_newsld] join grpNull
+			_count = _count + 1
+			~0.1
+		?(_count < _unitCount): goto "CreateUnit"
+		_itemcount = _itemcount + 1
+	goto "endloop"
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------	
+	#vcl
+		_count = 0
+		#CreateVcl
+			[_unitClass] exec "vclclass.sqs"
+			~0.1
+			@!SetClassRunning
+			_vclPos = SetClass select 0
+			_vclCrew = SetClass select 1
+			_vcl = _unitClass createVehicle _pos
+			?(_vclmode == "empty"): goto "jumpcrew"			
+			_crewcount = 0
+			#createcrew
+				_sldClass = _vclCrew select _crewcount
+				_sldPos = _vclPos select _crewcount
+				_sldClass createUnit [_pos, _group2]
+				_newsld = (Units _group2) select 1
+				[_newsld] join grpNull
+				?(_sldPos == "C"): _newsld moveincommander _vcl
+				?(_sldPos == "D"): _newsld moveindriver _vcl
+				?(_sldPos == "G"): _newsld moveingunner _vcl
+				_crewcount = _crewcount + 1
+			?(_crewcount < count _vclCrew):Goto "createcrew"
+			_squadsld = _squadsld + crew _vcl
+			#jumpcrew
+			_squadvcl = _squadvcl + [_vcl]
+			_count = _count + 1
+			~0.1
+		?(_count < _unitCount):goto "createVcl"
+		_itemcount = _itemcount + 1
+	goto "endloop"
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------	
+#endloop
+?(_itemcount < count _squad): goto "CreateSquad"
+goto "end"
+;----------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------
+#end
+	 
+	
+	CreatedSquad = CreatedSquad + 1
+	NewSquad = _squadsld
+	NewVcl = _squadvcl
+	CreateSquadRunning = False
+;hint format["%1 - %2", count _squadvcl, count _squadsld]
+	_squadLeader = _squadsld select 0
+	_squadsld = _squadsld - [_squadleader]
+	_count = 0
+	#makegroup
+		_sld = _squadsld select _count
+		[_sld] join group _squadleader
+		_count = _count + 1
+	?(_count < count _squadsld) :goto "makegroup"
+Exit
+;----------------------------------------------------------------------------------------------------

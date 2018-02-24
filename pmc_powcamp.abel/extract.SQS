@@ -1,0 +1,41 @@
+_team = _this select 0;
+_helo = _this select 1;
+
+_team = units assault1 + units assault2;
+
+_helo sideradio "Rextract";
+
+;
+; get people out
+;
+_helo land "land";
+
+#landing
+~.5
+
+_z = getpos vehicle _helo select 2;
+
+;
+; loop until helo height is 2 meters.
+;
+?(_z > 2): goto "landing"
+
+_helo flyinheight 0;
+
+
+;
+; wait until whole squad is on board.
+;
+_A = 0;
+
+#WAITING
+_listunits = _team;
+_B = count _listunits
+~.1
+?(_listunits select _A in _helo): _A=_A+1
+?(_B > _A): goto "WAITING"
+
+_helo flyinheight 50;
+_helo sideradio "Rdustoff";
+
+exit

@@ -1,0 +1,21 @@
+_veh = _this select 0;
+_huoh = _this select 1;
+_maxTime = _huoh / 2;
+_startTime = time
+_relPos = [0,0,0];
+
+~0.5
+drop ["\ca\data\cl_fire", "", "Billboard", 3, 3, _relPos, [0,0,1], 0, 0.0035, 0.003, 0.1, [0,20], [[1,1,1,0], [1,1,1,1], [1,1,1,0]], [0], 0, 0, "", "", _veh]
+
+#loop
+?(time - _startTime > _maxTime OR isNull _veh): goto "end"
+_rand1 = random(1)
+_rand2 = random(1)
+_rand3 = random(1)
+drop ["\ca\data\cl_fire", "", "Billboard", 3, (_rand1 + _rand2 + _rand3), _relPos, [((_rand3 * 2) - 1),((_rand1 * 2) - 1),1.5], 3, 1.1 , 1 , 0.1 , [random(1)+2,0.1] ,[[1,1,1,0.7],[0,0,0,0]] , [0] , 0.5 , 0.4, "" , "" , _veh]
+?((_rand2 * 5) < 1.5): drop ["\ca\data\cl_fire", "", "Billboard", 6, (_rand2 + 5), _relPos, [(_rand1 - 0.5),(_rand2 - 0.5),2.5], 3, 0.185 , 0.155 , 0.1 , [0.1] ,[[1,1,1,0.8],[1,1,1,0]] , [0] , 0.2 , 0.6 , "" , "" , _veh]
+~.2
+goto "loop"
+
+#end
+exit

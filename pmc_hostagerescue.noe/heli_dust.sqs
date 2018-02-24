@@ -1,0 +1,58 @@
+; Heli Dust script by Vektorboson
+; see _sensor and _calcH for above sea level calculation!
+; execute just
+; MyHeli exec "effects\heli_dust.sqs"
+
+_null = "scalar bool array string 0xe0ffffef"
+
+private ["_sensor"];
+
+_sensor = "EmptyDetector" createVehicle [0,0,0]
+_calcH = {private["_result"]; _sensor setpos [getpos _this select 0, getpos _this select 1, 0]; _result = getpos _sensor select 2; _result};
+
+?format["%1",HDSIN ] == _null: HDSIN = call {private["_i","_result"]; _result = []; _i = 0; while {_i < 50} do {_result = _result + [sin (7.2*_i)*15]; _i = _i+1;}; _result}
+?format["%1",HDCOS ] == _null: HDCOS = call {private["_i","_result"]; _result = []; _i = 0; while {_i < 50} do {_result = _result + [cos (7.2*_i)*15]; _i = _i + 1}; _result}
+
+; these are color prefabs! You may adjust or add some new if you like!
+
+HDCOLORGRASS  = [[0.35,0.35,0.3,0], [0.2, 0.2, 0.1, 0.5],[0.2, 0.27, 0.15, 0]]
+HDCOLORSAND   = [[0.35,0.35,0.3,0],[0.35,0.35,0.3,0],[0.6, 0.57, 0.5, 0.5],[0.5, 0.47, 0.4, 0]]
+HDCOLORDUST   = [[0.4,0.4,0.4,0],[0.6,0.6,0.6,0],[0.4,0.4,0.4,0.7], [0.65, 0.6, 0.5, 0]]
+HDCOLORDESERT = [[0.4,0.4,0.4,0],[0.6,0.6,0.6,0],[0.7,0.7,0.65,1], [0.65, 0.6, 0.5, 0]]
+HDCOLORWATER = [[0.8,0.8,0.9,0],[0.9,0.9,1,0.7],[0.8,0.8,0.9,0],[0.8,0.8,0.9,0]]
+HDCOLORNAM = [[ .4,.3, 0.2,0.2], [ .4,.3, .2,0.25], [.4,.3, .2, 0.3], [ .4, .3, .2, 0.1]]
+
+; color for this helictoper
+_icolor = HDCOLORGRASS
+
+_repeat = true
+_lifetime = 2
+_shape = "cl_basic"
+_color = _icolor
+
+; here comes all the visual part!
+
+#repeat
+@(getpos _this select 2) < 30 && speed _this < 120 && isEngineOn _this
+
+#loop
+_pos = getpos _this
+_x = _pos select 0
+_y = _pos select 1
+
+_i = 0
+#l1
+_vel = [HDSIN select _i, HDCOS select _i, 0]
+_size1 = random 2
+_size2 = random 3 + 3
+_size = [_size1, _size2]
+drop [_shape, "", "Billboard", _lifetime, _lifetime, [_x, _y, 0], _vel, 0, 0.2, 0.157, 0.001, _size, _color, [0], 0.1, 0.2, "", "", ""]
+_i = _i + 1
+?_i < 50: goto "l1"
+~0.01
+_color = _icolor
+_shape = "cl_basic"
+?abs(_this call _calcH) < 3: _color = HDCOLORWATER; _shape = "cl_water"
+?(getpos _this select 2) < 30 && speed _this < 120 && isEngineOn _this: goto "loop"
+
+?_repeat && alive _this : goto "repeat"

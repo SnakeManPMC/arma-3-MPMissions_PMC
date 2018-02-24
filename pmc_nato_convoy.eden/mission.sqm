@@ -1,0 +1,5936 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=274;
+	};
+	class MarkerIDProvider
+	{
+		nextID=3;
+	};
+	class Camera
+	{
+		pos[]={4456.1016,42.670864,11166.811};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Ui_F",
+	"CUP_WheeledVehicles_MTVR",
+	"CUP_Misc3_Config",
+	"CUP_Creatures_Military_USMC",
+	"CUP_Creatures_Military_USArmy",
+	"CUP_AirVehicles_AH64",
+	"CUP_AirVehicles_A10",
+	"CUP_Creatures_Military_NAPA",
+	"CUP_Creatures_Military_Russia",
+	"CUP_TrackedVehicles_T72",
+	"CUP_Creatures_Military_Chedaki",
+	"CUP_TrackedVehicles_BMP"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=12;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="CUP_WheeledVehicles_MTVR";
+			name="CUP_WheeledVehicles_MTVR";
+		};
+		class Item2
+		{
+			className="CUP_Misc3_Config";
+			name="CUP_Misc3_Config";
+		};
+		class Item3
+		{
+			className="CUP_Creatures_Military_USMC";
+			name="CUP_Creatures_Military_USMC";
+		};
+		class Item4
+		{
+			className="CUP_Creatures_Military_USArmy";
+			name="CUP_Creatures_Military_USArmy";
+		};
+		class Item5
+		{
+			className="CUP_AirVehicles_AH64";
+			name="CUP_AirVehicles_AH64";
+		};
+		class Item6
+		{
+			className="CUP_AirVehicles_A10";
+			name="CUP_AirVehicles_A10";
+		};
+		class Item7
+		{
+			className="CUP_Creatures_Military_NAPA";
+			name="CUP_Creatures_Military_NAPA";
+		};
+		class Item8
+		{
+			className="CUP_Creatures_Military_Russia";
+			name="CUP_Creatures_Military_Russia";
+		};
+		class Item9
+		{
+			className="CUP_TrackedVehicles_T72";
+			name="CUP_TrackedVehicles_T72";
+		};
+		class Item10
+		{
+			className="CUP_Creatures_Military_Chedaki";
+			name="CUP_Creatures_Military_Chedaki";
+		};
+		class Item11
+		{
+			className="CUP_TrackedVehicles_BMP";
+			name="CUP_TrackedVehicles_BMP";
+			author="Community Cupgrade Project";
+		};
+	};
+};
+randomSeed=9992285;
+class ScenarioData
+{
+	author="PMC Since 1984";
+};
+class Intro
+{
+	class Intel
+	{
+		startWind=0.1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="PMC NATO Convoy";
+		startWind=0.1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		month=7;
+		day=16;
+		hour=12;
+		minute=0;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+	class Entities
+	{
+		items=69;
+		class Item0
+		{
+			dataType="Marker";
+			position[]={4824.3745,24.66,11792.466};
+			name="air";
+			text="Air task";
+			type="mil_dot";
+			colorName="ColorGreen";
+			id=0;
+			atlOffset=-0.26227951;
+		};
+		class Item1
+		{
+			dataType="Marker";
+			position[]={4463.9546,17.009998,11206.19};
+			name="start";
+			text="Ground task";
+			type="mil_start";
+			id=1;
+			atlOffset=-0.40726089;
+		};
+		class Item2
+		{
+			dataType="Marker";
+			position[]={9493.3623,25.919998,1624.4866};
+			name="meet";
+			text="Meet";
+			type="mil_dot";
+			colorName="ColorBlue";
+			id=2;
+			atlOffset=0.027225494;
+		};
+		class Item3
+		{
+			dataType="Trigger";
+			position[]={9516.2432,25.919998,1602.2003};
+			class Attributes
+			{
+				text="at dude";
+				condition="leader assault1 distance dude1 < 50";
+				onActivation="leader assault1 sideradio ""Ratdude""; ""1"" objStatus ""DONE""; [dude1] join assault1;";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={0,10,15};
+			};
+			id=3;
+			type="EmptyDetector";
+			atlOffset=0.027225494;
+		};
+		class Item4
+		{
+			dataType="Trigger";
+			position[]={4886.2681,24.66,11725.504};
+			class Attributes
+			{
+				text="dude1 here";
+				condition="dude1 distance usa < 50";
+				onActivation="leader assault1 sideradio ""Rarrived""; arrived=true;";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={0,15,25};
+			};
+			id=4;
+			type="EmptyDetector";
+			atlOffset=-0.024812698;
+		};
+		class Item5
+		{
+			dataType="Trigger";
+			position[]={4905.0645,24.217878,11715.89};
+			class Attributes
+			{
+				text="END";
+				condition="mcomplete";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={0,15,25};
+				type="END1";
+			};
+			id=5;
+			type="EmptyDetector";
+			atlOffset=-0.40616989;
+		};
+		class Item6
+		{
+			dataType="Trigger";
+			position[]={4895.4424,24.66,11721.128};
+			class Attributes
+			{
+				text="HQ reply";
+				condition="arrived";
+				onActivation="PAPABEAR sideradio ""Rmcomplete""; ""2"" objstatus ""DONE""; mcomplete=true;";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={0,15,25};
+			};
+			id=6;
+			type="EmptyDetector";
+			atlOffset=-0.024812698;
+		};
+		class Item7
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4468.6621,19.803446,11197.32};
+				angles[]={0.07505025,2.5307274,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.2;
+				name="trk1";
+			};
+			id=7;
+			type="CUP_B_MTVR_USMC";
+		};
+		class Item8
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4856.7964,26.956076,11722.693};
+				angles[]={-0,4.712389,6.2641892};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=1;
+			};
+			id=8;
+			type="CUP_B_MTVR_Ammo_USMC";
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4863.5215,26.847334,11881.146};
+				angles[]={-0,4.712389,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=1;
+			};
+			id=9;
+			type="CUP_B_MTVR_Ammo_USMC";
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4876.1973,28.661617,11720.512};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				skill=0.2;
+				init="this setFlagTexture ""\ca\data\flag_usa_co.paa"";";
+				name="usa";
+			};
+			id=10;
+			type="FlagCarrierUSA";
+		};
+		class Item11
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=7;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4456.1016,17.672302,11191.86};
+						angles[]={6.2735181,0,0.056213856};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						init="assault1=group this; this moveindriver trk1;";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=12;
+					type="CUP_B_USMC_Officer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4461.1016,17.929735,11186.91};
+						angles[]={0.027708428,0,0.056213856};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						init="this moveincargo trk1;";
+						isPlayable=1;
+					};
+					id=13;
+					type="CUP_B_USMC_Soldier_GL";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4451.1016,17.366987,11186.91};
+						angles[]={0.027708428,0,0.056213856};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						init="this moveincargo trk1;";
+						isPlayable=1;
+					};
+					id=14;
+					type="CUP_B_USMC_Soldier_AT";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4466.1016,18.371969,11181.91};
+						angles[]={0.027708428,0,0.062386017};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						init="this moveincargo trk1;";
+						isPlayable=1;
+					};
+					id=15;
+					type="CUP_B_USMC_Soldier_AT";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4446.1016,17.093693,11181.91};
+						angles[]={0.0030099689,0,0.053940073};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						init="this moveincargo trk1;";
+						isPlayable=1;
+					};
+					id=16;
+					type="CUP_B_USMC_Soldier_AT";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4471.1016,18.822886,11176.91};
+						angles[]={0.027708428,0,0.062386017};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						init="this moveincargo trk1;";
+						isPlayable=1;
+					};
+					id=17;
+					type="CUP_B_USMC_Medic";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4441.1016,16.733171,11176.91};
+						angles[]={6.2711902,0,0.068881184};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						init="this moveincargo trk1;";
+						isPlayable=1;
+					};
+					id=18;
+					type="CUP_B_USMC_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=11;
+		};
+		class Item12
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4860.3853,24.726427,11759.421};
+						angles[]={-0,4.712389,6.2641892};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						name="helo1D";
+						isPlayable=1;
+					};
+					id=21;
+					type="CUP_B_US_Pilot";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4860.3853,24.726427,11759.421};
+						angles[]={-0,4.712389,6.2641892};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						name="helo1G";
+						isPlayable=1;
+					};
+					id=22;
+					type="CUP_B_US_Pilot";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=2;
+				};
+				class Links
+				{
+					items=2;
+					class Item0
+					{
+						linkID=0;
+						item0=21;
+						item1=20;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=22;
+						item1=20;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=19;
+		};
+		class Item13
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4860.3921,24.67063,11759.345};
+				angles[]={-0,4.712389,6.2641892};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				skill=1;
+				rank="LIEUTENANT";
+				init="gunships1=group this;";
+				name="helo1";
+			};
+			id=20;
+			type="CUP_B_AH64D_MR_USA";
+		};
+		class Item14
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4860.4175,24.725811,11810.643};
+						angles[]={-0,4.712389,6.2641892};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						name="helo2D";
+						isPlayable=1;
+					};
+					id=25;
+					type="CUP_B_US_Pilot";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4860.4175,24.725811,11810.643};
+						angles[]={-0,4.712389,6.2641892};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						name="helo2G";
+						isPlayable=1;
+					};
+					id=26;
+					type="CUP_B_US_Pilot";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=2;
+				};
+				class Links
+				{
+					items=2;
+					class Item0
+					{
+						linkID=0;
+						item0=25;
+						item1=24;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=26;
+						item1=24;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=23;
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4860.4243,24.670013,11810.566};
+				angles[]={-0,4.712389,6.2641892};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				skill=1;
+				rank="LIEUTENANT";
+				init="gunships2=group this;";
+				name="helo2";
+			};
+			id=24;
+			type="CUP_B_AH64D_MR_USA";
+		};
+		class Item16
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4771.6831,24.923717,11992.558};
+						angles[]={-0,3.1415927,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						name="a101D";
+						isPlayable=1;
+					};
+					id=29;
+					type="CUP_B_US_Pilot";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=29;
+						item1=28;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=27;
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4771.6831,25.849422,11992.53};
+				angles[]={-0,3.1415927,0};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				skill=1;
+				rank="LIEUTENANT";
+				init="a10s1=group this;";
+				name="a101";
+			};
+			id=28;
+			type="CUP_B_A10_CAS_USA";
+		};
+		class Item18
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9500.3887,25.97201,1607.5853};
+						angles[]={0.016995618,0,6.2661901};
+					};
+					side="Independent";
+					flags=6;
+					class Attributes
+					{
+						skill=0.60608798;
+						rank="LIEUTENANT";
+						init="this setCombatMode ""safe"";";
+						name="dude1";
+					};
+					id=31;
+					type="CUP_I_GUE_Soldier_AKSU";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=30;
+		};
+		class Item19
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8805.3379,89.526344,2786.9199};
+						angles[]={6.223259,0,6.2591896};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=34;
+					type="CUP_O_RU_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8805.3379,89.526344,2786.9199};
+						angles[]={6.223259,0,6.2591896};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=35;
+					type="CUP_O_RU_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8805.3379,89.526344,2786.9199};
+						angles[]={6.223259,0,6.2591896};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=36;
+					type="CUP_O_RU_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8828.3848,89.465706,2784.8025};
+						angles[]={6.2073336,0,0.027993103};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=38;
+					type="CUP_O_RU_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8828.3848,89.465706,2784.8025};
+						angles[]={6.2073336,0,0.027993103};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=39;
+					type="CUP_O_RU_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8828.3848,89.465706,2784.8025};
+						angles[]={6.2073336,0,0.027993103};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=40;
+					type="CUP_O_RU_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8783.3848,88.265671,2754.8025};
+						angles[]={6.2641892,0,6.278182};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=42;
+					type="CUP_O_RU_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8783.3848,88.265671,2754.8025};
+						angles[]={6.2641892,0,6.278182};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=43;
+					type="CUP_O_RU_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8783.3848,88.265671,2754.8025};
+						angles[]={6.2641892,0,6.278182};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=44;
+					type="CUP_O_RU_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8850.3848,88.298607,2752.8025};
+						angles[]={6.2581916,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=46;
+					type="CUP_O_RU_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8850.3848,88.298607,2752.8025};
+						angles[]={6.2581916,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=47;
+					type="CUP_O_RU_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8850.3848,88.298607,2752.8025};
+						angles[]={6.2581916,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=48;
+					type="CUP_O_RU_Crew";
+				};
+				class Item12
+				{
+					dataType="Waypoint";
+					position[]={8798.2109,92.408356,2806.3203};
+					placement=200;
+					combatMode="RED";
+					formation="LINE";
+					speed="NORMAL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=49;
+					type="Move";
+					atlOffset=1.3480072;
+				};
+				class Item13
+				{
+					dataType="Waypoint";
+					position[]={8657.75,111.95586,3144.552};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=50;
+					type="Move";
+					atlOffset=3.051651;
+				};
+				class Item14
+				{
+					dataType="Waypoint";
+					position[]={8798.2715,92.21373,2804.9133};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=51;
+					atlOffset=1.2592316;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=12;
+				};
+				class Links
+				{
+					items=12;
+					class Item0
+					{
+						linkID=0;
+						item0=34;
+						item1=33;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=35;
+						item1=33;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=36;
+						item1=33;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=38;
+						item1=37;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=39;
+						item1=37;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=40;
+						item1=37;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=42;
+						item1=41;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=43;
+						item1=41;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=44;
+						item1=41;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=46;
+						item1=45;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=47;
+						item1=45;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=48;
+						item1=45;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=32;
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8805.3848,91.481949,2786.7524};
+				angles[]={6.223259,0,6.2591896};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333299;
+				rank="CAPTAIN";
+				init="rustanks1=group this;";
+			};
+			id=33;
+			type="CUP_O_T72_RU";
+		};
+		class Item21
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8828.3828,91.420334,2784.6116};
+				angles[]={6.2073336,0,0.027993103};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=37;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0007019043;
+		};
+		class Item22
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8783.3301,90.218811,2754.6021};
+				angles[]={6.2641892,0,6.278182};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=41;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0043487549;
+		};
+		class Item23
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8850.3184,90.250458,2752.5903};
+				angles[]={6.2581916,0,0};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333299;
+				rank="CORPORAL";
+			};
+			id=45;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0044021606;
+		};
+		class Item24
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6625.1079,77.674309,5492.3555};
+						angles[]={0.040976327,0,0.036982764};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=54;
+					type="CUP_O_RU_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6625.1079,77.674309,5492.3555};
+						angles[]={0.040976327,0,0.036982764};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=55;
+					type="CUP_O_RU_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6625.1079,77.674309,5492.3555};
+						angles[]={0.040976327,0,0.036982764};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=56;
+					type="CUP_O_RU_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6648.0356,78.578415,5490.4355};
+						angles[]={0.042972058,0,0.032984886};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=58;
+					type="CUP_O_RU_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6648.0356,78.578415,5490.4355};
+						angles[]={0.042972058,0,0.032984886};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=59;
+					type="CUP_O_RU_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6648.0356,78.578415,5490.4355};
+						angles[]={0.042972058,0,0.032984886};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=60;
+					type="CUP_O_RU_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6603.0356,77.069748,5460.4355};
+						angles[]={0.0039967569,0,0.067892917};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=62;
+					type="CUP_O_RU_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6603.0356,77.069748,5460.4355};
+						angles[]={0.0039967569,0,0.067892917};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=63;
+					type="CUP_O_RU_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6603.0356,77.069748,5460.4355};
+						angles[]={0.0039967569,0,0.067892917};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=64;
+					type="CUP_O_RU_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6670.0356,80.498688,5458.4355};
+						angles[]={0.0059901671,0,0.048958585};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=66;
+					type="CUP_O_RU_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6670.0356,80.498688,5458.4355};
+						angles[]={0.0059901671,0,0.048958585};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=67;
+					type="CUP_O_RU_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6670.0356,80.498688,5458.4355};
+						angles[]={0.0059901671,0,0.048958585};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=68;
+					type="CUP_O_RU_Crew";
+				};
+				class Item12
+				{
+					dataType="Waypoint";
+					position[]={6618.1001,76.730003,5511.5586};
+					placement=200;
+					combatMode="RED";
+					formation="LINE";
+					speed="NORMAL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=69;
+					type="Move";
+					atlOffset=0.098510742;
+				};
+				class Item13
+				{
+					dataType="Waypoint";
+					position[]={5933.2983,95.336426,5944.9883};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=70;
+					type="Move";
+					atlOffset=1.6788788;
+				};
+				class Item14
+				{
+					dataType="Waypoint";
+					position[]={6618.1606,76.767197,5510.1514};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=71;
+					atlOffset=0.083686829;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=12;
+				};
+				class Links
+				{
+					items=12;
+					class Item0
+					{
+						linkID=0;
+						item0=54;
+						item1=53;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=55;
+						item1=53;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=56;
+						item1=53;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=58;
+						item1=57;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=59;
+						item1=57;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=60;
+						item1=57;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=62;
+						item1=61;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=63;
+						item1=61;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=64;
+						item1=61;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=66;
+						item1=65;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=67;
+						item1=65;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=68;
+						item1=65;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=52;
+		};
+		class Item25
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6625.0356,79.631012,5492.3857};
+				angles[]={0.040976327,0,0.036982764};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333299;
+				rank="CAPTAIN";
+				init="rustanks2=group this;";
+			};
+			id=53;
+			type="CUP_O_T72_RU";
+		};
+		class Item26
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6647.9106,80.532768,5490.458};
+				angles[]={0.042972058,0,0.032984886};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=57;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.00096130371;
+		};
+		class Item27
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6602.9712,79.026566,5460.4697};
+				angles[]={0.0039967569,0,0.067892917};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=61;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0026626587;
+		};
+		class Item28
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6669.9575,82.454918,5458.4717};
+				angles[]={0.0059901671,0,0.048958585};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333299;
+				rank="CORPORAL";
+			};
+			id=65;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0015182495;
+		};
+		class Item29
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4828.7681,159.00069,7110.3447};
+						angles[]={6.2822089,0,0.0009765625};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=74;
+					type="CUP_O_RU_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4828.7681,159.00069,7110.3447};
+						angles[]={6.2822089,0,0.0009765625};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=75;
+					type="CUP_O_RU_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4828.7681,159.00069,7110.3447};
+						angles[]={6.2822089,0,0.0009765625};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=76;
+					type="CUP_O_RU_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4851.7661,158.99911,7108.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=78;
+					type="CUP_O_RU_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4851.7661,158.99911,7108.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=79;
+					type="CUP_O_RU_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4851.7661,158.99911,7108.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=80;
+					type="CUP_O_RU_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4806.7661,158.99911,7078.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=82;
+					type="CUP_O_RU_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4806.7661,158.99911,7078.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=83;
+					type="CUP_O_RU_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4806.7661,158.99911,7078.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=84;
+					type="CUP_O_RU_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4873.7661,158.99911,7076.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=86;
+					type="CUP_O_RU_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4873.7661,158.99911,7076.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=87;
+					type="CUP_O_RU_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4873.7661,158.99911,7076.3428};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=88;
+					type="CUP_O_RU_Crew";
+				};
+				class Item12
+				{
+					dataType="Waypoint";
+					position[]={4821.6899,158.59523,7129.6299};
+					placement=200;
+					combatMode="RED";
+					formation="LINE";
+					speed="NORMAL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=89;
+					type="Move";
+					atlOffset=-0.29556274;
+				};
+				class Item13
+				{
+					dataType="Waypoint";
+					position[]={4589.2271,57.552128,8699.1025};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=90;
+					type="Move";
+					atlOffset=-2.8265877;
+				};
+				class Item14
+				{
+					dataType="Waypoint";
+					position[]={4821.7505,158.52199,7128.2227};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=91;
+					atlOffset=-0.38049316;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=12;
+				};
+				class Links
+				{
+					items=12;
+					class Item0
+					{
+						linkID=0;
+						item0=74;
+						item1=73;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=75;
+						item1=73;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=76;
+						item1=73;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=78;
+						item1=77;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=79;
+						item1=77;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=80;
+						item1=77;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=82;
+						item1=81;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=83;
+						item1=81;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=84;
+						item1=81;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=86;
+						item1=85;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=87;
+						item1=85;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=88;
+						item1=85;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=72;
+		};
+		class Item30
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4828.7661,160.96039,7110.293};
+				angles[]={6.2822089,0,0.0009765625};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333299;
+				rank="CAPTAIN";
+				init="rustanks3=group this;";
+			};
+			id=73;
+			type="CUP_O_T72_RU";
+		};
+		class Item31
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4851.7661,160.95882,7108.293};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=77;
+			type="CUP_O_T72_RU";
+		};
+		class Item32
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4806.7681,160.95882,7078.293};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=81;
+			type="CUP_O_T72_RU";
+		};
+		class Item33
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4873.7778,160.9585,7076.2598};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333299;
+				rank="CORPORAL";
+			};
+			id=85;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.00032043457;
+		};
+		class Item34
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7515.7866,153.97733,4119.3931};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=94;
+					type="CUP_O_RU_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7515.7866,153.97733,4119.3931};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=95;
+					type="CUP_O_RU_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7515.7866,153.97733,4119.3931};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=96;
+					type="CUP_O_RU_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7538.7866,153.97733,4117.3931};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=98;
+					type="CUP_O_RU_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7538.7866,153.97733,4117.3931};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=99;
+					type="CUP_O_RU_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7538.7866,153.97733,4117.3931};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=100;
+					type="CUP_O_RU_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7493.7866,153.98422,4087.3931};
+						angles[]={0.043970551,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=102;
+					type="CUP_O_RU_Crew";
+					atlOffset=-1.5258789e-005;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7493.7866,153.98422,4087.3931};
+						angles[]={0.043970551,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=103;
+					type="CUP_O_RU_Crew";
+					atlOffset=-1.5258789e-005;
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7493.7866,153.98422,4087.3931};
+						angles[]={0.043970551,0,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=104;
+					type="CUP_O_RU_Crew";
+					atlOffset=-1.5258789e-005;
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7560.7866,153.97733,4085.3931};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=106;
+					type="CUP_O_RU_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7560.7866,153.97733,4085.3931};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=107;
+					type="CUP_O_RU_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7560.7866,153.97733,4085.3931};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=108;
+					type="CUP_O_RU_Crew";
+				};
+				class Item12
+				{
+					dataType="Waypoint";
+					position[]={7515.7866,153.98999,4142.3232};
+					placement=200;
+					combatMode="RED";
+					formation="LINE";
+					speed="NORMAL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=109;
+					type="Move";
+					atlOffset=0.014099121;
+				};
+				class Item13
+				{
+					dataType="Waypoint";
+					position[]={7615.3804,107.68305,4832.8174};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=110;
+					type="Move";
+					atlOffset=-2.0421143;
+				};
+				class Item14
+				{
+					dataType="Waypoint";
+					position[]={7515.7871,153.98999,4142.3232};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=111;
+					atlOffset=0.014099121;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=12;
+				};
+				class Links
+				{
+					items=12;
+					class Item0
+					{
+						linkID=0;
+						item0=94;
+						item1=93;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=95;
+						item1=93;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=96;
+						item1=93;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=98;
+						item1=97;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=99;
+						item1=97;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=100;
+						item1=97;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=102;
+						item1=101;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=103;
+						item1=101;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=104;
+						item1=101;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=106;
+						item1=105;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=107;
+						item1=105;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=108;
+						item1=105;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=92;
+		};
+		class Item35
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7515.7866,155.93703,4119.3433};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333299;
+				rank="CAPTAIN";
+				init="rustanks4=group this;";
+			};
+			id=93;
+			type="CUP_O_T72_RU";
+		};
+		class Item36
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7538.7866,155.93703,4117.3433};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=97;
+			type="CUP_O_T72_RU";
+		};
+		class Item37
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7493.7866,155.94392,4087.3433};
+				angles[]={0.043970551,0,0};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=101;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0018920898;
+		};
+		class Item38
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7560.7866,155.93703,4085.3433};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333299;
+				rank="CORPORAL";
+			};
+			id=105;
+			type="CUP_O_T72_RU";
+		};
+		class Item39
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8415.0049,127.04295,3650.4351};
+						angles[]={6.2641954,0,6.2549949};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=114;
+					type="CUP_O_RU_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8415.0049,127.04295,3650.4351};
+						angles[]={6.2641954,0,6.2549949};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=115;
+					type="CUP_O_RU_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8415.0049,127.04295,3650.4351};
+						angles[]={6.2641954,0,6.2549949};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=116;
+					type="CUP_O_RU_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8438.0605,126.37099,3648.3979};
+						angles[]={6.2607903,0,6.2560334};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=118;
+					type="CUP_O_RU_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8438.0605,126.37099,3648.3979};
+						angles[]={6.2607903,0,6.2560334};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=119;
+					type="CUP_O_RU_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8438.0605,126.37099,3648.3979};
+						angles[]={6.2607903,0,6.2560334};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=120;
+					type="CUP_O_RU_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8393.0605,125.63985,3618.3979};
+						angles[]={6.2482009,0,6.2731848};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=122;
+					type="CUP_O_RU_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8393.0605,125.63985,3618.3979};
+						angles[]={6.2482009,0,6.2731848};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=123;
+					type="CUP_O_RU_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8393.0605,125.63985,3618.3979};
+						angles[]={6.2482009,0,6.2731848};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=124;
+					type="CUP_O_RU_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8460.0605,125.35461,3616.3979};
+						angles[]={0.0020426274,0,6.2630262};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=126;
+					type="CUP_O_RU_Crew";
+					atlOffset=-7.6293945e-006;
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8460.0605,125.35461,3616.3979};
+						angles[]={0.0020426274,0,6.2630262};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=127;
+					type="CUP_O_RU_Crew";
+					atlOffset=-7.6293945e-006;
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8460.0605,125.35461,3616.3979};
+						angles[]={0.0020426274,0,6.2630262};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=128;
+					type="CUP_O_RU_Crew";
+					atlOffset=-7.6293945e-006;
+				};
+				class Item12
+				{
+					dataType="Waypoint";
+					position[]={8396.6973,129.69057,3664.3865};
+					placement=200;
+					combatMode="RED";
+					formation="LINE";
+					speed="NORMAL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=129;
+					type="Move";
+					atlOffset=1.6899414;
+				};
+				class Item13
+				{
+					dataType="Waypoint";
+					position[]={7400.3965,116.45998,4730.2813};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=130;
+					type="Move";
+					atlOffset=-3.2302475;
+				};
+				class Item14
+				{
+					dataType="Waypoint";
+					position[]={8396.6973,129.69061,3664.3867};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=131;
+					atlOffset=1.6899719;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=12;
+				};
+				class Links
+				{
+					items=12;
+					class Item0
+					{
+						linkID=0;
+						item0=114;
+						item1=113;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=115;
+						item1=113;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=116;
+						item1=113;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=118;
+						item1=117;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=119;
+						item1=117;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=120;
+						item1=117;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=122;
+						item1=121;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=123;
+						item1=121;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=124;
+						item1=121;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=126;
+						item1=125;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=127;
+						item1=125;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=128;
+						item1=125;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=112;
+		};
+		class Item40
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8415.0605,129.00151,3650.3479};
+				angles[]={6.2641954,0,6.2549949};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333299;
+				rank="CAPTAIN";
+				init="rustanks5=group this;";
+			};
+			id=113;
+			type="CUP_O_T72_RU";
+		};
+		class Item41
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8438.0439,128.32632,3648.218};
+				angles[]={6.2607903,0,6.2560334};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=117;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0031204224;
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8393.0176,127.5871,3618.1316};
+				angles[]={6.2482009,0,6.2731848};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=121;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0065917969;
+		};
+		class Item43
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8460.0371,127.29807,3616.0969};
+				angles[]={0.0020426274,0,6.2630262};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333299;
+				rank="CORPORAL";
+			};
+			id=125;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.017623901;
+		};
+		class Item44
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5432.626,73.678955,6162.7891};
+						angles[]={0.14692949,0,0.089720458};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=134;
+					type="CUP_O_RU_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5432.626,73.678955,6162.7891};
+						angles[]={0.14692949,0,0.089720458};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=135;
+					type="CUP_O_RU_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5432.626,73.678955,6162.7891};
+						angles[]={0.14692949,0,0.089720458};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=136;
+					type="CUP_O_RU_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5455.4517,75.128098,6161.0488};
+						angles[]={0.11745015,0,0.01632295};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=138;
+					type="CUP_O_RU_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5455.4517,75.128098,6161.0488};
+						angles[]={0.11745015,0,0.01632295};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=139;
+					type="CUP_O_RU_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5455.4517,75.128098,6161.0488};
+						angles[]={0.11745015,0,0.01632295};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=140;
+					type="CUP_O_RU_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5410.4517,77.731346,6131.0488};
+						angles[]={0.15083647,0,0.065900952};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=142;
+					type="CUP_O_RU_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5410.4517,77.731346,6131.0488};
+						angles[]={0.15083647,0,0.065900952};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=143;
+					type="CUP_O_RU_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5410.4517,77.731346,6131.0488};
+						angles[]={0.15083647,0,0.065900952};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=144;
+					type="CUP_O_RU_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5477.4517,79.223846,6129.0488};
+						angles[]={0.098672837,0,0.0219975};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=146;
+					type="CUP_O_RU_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5477.4517,79.223846,6129.0488};
+						angles[]={0.098672837,0,0.0219975};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=147;
+					type="CUP_O_RU_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5477.4517,79.223846,6129.0488};
+						angles[]={0.098672837,0,0.0219975};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=148;
+					type="CUP_O_RU_Crew";
+				};
+				class Item12
+				{
+					dataType="Waypoint";
+					position[]={5420.7676,67.867371,6182.0581};
+					placement=200;
+					combatMode="RED";
+					formation="LINE";
+					speed="NORMAL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=149;
+					type="Move";
+					atlOffset=-1.8894424;
+				};
+				class Item13
+				{
+					dataType="Waypoint";
+					position[]={5034.6689,134.40877,6737.1851};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=150;
+					type="Move";
+					atlOffset=4.6204071;
+				};
+				class Item14
+				{
+					dataType="Waypoint";
+					position[]={5420.7681,67.867409,6182.0586};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=151;
+					atlOffset=-1.8893814;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=12;
+				};
+				class Links
+				{
+					items=12;
+					class Item0
+					{
+						linkID=0;
+						item0=134;
+						item1=133;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=135;
+						item1=133;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=136;
+						item1=133;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=138;
+						item1=137;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=139;
+						item1=137;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=140;
+						item1=137;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=142;
+						item1=141;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=143;
+						item1=141;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=144;
+						item1=141;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=146;
+						item1=145;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=147;
+						item1=145;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=148;
+						item1=145;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=132;
+			atlOffset=-0.0001373291;
+		};
+		class Item45
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5432.4517,75.613571,6162.999};
+				angles[]={0.14692949,0,0.089720458};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333299;
+				rank="CAPTAIN";
+				init="rustanks6=group this;";
+			};
+			id=133;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0001373291;
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5455.4121,77.06015,6161.3247};
+				angles[]={0.11745015,0,0.01632295};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=137;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0024414063;
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5410.4199,79.670303,6131.2817};
+				angles[]={0.15083647,0,0.065900952};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=141;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0024414063;
+		};
+		class Item48
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5477.3115,81.171967,6129.1587};
+				angles[]={0.098672837,0,0.0219975};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333299;
+				rank="CORPORAL";
+			};
+			id=145;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0027542114;
+		};
+		class Item49
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=17;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4578.9097,11.811251,9284.6113};
+						angles[]={6.2667208,0,0.042438731};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=154;
+					type="CUP_O_RU_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4578.9097,11.811251,9284.6113};
+						angles[]={6.2667208,0,0.042438731};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=155;
+					type="CUP_O_RU_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4578.9097,11.811251,9284.6113};
+						angles[]={6.2667208,0,0.042438731};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=156;
+					type="CUP_O_RU_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4601.8267,12.546758,9282.5791};
+						angles[]={0.010148779,0,0.021774162};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=158;
+					type="CUP_O_RU_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4601.8267,12.546758,9282.5791};
+						angles[]={0.010148779,0,0.021774162};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=159;
+					type="CUP_O_RU_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4601.8267,12.546758,9282.5791};
+						angles[]={0.010148779,0,0.021774162};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=160;
+					type="CUP_O_RU_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4556.8267,12.332128,9252.5791};
+						angles[]={0.062913433,0,0.017997233};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=162;
+					type="CUP_O_RU_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4556.8267,12.332128,9252.5791};
+						angles[]={0.062913433,0,0.017997233};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=163;
+					type="CUP_O_RU_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4556.8267,12.332128,9252.5791};
+						angles[]={0.062913433,0,0.017997233};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=164;
+					type="CUP_O_RU_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4623.8267,13.695799,9250.5791};
+						angles[]={0.036981151,0,0.023993526};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=166;
+					type="CUP_O_RU_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4623.8267,13.695799,9250.5791};
+						angles[]={0.036981151,0,0.023993526};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=167;
+					type="CUP_O_RU_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4623.8267,13.695799,9250.5791};
+						angles[]={0.036981151,0,0.023993526};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=168;
+					type="CUP_O_RU_Crew";
+				};
+				class Item12
+				{
+					dataType="Waypoint";
+					position[]={4578.9927,12.731981,9307.5732};
+					placement=200;
+					combatMode="RED";
+					formation="LINE";
+					speed="FULL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=169;
+					type="Move";
+					atlOffset=0.85900593;
+				};
+				class Item13
+				{
+					dataType="Waypoint";
+					position[]={4725.7266,18.069174,10138.178};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=170;
+					type="Move";
+					atlOffset=0.58702278;
+				};
+				class Item14
+				{
+					dataType="Waypoint";
+					position[]={5399.959,19.394999,10033.577};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=171;
+					type="Move";
+					atlOffset=-0.015542984;
+				};
+				class Item15
+				{
+					dataType="Waypoint";
+					position[]={5153.9209,21.516914,9085.7227};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=172;
+					type="Move";
+					atlOffset=-2.2529984;
+				};
+				class Item16
+				{
+					dataType="Waypoint";
+					position[]={4578.9937,12.732018,9307.5732};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=173;
+					atlOffset=0.85902691;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=12;
+				};
+				class Links
+				{
+					items=12;
+					class Item0
+					{
+						linkID=0;
+						item0=154;
+						item1=153;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=155;
+						item1=153;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=156;
+						item1=153;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=158;
+						item1=157;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=159;
+						item1=157;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=160;
+						item1=157;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=162;
+						item1=161;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=163;
+						item1=161;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=164;
+						item1=161;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=166;
+						item1=165;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=167;
+						item1=165;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=168;
+						item1=165;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=152;
+		};
+		class Item50
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4578.8267,13.768912,9284.5293};
+				angles[]={6.2667208,0,0.042438731};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333299;
+				rank="CAPTAIN";
+				init="rustanks7=group this;";
+			};
+			id=153;
+			type="CUP_O_T72_RU";
+		};
+		class Item51
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4601.7837,14.505975,9282.5313};
+				angles[]={0.010148779,0,0.021774162};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=157;
+			type="CUP_O_T72_RU";
+			atlOffset=-8.5830688e-005;
+		};
+		class Item52
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4556.79,14.291381,9252.5488};
+				angles[]={0.062913433,0,0.017997233};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=161;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.0027589798;
+		};
+		class Item53
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4623.7749,15.654732,9250.5469};
+				angles[]={0.036981151,0,0.023993526};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333299;
+				rank="CORPORAL";
+			};
+			id=165;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.00074100494;
+		};
+		class Item54
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=15;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4727.9297,43.445087,4264.1064};
+						angles[]={6.1842198,0,0.049644358};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=176;
+					type="CUP_O_RU_Crew";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4727.9297,43.445087,4264.1064};
+						angles[]={6.1842198,0,0.049644358};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=177;
+					type="CUP_O_RU_Crew";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4727.9297,43.445087,4264.1064};
+						angles[]={6.1842198,0,0.049644358};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=178;
+					type="CUP_O_RU_Crew";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4750.833,43.109043,4261.9131};
+						angles[]={6.1391973,0,6.2749639};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=180;
+					type="CUP_O_RU_Crew";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4750.833,43.109043,4261.9131};
+						angles[]={6.1391973,0,6.2749639};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=181;
+					type="CUP_O_RU_Crew";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4750.833,43.109043,4261.9131};
+						angles[]={6.1391973,0,6.2749639};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=182;
+					type="CUP_O_RU_Crew";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4705.833,39.690094,4231.9131};
+						angles[]={6.1623359,0,6.2361574};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=184;
+					type="CUP_O_RU_Crew";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4705.833,39.690094,4231.9131};
+						angles[]={6.1623359,0,6.2361574};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=185;
+					type="CUP_O_RU_Crew";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4705.833,39.690094,4231.9131};
+						angles[]={6.1623359,0,6.2361574};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=186;
+					type="CUP_O_RU_Crew";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4772.833,38.188335,4229.9131};
+						angles[]={6.1313715,0,6.2711854};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=188;
+					type="CUP_O_RU_Crew";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4772.833,38.188335,4229.9131};
+						angles[]={6.1313715,0,6.2711854};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=189;
+					type="CUP_O_RU_Crew";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4772.833,38.188335,4229.9131};
+						angles[]={6.1313715,0,6.2711854};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=190;
+					type="CUP_O_RU_Crew";
+				};
+				class Item12
+				{
+					dataType="Waypoint";
+					position[]={4739.6416,49.233707,4284.0776};
+					placement=200;
+					combatMode="RED";
+					formation="LINE";
+					speed="NORMAL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=191;
+					type="Move";
+					atlOffset=3.0002747;
+				};
+				class Item13
+				{
+					dataType="Waypoint";
+					position[]={5472.2939,76.448067,5974.3193};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=192;
+					type="Move";
+					atlOffset=-0.29579926;
+				};
+				class Item14
+				{
+					dataType="Waypoint";
+					position[]={4739.6431,49.233772,4284.0776};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=193;
+					atlOffset=3.0002441;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=12;
+				};
+				class Links
+				{
+					items=12;
+					class Item0
+					{
+						linkID=0;
+						item0=176;
+						item1=175;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=177;
+						item1=175;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=178;
+						item1=175;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=180;
+						item1=179;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=181;
+						item1=179;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=182;
+						item1=179;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item6
+					{
+						linkID=6;
+						item0=184;
+						item1=183;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item7
+					{
+						linkID=7;
+						item0=185;
+						item1=183;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item8
+					{
+						linkID=8;
+						item0=186;
+						item1=183;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item9
+					{
+						linkID=9;
+						item0=188;
+						item1=187;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item10
+					{
+						linkID=10;
+						item0=189;
+						item1=187;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item11
+					{
+						linkID=11;
+						item0=190;
+						item1=187;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=174;
+		};
+		class Item55
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4727.833,45.392803,4263.8633};
+				angles[]={6.1842198,0,0.049644358};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.73333299;
+				rank="CAPTAIN";
+				init="rustanks9=group this;";
+			};
+			id=175;
+			type="CUP_O_T72_RU";
+		};
+		class Item56
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4750.8726,45.038654,4261.5234};
+				angles[]={6.1391973,0,6.2749639};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=179;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.00099945068;
+		};
+		class Item57
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4705.9639,41.626781,4231.5938};
+				angles[]={6.1623359,0,6.2361574};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60000002;
+				rank="LIEUTENANT";
+			};
+			id=183;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.00070571899;
+		};
+		class Item58
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4772.8643,40.129112,4229.5933};
+				angles[]={6.1313715,0,6.2711854};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.33333299;
+				rank="CORPORAL";
+			};
+			id=187;
+			type="CUP_O_T72_RU";
+			atlOffset=-0.00015640259;
+		};
+		class Item59
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=11;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4758.709,158.10422,6972.9204};
+						angles[]={6.2671871,0,0.081812471};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=196;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4758.709,158.10422,6972.9204};
+						angles[]={6.2671871,0,0.081812471};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=197;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4758.709,158.10422,6972.9204};
+						angles[]={6.2671871,0,0.081812471};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=198;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4781.5415,158.93358,6970.8877};
+						angles[]={-0,0,0.010994518};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=200;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4781.5415,158.93358,6970.8877};
+						angles[]={-0,0,0.010994518};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=201;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4781.5415,158.93358,6970.8877};
+						angles[]={-0,0,0.010994518};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=202;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item6
+				{
+					dataType="Waypoint";
+					position[]={4759.0981,159.03,6990.4326};
+					placement=200;
+					combatMode="RED";
+					formation="WEDGE";
+					speed="FULL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=203;
+					type="Move";
+					atlOffset=0.60456848;
+				};
+				class Item7
+				{
+					dataType="Waypoint";
+					position[]={4646.0991,107.33765,7934.9199};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=204;
+					type="Move";
+					atlOffset=-0.59363556;
+				};
+				class Item8
+				{
+					dataType="Waypoint";
+					position[]={4223.4316,25.790577,8975.7178};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=205;
+					type="Move";
+					atlOffset=-1.9512691;
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					position[]={5087.2842,30.836504,10450.941};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=206;
+					type="Move";
+					atlOffset=0.9707489;
+				};
+				class Item10
+				{
+					dataType="Waypoint";
+					position[]={4759.5039,159.03,6990.3267};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=207;
+					atlOffset=0.58666992;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=6;
+				};
+				class Links
+				{
+					items=6;
+					class Item0
+					{
+						linkID=0;
+						item0=196;
+						item1=195;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=197;
+						item1=195;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=198;
+						item1=195;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=200;
+						item1=199;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=201;
+						item1=199;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=202;
+						item1=199;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=194;
+		};
+		class Item60
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4758.5415,160.14383,6972.8379};
+				angles[]={6.2671871,0,0.081812471};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.60799801;
+				rank="CAPTAIN";
+				init="bmps1=group this;";
+			};
+			id=195;
+			type="CUP_O_BMP2_CHDKZ";
+		};
+		class Item61
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4781.3521,160.97142,6970.8193};
+				angles[]={-0,0,0.010994518};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60799801;
+				rank="LIEUTENANT";
+			};
+			id=199;
+			type="CUP_O_BMP2_CHDKZ";
+			atlOffset=-0.0069122314;
+		};
+		class Item62
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=11;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6911.9868,60.440849,4675.7959};
+						angles[]={6.0840936,0,0.091278896};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=210;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6911.9868,60.440849,4675.7959};
+						angles[]={6.0840936,0,0.091278896};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=211;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6911.9868,60.440849,4675.7959};
+						angles[]={6.0840936,0,0.091278896};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=212;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6934.8037,63.986866,4673.3926};
+						angles[]={6.0813637,0,0.20547661};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=214;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6934.8037,63.986866,4673.3926};
+						angles[]={6.0813637,0,0.20547661};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=215;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6934.8037,63.986866,4673.3926};
+						angles[]={6.0813637,0,0.20547661};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=216;
+					type="CUP_O_INS_Soldier";
+				};
+				class Item6
+				{
+					dataType="Waypoint";
+					position[]={6912.3916,65.670197,4693.6787};
+					placement=200;
+					combatMode="RED";
+					formation="WEDGE";
+					speed="FULL";
+					combat="COMBAT";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=217;
+					type="Move";
+					atlOffset=2.778614;
+				};
+				class Item7
+				{
+					dataType="Waypoint";
+					position[]={5208.1533,87.740456,6473.8638};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=218;
+					type="Move";
+					atlOffset=2.0679398;
+				};
+				class Item8
+				{
+					dataType="Waypoint";
+					position[]={6799.6567,101.26147,6496.3735};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=219;
+					type="Move";
+					atlOffset=-0.88298035;
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					position[]={7619.3862,47.137325,5444.9712};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=220;
+					type="Move";
+					atlOffset=-2.5356522;
+				};
+				class Item10
+				{
+					dataType="Waypoint";
+					position[]={6912.7974,65.691498,4693.5728};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=221;
+					atlOffset=2.7782211;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=6;
+				};
+				class Links
+				{
+					items=6;
+					class Item0
+					{
+						linkID=0;
+						item0=210;
+						item1=209;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=211;
+						item1=209;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item2
+					{
+						linkID=2;
+						item0=212;
+						item1=209;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+					class Item3
+					{
+						linkID=3;
+						item0=214;
+						item1=213;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item4
+					{
+						linkID=4;
+						item0=215;
+						item1=213;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+					class Item5
+					{
+						linkID=5;
+						item0=216;
+						item1=213;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0,0};
+						};
+					};
+				};
+			};
+			id=208;
+			atlOffset=0.0033035278;
+		};
+		class Item63
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6911.8037,62.439072,4675.3428};
+				angles[]={6.0840936,0,0.091278896};
+			};
+			side="East";
+			flags=6;
+			class Attributes
+			{
+				skill=0.60799801;
+				rank="CAPTAIN";
+				init="bmps2=group this;";
+			};
+			id=209;
+			type="CUP_O_BMP2_CHDKZ";
+			atlOffset=0.0033035278;
+		};
+		class Item64
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6934.7441,66.014236,4673.0684};
+				angles[]={6.0813637,0,0.20547661};
+			};
+			side="East";
+			flags=4;
+			class Attributes
+			{
+				skill=0.60799801;
+				rank="LIEUTENANT";
+			};
+			id=213;
+			type="CUP_O_BMP2_CHDKZ";
+			atlOffset=-0.036422729;
+		};
+		class Item65
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5018.8252,70.030029,6377.6963};
+						angles[]={6.1874843,0,0.044966776};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						init="rusinf1=group this;";
+					};
+					id=223;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5023.8252,69.775238,6372.7461};
+						angles[]={6.185503,0,0.044968102};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						rank="CORPORAL";
+					};
+					id=224;
+					type="CUP_O_RU_Soldier_MG";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5013.8252,69.301788,6372.7461};
+						angles[]={6.1617918,0,0.068886377};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=225;
+					type="CUP_O_RU_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5028.8252,69.3993,6367.7461};
+						angles[]={6.185503,0,0.015998369};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=226;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5008.8252,68.214485,6367.7461};
+						angles[]={6.1617923,0,0.10461059};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=227;
+					type="CUP_O_RU_Soldier_AT";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5033.8252,68.989326,6362.7461};
+						angles[]={6.185503,0,0.015998369};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+					};
+					id=228;
+					type="CUP_O_RU_Soldier_MG";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5003.8252,67.240669,6362.7461};
+						angles[]={6.1805539,0,0.08578328};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=229;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5038.8252,68.555023,6357.7461};
+						angles[]={6.178575,0,0.022993837};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=230;
+					type="CUP_O_RU_Medic";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4998.8252,66.266052,6357.7461};
+						angles[]={6.1775856,0,0.098672837};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=231;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					position[]={5018.9307,73.468117,6384.3027};
+					placement=200;
+					combatMode="RED";
+					formation="WEDGE";
+					speed="FULL";
+					combat="AWARE";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=232;
+					type="Move";
+					atlOffset=2.7150116;
+				};
+				class Item10
+				{
+					dataType="Waypoint";
+					position[]={5446.5586,92.393974,6551.1187};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=233;
+					type="Move";
+					atlOffset=3.8643417;
+				};
+				class Item11
+				{
+					dataType="Waypoint";
+					position[]={5018.8413,73.469162,6384.3027};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=234;
+					atlOffset=2.7223053;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=222;
+		};
+		class Item66
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4792.1553,158.0018,6887.6479};
+						angles[]={6.2224975,0,0.046959355};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						init="rusinf2=group this;";
+					};
+					id=236;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4797.1553,158.15839,6882.6978};
+						angles[]={6.2682586,0,0.046959355};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						rank="CORPORAL";
+					};
+					id=237;
+					type="CUP_O_RU_Soldier_MG";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4787.1553,157.68756,6882.6978};
+						angles[]={6.2653079,0,0.0080603603};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=238;
+					type="CUP_O_RU_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4802.1553,158.2926,6877.6978};
+						angles[]={6.2682586,0,0.034849793};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=239;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4782.1553,157.43871,6877.6978};
+						angles[]={6.2211947,0,0.052200656};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=240;
+					type="CUP_O_RU_Soldier_AT";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4807.1553,158.28908,6872.6978};
+						angles[]={6.2244511,0,0.034851503};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+					};
+					id=241;
+					type="CUP_O_RU_Soldier_MG";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4777.1553,156.97726,6872.6978};
+						angles[]={6.2720618,0,0.047725122};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=242;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4812.1553,158.16937,6867.6978};
+						angles[]={6.2244511,0,0.034851503};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=243;
+					type="CUP_O_RU_Medic";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4772.1553,156.65874,6867.6978};
+						angles[]={6.2720561,0,0.056166094};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=244;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					position[]={4792.2607,159.03,6894.2544};
+					placement=200;
+					combatMode="RED";
+					formation="WEDGE";
+					speed="FULL";
+					combat="AWARE";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=245;
+					type="Move";
+					atlOffset=0.62019348;
+				};
+				class Item10
+				{
+					dataType="Waypoint";
+					position[]={4907.958,159.03,7099.7197};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=246;
+					type="Move";
+					atlOffset=0.030014038;
+				};
+				class Item11
+				{
+					dataType="Waypoint";
+					position[]={4792.1714,159.03,6894.2544};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=247;
+					atlOffset=0.62440491;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=235;
+		};
+		class Item67
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4628.2974,19.226881,9828.1563};
+						angles[]={6.2812018,0,0.013995145};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						init="rusinf3=group this;";
+					};
+					id=249;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4633.2974,19.299877,9823.2061};
+						angles[]={0.0049914722,0,0.013995145};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						rank="CORPORAL";
+					};
+					id=250;
+					type="CUP_O_RU_Soldier_MG";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4623.2974,19.151665,9823.2061};
+						angles[]={0.0069996584,0,0.020993641};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=251;
+					type="CUP_O_RU_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4638.2974,19.39327,9818.2061};
+						angles[]={0.0049914722,0,0.011995304};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=252;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4618.2974,19.075394,9818.2061};
+						angles[]={0.0009765625,0,0.026989127};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=253;
+					type="CUP_O_RU_Soldier_AT";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4643.2974,19.478256,9813.2061};
+						angles[]={0.0049914722,0,0.011995304};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+					};
+					id=254;
+					type="CUP_O_RU_Soldier_MG";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4613.2974,18.945414,9813.2061};
+						angles[]={0.0009765625,0,0.026989127};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=255;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4648.2974,19.580618,9808.2061};
+						angles[]={0.0089968694,0,0.011995304};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=256;
+					type="CUP_O_RU_Medic";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4608.2974,18.825253,9808.2061};
+						angles[]={0.010999938,0,0.034981266};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=257;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					position[]={4628.4028,19.390478,9834.7627};
+					placement=200;
+					combatMode="RED";
+					formation="WEDGE";
+					speed="FULL";
+					combat="AWARE";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=258;
+					type="Move";
+					atlOffset=0.15291023;
+				};
+				class Item10
+				{
+					dataType="Waypoint";
+					position[]={5157.8149,30.396145,10390.383};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=259;
+					type="Move";
+					atlOffset=1.8641186;
+				};
+				class Item11
+				{
+					dataType="Waypoint";
+					position[]={4628.3135,19.389675,9834.7627};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=260;
+					atlOffset=0.15299988;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=248;
+		};
+		class Item68
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7743.916,160.47577,4400.5479};
+						angles[]={0.1316572,0,0.11228828};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						init="rusinf4=group this;";
+					};
+					id=262;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7748.916,161.71826,4395.5977};
+						angles[]={0.13676733,0,0.11228828};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						rank="CORPORAL";
+					};
+					id=263;
+					type="CUP_O_RU_Soldier_MG";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7738.916,160.58121,4395.5977};
+						angles[]={0.13370809,0,0.11536453};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=264;
+					type="CUP_O_RU_Soldier_GL";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7753.916,162.98694,4390.5977};
+						angles[]={0.13676776,0,0.11649868};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=265;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7733.916,160.71065,4390.5977};
+						angles[]={0.16926086,0,0.074662916};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+					};
+					id=266;
+					type="CUP_O_RU_Soldier_AT";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7758.916,164.26064,4385.5977};
+						angles[]={0.13698006,0,0.11649868};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+					};
+					id=267;
+					type="CUP_O_RU_Soldier_MG";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7728.916,161.16052,4385.5977};
+						angles[]={0.153961,0,0.074663714};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=268;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7763.916,165.44922,4380.5977};
+						angles[]={0.13698006,0,0.056375936};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=269;
+					type="CUP_O_RU_Medic";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7723.916,161.53313,4380.5977};
+						angles[]={0.15474762,0,0.10659035};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+					};
+					id=270;
+					type="CUP_O_RU_Soldier";
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					position[]={7744.0215,157.52708,4407.1543};
+					placement=200;
+					combatMode="RED";
+					formation="WEDGE";
+					speed="FULL";
+					combat="AWARE";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=271;
+					type="Move";
+					atlOffset=-1.9994354;
+				};
+				class Item10
+				{
+					dataType="Waypoint";
+					position[]={7461.8984,114.8609,4742.9702};
+					placement=200;
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=272;
+					type="Move";
+					atlOffset=-0.96930695;
+				};
+				class Item11
+				{
+					dataType="Waypoint";
+					position[]={7743.9321,157.5253,4407.1543};
+					type="Cycle";
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=273;
+					atlOffset=-1.9970703;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=261;
+		};
+	};
+};
+class OutroLoose
+{
+	class Intel
+	{
+		startWind=0.1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};
+class OutroWin
+{
+	class Intel
+	{
+		startWind=0.1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};

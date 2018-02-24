@@ -1,0 +1,44 @@
+
+;
+; move demolition seal into the downed blackhawk
+;
+seal1 move getpos helo;
+@unitready seal1;
+
+;
+; place satchel charge
+;
+seal1 fire ["put", "CUP_PipeBomb_M"];
+~2
+
+seal1 fire ["put", "CUP_PipeBomb_M"];
+~2
+
+seal1 fire ["put", "CUP_PipeBomb_M"];
+~2
+
+seal1 sideradio "Rcharges";
+
+;
+; join the seal into SAR2 group
+;
+[seal1] join sar2;
+
+;
+; until seal1 distance to helo is over 250 meters
+;
+@(seal1 distance helo > 290)
+
+;
+; detonate satchel charges
+;
+seal1 action ["touchoff"];
+
+exit
+
+
+;unitname action ["set timer",30]
+;would mean that the timer is set to 30 secs
+
+;unitname action ["start timer",30]
+;would let the man start the timer with 30 sec

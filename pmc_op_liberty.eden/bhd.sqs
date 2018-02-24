@@ -1,0 +1,100 @@
+"_x setdammage 1" foreach eastlist;
+;
+; black hawk crashes!
+;
+flyer sideradio "Rgoingdown";
+
+@(getpos helo select 2 < 1);
+~2
+
+flyer setdammage 0;
+gunman setdammage 0;
+~2
+flyer setdammage 1;
+gunman setdammage 1;
+
+;
+; alpha black calls for black hawk down
+;
+leader assault1 sideradio "Rblackhawkdown";
+~10
+
+#civloop
+~1
+?!(civsafe): goto "civloop"
+
+PAPABEAR sideradio "Rsecurecrashsite"
+
+;
+; set locate black hawk objective active
+;
+"3" objstatus "Active";
+
+;
+; looping with the beacon text until alpha is on the crash site
+;
+#loop
+~2
+_dist=leader assault1 distance helo;
+
+hint format ["distance to Black Hawk distress beacon: %1 meters",_dist];
+
+if (leader assault1 distance helo > 20) then { goto "loop" } else { "3" objstatus "DONE"; };
+if (leader assault1 distance helo < 20) then { "3" objstatus "DONE"; };
+
+
+
+;------------------------------ CRASHSITE ----------------------------------------------------
+
+; this script is activated when this is true:
+;crashsiteorders AND leader assault1 distance helo < 10
+
+leader assault1 sideradio "Ratcrashsite";
+~15
+
+PAPABEAR sideradio "Rfindsurvivors";
+~5
+
+hint "Additional Details added into the Map.";
+"4" objstatus "Active";
+
+#SurvivorLoop
+~1
+?(leader assault1 distance flyer > 15 || leader assault1 distance gunman > 15): goto "SurvivorLoop";
+
+
+leader assault1 sideradio "Rcrewfound";
+~10
+
+PAPABEAR sideradio "Rsecuresiteuntilbackup";
+~10
+
+hint "Additional Details added into the Map.";
+"5" objstatus "Active";
+
+;
+; we are now securing the crash site, we can star war script.
+;
+;[] exec "war.sqs";
+
+#DragLoop
+~1
+if ((flyer distance helo > 10 || gunman distance helo > 10)) then {goto "DragLoop"};
+
+leader assault1 sideradio "Rdragged";
+~15
+
+PAPABEAR sideradio "Rdragok";
+"4" objstatus "DONE";
+
+
+
+
+; this is debug stuff, REMOVE FOR NORMAL GAMEPLAY AND ACTIVATE ABOVE WAR.SQS!
+~10
+@(flyer distance helo < 10 && gunman distance helo < 10)
+[] exec "war.sqs";
+
+
+
+exit

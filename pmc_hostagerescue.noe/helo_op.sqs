@@ -1,0 +1,129 @@
+;
+; lame helo insert extract script by Snake Man, PMC.
+; http://flashpoint.nekromantix.com
+; 
+; Parameters for the script are [group,helo,0] exec "helo_op.sqs"
+;
+; Third parameter as 
+;	0 - insertion
+;	1 - extraction
+; 
+; [assault1,myuh60,0] exec "helo_op.sqs"; 
+; would insert group called assault1 from the helicopter named myuh60. 
+;
+; [assault1,myuh60,1] exec "helo_op.sqs";
+; would extract the assault1 group into the myuh60 helicopter.
+;
+; This script used radio voices that need to be in stringtable.csv and in description.ext
+; files. These are:
+;STRM_Rinsert,"BRAVO TO ALPHA. INSERTION LZ IN SIGHT, GET READY. OVER.",bravo
+;STRM_Rgoodluck,"GOOD LUCK ALPHA BLACK. CALL US WHEN YOURE READY. BRAVO OUT.",bravo
+;STRM_Rextract,"BRAVO TO ALPHA. GET READY FOR EXTRACTION. OVER.",bravo
+;STRM_Rdustoff,"LIFTOFF. GOING HOME. OVER.",bravo
+; You dont need to make sound ogg files for these, its optional and nice touch. But you get
+; error if stringtable.csv and description.ext entries are missing.
+;
+; when helo lands, it usually turns its engine off. Also the helo sits there nicely waiting
+; for the alive team members to board. So if team members get killed in the process,
+; the script wont get hung waiting for dead members to board.
+; 
+
+_team = _this select 0;
+_helo = _this select 1;
+_opname = _this select 2;
+
+if (_opname == 0) then { goto "Insertion"; };
+if (_opname == 1) then { goto "Extraction"; };
+
+; ----------------------------------------- INSERTION -------------------------------------------
+#Insertion
+
+_helo sideradio "Rinsert";
+
+;
+; get people out
+;
+_helo land "land";
+
+#landing
+~.5
+
+_z = getpos vehicle _helo select 2;
+
+;
+; loop until helo height is 2 meters.
+;
+?(_z > 2): goto "landing"
+
+_helo flyinheight 0;
+
+
+;
+; wait until whole squad is out
+;
+_A = 0;
+ejc="EJECT";
+
+"unassignvehicle _x" foreach units _team;
+
+_SayGoArray = ["Eng13","Eng14","Eng20","Eng21"];
+leader _team say (_SayGoArray select random (count _SayGoArray))
+
+#WAITING
+_listunits = units _team;
+_B = count _listunits
+~.2
+_listunits select _A action [ejc,_helo];
+_A=_A+1
+?(_B > _A): goto "WAITING"
+
+
+_helo flyinheight 25;
+
+_helo sideradio "Rgoodluck";
+
+exit
+
+
+
+; ----------------------------------------- EXTRACTION -------------------------------------------
+#Extraction
+
+_helo sideradio "Rextract";
+
+;
+; get people out
+;
+_helo land "land";
+
+#landing2
+~.5
+
+_z = getpos vehicle _helo select 2;
+
+;
+; loop until helo height is 2 meters.
+;
+?(_z > 2): goto "landing2"
+
+_helo flyinheight 0;
+
+"_x assignascargo _helo" foreach units _team;
+"[_x] ordergetin true" foreach units _team;
+
+;
+; wait until whole squad is on board.
+;
+_A = 0;
+
+#WAITING2
+_listunits = units _team;
+_B = count _listunits
+~.1
+?(_listunits select _A in _helo): _A=_A+1
+?(_B > _A): goto "WAITING2"
+
+_helo flyinheight 50;
+_helo sideradio "Rdustoff";
+
+exit

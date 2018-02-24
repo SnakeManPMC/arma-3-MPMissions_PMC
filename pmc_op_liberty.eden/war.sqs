@@ -1,0 +1,206 @@
+;
+; ##################################################################################
+; crazy unit creator starts here
+; ##################################################################################
+;
+
+
+[WestM1A1Squad, getpos WestStart, groupAlpha, groupBravo] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+M1Tanks = NewSquad select 0
+
+group M1Tanks move getpos downtown
+group M1Tanks setbehaviour "aware";
+group M1Tanks setcombatmode "yellow";
+
+PAPABEAR sideradio "Rsendingtanks";
+
+
+;######################################################################################
+; REMOVE THIS SHIT WITH THE COMMENTS!
+;######################################################################################
+
+;
+; how many times we loop the russian attacks
+;
+_warloop=0;
+
+;
+; start of the looping
+;
+#CreatorStart
+
+_CreatorEast=(count eastlist);
+
+if (pmcdb == 1) then { hint format ["Okay WAR looper %1 as activated!",_warloop]; };
+
+[EastInfSquad, getpos EastInfStart1, groupDelta, groupCharlie] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+_leader = NewSquad select 0
+
+group _leader move getpos helo;
+group _leader setbehaviour "aware";
+group _leader setcombatmode "yellow";
+
+["initialise",_leader,[1,artyguy],[0],[0],1,1] exec "ai_control.sqs"
+
+
+[EastReccSquad, getpos EastInfStart1, groupDelta, groupCharlie] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+_leader = NewSquad select 0
+
+group _leader move getpos helo;
+group _leader setbehaviour "aware";
+group _leader setcombatmode "yellow";
+
+["initialise",_leader,[1,artyguy],[0],[0],1,1] exec "ai_control.sqs"
+
+
+[EastInfSquad, getpos EastInfStart2, groupDelta, groupCharlie] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+_leader = NewSquad select 0
+
+group _leader move getpos downtown;
+group _leader setbehaviour "aware";
+group _leader setcombatmode "yellow";
+
+["initialise",_leader,[1,artyguy],[0],[0],1,1] exec "ai_control.sqs"
+
+
+[EastBMPSquad, getpos EastStart1, groupDelta, groupCharlie] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+_leader = NewSquad select 0
+
+group _leader move getpos helo;
+group _leader setbehaviour "safe";
+group _leader setcombatmode "red";
+
+["initialise",_leader,[1,artyguy],[0],[0],1,1] exec "ai_control.sqs"
+
+
+[EastMechInfSquad, getpos EastStart2, groupDelta, groupCharlie] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+_leader = NewSquad select 0
+
+group _leader move getpos downtown;
+group _leader setbehaviour "safe";
+group _leader setcombatmode "red";
+
+["initialise",_leader,[1,artyguy],[0],[0],1,1] exec "ai_control.sqs"
+
+
+; delay for the eastlist to be updated...
+~5
+
+_CreatorEast = ((count eastlist) - _CreatorEast);
+TotalEastorig = TotalEastorig + _CreatorEast;
+
+TotalEastCount = TotalEastorig - (count eastlist);
+; if we have those stupid vehicle blow ups 1 becomes 3 etc...
+if (TotalEastCount < 0) then {TotalEastCount=0;};
+
+titleText [format["East deaths: %1\nEast units: %2",TotalEastCount,(count eastlist)], "PLAIN DOWN"]
+
+;
+; waiting for war to wage...
+;
+~120
+_warloop=_warloop+1;
+
+?(_warloop < 10): goto "CreatorStart"
+
+if (pmcdb == 1) then {hint "WAR LOOP has completed, now creating WEST CHOPPERS!";};
+
+~60
+PAPABEAR sideradio "Rsupportonway";
+
+
+;#########################################################################################
+; CHOPPER BACKUP!
+;#########################################################################################
+
+[WestApache, getpos WestStart, groupAlpha, groupBravo] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+Apache1 = NewSquad select 0
+
+group Apache1 setbehaviour "combat";
+group Apache1 setcombatmode "red";
+
+;
+; wait that the first bird gets out of the way
+;
+~15
+
+[WestApache, getpos WestStart, groupAlpha, groupBravo] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+Apache2 = NewSquad select 0
+
+group Apache2 setbehaviour "combat";
+group Apache2 setcombatmode "red";
+
+~1
+
+
+;#########################################################################################
+; ENEMY TANK ASSAULT!
+;#########################################################################################
+
+[EastT72Squad, getpos EastStart2, groupDelta, groupCharlie] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+_leader = NewSquad select 0
+
+group _leader move getpos downtown;
+group _leader setbehaviour "safe";
+group _leader setcombatmode "red";
+
+~1
+
+[EastT72Squad, getpos EastStart1, groupDelta, groupCharlie] exec "createsquad.sqs"
+~.01
+@!CreateSquadRunning
+
+_leader = NewSquad select 0
+
+group _leader move getpos helo;
+group _leader setbehaviour "safe";
+group _leader setcombatmode "red";
+
+;
+; small wait for the tanks to roll in...
+; 
+~60
+
+
+[group Apache1,0] setwppos [(getpos helo select 0)+200,(getpos helo select 1)+200,50];
+[group Apache2,0] setwppos [(getpos helo select 0)-200,(getpos helo select 1)-200,50];
+units Apache1 Commandmove [(getpos helo select 0)+200,(getpos helo select 1)+200,50];
+units Apache2 Commandmove [(getpos helo select 0)-200,(getpos helo select 1)-200,50];
+
+
+PAPABEAR sideradio "Rsarpktready";
+~5
+
+;
+; our war has been now completed.
+;
+1 setradiomsg "Cleared for SAR";
+
+exit

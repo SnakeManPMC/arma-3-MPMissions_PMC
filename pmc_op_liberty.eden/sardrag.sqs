@@ -1,0 +1,43 @@
+_dragger = _this select 0;
+_wounded = _this select 1;
+_helo = extractor;
+
+Dragging1=true;
+Dragging2=true;
+
+_dragger commandmove getpos _wounded;
+@unitready _dragger
+
+; drop the weapons, not remove... just drop.
+_wounded action ["DROP WEAPON", _wounded, 0, 0, (primaryweapon _wounded)];
+_dragger action ["DROP WEAPON", _dragger, 0, 0, (primaryweapon _dragger)];
+
+
+#DragLoop
+_meposx = getpos _dragger select 0
+_meposy = getpos _dragger select 1
+_meposz = getpos _dragger select 2
+_meposx2 = _meposx + ((sin (getdir _dragger))*1.2)
+_meposy2 = _meposy + ((cos (getdir _dragger))*1.2)
+_wounded setdir (getdir _dragger) -160
+_wounded setpos [_meposx2,_meposy2,0]
+~0.01
+if (!alive _dragger) then { goto "dropman" };
+if (_dragger distance _helo < 8) then { goto "cargoman" };
+goto "DragLoop"
+exit
+
+
+#cargoman
+;
+; okay we are near the helo, lets put the guy into the helo.
+;
+
+_wounded setpos [0,0,0];
+
+#dropman
+
+Dragging1=false;
+Dragging2=false;
+
+exit

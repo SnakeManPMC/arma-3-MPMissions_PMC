@@ -1,0 +1,25 @@
+_heli = _this select 0
+_logic = _this select 1
+_coeffEngine = _this select 2
+_max = _this select 3
+_thresh = 10
+
+;_water = [_heli,_logic] call WGLrotorwashASL
+_water = [_heli,_logic] call loadfile "HeliFX\rotorwashASL.sqf";
+
+_coeffEngine = _coeffEngine - _thresh
+_max = _max - _thresh
+?(_coeffEngine < 0): _coeffEngine = 0
+_coeffEngine = _coeffEngine / _max
+
+?(player distance _heli < 40 && player distance _heli > 2 && (getpos _heli select 2) > 0.75 && (getpos _heli select 2) < 15 && !(player in _heli) && vehicle player == player && alive player): _heli exec "heliFX\rotorwashPlayerFX.sqs"
+
+_i = 0
+_maxLoops = 8
+#dustloop
+;?(_coeffEngine > 0): [_heli,_water,_coeffEngine] call WGLrotorwashDust
+?(_coeffEngine > 0): [_heli,_water,_coeffEngine] call loadfile "HeliFX\rotorwashDust.sqf";
+~0.125
+_i = _i + 1
+?(_i < _maxLoops): goto "dustloop"
+exit

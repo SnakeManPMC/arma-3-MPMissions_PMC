@@ -1,0 +1,49 @@
+PAPABEAR=[West,"HQ"];
+
+; this is for mission start
+pweather = .5
+pfog = .0
+prain = .0
+publicvariable "pweather";
+publicvariable "pfog";
+publicvariable "prain";
+~.01
+0 setovercast pweather;
+0 setfog pfog;
+0 setrain prain;
+
+; random weather
+pztime = -1;
+if (!local Server) then { goto "WeatherSkipper"; };
+
+pztime = (60*60)
+pweather = random 1
+pfog = random .5
+prain = random 1
+~.01
+
+publicvariable "pweather"
+publicvariable "pztime"
+publicvariable "pfog";
+publicvariable "prain";
+~.01
+
+#WeatherSkipper
+~.01
+if (pztime < 0) then { goto "WeatherSkipper"; };
+
+pztime setovercast pweather;
+pztime setfog pfog;
+pztime setrain prain;
+
+~5
+[rusinf1,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[rusinf2,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[rusinf3,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[rusinf4,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[rusinf5,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[patrol1,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[patrol2,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[patrol3,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[patrol4,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"
+[patrol5,[aateam1,aateam2],[bmps1,bmps2,rustanks1],[],[backup1,backup2,backup3],1,1] exec "ai.sqs"

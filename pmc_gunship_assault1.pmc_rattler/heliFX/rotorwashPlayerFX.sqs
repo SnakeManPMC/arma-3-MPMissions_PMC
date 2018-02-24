@@ -1,0 +1,20 @@
+?(VTE_rotorwashPlayerFX): exit
+VTE_rotorwashPlayerFX = true
+_chopper = _this
+  
+#dofx  
+?!(isEngineOn _chopper): goto "end"  
+?(player animationphase "goggles" == 0): _delay = 0.01  
+?(player animationphase "goggles" == 1): _delay = 3 + random 8  
+~_delay  
+
+TitleText ["","black faded",0.025+random 0.5]
+~0.20 + random 0.20  
+TitleText ["","plain"]
+?(player distance _chopper > 40 || player distance _chopper < 2 || (getpos _chopper select 2) < 0.75 || (getpos _chopper select 2) > 15 || !(vehicle player == player) || !(alive player)): goto "end"
+goto "dofx"
+  
+#end  
+;; player sidechat "rotorplayerfx ending!"
+VTE_rotorwashPlayerFX = false
+exit

@@ -1,0 +1,38 @@
+; add this to init.sqs
+; we are not dragging in mission start.
+;Dragging=false;
+
+_dragger = leader assault1;
+_wounded = gunman;
+
+Dragging2=true;
+CancelDragFlag=false;
+
+_dragger RemoveAction drag;
+Canceldrag1 = _dragger AddAction ["Cancel Drag","Canceldrag.sqs"]
+
+; drop the weapons, not remove... just drop.
+_wounded action ["DROP WEAPON", _wounded, 0, 0, (primaryweapon _wounded)];
+
+
+#DragLoop
+_meposx = getpos _dragger select 0
+_meposy = getpos _dragger select 1
+_meposz = getpos _dragger select 2
+_meposx2 = _meposx + ((sin (getdir _dragger))*1.2)
+_meposy2 = _meposy + ((cos (getdir _dragger))*1.2)
+_wounded setdir (getdir _dragger) -160
+_wounded setpos [_meposx2,_meposy2,0]
+~0.01
+if (!alive _dragger) then { goto "dropman" };
+if (CancelDragFlag) then { goto "dropman" };
+if ((speed _dragger >5.5)) then { goto "dropman" };
+goto "DragLoop"
+exit
+
+
+#dropman
+_dragger RemoveAction CancelDrag1
+Dragging2=false;
+
+exit
