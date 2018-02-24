@@ -201,7 +201,7 @@ for "_i" from 1 to (_wp_count - 1) do
 		_marker_name = str(_wp_array select _i);
 		_marker = createMarker[_marker_name,[_cur_pos select 0,_cur_pos select 1]];
 		_marker setMarkerShape "ICON";
-		_marker_name setMarkerType "DOT";
+		_marker_name setMarkerType "mil_dot";
 	};
 
 	sleep 0.5;
