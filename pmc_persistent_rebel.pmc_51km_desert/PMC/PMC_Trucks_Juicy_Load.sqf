@@ -73,7 +73,7 @@ _PMC_CreateConvoyVehicles =
 	_vcl addMagazineCargoGlobal ["CUP_PipeBomb_M", 10];
 	_vcl addMagazineCargoGlobal ["CUP_SMAW_HEAA_M", 5];
 	_vcl addMagazineCargoGlobal ["CUP_SMAW_HEDP_M", 5];
-	_vcl addMagazineCargoGlobal ["Stinger", 12];
+	_vcl addMagazineCargoGlobal ["CUP_Stinger_M", 12];
 // weapons
 	_vcl addWeaponCargoGlobal ["Binocular", 1];
 	_vcl addWeaponCargoGlobal ["CUP_Binocular_Vector", 1];
@@ -97,7 +97,7 @@ _PMC_CreateConvoyVehicles =
 	_vcl addWeaponCargoGlobal ["CUP_SCAR_H_CQC_CCO_SD", 1];
 	_vcl addWeaponCargoGlobal ["CUP_SCAR_H_STD_EGLM_Spect", 1];
 	_vcl addWeaponCargoGlobal ["CUP_launch_Mk153Mod0_SMAWOptics", 1];
-	_vcl addWeaponCargoGlobal ["Stinger", 1];
+	_vcl addWeaponCargoGlobal ["CUP_launch_FIM92Stinger", 1];
 
 /*
 	Weapons
