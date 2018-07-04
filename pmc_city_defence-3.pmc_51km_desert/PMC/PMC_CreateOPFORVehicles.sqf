@@ -5,8 +5,8 @@ PMC_opfor_vehicle_car_unarmed = ["CUP_O_Ural_Repair_CHDKZ","CUP_O_Ural_Reammo_CH
 
 PMC_CreateOPFORVehicles =
 {
-private ["_grp","_myVec","_vcl","_respawnpoint","_all_OPFOR_vecH","_wp","_targetpoint"];
-_all_OPFOR_vecH = ["CUP_O_Ka52_RU","CUP_O_Mi8_RU","CUP_O_Mi8_RU"];
+	private ["_grp","_myVec","_vcl","_respawnpoint","_all_OPFOR_vecH","_wp","_targetpoint"];
+	_all_OPFOR_vecH = ["CUP_O_Ka52_RU","CUP_O_Mi8_RU","CUP_O_Mi8_RU"];
         
         _respawnpoint = _this select 0;
         _targetpoint = _this select 1;
@@ -136,4 +136,7 @@ _all_OPFOR_vecH = ["CUP_O_Ka52_RU","CUP_O_Mi8_RU","CUP_O_Mi8_RU"];
 	[_grp, _wp] setWaypointFormation "COLUMN";
 	[_grp, _wp] setWaypointSpeed "NORMAL";
 	[_grp, _wp] setWaypointType "GUARD";
+
+	// return the group name
+	_grp
 };
