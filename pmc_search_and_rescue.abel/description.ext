@@ -1,14 +1,38 @@
-respawn = "group";
+// VALUES: 0=None; 1=Bird; 2=Instant; 3=Base; 4=Group; (5=Side, teamswitch)
+respawn = "Group";
+// Time delay in seconds for respawn to occur  (NEVER use 0)
+respawndelay = 3;
 
-// Title that appears on screen in briefing
-onLoadIntro="PMC Search and Rescue";
+onLoadMission = "Blackhawk is missing, its your job to find it!";
+onLoadMissionTime = 1;
+onLoadIntro = "https://www.pmctactical.org/";
+onLoadIntroTime = 1;
+disabledAI = 1;
 
-// Title that appears on screen at beginning of mission
-onLoadMission="Blackhawk is missing, its your job to find it!";
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 24;
+	playerCountMultipleOf = 1;
+};
+
+author = "Snake Man, PMC.";
+overviewText = "Our Blackhawk helicopter is missing, its your job to find out what has happened to it and to bring possible survivors of crash back to base.";
+overviewPicture = "";
+
+class CfgDebriefing
+{
+	class pmc_end1
+	{
+		title = "Mission Accomplished!";
+		description = "Good job!";
+		subtitle = "";
+	};
+};
 
 // Show GPS system on the map
-ShowGPS=1;
-
+ShowGPS = 1;
 
 class CfgRadio
 {
@@ -55,7 +79,6 @@ class CfgRadio
 		sound[] = {"Rstart.ogg", db+0, 1.0};
 		title = $STRM_Rstart;
 	};
-
 };
 
 /*
@@ -80,7 +103,7 @@ class Weapons
     class M60
     {
         count = 4;
-    };   
+    };
     class HK
     {
         count = 4;
@@ -92,7 +115,7 @@ class Weapons
     class CarlGustavLauncher
     {
         count = 4;
-    };   
+    };
     class LAWLauncher
     {
         count = 4;
@@ -131,7 +154,7 @@ class Magazines
     class M60
     {
         count = 10;
-    };   
+    };
     class M21
     {
         count = 10;
@@ -151,11 +174,11 @@ class Magazines
     class TimeBomb
     {
         count = 5;
-    };   
+    };
     class CarlGustavLauncher
     {
         count = 4;
-    };     
+    };
     class LAWLauncher
     {
         count = 4;

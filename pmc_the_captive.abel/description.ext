@@ -1,11 +1,35 @@
-respawn="group";
+// VALUES: 0=None; 1=Bird; 2=Instant; 3=Base; 4=Group; (5=Side, teamswitch)
+respawn = "Group";
+// Time delay in seconds for respawn to occur  (NEVER use 0)
+respawndelay = 3;
 
-// Title that appears on screen in briefing
-onLoadIntro="PMC The Captive";
+onLoadMission = "Free our boys";
+onLoadMissionTime = 1;
+onLoadIntro = "https://www.pmctactical.org/";
+onLoadIntroTime = 1;
+disabledAI = 1;
 
-// Title that appears on screen at beginning of mission
-onLoadMission="Free our boys";
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 24;
+	playerCountMultipleOf = 1;
+};
 
+author = "Snake Man, PMC.";
+overviewText = "Two NATO soldiers are held by Russian prison camp, this is rescue operation";
+overviewPicture = "";
+
+class CfgDebriefing
+{
+	class pmc_end1
+	{
+		title = "Mission Accomplished!";
+		description = "Good job!";
+		subtitle = "";
+	};
+};
 
 class CfgRadio
 {
@@ -87,7 +111,6 @@ class CfgRadio
 		sound[] = {"Rgoodluck.ogg", db+0, 1.0};
 		title = $STRM_Rgoodluck;
 	};
-
 };
 
 /*
@@ -112,7 +135,7 @@ class Weapons
     class M60
     {
         count = 4;
-    };   
+    };
     class HK
     {
         count = 4;
@@ -124,7 +147,7 @@ class Weapons
     class CarlGustavLauncher
     {
         count = 4;
-    };   
+    };
     class LAWLauncher
     {
         count = 4;
@@ -163,7 +186,7 @@ class Magazines
     class M60
     {
         count = 10;
-    };   
+    };
     class M21
     {
         count = 10;
@@ -183,11 +206,11 @@ class Magazines
     class TimeBomb
     {
         count = 10;
-    };   
+    };
     class CarlGustavLauncher
     {
         count = 4;
-    };     
+    };
     class LAWLauncher
     {
         count = 4;
@@ -224,6 +247,5 @@ class Magazines
     {
         count = 10;
     };
-
 };
 */

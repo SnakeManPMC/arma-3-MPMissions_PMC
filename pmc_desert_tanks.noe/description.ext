@@ -1,10 +1,41 @@
-respawn="group";
+// VALUES: 0=None; 1=Bird; 2=Instant; 3=Base; 4=Group; (5=Side, teamswitch)
+respawn = "Group";
+// Time delay in seconds for respawn to occur  (NEVER use 0)
+respawndelay = 3;
 
-// Title that appears on screen in briefing
-onLoadIntro=$STRD_Rmissname;
+onLoadIntro = $STRD_Rmissname;
+onLoadMission = $STRL_Rload;
+onLoadMissionTime = 1;
+onLoadIntroTime = 1;
+disabledAI = 1;
 
-// Title that appears on screen at beginning of mission
-onLoadMission=$STRL_Rload;
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 24;
+	playerCountMultipleOf = 1;
+};
+
+author = "Snake Man, PMC.";
+overviewText = "Tank battle in Nogova desert.";
+overviewPicture = "";
+
+class CfgDebriefing
+{
+	class pmc_end1
+	{
+		title = "Mission Accomplished!";
+		description = "Good job! US repelled the Russians";
+		subtitle = "";
+	};
+
+	class pmc_end2: pmc_end1
+	{
+		title = "Mission Failed!";
+		description = "You suck! Russians took the US airbase";
+	}
+};
 
 class CfgRadio
 {
@@ -16,22 +47,4 @@ class CfgRadio
 		sound[] = {"Rhello.ogg", db+0, 1.0};
 		title = $STRM_Rhello;
 	};
-
 };
-
-/*
-<a name="Debriefing:End1">Done</a>
-<br/>
-
-US repelled the Russians
-
-<br/>
-
-
-<br/>
-
-<a name="Debriefing:End2">Lost</a>
-<br/>
-
-Russians took the US airbase
-*/

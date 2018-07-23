@@ -66,7 +66,7 @@ player createDiaryRecord
 	"Diary",
 	[
 		"Russian Airstrip",
-		"Airstrip is holding scum sucking Russian enemy, kill them all and bow everything up!<br/><marker name='airstrip'>airstrip location</marker>"
+		"Airstrip is holding scum sucking Russian enemy, kill them all and blow everything up!<br/><marker name='airstrip'>airstrip location</marker>"
 	]
 ];
 
