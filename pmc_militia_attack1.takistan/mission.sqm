@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1119;
+		nextID=1121;
 	};
 	class MarkerIDProvider
 	{
@@ -19,7 +19,7 @@ class EditorData
 		pos[]={5801.0239,107.95808,11201.774};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -111,7 +111,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Militia Attack 1 v0.2.1";
+		briefingName="PMC Militia Attack 1 v0.2.2";
 		startWind=0.1;
 		forecastWind=0.1;
 		forecastWaves=0.1;
@@ -125,24 +125,27 @@ class Mission
 	};
 	class Entities
 	{
-		items=73;
+		items=75;
 		class Item0
 		{
 			dataType="Marker";
-			position[]={5817.6514,83.040001,11250.816};
+			position[]={5817.6509,83.040001,11250.816};
 			name="usa";
 			type="flag_USA";
-			a=1.5;
+			a=2;
+			b=2;
 			id=1005;
 		};
 		class Item1
 		{
 			dataType="Marker";
-			position[]={6465.9697,61.62812,11365.164};
+			position[]={6465.9702,61.627998,11365.164};
 			name="nva";
 			type="Faction_OPFOR_EP1";
-			a=1.5;
+			a=2;
+			b=1.5;
 			id=1006;
+			atlOffset=-0.00012207031;
 		};
 		class Item2
 		{
@@ -318,7 +321,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5777.3965,85.638519,11316.808};
-				angles[]={-0,5.5895767,0};
+				angles[]={0,5.5895767,0};
 			};
 			side="Empty";
 			flags=4;
@@ -335,7 +338,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5769.3643,85.638519,11308.772};
-				angles[]={-0,5.8789916,0};
+				angles[]={0,5.8789916,0};
 			};
 			side="Empty";
 			flags=4;
@@ -352,7 +355,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5743.7412,85.638519,11284.094};
-				angles[]={-0,5.4367638,0};
+				angles[]={0,5.4367638,0};
 			};
 			side="Empty";
 			flags=4;
@@ -369,7 +372,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5734.1802,85.637047,11275.867};
-				angles[]={-0,5.445035,0};
+				angles[]={0,5.445035,0};
 			};
 			side="Empty";
 			flags=4;
@@ -386,7 +389,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5727.2969,85.155548,11269.937};
-				angles[]={-0,5.8789916,0};
+				angles[]={0,5.8789916,0};
 			};
 			side="Empty";
 			flags=4;
@@ -403,7 +406,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={5828.3223,84.219505,11312.746};
-				angles[]={-0,0.78968298,0};
+				angles[]={0,0.78968298,0};
 			};
 			side="Empty";
 			flags=4;
@@ -439,6 +442,7 @@ class Mission
 					};
 					id=1025;
 					type="CUP_O_TK_INS_Soldier_Enfield";
+					atlOffset=0.00015258789;
 				};
 				class Item1
 				{
@@ -578,6 +582,7 @@ class Mission
 			{
 			};
 			id=1024;
+			atlOffset=0.00015258789;
 		};
 		class Item20
 		{
@@ -1028,6 +1033,7 @@ class Mission
 			name="PMC_opfor_start_6";
 			id=1064;
 			type="Logic";
+			atlOffset=-7.6293945e-006;
 		};
 		class Item39
 		{
@@ -1802,6 +1808,34 @@ class Mission
 			{
 			};
 			id=1117;
+		};
+		class Item73
+		{
+			dataType="Trigger";
+			position[]={5816.4248,83.035591,11247.246};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{""respawn_west"" setMarkerPosLocal getPos ""pmc_safepos"";}";
+				onDeactivation="call{""respawn_west"" setMarkerPosLocal getMarkerPos ""usa"";}";
+				sizeA=150;
+				sizeB=150;
+				activationBy="EAST";
+			};
+			id=1119;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item74
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5548.7202,91.407822,11659.354};
+			};
+			name="pmc_safepos";
+			id=1120;
+			type="Logic";
+			atlOffset=-0.046005249;
 		};
 	};
 };
