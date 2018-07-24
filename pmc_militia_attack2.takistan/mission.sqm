@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8195.1582,321.04001,1980.8618};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,0};
+		pos[]={8185.8223,297.6424,1995.1388};
+		dir[]={0.78513026,-0.060364347,0.61640674};
+		up[]={0.04748686,0.99817526,0.037282258};
+		aside[]={0.61753309,-6.3527841e-007,-0.7865665};
 	};
 };
 binarizationWanted=0;
@@ -111,7 +111,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Militia Attack 2 v0.2.2";
+		briefingName="PMC Militia Attack 2 v0.2.3";
 		startWind=0.1;
 		forecastWind=0.1;
 		forecastWaves=0.1;
@@ -1776,11 +1776,12 @@ class Mission
 		class Item73
 		{
 			dataType="Trigger";
-			position[]={8212.9287,296.04001,2028.7368};
+			position[]={8212.9287,296.04001,2028.7371};
 			class Attributes
 			{
+				text="respawn overrun protection";
 				condition="call{this}";
-				onActivation="call{""respawn_west"" setMarkerPosLocal getPos ""pmc_safepos"";}";
+				onActivation="call{""respawn_west"" setMarkerPosLocal (getPosASL pmc_safepos);}";
 				onDeactivation="call{""respawn_west"" setMarkerPosLocal getMarkerPos ""usa"";}";
 				sizeA=150;
 				sizeB=150;
@@ -1794,8 +1795,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={8384.6992,311.49515,1687.2268};
-				angles[]={0.17576991,0,0.05115639};
+				position[]={8409.7539,308.98901,1717.0194};
+				angles[]={0.11311349,0,0.006394445};
 			};
 			name="pmc_safepos";
 			id=1006;

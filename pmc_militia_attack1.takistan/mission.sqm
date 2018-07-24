@@ -111,7 +111,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Militia Attack 1 v0.2.2";
+		briefingName="PMC Militia Attack 1 v0.2.4";
 		startWind=0.1;
 		forecastWind=0.1;
 		forecastWaves=0.1;
@@ -1812,11 +1812,12 @@ class Mission
 		class Item73
 		{
 			dataType="Trigger";
-			position[]={5816.4248,83.035591,11247.246};
+			position[]={5816.4248,83.035599,11247.246};
 			class Attributes
 			{
+				text="respawn overrun protection";
 				condition="call{this}";
-				onActivation="call{""respawn_west"" setMarkerPosLocal getPos ""pmc_safepos"";}";
+				onActivation="call{""respawn_west"" setMarkerPosLocal (getPosASL pmc_safepos);}";
 				onDeactivation="call{""respawn_west"" setMarkerPosLocal getMarkerPos ""usa"";}";
 				sizeA=150;
 				sizeB=150;
@@ -1824,6 +1825,7 @@ class Mission
 			};
 			id=1119;
 			type="EmptyDetectorAreaR50";
+			atlOffset=7.6293945e-006;
 		};
 		class Item74
 		{

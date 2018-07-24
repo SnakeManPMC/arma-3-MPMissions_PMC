@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={19721.279,40.974998,16478.725};
-		dir[]={0,-0.70710677,0.70710683};
-		up[]={0,0.70710677,0.70710671};
-		aside[]={0.99999994,0,0};
+		pos[]={19743.586,40.974998,16463.271};
+		dir[]={0.94767863,-0.30299193,0.10054761};
+		up[]={0.30130419,0.95298946,0.031967755};
+		aside[]={0.10550765,9.1269612e-008,-0.99442512};
 	};
 };
 binarizationWanted=0;
@@ -118,7 +118,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Insurgent Rage 3 v0.2.2";
+		briefingName="PMC Insurgent Rage 3 v0.2.3";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -2003,7 +2003,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={19924.768,9.9899998,17042.139};
+				position[]={20137.951,9.7272034,17095.658};
+				angles[]={6.2803807,0,0.0207968};
 			};
 			name="fallBack";
 			id=5597;
@@ -2015,10 +2016,12 @@ class Mission
 			position[]={19724.648,15.98,16483.797};
 			class Attributes
 			{
-				onActivation="""respawn_west"" setMarkerPosLocal getPosASL fallBack;";
+				text="respawn overrun protection";
+				condition="call{this}";
+				onActivation="call{""respawn_west"" setMarkerPosLocal getPosASL fallBack;}";
 				onDeactivation="""respawn_west"" setMarkerPosLocal getPosASL this;";
-				sizeA=100;
-				sizeB=100;
+				sizeA=400;
+				sizeB=400;
 				interuptable=1;
 				repeatable=1;
 				activationBy="EAST";
