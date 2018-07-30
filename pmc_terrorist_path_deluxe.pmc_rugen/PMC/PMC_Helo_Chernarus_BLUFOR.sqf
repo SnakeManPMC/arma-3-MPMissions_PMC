@@ -33,7 +33,6 @@ _PMC_MakeHeloBLUFOR =
 		"_helos",
 		"_myVec",
 		"_targetpoint",
-		"_tmp",
 		"_vcl"
 	];
 
@@ -56,13 +55,8 @@ _PMC_MakeHeloBLUFOR =
 	(units _grp select 0) moveInDriver _vcl;
 
 	// create helo crew
-	_tmp = [_vcl, _grp] execVM "PMC\PMC_Create_Crew.sqf";
-
-	// wait until crew has been created, then proceed to add killed EH.
-	waitUntil
-	{
-		scriptDone _tmp;
-	};
+	[_vcl, _grp] execVM "PMC\PMC_Create_Crew.sqf";
+	sleep 1;
 
 	// recycle the group
 	[_grp] execVM "PMC\PMC_groupRecycle.sqf";
