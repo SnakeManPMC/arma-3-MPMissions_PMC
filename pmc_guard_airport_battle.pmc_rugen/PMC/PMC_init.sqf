@@ -1,5 +1,6 @@
 PMC_war_is_on = true;
 pmc_mcomplete = false;
+pmc_debug = false;
 
 // description.ext mission starting parameters
 skiptime (((paramsarray select 0) - daytime + 24) % 24);
