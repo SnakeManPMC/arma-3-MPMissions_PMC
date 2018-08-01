@@ -34,6 +34,10 @@ player addWeapon "CUP_Makarov";
 
 player addAction ["Set Mobile Respawn Here", "PMC\PMC_Mobile_Respawn_Set.sqf", true];
 
+[] execVM "PMC\PMC_briefing.sqf";
+
+enableSaving [ false, false ];
+
 waitUntil {!isNil "PMC_mobile_respawn_spot"};
 player setPos PMC_mobile_respawn_spot;
 // setup marker to correct position
