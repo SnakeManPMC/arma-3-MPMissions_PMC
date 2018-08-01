@@ -3,15 +3,22 @@
 
 private ["_tmp"];
 
+PMC_debug = true;
+publicVariable "PMC_debug";
+
+// players starting location
+PMC_hq = call compile preprocessFileLineNumbers "PMC\PMC_Player_Starting_Location.sqf";
+if (PMC_debug) then { player sidechat format["pmc_init_server.sqf, PMC_hq: %1", PMC_hq]; };
+
+publicVariable "PMC_hq";
+if (PMC_debug) then { player sidechat format["pmc_init_server.sqf, publicVariable PMC_hq: %1", PMC_hq]; };
+
 // setup mobile respawn initial spot
-PMC_mobile_respawn_spot = getMarkerPos "respawn_guerrilla";
+PMC_mobile_respawn_spot = [PMC_hq select 0, PMC_hq select 1, 0];
 publicVariable "PMC_mobile_respawn_spot";
 
 // Create location array from all class names entries (few in pmc 51km desert hehe)
 PMC_loc = call compile preprocessFileLineNumbers "PMC\PMC_locationFinder.sqf";
-
-// players random starting location
-//[] execVM "PMC\Starting_Location.sqf";
 
 // the actual sides (except west as our mission editor placed player is west guy).
 [] execVM "PMC\Create_Sides.sqf";
@@ -23,11 +30,6 @@ PMC_loc = call compile preprocessFileLineNumbers "PMC\PMC_locationFinder.sqf";
 // create gamelogic's for our stupid old script use ;)
 [] execVM "PMC\Gamelogics_For_Old_Scripts.sqf";
 
-// replace player randomly
-//[] execVM "PMC\Player_Identity_Crisis.sqf";
-
-PMC_debug = true;
-publicVariable "PMC_debug";
 [] execVM "PMC\PMC_targets.sqf";
 // corpse removal script
 PMC_corpses = [];
@@ -78,7 +80,10 @@ call compile preProcessFileLineNumbers "PMC\PMC_Create_Takistani_Army_Special_Pu
 // counting groups per side
 PMC_countGroups = compile preProcessFileLineNumbers "PMC\PMC_countGroups.sqf";
 
-waitUntil { !isnil "bis_fnc_init" };
+//[] execVM "PMC\PMC_Tasks.sqf";
+
+
+/* FOR TESTING PURPOSES
 
 // initial unit creation already in place all over the terrain (not just starting looper from the edges).
 _tmp = [] execVM "PMC\Initial_Unit_Creation.sqf";
@@ -122,3 +127,5 @@ sleep 1;
 [[1854, 2448, 0]] execVM "PMC\PMC_Airforce_HQ.sqf";
 
 if (PMC_debug) then { diag_log format["PMC_init.sqf complete: %1", diag_tickTime]; };
+
+FOR TESTING PURPOSES */

@@ -5,18 +5,34 @@ waitUntil
 	(alive player);
 };
 
-// weather disabled, its raining like all the time, what the fuck?
-//[] execVM "PMC\PMC_weather.sqf";
+// wait until server gives us location
+waitUntil
+{
+	!isNil "PMC_hq";
+};
+
+// move respawn items there
+if (PMC_debug) then { hint format ["alright PMC_hq set!\n%1", PMC_hq]; };
+"pmc_target1" setMarkerPosLocal PMC_hq;
+
+private _playerPos = [(PMC_hq select 0), (PMC_hq select 1), 0];
+player setPosATL _playerPos;
+"respawn_west" setMarkerPosLocal _playerPos;
+
+/* bis respawn locations, not done yet
+pmc_blufor_respawn1 setPos [(_playerPos select 0), (_playerPos select 1) - 50, 0];
+pmc_blufor_respawn2 setPos [(_playerPos select 0), (_playerPos select 1) + 50, 0];
+pmc_blufor_respawn3 setPos [(_playerPos select 0) + 50, (_playerPos select 1) - 50, 0];
+pmc_blufor_respawn4 setPos [(_playerPos select 0) + 50, (_playerPos select 1) + 50, 0];
+*/
 
 // remove all weapons from new player
 removeAllWeapons player;
 
 // add killed eventhandler to remove dead player bodies
 // respawn script to remove weapon from respawned player
-player addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"; handle = _this execVM "PMC\PMC_respawnPlayer.sqf"}];
+player addEventHandler ["killed", {0 = _this execVM "PMC\PMC_killed.sqf"; 0 = _this execVM "PMC\PMC_respawnPlayer.sqf"}];
 
-// DEBUG HAHAHAHA
-[player] execVM "PMC\PMC_viewdistance_flagpole.sqf";
 // binocular never hurt nobody
 player addWeapon "binocular";
 // nvg's so he can see at night hehe
@@ -38,19 +54,8 @@ player addAction ["Set Mobile Respawn Here", "PMC\PMC_Mobile_Respawn_Set.sqf", t
 
 enableSaving [ false, false ];
 
-waitUntil {!isNil "PMC_mobile_respawn_spot"};
-player setPos PMC_mobile_respawn_spot;
 // setup marker to correct position
 [] execVM "PMC\PMC_Mobile_Respawn.sqf";
 
-waitUntil { !isnil "bis_fnc_init" };
-
-// shut the AI up!
-player setVariable ["BIS_noCoreConversations", true];
-
 sleep 3;
-
 ["Desert War", "PMC 51km Desert", "06-23-12"] spawn BIS_fnc_infoText;
-//cutText ["", "BLACK IN", 2];
-
-//[] execVM "PMC\PMC_debug.sqf";
