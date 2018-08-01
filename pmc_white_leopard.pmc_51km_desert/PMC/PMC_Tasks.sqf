@@ -1,4 +1,5 @@
 
+// "PMC_objective1", "Kill em all"
 [
 	west,
 	[
@@ -7,10 +8,10 @@
 	[
 		"This is shown in map view -> tasks -> selected task (this can be long descriptive text)",
 		"Taskname 1 (keep short)",
-		"textmarker"
+		"respawn_west"
 	],
 	[
-		PMC_hq
+		pmc_flagpole
 	],
 	1,
 	2,

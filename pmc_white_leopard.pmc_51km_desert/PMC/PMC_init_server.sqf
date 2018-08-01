@@ -54,8 +54,7 @@ PMC_InfTransport = 0;
 PMC_PlayerRespawns = 0;
 publicVariable "PMC_PlayerRespawns";
 
-// weather disabled, its raining like all the time, what the fuck?
-//[] execVM "PMC\PMC_weather.sqf";
+[] execVM "PMC\PMC_weather.sqf";
 
 // waypoint creation
 call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Waypoints.sqf";
@@ -83,7 +82,7 @@ call compile preProcessFileLineNumbers "PMC\PMC_Create_Takistani_Army_Special_Pu
 // counting groups per side
 PMC_countGroups = compile preProcessFileLineNumbers "PMC\PMC_countGroups.sqf";
 
-//[] execVM "PMC\PMC_Tasks.sqf";
+[] execVM "PMC\PMC_Tasks.sqf";
 
 // initial unit creation already in place all over the terrain (not just starting looper from the edges).
 _tmp = [] execVM "PMC\Initial_Unit_Creation.sqf";
