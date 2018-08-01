@@ -1,3 +1,4 @@
 
 "respawn_guerrilla" setMarkerPos PMC_mobile_respawn_spot;
-pmc_guerrilla_cache setPos PMC_mobile_respawn_spot;
+pmc_guerrilla_cache setPosATL PMC_mobile_respawn_spot;
+"pmc_marker_base" setMarkerPos PMC_mobile_respawn_spot;
