@@ -2,10 +2,10 @@
 private ["_grp","_PMC_opfor","_ran","_targetpoint","_Max_OPFOR_On_Map","_victoryCondition","_sleeptime","_respawnpoint","_countUnits","_pos","_safePos"];
 
 // maximum number of opfor on the map at one time
-_Max_OPFOR_On_Map = 50;
+_Max_OPFOR_On_Map = ["PMC_Force_Level_OPFOR"] call BIS_fnc_getParamValue;
 
 // how many units to create until ending the loop
-_victoryCondition = 500;
+_victoryCondition = ["PMC_Victory_Condition_OPFOR"] call BIS_fnc_getParamValue;
 
 // counter for how many units have been created
 _PMC_opfor = 0;

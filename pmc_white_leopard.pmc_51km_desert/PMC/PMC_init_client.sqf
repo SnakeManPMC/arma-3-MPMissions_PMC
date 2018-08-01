@@ -18,9 +18,9 @@ waitUntil
 if (PMC_debug) then { hint format ["alright PMC_hq set!\n%1", PMC_hq]; };
 "pmc_target1" setMarkerPosLocal PMC_hq;
 
-private _playerPos = [(PMC_hq select 0), (PMC_hq select 1), 0];
-player setPosATL _playerPos;
-"respawn_west" setMarkerPosLocal _playerPos;
+// current player
+private _playerPos = [PMC_hq, 0, 20, 10, 0, 20, 0] call BIS_fnc_findSafePos;
+player setPosATL [_playerPos select 0, _playerPos select 1, 0];
 
 /* bis respawn locations, not done yet
 pmc_blufor_respawn1 setPos [(_playerPos select 0), (_playerPos select 1) - 50, 0];

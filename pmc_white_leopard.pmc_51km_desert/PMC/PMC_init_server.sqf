@@ -1,6 +1,13 @@
 
-// description.ext mission starting parameters
-skiptime (((paramsarray select 0) - daytime + 24) % 24);
+private _tod = ["PMC_Time_of_Day"] call BIS_fnc_getParamValue;
+if (_tod == -1) then
+{
+	skipTime (round random 24);
+}
+else
+{
+	skiptime ((_tod - daytime + 24) % 24);
+};
 
 // set our weather using multiplayer parameter array
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
@@ -86,9 +93,6 @@ PMC_countGroups = compile preProcessFileLineNumbers "PMC\PMC_countGroups.sqf";
 
 //[] execVM "PMC\PMC_Tasks.sqf";
 
-
-/* FOR TESTING PURPOSES
-
 // initial unit creation already in place all over the terrain (not just starting looper from the edges).
 _tmp = [] execVM "PMC\Initial_Unit_Creation.sqf";
 waitUntil { scriptDone _tmp; };
@@ -131,5 +135,3 @@ sleep 1;
 [[1854, 2448, 0]] execVM "PMC\PMC_Airforce_HQ.sqf";
 
 if (PMC_debug) then { diag_log format["PMC_init.sqf complete: %1", diag_tickTime]; };
-
-FOR TESTING PURPOSES */
