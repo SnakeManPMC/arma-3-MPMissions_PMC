@@ -15,7 +15,6 @@ while {true} do
 	// new feature is && (diag_fps > 15), hopefully it wont kill gameplay totally :)
 	if ( ('landVehicle' countType list pmc_opfor_list) < _numberOfVehicles && (diag_fps > _minimumFPS) && ([(list pmc_opfor_list)] call PMC_countGroups) < 144 ) then
 	{
-	// opfor
 		// hardcoded to harbor 4...
 		_pos = [11634, 49031, 0];
 		_safePos = [_pos, 0, 500, 30, 0, 20, 0] call BIS_fnc_findSafePos;
@@ -85,7 +84,7 @@ while {true} do
 
 	if (PMC_debug) then
 	{
-		diag_log format["PMC War_Vehicles_BLUFOR.sqf tickTime %1", diag_tickTime];
+		diag_log format["PMC War_Vehicles_OPFOR.sqf 60 sleeper at %1", diag_tickTime];
 	};
 
 	sleep 60;

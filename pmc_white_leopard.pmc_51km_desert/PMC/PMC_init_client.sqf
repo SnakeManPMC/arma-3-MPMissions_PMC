@@ -1,3 +1,10 @@
+
+// this might be needed to remove weapons and stuff
+waitUntil
+{
+	(alive player);
+};
+
 // weather disabled, its raining like all the time, what the fuck?
 //[] execVM "PMC\PMC_weather.sqf";
 

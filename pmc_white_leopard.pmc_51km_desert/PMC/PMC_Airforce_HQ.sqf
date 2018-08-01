@@ -98,6 +98,7 @@ _PMC_Aircraft_BLUFOR =
 	// add one last for cycle, so if he survives, he does it all over again.
 	_wp = _wp + 1;
 	_grp addWaypoint [_respawnpoint, 0];
+	diag_log format["PMC_Airforce_HQ.sqf before cycle waypoint... _grp: %1 and _wp: %2", _grp, _wp];
 	[_grp, _wp] setWaypointType "CYCLE";
 
 	// return the vehicle name

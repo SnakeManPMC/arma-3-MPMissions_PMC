@@ -20,7 +20,7 @@ private ["_grp","_PMC_CreateConvoyVehicles","_respawnpoint"];
 
 _PMC_CreateConvoyVehicles =
 {
-private ["_grp","_ran","_tlogic","_PMC_convoyBLUFORtargets","_targetpoint","_ptNum","_wp","_vcl","_respawnpoint","_crewType"];
+private ["_grp","_ran","_tlogic","_targetpoint","_wp","_vcl","_respawnpoint","_crewType"];
 	_respawnpoint = _this select 0;
 
 	_vcl = objNull;
@@ -147,23 +147,14 @@ private ["_grp","_ran","_tlogic","_PMC_convoyBLUFORtargets","_targetpoint","_ptN
 	_grp setSpeedMode "NORMAL";
 	_grp setBehaviour "SAFE";
 
-	// selecting the waypoint locations
-	_ptNum = count PMC_targets;
-	_PMC_convoyBLUFORtargets = [];
-	_PMC_convoyBLUFORtargets = PMC_targets;
-
 	// do the random patrolling waypoints
 	_wp = 0;
-	while {count _PMC_convoyBLUFORtargets > 0} do
+	while {_wp < 20} do
 	{
 		// choose random target.
-		_ran = (floor random _ptNum);
-		_tlogic = (_PMC_convoyBLUFORtargets select _ran);
+		_ran = (floor random count PMC_loc);
+		_targetpoint = (PMC_loc select _ran);
 		// remove it from the temp array so it wont be chosen again.
-		_PMC_convoyBLUFORtargets = _PMC_convoyBLUFORtargets - [_tlogic];
-		// get its coordinates.
-		_targetpoint = getPosASL _tlogic;
-		_ptNum = _ptNum - 1;
 		_wp = _wp + 1;
 
 		// add waypoint to this target.

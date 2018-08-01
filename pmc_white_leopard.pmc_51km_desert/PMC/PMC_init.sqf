@@ -100,27 +100,25 @@ sleep 2;
 // opfor start hardcoded [9944, 49088, 0];
 [] execVM "PMC\War_OPFOR.sqf";
 
-// blufor vehicles only
 [20, 20] execVM "PMC\War_Vehicles_BLUFOR.sqf";
-
-// opfor vehicles only
+sleep 1;
 [80, 20] execVM "PMC\War_Vehicles_OPFOR.sqf";
 
-// aircrafts
+sleep 1;
 [[-1000,-1000,200]] execVM "PMC\PMC_Aircraft_BLUFOR_MODIFIED.sqf";
 [[10000,-1000,200]] execVM "PMC\PMC_Aircraft_OPFOR_MODIFIED.sqf";
 
-// helicopters
+sleep 1;
 [[-1000,-1000,200]] execVM "PMC\PMC_HeloBLUFOR_MODIFIED.sqf";
 [[10000,-1000,200]] execVM "PMC\PMC_HeloOPFOR_MODIFIED.sqf";
 
-// BLUFOR convoy
+sleep 1;
 [[1854, 2448, 0]] execVM "PMC\PMC_Create_Convoy_BLUFOR.sqf";
 sleep 1;
-// OPFOR convoy
 [[9944, 49088, 0]] execVM "PMC\PMC_Create_Convoy_OPFOR.sqf";
 
 // new experimental airforce HQ thing :)
+sleep 1;
 [[1854, 2448, 0]] execVM "PMC\PMC_Airforce_HQ.sqf";
 
 if (PMC_debug) then { diag_log format["PMC_init.sqf complete: %1", diag_tickTime]; };
