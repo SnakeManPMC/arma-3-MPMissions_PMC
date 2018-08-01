@@ -1,13 +1,5 @@
 
-private _tod = ["PMC_Time_of_Day"] call BIS_fnc_getParamValue;
-if (_tod == -1) then
-{
-	skipTime (round random 24);
-}
-else
-{
-	skiptime ((_tod - daytime + 24) % 24);
-};
+[] execVM "PMC\PMC_Set_Mission_Time.sqf";
 
 // set our weather using multiplayer parameter array
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
