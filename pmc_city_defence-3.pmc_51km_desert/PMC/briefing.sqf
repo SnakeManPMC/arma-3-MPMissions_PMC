@@ -28,8 +28,3 @@ switch (side player) do
 	{
 	};
 };
-
-/*
-<a name = "OBJ_1'></marker>Capture building
-<a name = "OBJ_2'></marker>Clear city
-*/
