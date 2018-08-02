@@ -1,33 +1,9 @@
 
 if (isServer) then
 {
-	[] execVM "PMC\PMC_Set_Mission_Time.sqf";
-	[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
-
-	// initialized variables and settings
-	PMC_debug = 0;
-	publicVariable "PMC_debug";
-	PMC_blufor = 0;
-	PMC_killedNum = 0;
-	publicVariable "PMC_killedNum";
-	
-	// corpse removal script
-	PMC_corpses = [];
-	[50] execVM "PMC\PMC_corpses.sqf";
-	
-	// start the war
-	// opfor infantry
-	[] execVM "PMC\PMC_war_OPFOR.sqf";
-	// opfor vehicles
-	[] execVM "PMC\PMC_OPFOR_Vehicles.sqf";
-	// blufor infantry
-	[] execVM "PMC\PMC_war_BLUFOR.sqf";
-	// blufor vehicles
-	[] execVM "PMC\PMC_BLUFOR_Vehicles.sqf";
-}
-else
-{
-	[] execVM "PMC\briefing.sqf";
+	[] execVM "PMC\PMC_init_server.sqf";
 };
-
-enableSaving [ false, false ];
+if (hasInterface) then
+{
+	[] execVM "PMC\PMC_init_client.sqf";
+};

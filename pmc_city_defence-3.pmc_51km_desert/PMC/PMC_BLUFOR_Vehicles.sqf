@@ -25,9 +25,9 @@ while {true} do
 		((count units _grp) == 0);
 	};
 	// then we delete its group.
+	deleteGroup _grp;
 	waitUntil
 	{
-		deleteGroup _grp;
 		(isNull _grp);
 	};
 	// and then we start the whole damn loop all over again :)
