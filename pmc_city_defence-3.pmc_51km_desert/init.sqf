@@ -1,6 +1,9 @@
 
 if (isServer) then
 {
+	[] execVM "PMC\PMC_Set_Mission_Time.sqf";
+	[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
+
 	// initialized variables and settings
 	PMC_debug = 0;
 	publicVariable "PMC_debug";
