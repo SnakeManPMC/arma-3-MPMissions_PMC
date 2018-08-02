@@ -63,11 +63,12 @@ while {true} do
 	_list =
 	format
 	[		
-		"landVehicles: BLUFOR: %1, OPFOR: %2, Corpses: %3, KIAs: %4, FPS: %5",
+		"landVehicles: BLUFOR: %1, OPFOR: %2, InfTransport: %3, Corpses: %4, KIAs: %5, FPS: %6",
 	
 		('landVehicle' countType list pmc_blufor_list),
 		('landVehicle' countType list pmc_opfor_list),
 		
+		PMC_InfTransport,
 		count PMC_corpses,
 		PMC_killedNum,
 		diag_fps

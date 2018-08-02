@@ -130,7 +130,7 @@ diag_log format ["Infantry Transport Airborne US %1, RTB check. unitReady: %2, r
 // if she arrived, if shes ok, then just delete her and her crew.
 if ( (alive _vcl && alive leader _HeloGrp && (_vcl distance _rtb) < 500) ) then
 {
-	diag_log format ["Infantry Transport Airborne US (%1) %2 has exited with (ALL OK) alive _vcl: %3, alive leader _HeloGrp: %4. POSIT: %5, _rtb: %6", PMC_InfTransport, _HeloGrp, alive _vcl, alive leader _HeloGrp, getPosASL _vcl, _rtb];
+	diag_log format ["Infantry Transport Airborne US (%1) %2 has exited with (ALL OK) alive _vcl: %3, alive leader _HeloGrp: %4. POSIT: %5, _rtb: %6, Distance: %7", PMC_InfTransport, _HeloGrp, alive _vcl, alive leader _HeloGrp, getPosASL _vcl, _rtb, (_vcl distance _rtb)];
 	{
 		deleteVehicle _x;
 	} forEach units _HeloGrp;
@@ -138,7 +138,7 @@ if ( (alive _vcl && alive leader _HeloGrp && (_vcl distance _rtb) < 500) ) then
 }
 else
 {
-	diag_log format ["Infantry Transport Airborne US (%1) %2 has exited with (NOT OK) alive _vcl: %3, alive leader _HeloGrp: %4. POSIT: %5, _rtb: %6", PMC_InfTransport, _HeloGrp, alive _vcl, alive leader _HeloGrp, getPosASL _vcl, _rtb];
+	diag_log format ["Infantry Transport Airborne US (%1) %2 has exited with (NOT OK) alive _vcl: %3, alive leader _HeloGrp: %4. POSIT: %5, _rtb: %6, Distance: %7", PMC_InfTransport, _HeloGrp, alive _vcl, alive leader _HeloGrp, getPosASL _vcl, _rtb, (_vcl distance _rtb)];
 };
 
 // we decrease our count for transports active.

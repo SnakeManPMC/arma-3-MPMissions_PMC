@@ -9,6 +9,8 @@ _countUnits = compile preprocessFileLineNumbers "PMC\PMC_Count_Group_Units.sqf";
 _numberOfVehicles = _this select 0;
 _minimumFPS = _this select 1;
 
+sleep (random 5 + 10);
+
 while {true} do
 {
 	// new feature is && (diag_fps > 15), hopefully it wont kill gameplay totally :)
@@ -93,11 +95,11 @@ while {true} do
 
 		diag_log format["Created US vehicles: %1, total: %2", ([_grp] call _countUnits), ('landVehicle' countType list pmc_blufor_list)];
 	};
-
+/*
 	if (PMC_debug) then
 	{
 		diag_log format["PMC War_Vehicles_BLUFOR.sqf 60 sleeper at %1", diag_tickTime];
 	};
-
-	sleep 60;
+*/
+	sleep (random 60 + 10);
 };

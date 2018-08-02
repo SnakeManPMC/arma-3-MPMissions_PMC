@@ -1,7 +1,5 @@
 
 [] execVM "PMC\PMC_Set_Mission_Time.sqf";
-
-// set our weather using multiplayer parameter array
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 
 private ["_tmp"];
@@ -109,7 +107,6 @@ sleep 2;
 [] execVM "PMC\War_OPFOR.sqf";
 
 [20, 20] execVM "PMC\War_Vehicles_BLUFOR.sqf";
-sleep 1;
 [80, 20] execVM "PMC\War_Vehicles_OPFOR.sqf";
 
 sleep 1;
