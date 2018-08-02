@@ -20,6 +20,8 @@ if (PMC_debug) then { player sidechat format["pmc_init_server.sqf, publicVariabl
 PMC_mobile_respawn_spot = [PMC_hq select 0, PMC_hq select 1, 0];
 publicVariable "PMC_mobile_respawn_spot";
 
+[] execVM "PMC\PMC_Mobile_Respawn.sqf";
+
 // Create location array from all class names entries (few in pmc 51km desert hehe)
 PMC_loc = call compile preprocessFileLineNumbers "PMC\PMC_locationFinder.sqf";
 
@@ -36,7 +38,10 @@ PMC_loc = call compile preprocessFileLineNumbers "PMC\PMC_locationFinder.sqf";
 [] execVM "PMC\PMC_targets.sqf";
 // corpse removal script
 PMC_corpses = [];
+// players are included in pmc_killed.sqf and get undefined error if this is not set
+publicVariable "PMC_corpses";
 PMC_killedNum = 0;
+publicVariable "PMC_killedNum";
 [100] execVM "PMC\PMC_corpses.sqf";
 
 // number for created groups.
@@ -49,12 +54,11 @@ PMC_war_blufor = true;
 
 // for infantry transport
 PMC_InfTransport = 0;
+PMC_InfTransportUsed = 0;
 
 // player respawns
 PMC_PlayerRespawns = 0;
 publicVariable "PMC_PlayerRespawns";
-
-[] execVM "PMC\PMC_weather.sqf";
 
 // waypoint creation
 call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Waypoints.sqf";

@@ -21,10 +21,10 @@ if (PMC_debug) then { hint format ["alright PMC_hq set!\n%1", PMC_hq]; };
 // current player
 private _playerPos = [PMC_hq, 0, 20, 10, 0, 20, 0] call BIS_fnc_findSafePos;
 player setPosATL [_playerPos select 0, _playerPos select 1, 0];
-pmc_blufor_respawn1 setPos [(_playerPos select 0), (_playerPos select 1) - 50, 0];
-pmc_blufor_respawn2 setPos [(_playerPos select 0), (_playerPos select 1) + 50, 0];
-pmc_blufor_respawn3 setPos [(_playerPos select 0) + 50, (_playerPos select 1) - 50, 0];
-pmc_blufor_respawn4 setPos [(_playerPos select 0) + 50, (_playerPos select 1) + 50, 0];
+pmc_blufor_respawn1 setPos [(_playerPos select 0), (_playerPos select 1) - 100, 0];
+pmc_blufor_respawn2 setPos [(_playerPos select 0), (_playerPos select 1) + 100, 0];
+pmc_blufor_respawn3 setPos [(_playerPos select 0) + 100, (_playerPos select 1) - 100, 0];
+pmc_blufor_respawn4 setPos [(_playerPos select 0) + 100, (_playerPos select 1) + 100, 0];
 
 // remove all weapons from new player
 removeAllWeapons player;
@@ -54,8 +54,5 @@ player addAction ["Set Mobile Respawn Here", "PMC\PMC_Mobile_Respawn_Set.sqf", t
 
 enableSaving [ false, false ];
 
-// setup marker to correct position
-[] execVM "PMC\PMC_Mobile_Respawn.sqf";
-
 sleep 3;
-["Desert War", "PMC 51km Desert", "06-23-12"] spawn BIS_fnc_infoText;
+["Desert War", "PMC 51km Desert", "2012-06-23"] spawn BIS_fnc_infoText;
