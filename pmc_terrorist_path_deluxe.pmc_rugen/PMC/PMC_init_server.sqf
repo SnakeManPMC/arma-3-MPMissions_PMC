@@ -71,7 +71,6 @@ call compile preProcessFileLineNumbers "PMC\PMC_Guard_Inf_Waypoints.sqf";
 // PMC_Sentry_Inf_Waypoints
 call compile preProcessFileLineNumbers "PMC\PMC_Sentry_Inf_Waypoints.sqf";
 
-// PMC_Time_Used_Update
 call compile preProcessFileLineNumbers "PMC\PMC_Time_Used_Update.sqf";
 
 // insert all locations into an array
