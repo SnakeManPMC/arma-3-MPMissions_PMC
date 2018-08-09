@@ -52,6 +52,21 @@ waitUntil
 	scriptDone _tmp;
 };
 
+// PMC_SelectStartPosit starting position selecting function
+call compile preProcessFileLineNumbers "PMC\PMC_SelectStartPosit.sqf";
+
+// PMC_Select_Target
+call compile preProcessFileLineNumbers "PMC\PMC_Select_Target.sqf";
+
+// PMC_Patrol_Inf_Waypoints
+call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Waypoints.sqf";
+
+// PMC_Guard_Inf_Waypoints
+call compile preProcessFileLineNumbers "PMC\PMC_Guard_Inf_Waypoints.sqf";
+
+// PMC_Patrol_Inf_Targets_Waypoints
+call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Targets_Waypoints.sqf";
+
 // NVA war
 [] execVM "PMC\PMC_war_opfor.sqf";
 

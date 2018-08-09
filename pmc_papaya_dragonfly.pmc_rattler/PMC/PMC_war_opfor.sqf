@@ -13,21 +13,6 @@ _Max_OPFOR_On_Map = 150;
 // random sleep time
 _sleeptime = (5 + random 2);
 
-// PMC_SelectStartPosit starting position selecting function
-call compile preProcessFileLineNumbers "PMC\PMC_SelectStartPosit.sqf";
-
-// PMC_Select_Target
-call compile preProcessFileLineNumbers "PMC\PMC_Select_Target.sqf";
-
-// PMC_Patrol_Inf_Waypoints
-call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Waypoints.sqf";
-
-// PMC_Guard_Inf_Waypoints
-call compile preProcessFileLineNumbers "PMC\PMC_Guard_Inf_Waypoints.sqf";
-
-// PMC_Patrol_Inf_Targets_Waypoints
-call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Targets_Waypoints.sqf";
-
 // PMC_Create_Takistani_Militia
 call compile preProcessFileLineNumbers "PMC\PMC_Create_Takistani_Militia.sqf";
 

@@ -10,21 +10,6 @@ _Max_BLUFOR_On_Map = 20;
 // random sleep time
 _sleeptime = 120;
 
-// PMC_SelectStartPosit starting position selecting function
-call compile preProcessFileLineNumbers "PMC\PMC_SelectStartPosit.sqf";
-
-// PMC_Select_Target
-call compile preProcessFileLineNumbers "PMC\PMC_Select_Target.sqf";
-
-// PMC_Patrol_Inf_Waypoints
-call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Waypoints.sqf";
-
-// PMC_Guard_Inf_Waypoints
-call compile preProcessFileLineNumbers "PMC\PMC_Guard_Inf_Waypoints.sqf";
-
-// PMC_Patrol_Inf_Targets_Waypoints
-call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Targets_Waypoints.sqf";
-
 // PMC_Create_US_Army
 call compile preProcessFileLineNumbers "PMC\PMC_Create_US_Army.sqf";
 
@@ -51,7 +36,7 @@ while {PMC_blufor < _victoryCondition} do
 		// select target
 		//_targetpoint = call PMC_Select_Target;
 
-[_grp, 100] call PMC_Patrol_Inf_Targets_Waypoints;
+		[_grp, 100] call PMC_Patrol_Inf_Targets_Waypoints;
 /*
 		_ran = floor (random 2);
 		switch (_ran) do
