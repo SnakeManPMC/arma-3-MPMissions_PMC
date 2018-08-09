@@ -1,2 +1,2 @@
 
-[] execVM "briefing.sqf";
+[] execVM "PMC\PMC_Briefing.sqf";

@@ -1,7 +1,5 @@
-// create briefing
-[] execVM "briefing.sqf";
-// use the other guys weather for testing
-//[] execVM "PMC\PMC_weather.sqf";
+
+[] execVM "PMC\PMC_Briefing.sqf";
 
 // no guns for our bad guys
 removeAllWeapons player;

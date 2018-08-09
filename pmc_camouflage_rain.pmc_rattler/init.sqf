@@ -1,13 +1,9 @@
 
 if (isServer) then
 {
-	[] execVM "PMC\PMC_init.sqf";
+	[] execVM "PMC\PMC_init_server.sqf";
 };
-
-// create briefing objectives
-[] execVM "briefing.sqf";
-[] execVM "PMC\PMC_weather.sqf";
-
-player setVariable ["BIS_noCoreConversations", true];
-
-enableSaving [ false, false ];
+if (hasInterface) then
+{
+	[] execVM "PMC\PMC_init_client.sqf";
+};

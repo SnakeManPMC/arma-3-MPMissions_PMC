@@ -1,3 +1,4 @@
+
 /*
 */
 private
@@ -18,3 +19,20 @@ while { _a > 0 } do
 
 	_a = _a - 1;
 };
+/* PMCTODO use below instead
+[
+	west,
+	[
+		"t1"
+	],
+	[
+		"",
+		"",
+		""
+	],
+	objNull,
+	1,
+	2,
+	true
+] call BIS_fnc_taskCreate;
+*/

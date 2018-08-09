@@ -1,7 +1,9 @@
 
-PAPABEAR = [West, "HQ"];
-
-//"2" objstatus "HIDDEN"; // PMCTODO fix this hidden task!
-CallExtract = false;
-
-[] execVM "briefing.sqf";
+if (isServer) then
+{
+	[] execVM "PMC\PMC_init_server.sqf";
+};
+if (hasInterface) then
+{
+	[] execVM "PMC\PMC_init_client.sqf";
+};

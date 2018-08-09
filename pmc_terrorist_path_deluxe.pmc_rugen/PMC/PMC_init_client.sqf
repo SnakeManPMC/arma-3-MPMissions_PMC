@@ -1,9 +1,7 @@
 
-// create briefing
-[] execVM "briefing.sqf";
-// use the other guys weather for testing
+[] execVM "PMC\PMC_Briefing.sqf";
+
 [] execVM "PMC\PMC_setViewdistance.sqf";
-enableSaving [ false, false ];
 
 [player] execVM "PMC\PMC_playerStuff.sqf";
 

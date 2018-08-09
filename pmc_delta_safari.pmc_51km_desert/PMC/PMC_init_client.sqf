@@ -1,10 +1,7 @@
 
-// set our weather using multiplayer parameter array
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 
 [] execVM "PMC\PMC_public_eventhandlers.sqf";
-
-player setVariable ["BIS_noCoreConversations", true];
 
 // after respawning player has no weapons and gets the addaction's back
 removeAllWeapons player;

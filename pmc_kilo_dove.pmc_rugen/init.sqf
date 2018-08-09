@@ -1,10 +1,9 @@
 
 if (isServer) then
 {
-	[PMC_opfor_start] execVM "PMC\PMC_war_opfor.sqf";
+	[] execVM "PMC\PMC_init_server.sqf";
 };
-
-// create briefing objectives
-[] execVM "briefing.sqf";
-
-enableSaving [ false, false ];
+if (hasInterface) then
+{
+	[] execVM "PMC\PMC_init_client.sqf";
+};

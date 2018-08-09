@@ -1,10 +1,9 @@
 
-PAPABEAR = [West, "HQ"];
-
-[] execVM "briefing.sqf";
-
-westp = 0;
-eastp = 0;
-
-sleep 10;
-[] exec "scoreloop.sqs";
+if (isServer) then
+{
+	[] execVM "PMC\PMC_init_server.sqf";
+};
+if (hasInterface) then
+{
+	[] execVM "PMC\PMC_init_client.sqf";
+};
