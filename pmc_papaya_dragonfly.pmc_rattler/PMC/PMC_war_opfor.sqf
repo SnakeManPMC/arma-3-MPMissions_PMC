@@ -83,5 +83,9 @@ diag_log "PMC MISSION OBJECTIVES COMPLETED! pmc_opforuntis < 20";
 sleep 5;
 
 // declare mission over.
-PMC_mcomplete = true;
-publicVariable "PMC_mcomplete";
+//PMC_mcomplete = true;
+//publicVariable "PMC_mcomplete";
+private _task = ["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+sleep 7;
+
+"PMC_endl" call BIS_fnc_endMission;
