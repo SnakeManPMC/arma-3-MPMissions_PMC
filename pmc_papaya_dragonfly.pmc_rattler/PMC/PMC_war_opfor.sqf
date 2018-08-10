@@ -86,6 +86,10 @@ sleep 5;
 //PMC_mcomplete = true;
 //publicVariable "PMC_mcomplete";
 private _task = ["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-sleep 7;
 
-"PMC_endl" call BIS_fnc_endMission;
+// again small wait while players rejoice
+sleep 10;
+
+// we are done, bye
+PMC_mcomplete = true;
+publicVariable "PMC_mcomplete";

@@ -5,9 +5,9 @@
 		"t1"
 	],
 	[
-		"You must clear <marker name='markerTask1'>northern sector</marker>.",
+		"You must clear <marker name='pmc_marker_obj1'>northern sector</marker>.",
 		"Clear North",
-		"markerTask1"
+		"pmc_marker_obj1"
 	],
 	(getPosASL pmc_1),
 	1,
@@ -21,9 +21,9 @@
 		"t2"
 	],
 	[
-		"You must clear <marker name='markerTask2'>downtown area</marker>.",
+		"You must clear <marker name='pmc_marker_obj2'>downtown area</marker>.",
 		"Clear Downtown",
-		"markerTask2"
+		"pmc_marker_obj2"
 	],
 	(getPosASL pmc_2),
 	1,
@@ -37,9 +37,9 @@
 		"t3"
 	],
 	[
-		"You must clear <marker name='markerTask3'>southern sector</marker>.",
+		"You must clear <marker name='pmc_marker_obj3'>southern sector</marker>.",
 		"Clear South",
-		"markerTask3"
+		"pmc_marker_obj3"
 	],
 	(getPosASL pmc_3),
 	1,

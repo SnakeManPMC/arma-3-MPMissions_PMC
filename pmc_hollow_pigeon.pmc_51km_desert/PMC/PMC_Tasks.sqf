@@ -5,7 +5,7 @@
 		"t1"
 	],
 	[
-		"Find the downed helo, take survivors into your squad.",
+		"Find the <marker name='crash_site'>downed helo</marker>, take survivors into your squad.",
 		"Find Crashed Helo",
 		""
 	],

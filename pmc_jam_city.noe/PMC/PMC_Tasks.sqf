@@ -5,8 +5,8 @@
 		"t1"
 	],
 	[
-		"PMCTODO",
-		"PMCTODO",
+		"Assault <marker name = 'russians'>russian city</marker> and kill them all.",
+		"Kill Russian City",
 		""
 	],
 	objNull,

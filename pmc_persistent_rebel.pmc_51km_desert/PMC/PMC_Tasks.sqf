@@ -1,6 +1,6 @@
 
 [
-	west,
+	guer,
 	[
 		"t1"
 	],
@@ -16,7 +16,7 @@
 ] call BIS_fnc_taskCreate;
 
 [
-	west,
+	guer,
 	[
 		"t2"
 	],

@@ -72,7 +72,10 @@ _PMC_MakeHeloBLUFOR =
 	[_grp, 1] setWaypointCombatMode "RED";
 	[_grp, 1] setWaypointSpeed "FULL";
 	[_grp, 1] setWaypointFormation "WEDGE";
-	[_grp, 1] setWaypointType "GUARD";
+	[_grp, 1] setWaypointType "SAD";
+
+	_grp addWaypoint [_targetpoint, 0];
+	[_grp, 1] setWaypointType "CYCLE";
 
 	// return the vehicle name
 	_vcl
