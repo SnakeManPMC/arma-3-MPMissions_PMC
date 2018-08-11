@@ -6,14 +6,20 @@ this = [pickup, respawnpoint] execVM "PMC\PMC_Call_AI_Helo_Extract.sqf";
 Returns:
 AI helo flies to you, picks you up, then flies you back to respawnpoint
 
+
+THIS WAS PREVIOUSLY FROM RADIO TRIGGER:
+this = [(getPosASL player), [1355,2975, 0]] execVM "PMC\PMC_Call_AI_Helo_Extract.sqf";
+
+
 */
 
 private ["_lz","_respawnpoint","_grp","_vcl","_tmp"];
 
 hint "welcome to AI pickup script!";
 
-_lz = _this select 0;
-_respawnpoint = _this select 1;
+// from communications menu this needs to be one, not zero
+_lz = _this select 1;
+_respawnpoint = getPos PMC_blufor_start_1;
 
 _vcl = createVehicle ["CUP_B_UH60M_US", _respawnpoint, [], 0, "FLY"];
 _grp = objNull;

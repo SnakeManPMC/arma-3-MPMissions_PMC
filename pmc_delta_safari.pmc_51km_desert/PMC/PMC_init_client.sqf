@@ -22,13 +22,24 @@ if (!isNil "PMC_Setup_My_FOB") then
 	//hint format["PMC_Setup_My_FOB: %1", PMC_Setup_My_FOB];
 };
 
-sleep 10;
+waitUntil
+{
+	(!isNil "PMC_vips") && (!isNil "PMC_scuds")
+};
 
 // try to create markers according to the mission objectives, so that JIP players also see them
 {
 	[(getPosASL leader _x)] call compile preprocessFileLineNumbers "PMC\PMC_Create_Marker_Local.sqf"
 } forEach (PMC_vips + PMC_scuds);
 //hint format["PMC_vips: %1\n\nPMC_scuds: %2", PMC_vips, PMC_scuds];
+
+// add communications menu for player
+[player, "PMC_Create_FOB", nil, nil, ""] call BIS_fnc_addCommMenuItem;
+[player, "PMC_Airstrike_A10", nil, nil, ""] call BIS_fnc_addCommMenuItem;
+[player, "PMC_Strike_Team", nil, nil, ""] call BIS_fnc_addCommMenuItem;
+[player, "PMC_Helo_Extraction", nil, nil, ""] call BIS_fnc_addCommMenuItem;
+
+sleep 10;
 
 call compile preprocessFileLineNumbers "PMC\time_used_update.sqf";
 ["Mission Time", (call PMC_Time_Used_Update), "Good luck"] spawn BIS_fnc_infoText;

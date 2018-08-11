@@ -143,6 +143,9 @@ while { _a < _PMC_MaxUnits } do
 	};
 };
 
+private _mainUnitCount = _a;
+_mainUnitCount = _mainUnitCount + 7;
+
 // refuel fob type places for enemys, unmanned, for now
 
 // create the temp array again
@@ -221,7 +224,7 @@ while { _a < 7 } do
 };
 
 //player sidechat "exited pmc_war_opfor.sqf";
-diag_log "PMC_war_opfor.sqf - Finished!";
+diag_log format["PMC_war_opfor.sqf - Finished! %1 units created, roughly.", _mainUnitCount];
 
-PMC_Hint = "PMC_war_opfor.sqf - Finished!";
+PMC_Hint = format["PMC_war_opfor.sqf - Finished! %1 units created, roughly.", _mainUnitCount];
 publicVariable "PMC_Hint";

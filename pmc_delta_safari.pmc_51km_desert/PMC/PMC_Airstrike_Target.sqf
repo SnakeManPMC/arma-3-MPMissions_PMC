@@ -14,13 +14,14 @@ Returns:
 */
 
 // if we are on client, exit
-if (!isServer) exitWith {};
+//if (!isServer) exitWith {};
 
 private ["_p","_respawnpoint","_vcl","_grp"];
 
-_p = _this select 0;
-_respawnpoint = _this select 1;
+_p = _this select 1;
+_respawnpoint = getPos PMC_blufor_start_1;
 
+player sidechat format["PMC_Airstrike_Target (server side), _p: %1, _respawnpoint: %2", _p, _respawnpoint];
 diag_log format["PMC_Airstrike_Target (server side), _p: %1, _respawnpoint: %2", _p, _respawnpoint];
 
 _vcl = createVehicle ["CUP_B_A10_CAS_USA", _respawnpoint, [], 0, "FLY"];

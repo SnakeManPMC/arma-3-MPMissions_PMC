@@ -15,6 +15,7 @@ Returns:
 
 */
 
+/*
 "PMC_Setup_My_FOB" addPublicVariableEventhandler
 {
 	[(_this select 1)] execVM "PMC\PMC_Setup_FOB.sqf";
@@ -37,7 +38,7 @@ Returns:
 
 	diag_log format["PMC_Airtstrike_Target (eventhandler): %1 / %2", (_this select 0), (_this select 1)];
 };
-
+*/
 
 "PMC_Hint" addPublicVariableEventHandler
 {

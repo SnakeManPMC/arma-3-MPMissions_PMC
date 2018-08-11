@@ -9,6 +9,16 @@ onLoadIntro = "https://www.pmctactical.org/";
 //onLoadIntroTime = true;
 disabledAI = 1;
 
+ReviveMode = 1;
+ReviveUnconsciousStateMode = 0;
+ReviveRequiredTrait = 0;
+ReviveRequiredItems = 0;
+ReviveRequiredItemsFakConsumed = 1;
+ReviveDelay = 6;
+ReviveMedicSpeedMultiplier = 2;
+ReviveForceRespawnDelay = 3;
+ReviveBleedOutDelay = 120;
+
 class Header
 {
 	gameType = Coop;
@@ -19,7 +29,6 @@ class Header
 
 class Params
 {
-// (paramsarray select 0)
 	class TimeOfDay
 	{
 		title = "Time of Day";
@@ -28,8 +37,6 @@ class Params
 		default = 8;
 	};
 
-// (paramsarray select 1)
-// please note that "Random" requires PMC\PMC_weather.sqf
 	class PMC_WeatherSetting
 	{
 		title = "Weather setting";
@@ -38,13 +45,59 @@ class Params
 		default = 7;
 	};
 
-// (paramsarray select 2)
 	class PMC_maxunits
 	{
 		title = "Max number of units";
 		values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 		texts[] = {"50", "100", "150", "200", "250", "300", "350", "400", "450", "500", "550", "600", "650", "700", "750", "800", "850", "900", "950", "1000"};
 		default = 6;
+	};
+};
+
+class CfgCommunicationMenu
+{
+	class PMC_Create_FOB
+	{
+		text = "Create FOB";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_Setup_FOB.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+	};
+
+	class PMC_Airstrike_A10
+	{
+		text = "Airstrike A10";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_Airstrike_Target.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+	};
+
+	class PMC_Strike_Team
+	{
+		text = "Strike Team";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_Strike_Team_Target.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+	};
+
+	class PMC_Helo_Extraction
+	{
+		text = "Helicopter Extraction";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_Call_AI_Helo_Extract.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
 	};
 };
 

@@ -31,7 +31,8 @@ private
 	"_pole"
 ];
 
-_p = _this select 0;
+// from communications menu this needs to be one, not zero
+_p = _this select 1;
 
 diag_log format["PMC_Setup_FOB (server side), _p: %1", _p];
 
@@ -67,12 +68,15 @@ _mash1 setDir random 360;
 // ammo boxes
 _abox1 = "CUP_USSpecialWeapons_EP1" createVehicle [(_p select 0)+30, (_p select 1)+10];
 _abox1 setDir random 360;
+[_abox1] execVM "PMC\PMC_AddWeaponCargoGlobal_FOB.sqf";
 
 _abox2 = "CUP_USBasicAmmunitionBox_EP1" createVehicle [(_p select 0)+40, (_p select 1)+15];
 _abox2 setDir random 360;
+[_abox2] execVM "PMC\PMC_AddWeaponCargoGlobal_FOB.sqf";
 
 _abox3 = "CUP_USLaunchers_EP1" createVehicle [(_p select 0)+30, (_p select 1)+20];
 _abox3 setDir random 360;
+[_abox3] execVM "PMC\PMC_AddWeaponCargoGlobal_FOB.sqf";
 
 // support trucks
 "CUP_B_MTVR_Refuel_USMC" createVehicle [(_p select 0)-60,(_p select 1)+30];
@@ -100,7 +104,7 @@ PMC_FARP_Count = PMC_FARP_Count + 1;
 publicVariable "PMC_FARP_Count";
 
 // move respawn marker here.
-"respawn_west" setMarkerPos (_this select 0);
+"respawn_west" setMarkerPos _p;
 
 // this doesnt work for clients on some reason?
 _m = format ["Field Operating Bases are setup:</br></br><marker name='PMC_FARP_text_%1'>FOB 0</marker></br>", PMC_FARP_Count];
