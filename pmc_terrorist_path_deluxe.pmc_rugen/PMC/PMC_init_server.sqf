@@ -11,6 +11,8 @@ PMC_blufor_detected = 0;
 PMC_opfor_detected = 0;
 publicVariable "PMC_blufor_detected";
 publicVariable "PMC_opfor_detected";
+PMC_PlayerRespawns = 0;
+publicVariable "PMC_PlayerRespawns";
 
 waitUntil
 {
@@ -78,14 +80,7 @@ PMC_Locations = [];
 PMC_Locations = call compile preprocessFileLineNumbers "PMC\PMC_locationFinder.sqf";
 publicVariable "PMC_Locations";
 
-// create some triggers
-[] execVM "PMC\Create_Triggers.sqf";
-
-/*
-doesn't feel right in this mission even though the initial mission editor placed things make the mission annoying when
-restarting over and over again, everytime the same...
-*/
-//player setPos (PMC_Locations select random (count PMC_Locations));
+[] execVM "PMC\PMC_Create_Civilian_Empty_Vehicles.sqf";
 
 // here is where our war starts
 // check if either side has detected each other, then proceed.
@@ -94,6 +89,8 @@ waitUntil
 	sleep 2;
 	((PMC_blufor_detected > 0) || (PMC_opfor_detected > 0) );
 };
+
+diag_log format["PMC Terrorist Path WAR HAS STARTED AT %1", diag_tickTime];
 
 [] execVM "PMC\PMC_war_blufor.sqf";
 // blufor_airlift_start
