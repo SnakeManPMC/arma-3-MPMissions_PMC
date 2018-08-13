@@ -1,7 +1,7 @@
 
 [] execVM "PMC\PMC_Briefing.sqf";
-
 [] execVM "PMC\PMC_setViewdistance.sqf";
+[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 
 [player] execVM "PMC\PMC_playerStuff.sqf";
 

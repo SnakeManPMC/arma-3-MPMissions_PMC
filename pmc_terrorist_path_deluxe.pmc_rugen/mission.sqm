@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=6616;
+		nextID=6617;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5018.0098,19.787344,20580.895};
-		dir[]={0.96394688,-0.26230499,0.044852231};
-		up[]={0.26202592,0.96498483,0.012191925};
-		aside[]={0.046479926,7.3050614e-008,-0.9989242};
+		pos[]={18045.309,134.31908,12368.132};
+		dir[]={0.018286478,-0.42872348,0.90325224};
+		up[]={0.0086778104,0.90343463,0.42863628};
+		aside[]={0.99979568,-8.4401108e-010,-0.020241022};
 	};
 };
 binarizationWanted=0;
@@ -46,7 +46,8 @@ addons[]=
 	"A3_Modules_F",
 	"CUP_Creatures_Military_NAPA",
 	"CUP_AirVehicles_AH1Z",
-	"CUP_AirVehicles_AH64"
+	"CUP_AirVehicles_AH64",
+	"A3_Modules_F_Multiplayer"
 };
 class AddonsMetaData
 {
@@ -173,6 +174,66 @@ randomSeed=6919074;
 class ScenarioData
 {
 	author="PMC Since 1984";
+	respawn=2;
+	respawnDelay=3;
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+					class value
+					{
+						items=2;
+						class Item0
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="MenuPosition";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="Counter";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Intro
 {
@@ -196,7 +257,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Terrorist Path Deluxe v1.1.6 PMC Rugen";
+		briefingName="PMC Terrorist Path Deluxe v1.1.7 PMC Rugen";
 		resistanceWest=0;
 		startWeather=0.25;
 		startWind=0.1;
@@ -213,7 +274,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=140;
+		items=141;
 		class Item0
 		{
 			dataType="Marker";
@@ -4738,7 +4799,7 @@ class Mission
 				};
 			};
 			id=6457;
-			atlOffset=0.0050001144;
+			atlOffset=0.0050535202;
 		};
 		class Item83
 		{
@@ -7111,7 +7172,7 @@ class Mission
 			};
 			id=6599;
 			type="CUP_B_AH64D_DL_USA";
-			atlOffset=0.0050001144;
+			atlOffset=0.0050535202;
 		};
 		class Item138
 		{
@@ -7335,6 +7396,116 @@ class Mission
 			{
 			};
 			id=6609;
+		};
+		class Item140
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={18063.313,109.69985,12412.077};
+			};
+			name="pmc_respawn_mobile";
+			id=6616;
+			type="ModuleRespawnPosition_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleRespawnPosition_F_Marker";
+					expression="_this setVariable ['Marker',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="0";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleRespawnPosition_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Mobile";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleRespawnPosition_F_Side";
+					expression="_this setVariable ['Side',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="2";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleRespawnPosition_F_ShowNotification";
+					expression="_this setVariable ['ShowNotification',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="1";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleRespawnPosition_F_Type";
+					expression="_this setVariable ['Type',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="0";
+						};
+					};
+				};
+				nAttributes=5;
+			};
 		};
 	};
 };

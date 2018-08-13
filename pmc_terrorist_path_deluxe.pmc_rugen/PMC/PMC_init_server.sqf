@@ -1,5 +1,6 @@
 
-skiptime (((paramsarray select 0) - daytime + 24) % 24);
+[] execVM "PMC\PMC_Set_Mission_Time.sqf";
+[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 
 [] execVM "PMC\PMC_Tasks.sqf";
 
@@ -13,6 +14,8 @@ publicVariable "PMC_blufor_detected";
 publicVariable "PMC_opfor_detected";
 PMC_PlayerRespawns = 0;
 publicVariable "PMC_PlayerRespawns";
+PMC_InfTransportUsed = 0;
+publicVariable "PMC_InfTransportUsed";
 
 waitUntil
 {

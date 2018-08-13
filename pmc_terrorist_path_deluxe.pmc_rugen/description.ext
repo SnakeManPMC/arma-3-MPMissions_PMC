@@ -10,6 +10,17 @@ disabledAI = 1;
 author = "Snake Man, PMC.";
 overviewText = "Legendary Chernarus mission ported to PMC Rugen. You are insurgent mixing in between fighting BLUFOR/OPFOR after you first lure them into contact with each other. MAYHEM.";
 overviewPicture = "";
+respawnOnStart = -1;
+
+ReviveMode = 1;
+ReviveUnconsciousStateMode = 0;
+ReviveRequiredTrait = 0;
+ReviveRequiredItems = 0;
+ReviveRequiredItemsFakConsumed = 1;
+ReviveDelay = 6;
+ReviveMedicSpeedMultiplier = 2;
+ReviveForceRespawnDelay = 3;
+ReviveBleedOutDelay = 120;
 
 class Header
 {
@@ -21,12 +32,20 @@ class Header
 
 class Params
 {
-	class TimeOfDay
+	class PMC_Time_of_Day
 	{
 		title = "Time of Day";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
-		texts[] = {"0000","0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100","1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300"};
-		default = 8;
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,-1};
+		texts[] = {"0000","0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100","1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300", "Random"};
+		default = -1;
+	};
+ 
+	class PMC_WeatherSetting
+	{
+		title = "Weather Setting";
+		values[] = {1, 2, 3, 4, 5, 6, 7};
+		texts[] = {"Clear skies", "Overcast", "Cloudy", "Rain storm", "Rain storm with fog", "Random (Rainy - Jungles)", "Random (Dry - Deserts)"};
+		default = 6;
 	};
 
 	class PMC_viewdistance
@@ -61,7 +80,7 @@ class Params
 			40000,
 		};
 		// When 'texts' are missing, values will be displayed directly instead
-		default = 2000;
+		default = 10000;
 		file = "PMC\PMC_setViewDistance.sqf"; // (Optional) Script [[call]]ed when player joins, selected value is passed as an argument
 	};
 
