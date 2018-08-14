@@ -1,6 +1,6 @@
 
 [
-	west,
+	resistance,
 	[
 		"t1"
 	],
@@ -16,7 +16,7 @@
 ] call BIS_fnc_taskCreate;
 
 [
-	west,
+	resistance,
 	[
 		"t2"
 	],
@@ -32,7 +32,7 @@
 ] call BIS_fnc_taskCreate;
 
 [
-	west,
+	resistance,
 	[
 		"t3"
 	],
@@ -48,12 +48,12 @@
 ] call BIS_fnc_taskCreate;
 
 [
-	west,
+	resistance,
 	[
 		"t4"
 	],
 	[
-		"Check <marker name='airfield'>Military base</marker> for location.",
+		"Check <marker name='pmc_military_base'>Military base</marker> for location.",
 		"Military Base",
 		"airfield"
 	],

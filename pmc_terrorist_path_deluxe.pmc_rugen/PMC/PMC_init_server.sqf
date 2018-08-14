@@ -110,8 +110,10 @@ diag_log format["PMC Terrorist Path WAR HAS STARTED AT %1", diag_tickTime];
 // delay so we dont stack
 //sleep 60;
 
-// crazy car "vehicle" thing :)
-[] execVM "PMC\PMC_Create_Soft_Vehicles.sqf";
+PMC_CreatingVehiclesBLUFOR = true;
+PMC_CreatingVehiclesOPFOR = true;
+[] execVM "PMC\PMC_Create_Vehicles_BLUFOR.sqf";
+[] execVM "PMC\PMC_Create_Vehicles_OPFOR.sqf";
 
 // helicopter patrols
 [] execVM "PMC\PMC_Helo_Chernarus_BLUFOR.sqf";
