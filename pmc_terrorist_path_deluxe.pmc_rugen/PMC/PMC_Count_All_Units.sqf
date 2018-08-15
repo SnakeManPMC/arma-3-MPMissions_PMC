@@ -15,7 +15,7 @@ hintSilent format
 	Initial lists: %10\n\n
 	Time Used:\n%11\n\n
 
-	BLUFOR\b
+	BLUFOR\n
 	Tanks: %12, Cars: %13, Air: %14, Man: %15\n\n
 
 	OPFOR\n

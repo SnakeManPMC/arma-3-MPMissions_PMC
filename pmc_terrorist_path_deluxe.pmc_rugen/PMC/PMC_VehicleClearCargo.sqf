@@ -2,6 +2,7 @@
 // ran to all player owned v3s trucks to setup cargo space properly
 
 private _v = _this select 0;
+if !(local _v) exitWith {};
 
 clearMagazineCargoGlobal _v;
 clearWeaponCargoGlobal _v;
@@ -23,5 +24,6 @@ _v addWeaponCargoGlobal ["ItemGPS", 2];
 
 // vehicleName addMagazineCargoGlobal [magazineName, count]
 */
+
 _v addBackpackCargoGlobal ["CUP_B_AlicePack_Khaki", 5];
 _v addBackpackCargoGlobal ["CUP_B_AlicePack_Bedroll", 5];

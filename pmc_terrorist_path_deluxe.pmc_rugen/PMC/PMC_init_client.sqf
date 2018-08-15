@@ -18,6 +18,7 @@ call compile preProcessFileLineNumbers "PMC\PMC_Time_Used_Update.sqf";
 
 [player, "PMC_Count_All_Units", nil, nil, ""] call BIS_fnc_addCommMenuItem;
 [player, "PMC_Weather_Forecast", nil, nil, ""] call BIS_fnc_addCommMenuItem;
+[player, "PMC_MobileRespawnLocation", nil, nil, ""] call BIS_fnc_addCommMenuItem;
 
 sleep 10;
 [] execVM "PMC\PMC_weather_forecast.sqf";
