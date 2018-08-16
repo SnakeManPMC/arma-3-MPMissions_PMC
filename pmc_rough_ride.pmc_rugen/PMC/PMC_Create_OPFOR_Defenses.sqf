@@ -39,5 +39,5 @@ RU_TankPlatoon
 */
 {
 	_grp = [_x, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Infantry" >> "CUP_O_RU_InfSquad")] call BIS_fnc_spawnGroup;
-	[_grp, _x] execVM "PMC\bin_taskdefend.sqf";
+	[_grp, _x] call BIS_fnc_taskDefend;
 } forEach _array;
