@@ -121,19 +121,19 @@ while { _a < _PMC_MaxUnits } do
 		case 0:
 		{
 			//[_grp, _respawnpoint, 100] call PMC_Guard_Inf_Waypoints;
-			[_grp, (getPosASL leader _grp), 1000] execVM "PMC\BIN_taskPatrol.sqf"
+			[_grp, (getPosASL leader _grp), 1000] call BIS_taskPatrol;
 		};
 
 		case 1:
 		{
 			//[_grp, _respawnpoint, 100] call PMC_Sentry_Inf_Waypoints;
-			[_grp, (getPosASL leader _grp), 1000] execVM "PMC\BIN_taskPatrol.sqf"
+			[_grp, (getPosASL leader _grp), 1000] call BIS_taskPatrol;
 		};
 
 		case 2:
 		{
 			//[_grp, _respawnpoint, 500] call PMC_Patrol_Inf_Waypoints;
-			[_grp, (getPosASL leader _grp), 1000] execVM "PMC\BIN_taskPatrol.sqf"
+			[_grp, (getPosASL leader _grp), 1000] call BIS_taskPatrol;
 		};
 	};
 
