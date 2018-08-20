@@ -6,6 +6,7 @@ skiptime (((paramsarray select 0) - daytime + 24) % 24);
 [] execVM "PMC\PMC_Tasks.sqf";
 
 PMC_debug = true;
+publicVariable "PMC_debug";
 PMC_corpses = [];
 [150] execVM "PMC\PMC_corpses.sqf";
 PMC_killedNum = 0;
