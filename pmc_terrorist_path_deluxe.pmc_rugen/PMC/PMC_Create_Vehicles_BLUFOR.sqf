@@ -13,7 +13,7 @@ diag_log format["PMC_Create_Vehicles_BLUFOR _pos: %1", _pos];
 
 while {PMC_CreatingVehiclesBLUFOR} do
 {
-	if ( ('landVehicle' countType list pmc_blufor_list) < 10 ) then
+	if ( ('landVehicle' countType list pmc_blufor_list) < 20 ) then
 	{
 		_safePos = [_pos, 0, 500, 30, 0, 20, 0] call BIS_fnc_findSafePos;
 

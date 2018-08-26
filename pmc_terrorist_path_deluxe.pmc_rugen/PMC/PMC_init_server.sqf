@@ -64,18 +64,10 @@ PMC_blufor = 0;
 pmc_grp_blufor = 0;
 pmc_inftransport = 0;
 
-// PMC_Select_Target
 call compile preProcessFileLineNumbers "PMC\PMC_Select_Target.sqf";
-
-// PMC_Patrol_Inf_Waypoints
 call compile preProcessFileLineNumbers "PMC\PMC_Patrol_Inf_Waypoints.sqf";
-
-// PMC_Guard_Inf_Waypoints
 call compile preProcessFileLineNumbers "PMC\PMC_Guard_Inf_Waypoints.sqf";
-
-// PMC_Sentry_Inf_Waypoints
 call compile preProcessFileLineNumbers "PMC\PMC_Sentry_Inf_Waypoints.sqf";
-
 call compile preProcessFileLineNumbers "PMC\PMC_Time_Used_Update.sqf";
 
 // insert all locations into an array
