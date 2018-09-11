@@ -50,5 +50,5 @@ publicVariable "PMC_opfor";
 	_x addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
 } forEach units _grp;
 
-_grp setBehaviour "COMBAT";
+_grp setBehaviour "AWARE";
 _grp setCombatMode "RED";

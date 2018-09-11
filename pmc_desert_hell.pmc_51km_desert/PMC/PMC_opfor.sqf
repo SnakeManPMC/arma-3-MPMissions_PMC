@@ -21,13 +21,13 @@ _ForceLevel = call compile preprocessFileLineNumbers "PMC\PMC_Get_Max_Units.sqf"
 // our waypoints random circle range
 _waypointRanPosit = 1000;
 
-// track how many groups we created, so we can limit it to 144
+// track how many groups we created, so we can limit it to 288
 _totalGroups = 1;
 
 // create units (one group from mission editor, dont forget)
 _a = 1;
 PMC_opfor = 0;
-while { _a < _ForceLevel && _totalGroups < 143 } do
+while { _a < _ForceLevel && _totalGroups < 287 } do
 {
 	// choose one of the random starting locations
 	_respawnpoint = [] call _PMC_SelectOPFORStartPosit;
