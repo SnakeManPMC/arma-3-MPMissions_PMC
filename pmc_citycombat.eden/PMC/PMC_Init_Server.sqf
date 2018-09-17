@@ -7,4 +7,4 @@ westp = 0;
 eastp = 0;
 
 sleep 10;
-[] exec "scoreloop.sqs";
+[] execVM "PMC\PMC_Scoreloop.sqf";
