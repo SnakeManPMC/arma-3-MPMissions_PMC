@@ -11,7 +11,7 @@ _camera camSetPos [6653.69,4160.42,2.08];
 _camera camCommit 0;
 waitUntil { (camCommitted _camera); };
 
-playmusic ["7thlifeless",0];
+[] execVM "PMC\PMC_Music_Jukebox_ArmA3_Default_Tracks.sqf";
 titletext["USA has kicked some commie ass!","plain",2];
 sleep 3;
 

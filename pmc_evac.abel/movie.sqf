@@ -14,7 +14,7 @@ waitUntil { (camCommitted _camera); };
 //rtrack6
 //rtrack9
 //rtrack10
-playmusic ["rtrack1b",0];
+[] execVM "PMC\PMC_Music_Jukebox_ArmA3_Default_Tracks.sqf";
 
 titlecut ["","BLACK IN",2];
 sleep 3;

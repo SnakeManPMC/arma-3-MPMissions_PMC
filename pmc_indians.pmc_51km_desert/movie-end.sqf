@@ -11,7 +11,7 @@ _FinalPanWait = 1;
 _PanSmoothness = 15;
 
 // turn some music on
-playMusic ["ATrack2", 0];
+[] execVM "PMC\PMC_Music_Jukebox_ArmA3_Default_Tracks.sqf";
 
 // create camera
 _camera = "camera" camCreate [-89231.67,7362.03,-14099.98];
