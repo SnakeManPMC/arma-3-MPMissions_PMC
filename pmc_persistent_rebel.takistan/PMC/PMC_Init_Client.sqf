@@ -22,7 +22,9 @@ player addAction ["Camera", "camerago.sqf", true];
 // debug for clients, remember to remove for release version :)
 // v1.63 gives lots of errors, PMC_corpses undefined etc.
 // you really need to rework this script.
+/* 2019-07-12 various issues with undefined variables with this script and it doesnt relate to game-play, so commented out for now
 [] execVM "PMC\PMC_debug.sqf";
+*/
 
 // create client objectives
 [] execVM "PMC\PMC_Create_Tasks.sqf";
@@ -34,7 +36,7 @@ player addAction ["Camera", "camerago.sqf", true];
 // add nice text
 cutText ["", "BLACK IN", 2];
 sleep 10;
-["PMC Persistent Rebel", "Takistan", "07-28-10"] spawn BIS_fnc_infoText;
+["PMC Persistent Rebel", "Takistan", "2010-07-28"] spawn BIS_fnc_infoText;
 
 // Huge debug shieet ;)
 //player setPos [(getPosASL pmc_blufor_start_1 select 0),(getPosASL pmc_blufor_start_1 select 1) + 200];

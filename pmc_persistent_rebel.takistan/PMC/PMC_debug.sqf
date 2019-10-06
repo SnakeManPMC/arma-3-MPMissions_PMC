@@ -9,6 +9,8 @@ while {true} do
 	{
 		_pmc_b = missionNamespace getVariable "pmc_bluforunits";
 		_pmc_o = missionNamespace getVariable "pmc_opforunits";
+		private _aircraft_blufor = missionNamespace getVariable "PMC_aircraft_blufor";
+		private _pmc_var_1 = missionNamespace getVariable "PMC_var1";
 	
 		hintSilent format
 		[
@@ -56,7 +58,7 @@ while {true} do
 			PMC_mcomplete,
 			call PMC_Time_Used_Update,
 			PMC_var1,
-			PMC_aircraft_blufor,
+			_aircraft_blufor,
 			PMC_aircraft_opfor,
 			PMC_helo_blufor,
 			PMC_helo_opfor,

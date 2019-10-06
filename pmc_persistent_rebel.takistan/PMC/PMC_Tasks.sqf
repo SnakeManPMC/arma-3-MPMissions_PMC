@@ -6,7 +6,7 @@
 	],
 	[
 		"Defeat <marker name='base_usa'>US forces</marker> (BLUFOR).",
-		"Defeat BLUFOR"",
+		"Defeat BLUFOR",
 		"base_usa"
 	],
 	objNull,
