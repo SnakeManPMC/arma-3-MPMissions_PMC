@@ -73,7 +73,7 @@ while { _a < _ForceLevel && _totalGroups < 287 } do
 		{
 			// Artillery site 4 D-30 guns
 			// 4 vehicles
-			[_respawnpoint, _targetpoint, _waypointRanPosit] call _PMC_MakeArtillerySite;
+			//[_respawnpoint, _targetpoint, _waypointRanPosit] call _PMC_MakeArtillerySite;
 			[_respawnpoint, _targetpoint, _waypointRanPosit] call _PMC_Make_OPFOR_Soft_Vehicles;
 			[_respawnpoint, _targetpoint, _waypointRanPosit] call _PMC_Make_OPFOR_Soft_Vehicles;
 			_a = _a + 6;
