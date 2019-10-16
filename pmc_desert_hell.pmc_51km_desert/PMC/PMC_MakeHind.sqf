@@ -1,17 +1,11 @@
 
-private ["_tmp","_respawnpoint","_targetpoint","_waypointRanPosit","_myVec","_vcl","_grp","_wp"];
-
-_tmp =
-[
-	"CUP_O_Mi8_RU",
-	"CUP_O_Mi8_RU"
-];
+private ["_respawnpoint","_targetpoint","_waypointRanPosit","_myVec","_vcl","_grp","_wp"];
 
 _respawnpoint = _this select 0;
 _targetpoint = _this select 1;
 _waypointRanPosit = _this select 2;
 
-_myVec = (_tmp select floor random (count _tmp));
+_myVec = "CUP_O_Mi8_RU";
 _vcl = _myVec createVehicle _respawnpoint;
 _grp = objNull;
 _grp = createGroup east;
