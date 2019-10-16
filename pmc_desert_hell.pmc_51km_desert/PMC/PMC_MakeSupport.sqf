@@ -26,27 +26,27 @@ waitUntil {!(isNull _grp)};
 "CUP_O_RU_Soldier" createUnit [_respawnpoint, _grp, "", 1, "PRIVATE"];
 
 // truck 1
-_myVec = (_tmp select floor random (count _tmp));
+_myVec = selectRandom _tmp;
 _vcl = _myVec createVehicle _respawnpoint;
 (units _grp select 0) moveInDriver _vcl;
 
 // truck 2
-_myVec = (_tmp select floor random (count _tmp));
+_myVec = selectRandom _tmp;
 _vcl = _myVec createVehicle _respawnpoint;
 (units _grp select 1) moveInDriver _vcl;
 
 // truck 3
-_myVec = (_tmp select floor random (count _tmp));
+_myVec = selectRandom _tmp;
 _vcl = _myVec createVehicle _respawnpoint;
 (units _grp select 2) moveInDriver _vcl;
 
 // truck 4
-_myVec = (_tmp select floor random (count _tmp));
+_myVec = selectRandom _tmp;
 _vcl = _myVec createVehicle _respawnpoint;
 (units _grp select 3) moveInDriver _vcl;
 
 // security vehicle #5
-_myVec = (PMC_opfor_vehicle_car_armed select floor random (count PMC_opfor_vehicle_car_armed));
+_myVec = selectRandom PMC_opfor_vehicle_car_armed;
 _vcl = _myVec createVehicle _respawnpoint;
 (units _grp select 4) moveInDriver _vcl;
 (units _grp select 5) moveInGunner _vcl;

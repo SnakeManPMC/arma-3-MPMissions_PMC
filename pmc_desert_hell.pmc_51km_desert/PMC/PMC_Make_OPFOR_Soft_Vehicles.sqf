@@ -5,7 +5,7 @@ _respawnpoint = _this select 0;
 _targetpoint = _this select 1;
 _waypointRanPosit = _this select 2;
 
-_myVec = (PMC_opfor_vehicle_car_unarmed select floor random (count PMC_opfor_vehicle_car_unarmed));
+_myVec = selectRandom PMC_opfor_vehicle_car_unarmed;
 _vcl = _myVec createVehicle _respawnpoint;
 _vcl setPos _respawnpoint;
 _grp = objNull;
