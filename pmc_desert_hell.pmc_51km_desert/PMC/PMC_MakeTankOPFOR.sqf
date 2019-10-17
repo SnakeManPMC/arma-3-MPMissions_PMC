@@ -5,16 +5,17 @@
 */
 
 
-private ["_myVec","_vcl","_respawnpoint","_grp","_wp","_targetpoint","_waypointRanPosit"];
+private ["_myVec","_vcl","_respawnpoint","_grp","_wp","_targetpoint","_waypointRanPosit","_newPos"];
 
 _respawnpoint = _this select 0;
 _targetpoint = _this select 1;
 _waypointRanPosit = _this select 2;
 
+_newPos = [_respawnpoint, 0, 500, 30, 0, 20, 0] call BIS_fnc_findSafePos;
+
 _myVec = selectRandom PMC_opfor_vehicle_heavy;
-_vcl = _myVec createVehicle _respawnpoint;
+_vcl = _myVec createVehicle _newPos;
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
-_vcl setPos _respawnpoint;
 _grp = objNull;
 _grp = createGroup east;
 waitUntil {!(isNull _grp)};

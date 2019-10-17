@@ -1,12 +1,14 @@
 
-private ["_respawnpoint","_targetpoint","_waypointRanPosit","_myVec","_vcl","_grp","_wp"];
+private ["_respawnpoint","_targetpoint","_waypointRanPosit","_myVec","_vcl","_grp","_wp","_newPos"];
 
 _respawnpoint = _this select 0;
 _targetpoint = _this select 1;
 _waypointRanPosit = _this select 2;
 
+_newPos = [_respawnpoint, 0, 500, 30, 0, 20, 0] call BIS_fnc_findSafePos;
+
 _myVec = "CUP_O_Mi8_RU";
-_vcl = _myVec createVehicle _respawnpoint;
+_vcl = _myVec createVehicle _newPos;
 _grp = objNull;
 _grp = createGroup east;
 waitUntil {!(isNull _grp)};

@@ -1,5 +1,5 @@
 
-private ["_tmp","_respawnpoint","_targetpoint","_waypointRanPosit","_grp","_myVec","_vcl","_wp"];
+private ["_tmp","_respawnpoint","_targetpoint","_waypointRanPosit","_grp","_myVec","_vcl","_wp","_newPos"];
 
 _tmp =
 [
@@ -11,6 +11,8 @@ _tmp =
 _respawnpoint = _this select 0;
 _targetpoint = _this select 1;
 _waypointRanPosit = _this select 2;
+
+_newPos = [_respawnpoint, 0, 500, 30, 0, 20, 0] call BIS_fnc_findSafePos;
 
 _grp = objNull;
 _grp = createGroup east;
@@ -27,27 +29,27 @@ waitUntil {!(isNull _grp)};
 
 // truck 1
 _myVec = selectRandom _tmp;
-_vcl = _myVec createVehicle _respawnpoint;
+_vcl = _myVec createVehicle _newPos;
 (units _grp select 0) moveInDriver _vcl;
 
 // truck 2
 _myVec = selectRandom _tmp;
-_vcl = _myVec createVehicle _respawnpoint;
+_vcl = _myVec createVehicle [(_newPos select 0), (_newPos select 1)+50,0];
 (units _grp select 1) moveInDriver _vcl;
 
 // truck 3
 _myVec = selectRandom _tmp;
-_vcl = _myVec createVehicle _respawnpoint;
+_vcl = _myVec createVehicle [(_newPos select 0)+50, (_newPos select 1)+50,0];
 (units _grp select 2) moveInDriver _vcl;
 
 // truck 4
 _myVec = selectRandom _tmp;
-_vcl = _myVec createVehicle _respawnpoint;
+_vcl = _myVec createVehicle [(_newPos select 0)+100, (_newPos select 1)+100,0];
 (units _grp select 3) moveInDriver _vcl;
 
 // security vehicle #5
 _myVec = selectRandom PMC_opfor_vehicle_car_armed;
-_vcl = _myVec createVehicle _respawnpoint;
+_vcl = _myVec createVehicle [(_newPos select 0)+150, (_newPos select 1)+150,0];
 (units _grp select 4) moveInDriver _vcl;
 (units _grp select 5) moveInGunner _vcl;
 
