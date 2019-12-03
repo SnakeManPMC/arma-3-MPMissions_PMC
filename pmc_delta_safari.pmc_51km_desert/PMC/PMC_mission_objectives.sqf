@@ -41,35 +41,40 @@ while { true } do
 	if ( !alive (PMC_vips select 0) && !_PMC_vip_1_dead ) then
 	{
 		_PMC_vip_1_dead = true;
-		["PMC_objective1", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "VIP 1 objective accomplished, great work!";
 	};
 
 	// VIP 2
 	if ( !alive (PMC_vips select 1) && !_PMC_vip_2_dead ) then
 	{
 		_PMC_vip_2_dead = true;
-		["PMC_objective2", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t2", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "VIP 2 objective accomplished, great work!";
 	};
 
 	// VIP 3
 	if ( !alive (PMC_vips select 2) && !_PMC_vip_3_dead ) then
 	{
 		_PMC_vip_3_dead = true;
-		["PMC_objective3", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t3", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "VIP 3 objective accomplished, great work!";
 	};
 
 	// VIP 4
 	if ( !alive (PMC_vips select 3) && !_PMC_vip_4_dead ) then
 	{
 		_PMC_vip_4_dead = true;
-		["PMC_objective4", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t4", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "VIP 4 objective accomplished, great work!";
 	};
 
 	// VIP 5
 	if ( !alive (PMC_vips select 4) && !_PMC_vip_5_dead ) then
 	{
 		_PMC_vip_5_dead = true;
-		["PMC_objective5", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t5", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "VIP 5 objective accomplished, great work!";
 	};
 
 
@@ -81,35 +86,40 @@ while { true } do
 	if ( (count units (PMC_scuds select 0) == 0) && !_PMC_scud_1_dead ) then
 	{
 		_PMC_scud_1_dead = true;
-		["PMC_objective6", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t6", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "SCUDs 1 objective accomplished, great work!";
 	};
 
 	// SCUD 2
 	if ( (count units (PMC_scuds select 1) == 0) && !_PMC_scud_2_dead ) then
 	{
 		_PMC_scud_2_dead = true;
-		["PMC_objective7", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t7", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "SCUDs 2 objective accomplished, great work!";
 	};
 
 	// SCUD 3
 	if ( (count units (PMC_scuds select 2) == 0) && !_PMC_scud_3_dead ) then
 	{
 		_PMC_scud_3_dead = true;
-		["PMC_objective8", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t8", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "SCUDs 3 objective accomplished, great work!";
 	};
 
 	// SCUD 4
 	if ( (count units (PMC_scuds select 3) == 0) && !_PMC_scud_4_dead ) then
 	{
 		_PMC_scud_4_dead = true;
-		["PMC_objective9", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t9", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "SCUDs 4 objective accomplished, great work!";
 	};
 
 	// SCUD 5
 	if ( (count units (PMC_scuds select 4) == 0) && !_PMC_scud_5_dead ) then
 	{
 		_PMC_scud_5_dead = true;
-		["PMC_objective10", "succeeded"] call SHK_Taskmaster_Upd;
+		private _task = ["t10", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+		hint "SCUDs 5 objective accomplished, great work!";
 	};
 
 	// all objectives complete, exit loop
