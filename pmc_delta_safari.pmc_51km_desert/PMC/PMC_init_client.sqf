@@ -5,6 +5,8 @@
 
 // after respawning player has no weapons and gets the addaction's back
 removeAllWeapons player;
+// ugly hack for the server vs client PMC_corpses localization :( PMC_corpses array is accessed from PMC_killed which is run everytime player dies, therefore giving undefined variable error
+PMC_corpses = [];
 player addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"; handle = _this execVM "PMC\PMC_respawnPlayer.sqf"}];
 
 // try to setup respawn marker properly...
