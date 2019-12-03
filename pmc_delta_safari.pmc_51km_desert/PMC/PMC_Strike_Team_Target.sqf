@@ -19,6 +19,7 @@ Returns:
 if (!isNil "PMC_Strike_Team_On_Mission") exitWith
 {
 	PMC_Strike_Team_On_Mission = true;
+	player sideChat "Strike team is on a mission, they are unavailable, sorry.";
 };
 
 private ["_p","_respawnpoint","_vcl","_grp","_tmp","_assault","_lz"];
@@ -89,6 +90,7 @@ _vcl move _lz;
 
 PMC_Hint = format["%1 reporting, %2 onboard and we are on our way.", _vcl, _assault];
 publicVariable "PMC_Hint";
+player sideChat format["%1 reporting, %2 onboard and we are on our way.", _vcl, _assault];
 
 // small wait so he will start to move
 sleep 10;
@@ -101,12 +103,14 @@ waitUntil
 };
 
 diag_log "Strike Team helo reached _lz!";
+player sideChat "Strike Team helo reached LZ!";
 
 // just exit, no have any cool radio calls for player notifying him... but lets just exit from this script
 if (!alive _vcl) exitWith
 {
 	PMC_Strike_Team_On_Mission = false;
 	diag_log "Tough luck, PMC_Strike_Team_Target bird crashed heh";
+	player sideChat "Tough luck, PMC_Strike_Team_Target bird crashed heh";
 };
 
 // land her
@@ -114,6 +118,7 @@ _vcl land "get out";
 
 PMC_Hint = "Inserting Strike Team now!";
 publicVariable "PMC_Hint";
+player sideChat "Inserting Strike Team now!";
 
 sleep 5;
 
@@ -127,6 +132,7 @@ waitUntil
 };
 
 diag_log "Strike Team helo landed on _lz!";
+player sideChat "Strike team helo landed on LZ!";
 
 // hold her still!
 _vcl flyInHeight 0;
@@ -145,6 +151,7 @@ _grp setCombatMode "RED";
 _grp setSpeedMode "FULL";
 
 diag_log "Strike Team helo ordered to loiter _lz!";
+player sideChat "Strike Team helo ordered to loiter LZ!";
 
 // strike team does its thing
 _assault setbehaviour "AWARE";
@@ -162,6 +169,7 @@ _assault addWaypoint [_p, 0];
 waitUntil
 {
 	diag_log format["looping while strike team is doing its thing... units: %1, leader ready: %2, time: %3", (count units _assault), (unitReady leader _assault), time];
+	player sideChat format["looping while strike team is doing its thing... units: %1, leader ready: %2, time: %3", (count units _assault), (unitReady leader _assault), time];
 	// very relaxed
 	sleep 10;
 	// they are:
@@ -174,12 +182,14 @@ PMC_Hint = "Strike Team reporting, all clear, area secured!";
 publicVariable "PMC_Hint";
 
 diag_log "Strike Team looping waituntil is done (one way or the other)";
+player sideChat "Strike Team looping waitUntil is done (one way or the other)";
 
 // death check, assault is alive or dead
 if ( (count units _assault == 0) ) exitWith
 {
 	PMC_Strike_Team_On_Mission = false;
 	diag_log "Strike Team assault group is dead hehe.";
+	player sideChat "Strike Team assault group is dead hehe.";
 	_vcl move _respawnpoint;
 };
 
@@ -190,11 +200,13 @@ if ( (!alive _vcl) || (!canMove _vcl) ) exitWith
 {
 	PMC_Strike_Team_On_Mission = false;
 	diag_log "Strike Team helicopter is dead etc, hehe.";
+	player sideChat "Strike Team helicopter is dead etc, hehe.";
 	// long walk, haha
 	leader _assault move _respawnpoint;
 };
 
 diag_log "Strike Team death checks done, both alive and apparently strike teams mission is accomplished? ordering units in";
+player sideChat "Strike Team death checks done, both alive and apparently strike teams mission is accomplished? ordering units in";
 
 // assault & helicopter is alive, whee!
 
@@ -215,6 +227,7 @@ waitUntil
 };
 
 diag_log format["Strike Team helicoper is ready for pickup, distance: %1", (_vcl distance leader _assault)];
+player sideChat format["Strike Team helicoper is ready for pickup, distance: %1", (_vcl distance leader _assault)];
 
 // helo lands back in to pickup strike team
 {
@@ -244,12 +257,14 @@ waitUntil
 };
 
 diag_log "Strike Team helo is either dead, ready or close enough in home base?";
+player sideChat "Strike Team helo is either dead, ready or close enough in home base?";
 
 // just exit, no have any cool radio calls for player notifying him... but lets just exit from this script
 if (!alive _vcl) exitWith
 {
 	PMC_Strike_Team_On_Mission = false;
 	diag_log "Tough luck, PMC_Strike_Team_Target bird crashed heh";
+	player sideChat "Tough luck, PMC_Strike_Team_Target bird crashed heh";
 };
 
 // wait and then delete the crew, the vehicle and the strike team
@@ -266,3 +281,4 @@ PMC_Hint = "Strike Team reporting, at home base, mission complete!";
 publicVariable "PMC_Hint";
 
 diag_log "Strike Team mission is *COMPLETELY* done, all successfully completed, congrats! :-)";
+player sideChat "Strike Team mission is *COMPLETELY* done, all successfully completed, congrats! :-)";
