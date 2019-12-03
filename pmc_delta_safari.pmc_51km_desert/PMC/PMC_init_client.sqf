@@ -40,6 +40,7 @@ waitUntil
 [player, "PMC_Airstrike_A10", nil, nil, ""] call BIS_fnc_addCommMenuItem;
 [player, "PMC_Strike_Team", nil, nil, ""] call BIS_fnc_addCommMenuItem;
 [player, "PMC_Helo_Extraction", nil, nil, ""] call BIS_fnc_addCommMenuItem;
+[player, "PMC_ViewDistance_10km_Objects_5km", nil, nil, ""] call BIS_fnc_addCommMenuItem;
 
 sleep 10;
 
