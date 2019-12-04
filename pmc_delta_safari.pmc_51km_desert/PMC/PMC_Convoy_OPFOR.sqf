@@ -2,6 +2,9 @@
 
 PMC OPFOR convoy script
 
+2019-12-04 no idea if this is the generic convoy script which should be in scripts dir, but for now I assume its NOT ;)
+- added PMC_Vehicle_Auto_Refuel for each vehicle
+
 */
 
 private ["_grp","_myVec","_ptNum","_ran","_respawnpoint","_targetpoint","_tlogic","_vcl","_wp","_crewType","_PMC_convoyOPFORtargets"];
@@ -66,6 +69,7 @@ while {true} do
 	_myVec = (PMC_opfor_vehicle_heavy select floor random (count PMC_opfor_vehicle_heavy));
 	_vcl = _myVec createVehicle _respawnpoint;
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 	_crewType createUnit [_respawnpoint, _grp, "", (random 1), "LIEUTENANT"];
@@ -79,6 +83,7 @@ while {true} do
 	_myVec = (PMC_opfor_vehicle_heavy select floor random (count PMC_opfor_vehicle_heavy));
 	_vcl = _myVec createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-40];
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 	_crewType createUnit [_respawnpoint, _grp, "", (random 1), "SERGEANT"];
@@ -92,6 +97,7 @@ while {true} do
 	_myVec = (PMC_opfor_vehicle_car_armed select floor random (count PMC_opfor_vehicle_car_armed));
 	_vcl = _myVec createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-80];
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 	_crewType createUnit [_respawnpoint, _grp, "", (random 1), "CORPORAL"];
@@ -103,6 +109,7 @@ while {true} do
 	_myVec = (PMC_opfor_vehicle_car_armed select floor random (count PMC_opfor_vehicle_car_armed));
 	_vcl = _myVec createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-120];
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 	_crewType createUnit [_respawnpoint, _grp, "", (random 1), "PRIVATE"];
@@ -114,6 +121,7 @@ while {true} do
 	_myVec = (PMC_opfor_vehicle_car_unarmed select floor random (count PMC_opfor_vehicle_car_unarmed));
 	_vcl = _myVec createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-160];
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 	_crewType createUnit [_respawnpoint, _grp, "", (random 1), "PRIVATE"];
@@ -123,6 +131,7 @@ while {true} do
 	_myVec = (PMC_opfor_vehicle_car_unarmed select floor random (count PMC_opfor_vehicle_car_unarmed));
 	_vcl = _myVec createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-200];
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 	_crewType createUnit [_respawnpoint, _grp, "", (random 1), "PRIVATE"];
@@ -132,6 +141,7 @@ while {true} do
 	_myVec = (PMC_opfor_vehicle_car_unarmed select floor random (count PMC_opfor_vehicle_car_unarmed));
 	_vcl = _myVec createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-240];
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 	_crewType createUnit [_respawnpoint, _grp, "", (random 1), "PRIVATE"];
@@ -141,6 +151,7 @@ while {true} do
 	_myVec = (PMC_opfor_vehicle_heavy select floor random (count PMC_opfor_vehicle_heavy));
 	_vcl = _myVec createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-260];
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 	_crewType createUnit [_respawnpoint, _grp, "", (random 1), "PRIVATE"];

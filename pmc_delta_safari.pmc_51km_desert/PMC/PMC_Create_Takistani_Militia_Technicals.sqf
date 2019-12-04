@@ -20,6 +20,7 @@ PMC_Create_Takistani_Militia_Technicals =
 	// car 1
 	_vcl = "CUP_O_LR_SPG9_TKM" createVehicle _respawnpoint;
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 	(units _grp select 0) moveInDriver _vcl;
 
 	"CUP_I_TK_GUE_Soldier" createUnit [_respawnpoint, _grp, "", 0.33, "CORPORAL"];
@@ -28,6 +29,7 @@ PMC_Create_Takistani_Militia_Technicals =
 	// car 2
 	_vcl2 = "CUP_O_LR_MG_TKM" createVehicle [(_respawnpoint select 0)+10, (_respawnpoint select 1), 0];
 	_vcl2 addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl2] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 
 	"CUP_I_TK_GUE_Soldier" createUnit [_respawnpoint, _grp, "", 0.33, "CORPORAL"];
 	(units _grp select 2) moveInDriver _vcl2;

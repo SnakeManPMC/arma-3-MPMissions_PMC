@@ -33,42 +33,49 @@ waitUntil {!(isNull _grp)};
 
 _vcl = "CUP_O_BM21_TKA" createVehicle _respawnpoint;
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 "CUP_O_RU_Crew" createUnit [_respawnpoint, _grp, "", 1, "SERGEANT"];
 (units _grp select 0) moveInDriver _vcl;
 
 // first launcher.
 _vcl = "CUP_O_BM21_TKA" createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-_offset,0];
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 "CUP_O_RU_Crew" createUnit [_respawnpoint, _grp, "", 1, "CORPORAL"];
 (units _grp select 1) moveInDriver _vcl;
 
 // second launcher.
 _vcl = "CUP_O_BM21_TKA" createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-(_offset*2),0];
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 "CUP_O_RU_Crew" createUnit [_respawnpoint, _grp, "", 1, "CORPORAL"];
 (units _grp select 2) moveInDriver _vcl;
 
 // third launcher.
 _vcl = "CUP_O_BM21_TKA" createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-(_offset*3),0];
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 "CUP_O_RU_Crew" createUnit [_respawnpoint, _grp, "", 1, "CORPORAL"];
 (units _grp select 3) moveInDriver _vcl;
 
 // fourth launcher.
 _vcl = "CUP_O_BM21_TKA" createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-(_offset*4),0];
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 "CUP_O_RU_Crew" createUnit [_respawnpoint, _grp, "", 1, "PRIVATE"];
 (units _grp select 4) moveInDriver _vcl;
 
 // fifth launcher.
 _vcl = "CUP_O_BM21_TKA" createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-(_offset*5),0];
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 "CUP_O_RU_Crew" createUnit [_respawnpoint, _grp, "", 1, "PRIVATE"];
 (units _grp select 5) moveInDriver _vcl;
 
 // sixth launcher.
 _vcl = "CUP_O_BM21_TKA" createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-(_offset*6),0];
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 "CUP_O_RU_Crew" createUnit [_respawnpoint, _grp, "", 1, "PRIVATE"];
 (units _grp select 6) moveInDriver _vcl;
 

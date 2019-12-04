@@ -54,6 +54,7 @@ PMC_patrol_vehicle_opfor =
 	_myVec = (_vehicle_list select floor random (count _vehicle_list));
 	_vcl = _myVec createVehicle _respawnpoint;
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+	[_vcl] execVM "PMC\PMC_Vehicle_Auto_Refuel.sqf";
 	_grp = objNull;
 	_grp = createGroup east;
 	waitUntil {!(isNull _grp)};
