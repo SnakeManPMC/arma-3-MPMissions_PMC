@@ -15,6 +15,25 @@ PMC_grpNum = 0;
 
 [] execVM "PMC\PMC_targets.sqf";
 
+// unit creating
+call compile preprocessFileLineNumbers "PMC\PMC_Create_Guerrilla_Takistan.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Create_Guerrilla_Takistan_Weapons.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Create_Takistani_Insurgents_Technicals.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Create_Takistani_Militia.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Create_Takistani_Militia_AA_Site.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Create_Takistani_Militia_Statics.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Create_Takistani_Militia_Support.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Create_Takistani_Militia_Technicals.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_patrol_vehicle_opfor.sqf";
+
+// waypoint setups
+call compile preprocessFileLineNumbers "PMC\PMC_Guard_Inf_Waypoints.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Patrol_Inf_Waypoints.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_Sentry_Inf_Waypoints.sqf";
+
+// lower the insurgent muslim SCUM skills
+call compile preprocessFileLineNumbers "PMC\PMC_setAISkill.sqf";
+
 waitUntil { !isnil "bis_fnc_init" };
 
 // create VIP hunt target groups

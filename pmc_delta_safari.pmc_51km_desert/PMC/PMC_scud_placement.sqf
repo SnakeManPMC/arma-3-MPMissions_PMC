@@ -56,8 +56,9 @@ for [{_x = 1}, {_x <= _this select 0}, {_x = _x + 1}] do
 	[_position] call _PMC_Create_SCUD_launcher;
 	sleep 0.3;
 	// create security for the SCUD site
-	_grp = [_position] execVM "PMC\PMC_Create_Takistani_Militia.sqf";
-	[_grp, _position, 200] execVM "PMC\PMC_Sentry_Inf_Waypoints.sqf";
+	private _security_safepos = [_position, 0, 100, 30, 0, 20, 0] call BIS_fnc_findSafePos;
+	_grp = [_security_safepos] call PMC_Create_Takistani_Militia;
+	[(getPosASL leader _grp), _grp, 300] execVM "PMC\PMC_DefendLocation.sqf";
 };
 
 waitUntil
