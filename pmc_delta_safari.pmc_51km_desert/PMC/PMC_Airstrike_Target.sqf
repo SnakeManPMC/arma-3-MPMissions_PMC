@@ -24,7 +24,26 @@ _respawnpoint = getPos PMC_blufor_start_1;
 player sidechat format["PMC_Airstrike_Target (server side), _p: %1, _respawnpoint: %2", _p, _respawnpoint];
 diag_log format["PMC_Airstrike_Target (server side), _p: %1, _respawnpoint: %2", _p, _respawnpoint];
 
-_vcl = createVehicle ["CUP_B_A10_CAS_USA", _respawnpoint, [], 0, "FLY"];
+//_vcl = createVehicle ["CUP_B_A10_CAS_USA", _respawnpoint, [], 0, "FLY"];
+_vcl = createVehicle ["CUP_B_A10_DYN_USA", _respawnpoint, [], 0, "FLY"];
+private _pylons =
+	[
+		"CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M",
+		"CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M",
+		"CUP_PylonPod_3Rnd_AGM65_Maverick_M",
+		"CUP_PylonPod_3Rnd_AGM65_Maverick_M",
+		"CUP_PylonPod_3Rnd_AGM65_Maverick_M",
+		"CUP_PylonPod_3Rnd_AGM65_Maverick_M",
+		"CUP_PylonPod_3Rnd_AGM65_Maverick_M",
+		"CUP_PylonPod_3Rnd_AGM65_Maverick_M",
+		"CUP_PylonPod_3Rnd_AGM65_Maverick_M",
+		"CUP_PylonPod_1Rnd_AGM65_Maverick_M",
+		"CUP_PylonPod_ANAAQ_28"
+	];
+private _pylonPaths = (configProperties [configFile >> "CfgVehicles" >> typeOf _vcl >> "Components" >> "TransportPylonsComponent" >> "Pylons", "isClass _x"]) apply {getArray (_x >> "turret")};
+{ _vcl removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") } forEach getPylonMagazines _vcl;
+{ _vcl setPylonLoadout [_forEachIndex + 1, _x, true, _pylonPaths select _forEachIndex] } forEach _pylons;
+
 _grp = createGroup west;
 waitUntil {!(isNull _grp)};
 
