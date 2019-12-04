@@ -1,6 +1,6 @@
 
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
-
+[] execVM "PMC\PMC_Briefing.sqf";
 [] execVM "PMC\PMC_public_eventhandlers.sqf";
 
 // after respawning player has no weapons and gets the addaction's back
@@ -49,7 +49,7 @@ call compile preprocessFileLineNumbers "PMC\time_used_update.sqf";
 
 sleep 20;
 titleText["Change view distance from the flag pole.", "plain down", 2];
-hintSilent "Change view distance from the flag pole.";
+hintSilent "Change view distance from the flag pole OR from 0-8-5 support menu.";
 
 sleep 20;
 [] execVM "PMC\PMC_AddAction.sqf";

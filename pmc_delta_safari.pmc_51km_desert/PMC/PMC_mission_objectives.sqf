@@ -42,7 +42,7 @@ while { true } do
 	{
 		_PMC_vip_1_dead = true;
 		private _task = ["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "VIP 1 objective accomplished, great work!";
+		"VIP 1 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// VIP 2
@@ -50,7 +50,7 @@ while { true } do
 	{
 		_PMC_vip_2_dead = true;
 		private _task = ["t2", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "VIP 2 objective accomplished, great work!";
+		"VIP 2 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// VIP 3
@@ -58,7 +58,7 @@ while { true } do
 	{
 		_PMC_vip_3_dead = true;
 		private _task = ["t3", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "VIP 3 objective accomplished, great work!";
+		"VIP 3 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// VIP 4
@@ -66,7 +66,7 @@ while { true } do
 	{
 		_PMC_vip_4_dead = true;
 		private _task = ["t4", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "VIP 4 objective accomplished, great work!";
+		"VIP 4 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// VIP 5
@@ -74,7 +74,7 @@ while { true } do
 	{
 		_PMC_vip_5_dead = true;
 		private _task = ["t5", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "VIP 5 objective accomplished, great work!";
+		"VIP 5 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 
@@ -87,7 +87,7 @@ while { true } do
 	{
 		_PMC_scud_1_dead = true;
 		private _task = ["t6", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "SCUDs 1 objective accomplished, great work!";
+		"SCUDs 1 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// SCUD 2
@@ -95,7 +95,7 @@ while { true } do
 	{
 		_PMC_scud_2_dead = true;
 		private _task = ["t7", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "SCUDs 2 objective accomplished, great work!";
+		"SCUDs 2 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// SCUD 3
@@ -103,7 +103,7 @@ while { true } do
 	{
 		_PMC_scud_3_dead = true;
 		private _task = ["t8", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "SCUDs 3 objective accomplished, great work!";
+		"SCUDs 3 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// SCUD 4
@@ -111,7 +111,7 @@ while { true } do
 	{
 		_PMC_scud_4_dead = true;
 		private _task = ["t9", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "SCUDs 4 objective accomplished, great work!";
+		"SCUDs 4 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// SCUD 5
@@ -119,15 +119,24 @@ while { true } do
 	{
 		_PMC_scud_5_dead = true;
 		private _task = ["t10", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
-		hint "SCUDs 5 objective accomplished, great work!";
+		"SCUDs 5 objective accomplished, great work!" remoteExec ["hint", -2];
 	};
 
 	// all objectives complete, exit loop
 	if (_PMC_vip_1_dead && _PMC_vip_2_dead && _PMC_vip_3_dead && _PMC_vip_4_dead && _PMC_vip_5_dead && _PMC_scud_1_dead && _PMC_scud_2_dead && _PMC_scud_3_dead && _PMC_scud_4_dead && _PMC_scud_5_dead) exitWith
 	{
-		PMC_mcomplete = true;
-		publicVariable "PMC_mcomplete";
+		// just in case that we dont run this too quickly after the last objective is completed
+		sleep 40;
 		diag_log "*****\nPMC_mcomplete is true! All objectives completed! Mission is over!\n******";
+
+		// should run on all computers(?)
+		[["All objectives accomplished, great work!", "PLAIN", 1]] remoteExec ["titleText"];
+
+		// a bit more sleep for the congratulations texts
+		sleep 20;
+
+		// ends mission on server + clients
+		["pmc_end1", true] remoteExecCall ['BIS_fnc_endMission', 0];
 	};
 
 	//diag_log format["PMC_mission_objectives loop, _PMC_vip_1_dead: %1, _PMC_vip_2_dead: %2, _PMC_vip_3_dead: %3, _PMC_vip_4_dead: %4, _PMC_vip_5_dead: %5, _PMC_scud_1_dead: %6, _PMC_scud_2_dead: %7, _PMC_scud_3_dead: %8, _PMC_scud_4_dead: %9, _PMC_scud_5_dead: %10",
