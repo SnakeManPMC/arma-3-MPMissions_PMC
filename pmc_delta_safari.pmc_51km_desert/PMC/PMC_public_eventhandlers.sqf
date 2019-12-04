@@ -15,7 +15,6 @@ Returns:
 
 */
 
-/*
 "PMC_Setup_My_FOB" addPublicVariableEventhandler
 {
 	[(_this select 1)] execVM "PMC\PMC_Setup_FOB.sqf";
@@ -24,6 +23,7 @@ Returns:
 };
 
 
+/*
 "PMC_Strike_Team_Target" addPublicVariableEventhandler
 {
 	[(_this select 1), (getMarkerPos "respawn_west")] execVM "PMC\PMC_Strike_Team_Target.sqf";

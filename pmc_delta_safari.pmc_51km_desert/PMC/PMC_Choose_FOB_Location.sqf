@@ -16,6 +16,7 @@ Returns:
 
 hint "Click on MAP to choose FOB location.\n\nTry to place it on open ground at least 200m away from objects.\n\nPlease don't abuse this, use smartly.";
 
+/*
 onMapSingleClick
 {
 	// this makes it underground like -12 meters hehe?
@@ -24,6 +25,12 @@ onMapSingleClick
 	onMapSingleClick {};
 	true;
 };
+*/
+
+private _p = _this select 1;
+
+PMC_Setup_My_FOB = _p;
+publicVariable "PMC_Setup_My_FOB";
 
 /*
 PMC_Setup_My_FOB = (getPosASL player);

@@ -13,14 +13,17 @@ Returns:
 
 */
 
-// if we are on client, exit
-//if (!isServer) exitWith {};
-
-if (!isNil "PMC_Strike_Team_On_Mission") exitWith
+if (isNil "PMC_Strike_Team_On_Mission") then
 {
-	PMC_Strike_Team_On_Mission = true;
-	player sideChat "Strike team is on a mission, they are unavailable, sorry.";
+	PMC_Strike_Team_On_Mission = false;
 };
+
+if (PMC_Strike_Team_On_Mission) exitWith
+{
+	player sideChat "Strike team is on a mission, they are unavailable, wait until their mission is complete.";
+};
+
+PMC_Strike_Team_On_Mission = true;
 
 private ["_p","_respawnpoint","_vcl","_grp","_tmp","_assault","_lz"];
 
@@ -169,7 +172,6 @@ _assault addWaypoint [_p, 0];
 waitUntil
 {
 	diag_log format["looping while strike team is doing its thing... units: %1, leader ready: %2, time: %3", (count units _assault), (unitReady leader _assault), time];
-	player sideChat format["looping while strike team is doing its thing... units: %1, leader ready: %2, time: %3", (count units _assault), (unitReady leader _assault), time];
 	// very relaxed
 	sleep 10;
 	// they are:

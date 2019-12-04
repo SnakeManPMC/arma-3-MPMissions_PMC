@@ -43,9 +43,10 @@ _a10pilot sideChat "Ready to rock'n'roll!";
 } foreach units _grp;
 _vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
 
-_grp setbehaviour "COMBAT";
-_grp setcombatmode "RED";
+_grp setbehaviour "CARELESS";
+_grp setcombatmode "BLUE";
 _grp setspeedmode "FULL";
+_grp setformation "WEDGE";
 
 // first just in case one simple move, no fuss, no huss
 _vcl move _p;
@@ -61,7 +62,6 @@ waitUntil
 {
 	sleep 2;
 	diag_log format["A10 airstrike closing in to target, distance: %1", (_vcl distance _p)];
-	_a10pilot sideChat format["A10 airstrike closing in to target, distance: %1", (_vcl distance _p)];
 	( (!alive _vcl) || (unitReady _vcl) || (_vcl distance _p < 500) );
 };
 
@@ -73,16 +73,22 @@ _a10pilot sideChat "A10 on station, ready to attack!";
 // waypoints, we add couple to make patrol area
 _grp addWaypoint [_p, 0];
 // search and destroy waypoint
-[_grp, 1] setWaypointType "SAD";
-[_grp, 1] setWaypointCompletionRadius 200;
+[_grp, 1] setWaypointType "MOVE";
+[_grp, 1] setWaypointBehaviour "CARELESS";
+[_grp, 1] setWaypointCombatMode "BLUE";
+[_grp, 1] setWaypointSpeed "FULL";
+[_grp, 1] setWaypointCompletionRadius 1000;
 
 _grp addWaypoint [_p, 0];
 [_grp, 2] setWaypointType "SAD";
-[_grp, 2] setWaypointCompletionRadius 200;
+[_grp, 2] setWaypointBehaviour "AWARE";
+[_grp, 2] setWaypointCombatMode "RED";
+[_grp, 2] setWaypointSpeed "NORMAL";
+[_grp, 2] setWaypointCompletionRadius 1000;
 
 _grp addWaypoint [_p, 0];
 [_grp, 3] setWaypointType "MOVE";
-[_grp, 3] setWaypointCompletionRadius 200;
+[_grp, 3] setWaypointCompletionRadius 1000;
 [_grp, 3] setWaypointStatements ["true", "PMC_Hint = 'A10 reached MOVE waypoint, now what? heh'; publicVariable 'PMC_Hint';"];
 
 sleep 5;
@@ -98,7 +104,6 @@ if (!alive _vcl) exitWith
 waitUntil
 {
 	diag_log format["looping while A10's strike some targets... %1", time];
-	_a10pilot sideChat format["looping while A10's strike some targets... %1", time];
 	// very relaxed
 	sleep 10;
 	// they are:

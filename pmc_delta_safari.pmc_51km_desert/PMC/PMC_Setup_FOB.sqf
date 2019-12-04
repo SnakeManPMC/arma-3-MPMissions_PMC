@@ -32,7 +32,7 @@ private
 ];
 
 // from communications menu this needs to be one, not zero
-_p = _this select 1;
+_p = _this select 0;
 
 diag_log format["PMC_Setup_FOB (server side), _p: %1", _p];
 
@@ -106,6 +106,7 @@ publicVariable "PMC_FARP_Count";
 // move respawn marker here.
 "respawn_west" setMarkerPos _p;
 
+/* not working outdated task method
 // this doesnt work for clients on some reason?
 _m = format ["Field Operating Bases are setup:</br></br><marker name='PMC_FARP_text_%1'>FOB 0</marker></br>", PMC_FARP_Count];
 
@@ -114,3 +115,4 @@ diag_log format["This should go to SHK: %1", _m];
 ],[
 	["FOB", _m]
 ]] call compile preprocessFileLineNumbers "PMC\shk_taskmaster.sqf";
+*/
