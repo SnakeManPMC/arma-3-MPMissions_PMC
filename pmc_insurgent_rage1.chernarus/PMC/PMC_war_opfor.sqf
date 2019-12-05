@@ -40,7 +40,7 @@ call compile preProcessFileLineNumbers "PMC\PMC_Create_Insurgent_Militia.sqf";
 // wait until mission starts and pmc_opforunits trigger is usable.
 waitUntil
 {
-	(count (list pmc_opforunits) > 0);
+	(!isNil "pmc_opforunits");
 };
 
 while {PMC_opfor < _victoryCondition} do
