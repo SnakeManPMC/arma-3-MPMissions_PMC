@@ -6,7 +6,7 @@ removeAllWeapons player;
 
 waitUntil
 {
-	(count (missionNamespace getVariable "PMC_initial_lists") > 0);
+	(!isNil (missionNamespace getVariable "PMC_initial_lists"));
 };
 
 call compile preProcessFileLineNumbers "PMC\PMC_Time_Used.sqf";

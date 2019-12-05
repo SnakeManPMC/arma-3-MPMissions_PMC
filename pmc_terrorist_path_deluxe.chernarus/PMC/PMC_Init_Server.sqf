@@ -14,7 +14,7 @@ publicVariable "PMC_opfor_detected";
 
 waitUntil
 {
-	(count list pmc_opfor_list > 0);
+	(!isNil "pmc_opfor_list");
 };
 
 PMC_initial_lists =
