@@ -52,9 +52,11 @@ publicVariable "PMC_corpses";
 
 // count for opfor
 PMC_opfor = 0;
+PMC_grp_opfor = 0;
 
 // count for blufor
 PMC_blufor = 0;
+PMC_grp_blufor = 0;
 
 // PMC_Select_Target
 call compile preProcessFileLineNumbers "PMC\PMC_Select_Target.sqf";
