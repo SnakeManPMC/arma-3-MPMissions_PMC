@@ -11,9 +11,6 @@ cutText ["", "BLACK FADED", 9999];
 // triggers for client
 [] execVM "PMC\Triggers.sqf";
 
-// this is gay, its like a debug joke really?
-player addAction ["Camera", "camerago.sqf", true];
-
 // create client objectives, these are just two triggers for blufor/opfor not present
 [] execVM "PMC\PMC_Create_Tasks.sqf";
 
