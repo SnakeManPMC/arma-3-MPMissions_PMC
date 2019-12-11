@@ -10,14 +10,11 @@ private
 	"_victoryCondition"
 ];
 
-// how many enemies to create
-// ArmA 2 group limit per side is 144 ?
-// 500 / 10 = 50 groups.
-// 1400 / 10 = 140 groups.
-_victoryCondition = 300;
+_victoryCondition = (paramsarray select 3);
 
 // maximum number of opfor on the map at one time
-_Max_OPFOR_On_Map = 100;
+_Max_OPFOR_On_Map = (paramsarray select 2);
+//diag_log format["_victorycondition: %1, _Max_OPFOR_On_map: %2", _victoryCondition, _Max_OPFOR_On_Map];
 
 // random sleep time
 _sleeptime = (5 + random 2);
@@ -57,19 +54,16 @@ while {PMC_opfor < _victoryCondition} do
 			case 0:
 			{
 				_grp = [_respawnpoint] call PMC_Create_Insurgent_Group;
-//				player sidechat format["created Insurgent_Group. pmc_opfor: %1, pmc_opforunits: %2", pmc_opfor, EAST countSide (list pmc_opforunits)];
 			};
 
 			case 1:
 			{
 				_grp = [_respawnpoint] call PMC_Create_Insurgent_Weapons_Group;
-//				player sidechat format["created Insurgent_Weapons_Group. pmc_opfor: %1, pmc_opforunits: %2", pmc_opfor, EAST countSide (list pmc_opforunits)];
 			};
 
 			case 2:
 			{
 				_grp = [_respawnpoint] call PMC_Create_Insurgent_Militia;
-//				player sidechat format["created Insurgent_Militia. pmc_opfor: %1, pmc_opforunits: %2", pmc_opfor, EAST countSide (list pmc_opforunits)];
 			};
 		};
 
@@ -107,7 +101,6 @@ while {PMC_opfor < _victoryCondition} do
 		publicVariable "PMC_opfor";
 	};
 	sleep _sleeptime;
-//	player sidechat format["Looping with pmc_opfor: %1, pmc_opforunits: %2", pmc_opfor, EAST countSide (list pmc_opforunits)];
 };
 
 // small wait
