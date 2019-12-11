@@ -433,7 +433,7 @@ _PMC_SelectOPFORStartPosit =
 };
 
 // how many cycles of troops we create. 20 creates about 150-180 units.
-_ForceLevel = 80;
+_ForceLevel = 10;
 
 _maxOPFORA = count PMC_opfor_vehicle_heavy;
 _maxOPFORA2 = count PMC_opfor_vehicle_car_armed;
