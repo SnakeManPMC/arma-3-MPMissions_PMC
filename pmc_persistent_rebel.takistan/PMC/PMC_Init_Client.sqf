@@ -26,7 +26,7 @@ player addAction ["Camera", "camerago.sqf", true];
 [] execVM "PMC\PMC_debug.sqf";
 */
 
-// create client objectives
+// create client objectives, these are just two triggers for blufor/opfor not present
 [] execVM "PMC\PMC_Create_Tasks.sqf";
 
 // weather script

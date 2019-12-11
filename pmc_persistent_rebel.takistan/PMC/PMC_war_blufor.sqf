@@ -61,7 +61,7 @@ _countUnits = compile preprocessFileLineNumbers "PMC\PMC_Count_Group_Units.sqf";
 // wait until mission starts and pmc_bluforunits trigger is usable.
 waitUntil
 {
-	(count (list pmc_bluforunits) > 0);
+	(!isNil "pmc_bluforunits");
 };
 
 // first base defence for airbase
