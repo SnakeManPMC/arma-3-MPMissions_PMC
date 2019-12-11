@@ -5,9 +5,9 @@
 		"t1"
 	],
 	[
-		"You must clear the <marker name='markerTask1'>Obj1</marker>.",
+		"You must clear the <marker name='pmc_marker_target1'>Obj1</marker>.",
 		"Clear Obj1",
-		"markerTask1"
+		"pmc_marker_target1"
 	],
 	(getPosASL pmc_1),
 	1,
@@ -21,9 +21,9 @@
 		"t2"
 	],
 	[
-		"You must clear the <marker name='markerTask2'>Obj2</marker>.",
+		"You must clear the <marker name='pmc_marker_target2'>Obj2</marker>.",
 		"Clear Obj2",
-		"markerTask2"
+		"pmc_marker_target2"
 	],
 	(getPosASL pmc_2),
 	1,
@@ -37,9 +37,9 @@
 		"t3"
 	],
 	[
-		"You must clear the <marker name='markerTask3'>Obj3</marker>.",
+		"You must clear the <marker name='pmc_marker_target3'>Obj3</marker>.",
 		"Clear Obj3",
-		"markerTask3"
+		"pmc_marker_target3"
 	],
 	(getPosASL pmc_3),
 	1,
@@ -53,9 +53,9 @@
 		"t4"
 	],
 	[
-		"You must clear the <marker name='markerTask4'>Obj4</marker>.",
+		"You must clear the <marker name='pmc_marker_target4'>Obj4</marker>.",
 		"Clear Obj4",
-		"markerTask4"
+		"pmc_marker_target4"
 	],
 	(getPosASL pmc_4),
 	1,
