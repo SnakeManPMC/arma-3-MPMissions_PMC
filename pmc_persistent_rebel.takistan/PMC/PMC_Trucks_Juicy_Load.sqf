@@ -66,10 +66,12 @@ _PMC_CreateConvoyVehicles =
 	_vcl addMagazineCargoGlobal ["CUP_30Rnd_556x45_Stanag", 12];
 	_vcl addMagazineCargoGlobal ["CUP_30Rnd_556x45_Stanag", 12];
 	_vcl addMagazineCargoGlobal ["CUP_5Rnd_762x51_M24", 12];
+/*
 	_vcl addMagazineCargoGlobal ["Dragon_EP1", 12];
 	_vcl addMagazineCargoGlobal ["Javelin", 11];
 	_vcl addMagazineCargoGlobal ["M136", 5];
 	_vcl addMagazineCargoGlobal ["CUP_MineE", 10];
+*/
 	_vcl addMagazineCargoGlobal ["CUP_PipeBomb_M", 10];
 	_vcl addMagazineCargoGlobal ["CUP_SMAW_HEAA_M", 5];
 	_vcl addMagazineCargoGlobal ["CUP_SMAW_HEDP_M", 5];
@@ -78,11 +80,13 @@ _PMC_CreateConvoyVehicles =
 	_vcl addWeaponCargoGlobal ["Binocular", 1];
 	_vcl addWeaponCargoGlobal ["CUP_Binocular_Vector", 1];
 	_vcl addWeaponCargoGlobal ["CUP_Glock17_EP1", 1];
-	_vcl addWeaponCargoGlobal ["Javelin", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M107", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M110_NVG_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M110_TWS_EP1", 1];
+/*
+	_vcl addWeaponCargoGlobal ["Javelin", 1];
 	_vcl addWeaponCargoGlobal ["M136", 1];
+*/
 	_vcl addWeaponCargoGlobal ["CUP_M14_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M24_des_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_m240_scoped_EP1", 1];
@@ -99,58 +103,6 @@ _PMC_CreateConvoyVehicles =
 	_vcl addWeaponCargoGlobal ["CUP_launch_Mk153Mod0_SMAWOptics", 1];
 	_vcl addWeaponCargoGlobal ["CUP_launch_FIM92Stinger", 1];
 
-/*
-	Weapons
-Javelin
-Stinger
-M4A1_RCO_GL
-M4A1_AIM_SD_CAMO
-M9SD
-M136
-SMAW
-Binocular
-NVGoggles
-Binocular_Vector
-M47Launcher_EP1
-m107
-glock17_EP1
-M110_NVG_EP1
-M110_TWS_EP1
-M14_EP1
-m240_scoped_EP1
-M249_EP1
-M24_des_EP1
-M60A4_EP1
-M79_EP1
-SCAR_H_CQC_CCO_SD
-SCAR_H_STD_EGLM_Spect
-
-	Magazines
-
-Javelin
-Stinger
-1Rnd_HE_M203
-30Rnd_556x45_Stanag
-30Rnd_556x45_StanagSD
-15Rnd_9x19_M9SD
-M136
-SMAW_HEAA
-SMAW_HEDP
-PipeBomb
-Mine
-Dragon_EP1
-10Rnd_127x99_m107
-17Rnd_9x19_glock17
-20Rnd_762x51_B_SCAR
-20Rnd_762x51_B_SCAR
-20Rnd_762x51_DMR
-100Rnd_762x51_M240
-200Rnd_556x45_M249
-5Rnd_762x51_M24
-100Rnd_762x51_M240
-20Rnd_762x51_SB_SCAR
-20Rnd_762x51_B_SCAR
-*/
 	// get crew type for this vehicle
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
 
