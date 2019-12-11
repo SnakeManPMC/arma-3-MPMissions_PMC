@@ -6,5 +6,5 @@ player createDiaryRecord ["Diary", ["Support", ""]];
 player createDiaryRecord ["Diary", ["Execution", ""]];
 player createDiaryRecord ["Diary", ["Intel", ""]];
 */
-player createDiaryRecord ["Diary", ["Mission", "OPFOR <marker name='attack'>Attack</marker> is under way for <marker name='usa'>base</marker>. Defend it at all costs!"]];
+player createDiaryRecord ["Diary", ["Mission", "OPFOR <marker name='attack'>Attack</marker> is under way for <marker name='usa'>airfield</marker>. Defend it at all costs!"]];
 //player createDiaryRecord ["Diary", ["Situation", ""]];

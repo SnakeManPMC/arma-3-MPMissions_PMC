@@ -1,5 +1,7 @@
 
-[] execVM "PMC\PMC_weather.sqf";
+skiptime (((paramsarray select 0) - daytime + 24) % 24);
+
+[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 
 [] execVM "PMC\PMC_Tasks.sqf";
 
@@ -40,7 +42,6 @@ waitUntil
 	scriptDone _tmp;
 };
 
-// NVA war
 [] execVM "PMC\PMC_war_opfor.sqf";
 
 // mission editor placed guys:
@@ -48,6 +49,3 @@ sleep 3;
 {
 	_x addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
 } foreach units pmc_ins1;
-
-// run random helo patrol :)
-//[] execVM "PMC\PMC_HeloBLUFOR.sqf";

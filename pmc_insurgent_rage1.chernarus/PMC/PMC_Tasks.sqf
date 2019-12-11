@@ -5,8 +5,8 @@
 		"t1"
 	],
 	[
-		"Defend <marker name='usa'>base</marker>",
-		"Defend Base",
+		"Defend <marker name='usa'>airfield</marker>",
+		"Defend Airfield",
 		"usa"
 	],
 	objNull,
