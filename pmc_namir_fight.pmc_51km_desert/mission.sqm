@@ -78,10 +78,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=9919544;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -103,7 +99,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Namir Fight v0.1.4";
+		briefingName="PMC Namir Fight v0.1.5";
 		startWeather=0.30000001;
 		startWind=0.1;
 		forecastWeather=0.30000001;
@@ -132,12 +128,13 @@ class Mission
 		class Item1
 		{
 			dataType="Trigger";
-			position[]={17586.924,106.65974,27753.516};
+			position[]={17586.924,106.6596,27753.516};
 			class Attributes
 			{
 				name="target1";
-				text="enemy dead";
-				onActivation="pmc_mcomplete = true; publicVariable ""pmc_mcomplete""; [""PMC_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				text="Objective 1 enemy dead";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective1.sqf"";}";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={60,120,240};
@@ -146,7 +143,7 @@ class Mission
 			};
 			id=79;
 			type="EmptyDetector";
-			atlOffset=-1.1758652;
+			atlOffset=-1.1760025;
 		};
 		class Item2
 		{
@@ -183,6 +180,7 @@ class Mission
 			};
 			id=83;
 			type="CUP_B_M1126_ICV_M2_Desert";
+			atlOffset=0.001335144;
 		};
 		class Item4
 		{
@@ -2613,6 +2611,7 @@ class Mission
 				};
 			};
 			id=217;
+			atlOffset=0.001335144;
 		};
 		class Item22
 		{
@@ -2671,6 +2670,7 @@ class Mission
 					};
 					id=89;
 					type="CUP_B_US_Soldier_GL";
+					atlOffset=7.6293945e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2719,6 +2719,7 @@ class Mission
 			{
 			};
 			id=219;
+			atlOffset=7.6293945e-006;
 		};
 		class Item24
 		{
