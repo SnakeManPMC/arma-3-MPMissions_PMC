@@ -19,7 +19,7 @@ class EditorData
 		pos[]={3761.3037,339.14816,7248.3691};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -78,10 +78,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=10401620;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -104,7 +100,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC PvP Armor 1 v1.0.3";
+		briefingName="PMC PvP Armor 1 v1.0.4";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -124,12 +120,13 @@ class Mission
 		class Item0
 		{
 			dataType="Trigger";
-			position[]={3490.9482,290.55988,8409.335};
+			position[]={3490.948,290.56021,8409.335};
 			class Attributes
 			{
 				name="PMC_blufor_obj1";
 				text="PMC_blufor_objective1";
-				onActivation="PMC_blufor_obj1 = true; publicVariable ""PMC_blufor_obj1""; [""PMC_blufor_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_BLUFOR.sqf"";}";
 				sizeA=500;
 				sizeB=500;
 				timeout[]={60,60,60};
@@ -138,17 +135,18 @@ class Mission
 			};
 			id=2753;
 			type="EmptyDetector";
-			atlOffset=3.0517578e-005;
+			atlOffset=0.0020141602;
 		};
 		class Item1
 		{
 			dataType="Trigger";
-			position[]={3507.7205,291.36807,8411.0664};
+			position[]={3507.72,291.36847,8411.0664};
 			class Attributes
 			{
 				name="PMC_opfor_obj1";
 				text="PMC_opfor_objective1";
-				onActivation="PMC_opfor_obj1 = true; publicVariable ""PMC_opfor_obj1""; [""PMC_opfor_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_OPFOR.sqf"";}";
 				sizeA=500;
 				sizeB=500;
 				timeout[]={60,60,60};
@@ -2563,7 +2561,7 @@ class Mission
 			};
 			id=2854;
 			type="CUP_B_AAV_USMC";
-			atlOffset=-0.00073242188;
+			atlOffset=0.024139404;
 		};
 		class Item26
 		{
@@ -2933,7 +2931,7 @@ class Mission
 			};
 			id=2872;
 			type="CUP_B_AAV_USMC";
-			atlOffset=-0.00021362305;
+			atlOffset=0.024627686;
 		};
 		class Item28
 		{
