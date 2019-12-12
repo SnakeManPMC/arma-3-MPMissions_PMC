@@ -1,5 +1,5 @@
 
-player createDiaryRecord ["Diary", ["Designers Notes", "Addons used: None<br/>Mission design, scripts: Snake Man, PMC.<br/><br/>This was one of the early OFP missions created by Snake Man.<br/><br/>Must have been something like 2001 or 2002 era when we played a lot of LAN multiplayer at PMC WHQ."]];
+player createDiaryRecord ["Diary", ["Designers Notes", "Addons used: None<br/>Mission design, scripts: Snake Man, PMC."]];
 /*
 player createDiaryRecord ["Diary", ["Diary", ""]];
 player createDiaryRecord ["Diary", ["Command and Signal", ""]];
