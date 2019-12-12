@@ -180,10 +180,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=2678656;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -205,7 +201,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Hollow Pigeon v0.2.5";
+		briefingName="PMC Hollow Pigeon v0.2.6";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=1;
@@ -250,19 +246,19 @@ class Mission
 		class Item2
 		{
 			dataType="Trigger";
-			position[]={448.19348,0.59424353,2651.2437};
+			position[]={448.19299,0.59378052,2651.2439};
 			class Attributes
 			{
-				text="rescued";
-				condition="leader crash_team distance usa < 20";
-				onActivation="[""Rescued"", ""succeeded""] call SHK_Taskmaster_Upd; pmc_rescued = true; publicVariable ""pmc_rescued"";";
+				text="Objective 2 rescued pilot";
+				condition="call{leader crash_team distance usa < 20}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_Rescued_Pilot.sqf"";}";
 				sizeA=0;
 				sizeB=0;
 				interuptable=1;
 			};
 			id=4453;
 			type="EmptyDetector";
-			atlOffset=46.624454;
+			atlOffset=46.624001;
 		};
 		class Item3
 		{
@@ -285,27 +281,28 @@ class Mission
 		class Item4
 		{
 			dataType="Trigger";
-			position[]={445.30688,0.59524024,2654.8364};
+			position[]={445.30701,0.59560776,2654.8359};
 			class Attributes
 			{
-				text="Find";
-				condition="leader sar_team distance leader crash_team < 20";
-				onActivation="[""Find"", ""succeeded""] call SHK_Taskmaster_Upd; pmc_find = true; publicVariable ""pmc_find"";";
+				text="Objective 1 found pilot";
+				condition="call{leader sar_team distance leader crash_team < 20}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_Found_Pilot.sqf"";}";
 				sizeA=0;
 				sizeB=0;
 				interuptable=1;
 			};
 			id=4455;
 			type="EmptyDetector";
-			atlOffset=46.636627;
+			atlOffset=46.636997;
 		};
 		class Item5
 		{
 			dataType="Trigger";
-			position[]={24763.176,55,25610.352};
+			position[]={24763.176,54.999947,25610.352};
 			class Attributes
 			{
 				name="pmc_opforlist";
+				text="opfor present list";
 				sizeA=25000;
 				sizeB=25000;
 				interuptable=1;
@@ -315,7 +312,7 @@ class Mission
 			};
 			id=4456;
 			type="EmptyDetector";
-			atlOffset=0.1040535;
+			atlOffset=0.10400009;
 		};
 		class Item6
 		{
@@ -10320,12 +10317,14 @@ class Mission
 					};
 					id=4488;
 					type="CUP_B_US_SpecOps_AR";
+					atlOffset=-4.7683716e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=4919;
+			atlOffset=-4.7683716e-007;
 		};
 		class Item139
 		{
@@ -10415,12 +10414,14 @@ class Mission
 					};
 					id=4492;
 					type="CUP_B_US_SpecOps_MG";
+					atlOffset=-4.7683716e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=4922;
+			atlOffset=-4.7683716e-007;
 		};
 		class Item142
 		{
@@ -10446,12 +10447,14 @@ class Mission
 					};
 					id=4486;
 					type="CUP_B_US_SpecOps_M";
+					atlOffset=-4.7683716e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=4923;
+			atlOffset=-4.7683716e-007;
 		};
 		class Item143
 		{
@@ -10477,12 +10480,14 @@ class Mission
 					};
 					id=4490;
 					type="CUP_B_US_SpecOps_Medic";
+					atlOffset=-4.7683716e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=4924;
+			atlOffset=-4.7683716e-007;
 		};
 		class Item144
 		{
@@ -10509,12 +10514,14 @@ class Mission
 					};
 					id=4484;
 					type="CUP_B_US_SpecOps";
+					atlOffset=-4.7683716e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=4925;
+			atlOffset=-4.7683716e-007;
 		};
 		class Item145
 		{
@@ -10541,12 +10548,14 @@ class Mission
 					};
 					id=4489;
 					type="CUP_B_US_SpecOps_Assault";
+					atlOffset=-4.7683716e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=4926;
+			atlOffset=-4.7683716e-007;
 		};
 		class Item146
 		{
@@ -10573,12 +10582,14 @@ class Mission
 					};
 					id=4493;
 					type="CUP_B_US_SpecOps_M14";
+					atlOffset=-4.7683716e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=4927;
+			atlOffset=-4.7683716e-007;
 		};
 		class Item147
 		{
