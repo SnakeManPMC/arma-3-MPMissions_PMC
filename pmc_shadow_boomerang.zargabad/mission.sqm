@@ -19,7 +19,7 @@ class EditorData
 		pos[]={3270.6006,59.488449,7742.3398};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -115,10 +115,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=13774222;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -139,7 +135,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Shadow Boomerang v0.1.2";
+		briefingName="PMC Shadow Boomerang v0.1.3";
 		startWeather=0.30000001;
 		startWind=0.1;
 		forecastWeather=0.30000001;
@@ -164,7 +160,8 @@ class Mission
 			{
 				name="pmc_1";
 				text="PMC_objective1";
-				onActivation="pmc_obj1 = true; [""PMC_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective1.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -177,12 +174,13 @@ class Mission
 		class Item1
 		{
 			dataType="Trigger";
-			position[]={1932.8689,38.559139,4649.6963};
+			position[]={1932.869,38.559135,4649.6958};
 			class Attributes
 			{
 				name="pmc_2";
 				text="PMC_objective2";
-				onActivation="pmc_obj2 = true; [""PMC_objective2"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective2.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -195,12 +193,13 @@ class Mission
 		class Item2
 		{
 			dataType="Trigger";
-			position[]={4241.9927,17.165615,4164.313};
+			position[]={4241.9932,17.166,4164.313};
 			class Attributes
 			{
 				name="pmc_3";
 				text="PMC_objective3";
-				onActivation="pmc_obj3 = true; [""PMC_objective3"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective3.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -209,7 +208,7 @@ class Mission
 			};
 			id=1135;
 			type="EmptyDetector";
-			atlOffset=0.16561508;
+			atlOffset=0.16600037;
 		};
 		class Item3
 		{
@@ -251,12 +250,13 @@ class Mission
 		class Item5
 		{
 			dataType="Trigger";
-			position[]={3522.4023,19.208315,1964.5732};
+			position[]={3522.4021,19.208315,1964.573};
 			class Attributes
 			{
 				name="pmc_4";
 				text="PMC_objective4";
-				onActivation="pmc_obj4 = true; [""PMC_objective4"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective4.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -1007,7 +1007,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3344.8625,34.875938,7783.5229};
-						angles[]={-0,0,0.039977662};
+						angles[]={0,0,0.039977662};
 					};
 					side="Independent";
 					flags=4;
@@ -2444,7 +2444,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3421.3105,34.038506,7776.1274};
-						angles[]={-0,0,6.2656889};
+						angles[]={0,0,6.2656889};
 					};
 					side="Independent";
 					flags=4;
@@ -2460,7 +2460,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3421.3105,34.038506,7776.1274};
-						angles[]={-0,0,6.2656889};
+						angles[]={0,0,6.2656889};
 					};
 					side="Independent";
 					flags=4;
@@ -2476,7 +2476,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3421.3105,34.038506,7776.1274};
-						angles[]={-0,0,6.2656889};
+						angles[]={0,0,6.2656889};
 					};
 					side="Independent";
 					flags=6;
@@ -2493,7 +2493,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3444.3545,33.688778,7774.1274};
-						angles[]={-0,0,6.2756844};
+						angles[]={0,0,6.2756844};
 					};
 					side="Independent";
 					flags=4;
@@ -2509,7 +2509,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3444.3545,33.688778,7774.1274};
-						angles[]={-0,0,6.2756844};
+						angles[]={0,0,6.2756844};
 					};
 					side="Independent";
 					flags=4;
@@ -2525,7 +2525,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3444.3545,33.688778,7774.1274};
-						angles[]={-0,0,6.2756844};
+						angles[]={0,0,6.2756844};
 					};
 					side="Independent";
 					flags=4;
@@ -2622,7 +2622,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3421.3545,36.543026,7776.0776};
-				angles[]={-0,0,6.2656889};
+				angles[]={0,0,6.2656889};
 			};
 			side="Independent";
 			flags=6;
@@ -2640,7 +2640,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3444.3921,36.193394,7774.084};
-				angles[]={-0,0,6.2756844};
+				angles[]={0,0,6.2756844};
 			};
 			side="Independent";
 			flags=4;
@@ -2795,7 +2795,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3405.02,33.96674,7716.29};
-						angles[]={-0,0,0.01499443};
+						angles[]={0,0,0.01499443};
 					};
 					side="Independent";
 					flags=4;
@@ -2811,7 +2811,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3405.02,33.96674,7716.29};
-						angles[]={-0,0,0.01499443};
+						angles[]={0,0,0.01499443};
 					};
 					side="Independent";
 					flags=4;
@@ -2827,7 +2827,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3405.02,33.96674,7716.29};
-						angles[]={-0,0,0.01499443};
+						angles[]={0,0,0.01499443};
 					};
 					side="Independent";
 					flags=4;
@@ -2843,7 +2843,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3405.02,33.96674,7716.29};
-						angles[]={-0,0,0.01499443};
+						angles[]={0,0,0.01499443};
 					};
 					side="Independent";
 					flags=4;
@@ -3149,7 +3149,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3404.9968,36.275688,7716.2573};
-				angles[]={-0,0,0.01499443};
+				angles[]={0,0,0.01499443};
 			};
 			side="Independent";
 			flags=4;
@@ -4312,6 +4312,7 @@ class Mission
 					};
 					id=1349;
 					type="CUP_O_TK_Soldier_AAT";
+					atlOffset=-9.5367432e-007;
 				};
 				class Item8
 				{
@@ -6612,7 +6613,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3565.6135,21.251268,1851.3};
-						angles[]={-0,0,6.270689};
+						angles[]={0,0,6.270689};
 					};
 					side="East";
 					flags=4;
@@ -7696,7 +7697,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1909.2709,38.844616,4692.6396};
-						angles[]={-0,0,0.0024897563};
+						angles[]={0,0,0.0024897563};
 					};
 					side="East";
 					flags=4;
@@ -7714,7 +7715,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1951.2709,38.714199,4672.6396};
-						angles[]={-0,0,6.2656889};
+						angles[]={0,0,6.2656889};
 					};
 					side="East";
 					flags=4;
