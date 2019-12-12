@@ -1,5 +1,5 @@
 
-// hmm I guess this could be run only on server as shk_taskmaster will broadcast it to clients too, only
+// hmm I guess this could be run only on server as shk.task.master will broadcast it to clients too, only
 // thing client specific in this one is the small radio call that we have achieved objective, which is kind of moot heh.
 
 private
