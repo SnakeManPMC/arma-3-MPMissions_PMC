@@ -85,10 +85,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=7939309;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -110,7 +106,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Melon Fur v0.1.4";
+		briefingName="PMC Melon Fur v0.1.5";
 		startWeather=0.30000001;
 		startWind=0.1;
 		forecastWeather=0.30000001;
@@ -134,7 +130,7 @@ class Mission
 			type="mil_start";
 			colorName="ColorGreen";
 			id=1505;
-			atlOffset=-0.0021696091;
+			atlOffset=0.02862978;
 		};
 		class Item1
 		{
@@ -144,7 +140,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlue";
 			id=1506;
-			atlOffset=0.0005645752;
+			atlOffset=0.048950195;
 		};
 		class Item2
 		{
@@ -154,7 +150,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlue";
 			id=1507;
-			atlOffset=-0.0015220642;
+			atlOffset=0.034000397;
 		};
 		class Item3
 		{
@@ -164,7 +160,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlue";
 			id=1508;
-			atlOffset=-0.0010032654;
+			atlOffset=-0.034103394;
 		};
 		class Item4
 		{
@@ -174,7 +170,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlue";
 			id=1509;
-			atlOffset=-0.0011901855;
+			atlOffset=-0.20243073;
 		};
 		class Item5
 		{
@@ -184,7 +180,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlue";
 			id=1510;
-			atlOffset=-0.0025482178;
+			atlOffset=0.17996216;
 		};
 		class Item6
 		{
@@ -194,7 +190,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlue";
 			id=1511;
-			atlOffset=-0.00052642822;
+			atlOffset=0.073150635;
 		};
 		class Item7
 		{
@@ -206,17 +202,18 @@ class Mission
 			a=20;
 			b=20;
 			id=1512;
-			atlOffset=0.00053453445;
+			atlOffset=0.049088001;
 		};
 		class Item8
 		{
 			dataType="Trigger";
-			position[]={2346.1309,34.016026,2697.9429};
+			position[]={2346.1311,34.015636,2697.9431};
 			class Attributes
 			{
 				name="pmc_fob_1";
 				text="fob 1 opened";
-				onActivation="""respawn_west"" setMarkerPosLocal getPosASL pmc_fob_1; [""PMC_fob1"", ""succeeded""] call SHK_Taskmaster_Upd; hint ""FOB 1 has been opened, respawn has been moved to that location now.""; PMC_active_fob = getPosASL this;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_FOB_1.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -226,17 +223,18 @@ class Mission
 			};
 			id=1513;
 			type="EmptyDetector";
-			atlOffset=-0.00035095215;
+			atlOffset=0.043994904;
 		};
 		class Item9
 		{
 			dataType="Trigger";
-			position[]={12013.37,42.382336,5410.6147};
+			position[]={12013.37,42.382187,5410.6152};
 			class Attributes
 			{
 				name="pmc_fob_2";
 				text="fob 2 opened";
-				onActivation="""respawn_west"" setMarkerPosLocal getPosASL pmc_fob_2; [""PMC_fob2"", ""succeeded""] call SHK_Taskmaster_Upd; hint ""FOB 2 has been opened, respawn has been moved to that location now.""; PMC_active_fob = getPosASL this;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_FOB_2.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -246,17 +244,18 @@ class Mission
 			};
 			id=1514;
 			type="EmptyDetector";
-			atlOffset=-0.00061035156;
+			atlOffset=0.034999847;
 		};
 		class Item10
 		{
 			dataType="Trigger";
-			position[]={19990.596,36.853806,5377.2705};
+			position[]={19990.596,36.853741,5377.27};
 			class Attributes
 			{
 				name="pmc_fob_3";
 				text="fob 3 opened";
-				onActivation="""respawn_west"" setMarkerPosLocal getPosASL pmc_fob_3; [""PMC_fob3"", ""succeeded""] call SHK_Taskmaster_Upd; hint ""FOB 3 has been opened, respawn has been moved to that location now.""; PMC_active_fob = getPosASL this;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_FOB_3.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -266,17 +265,18 @@ class Mission
 			};
 			id=1515;
 			type="EmptyDetector";
-			atlOffset=-0.00098419189;
+			atlOffset=-0.013999939;
 		};
 		class Item11
 		{
 			dataType="Trigger";
-			position[]={3660.916,63.067474,18083.457};
+			position[]={3660.916,63.06797,18083.457};
 			class Attributes
 			{
 				name="pmc_fob_4";
 				text="fob 4 opened";
-				onActivation="""respawn_west"" setMarkerPosLocal getPosASL pmc_fob_4; [""PMC_fob4"", ""succeeded""] call SHK_Taskmaster_Upd; hint ""FOB 4 has been opened, respawn has been moved to that location now.""; PMC_active_fob = getPosASL this;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_FOB_4.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -286,17 +286,18 @@ class Mission
 			};
 			id=1516;
 			type="EmptyDetector";
-			atlOffset=-0.0013275146;
+			atlOffset=-0.20700455;
 		};
 		class Item12
 		{
 			dataType="Trigger";
-			position[]={13157.318,77.218124,15036.229};
+			position[]={13157.318,77.21862,15036.229};
 			class Attributes
 			{
 				name="pmc_fob_5";
 				text="fob 5 opened";
-				onActivation="""respawn_west"" setMarkerPosLocal getPosASL pmc_fob_5; [""PMC_fob5"", ""succeeded""] call SHK_Taskmaster_Upd; hint ""FOB 5 has been opened, respawn has been moved to that location now.""; PMC_active_fob = getPosASL this;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_FOB_5.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -306,17 +307,18 @@ class Mission
 			};
 			id=1517;
 			type="EmptyDetector";
-			atlOffset=-0.0024032593;
+			atlOffset=0.1740036;
 		};
 		class Item13
 		{
 			dataType="Trigger";
-			position[]={20420.668,72.580162,20438.895};
+			position[]={20420.668,72.579857,20438.895};
 			class Attributes
 			{
 				name="pmc_fob_6";
 				text="fob 6 opened";
-				onActivation="""respawn_west"" setMarkerPosLocal getPosASL pmc_fob_6; [""PMC_fob6"", ""succeeded""] call SHK_Taskmaster_Upd; hint ""FOB 6 has been opened, respawn has been moved to that location now.""; PMC_active_fob = getPosASL this;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_FOB_6.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -326,7 +328,7 @@ class Mission
 			};
 			id=1518;
 			type="EmptyDetector";
-			atlOffset=0.00011444092;
+			atlOffset=0.073997498;
 		};
 		class Item14
 		{
@@ -540,7 +542,7 @@ class Mission
 					};
 					id=1569;
 					type="CUP_O_TK_Soldier_SL";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item1
 				{
@@ -556,7 +558,7 @@ class Mission
 					};
 					id=1571;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item2
 				{
@@ -574,7 +576,7 @@ class Mission
 					};
 					id=1572;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item3
 				{
@@ -592,7 +594,7 @@ class Mission
 					};
 					id=1573;
 					type="CUP_O_TK_Soldier_AT";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item4
 				{
@@ -610,7 +612,7 @@ class Mission
 					};
 					id=1574;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item5
 				{
@@ -628,7 +630,7 @@ class Mission
 					};
 					id=1575;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item6
 				{
@@ -646,7 +648,7 @@ class Mission
 					};
 					id=1576;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item7
 				{
@@ -664,7 +666,7 @@ class Mission
 					};
 					id=1577;
 					type="CUP_O_TK_Soldier_LAT";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item8
 				{
@@ -681,7 +683,7 @@ class Mission
 					};
 					id=1578;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item9
 				{
@@ -698,7 +700,7 @@ class Mission
 					};
 					id=1579;
 					type="CUP_O_TK_Soldier_AMG";
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 				class Item10
 				{
@@ -714,7 +716,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1580;
-					atlOffset=-0.003616333;
+					atlOffset=0.0063858032;
 				};
 			};
 			class Attributes
@@ -742,7 +744,7 @@ class Mission
 				};
 			};
 			id=1568;
-			atlOffset=-0.003616333;
+			atlOffset=0.0063858032;
 		};
 		class Item16
 		{
@@ -760,7 +762,7 @@ class Mission
 			};
 			id=1570;
 			type="CUP_O_V3S_Open_TKA";
-			atlOffset=-0.003616333;
+			atlOffset=0.0063858032;
 		};
 		class Item17
 		{
@@ -1005,7 +1007,7 @@ class Mission
 					};
 					id=1592;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.0035667419;
+					atlOffset=-0.047325134;
 				};
 				class Item1
 				{
@@ -1022,7 +1024,7 @@ class Mission
 					};
 					id=1594;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0011444092;
+					atlOffset=0.018333435;
 				};
 				class Item2
 				{
@@ -1041,7 +1043,7 @@ class Mission
 					};
 					id=1595;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=-0.0035705566;
+					atlOffset=-0.031608582;
 				};
 				class Item3
 				{
@@ -1059,7 +1061,7 @@ class Mission
 					};
 					id=1596;
 					type="CUP_O_TK_Soldier";
-					atlOffset=0.0013656616;
+					atlOffset=0.024871826;
 				};
 				class Item4
 				{
@@ -1075,7 +1077,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1597;
-					atlOffset=-0.0035667419;
+					atlOffset=-0.062831879;
 				};
 			};
 			class Attributes
@@ -1103,7 +1105,7 @@ class Mission
 				};
 			};
 			id=1591;
-			atlOffset=-0.0035667419;
+			atlOffset=-0.047325134;
 		};
 		class Item21
 		{
@@ -1122,7 +1124,7 @@ class Mission
 			};
 			id=1593;
 			type="CUP_O_UAZ_Unarmed_TKA";
-			atlOffset=-0.00080871582;
+			atlOffset=0.01832962;
 		};
 		class Item22
 		{
@@ -1148,7 +1150,7 @@ class Mission
 					};
 					id=1599;
 					type="CUP_O_TK_Soldier_SL";
-					atlOffset=0.003572464;
+					atlOffset=-0.83242989;
 				};
 				class Item1
 				{
@@ -1165,7 +1167,7 @@ class Mission
 					};
 					id=1601;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.0041847229;
+					atlOffset=-1.1141691;
 				};
 				class Item2
 				{
@@ -1182,7 +1184,7 @@ class Mission
 					};
 					id=1602;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.0041847229;
+					atlOffset=-1.1141691;
 				};
 				class Item3
 				{
@@ -1199,7 +1201,7 @@ class Mission
 					};
 					id=1603;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.0041847229;
+					atlOffset=-1.1141691;
 				};
 				class Item4
 				{
@@ -1218,7 +1220,7 @@ class Mission
 					};
 					id=1604;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=0.0027475357;
+					atlOffset=-0.89142895;
 				};
 				class Item5
 				{
@@ -1237,7 +1239,7 @@ class Mission
 					};
 					id=1605;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=0.0043897629;
+					atlOffset=-0.9904108;
 				};
 				class Item6
 				{
@@ -1256,7 +1258,7 @@ class Mission
 					};
 					id=1606;
 					type="CUP_O_TK_Soldier_AT";
-					atlOffset=0.00072288513;
+					atlOffset=-0.93118477;
 				};
 				class Item7
 				{
@@ -1275,7 +1277,7 @@ class Mission
 					};
 					id=1607;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=0.0044021606;
+					atlOffset=-0.96439648;
 				};
 				class Item8
 				{
@@ -1293,7 +1295,7 @@ class Mission
 					};
 					id=1608;
 					type="CUP_O_TK_Soldier_LAT";
-					atlOffset=-0.00070858002;
+					atlOffset=-0.96946716;
 				};
 				class Item9
 				{
@@ -1311,7 +1313,7 @@ class Mission
 					};
 					id=1609;
 					type="CUP_O_TK_Soldier_AAT";
-					atlOffset=0.0044145584;
+					atlOffset=-0.95415401;
 				};
 				class Item10
 				{
@@ -1327,7 +1329,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1610;
-					atlOffset=0.0015983582;
+					atlOffset=-0.7544508;
 				};
 			};
 			class Attributes
@@ -1377,7 +1379,7 @@ class Mission
 				};
 			};
 			id=1598;
-			atlOffset=0.003572464;
+			atlOffset=-0.83242989;
 		};
 		class Item23
 		{
@@ -1396,7 +1398,7 @@ class Mission
 			};
 			id=1600;
 			type="CUP_O_BMP2_TKA";
-			atlOffset=0.0031661987;
+			atlOffset=-1.1146603;
 		};
 		class Item24
 		{
@@ -1987,7 +1989,7 @@ class Mission
 					};
 					id=1640;
 					type="CUP_O_TK_Soldier_SL";
-					atlOffset=-0.0013008118;
+					atlOffset=-0.11066437;
 				};
 				class Item1
 				{
@@ -2004,7 +2006,7 @@ class Mission
 					};
 					id=1642;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.0034599304;
+					atlOffset=-0.11465836;
 				};
 				class Item2
 				{
@@ -2021,7 +2023,7 @@ class Mission
 					};
 					id=1643;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.0034599304;
+					atlOffset=-0.11465836;
 				};
 				class Item3
 				{
@@ -2038,7 +2040,7 @@ class Mission
 					};
 					id=1645;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.0028266907;
+					atlOffset=-0.093444824;
 				};
 				class Item4
 				{
@@ -2055,7 +2057,7 @@ class Mission
 					};
 					id=1646;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.0028266907;
+					atlOffset=-0.093444824;
 				};
 				class Item5
 				{
@@ -2074,7 +2076,7 @@ class Mission
 					};
 					id=1647;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=9.5367432e-005;
+					atlOffset=-0.093402863;
 				};
 				class Item6
 				{
@@ -2093,7 +2095,7 @@ class Mission
 					};
 					id=1648;
 					type="CUP_O_TK_Soldier_AR";
-					atlOffset=-0.0023841858;
+					atlOffset=-0.06244278;
 				};
 				class Item7
 				{
@@ -2112,7 +2114,7 @@ class Mission
 					};
 					id=1649;
 					type="CUP_O_TK_Soldier_AT";
-					atlOffset=0.0010910034;
+					atlOffset=-0.072452545;
 				};
 				class Item8
 				{
@@ -2130,7 +2132,7 @@ class Mission
 					};
 					id=1650;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.0009765625;
+					atlOffset=-0.069412231;
 				};
 				class Item9
 				{
@@ -2148,7 +2150,7 @@ class Mission
 					};
 					id=1651;
 					type="CUP_O_TK_Soldier";
-					atlOffset=0.0013694763;
+					atlOffset=-0.058311462;
 				};
 				class Item10
 				{
@@ -2164,7 +2166,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1652;
-					atlOffset=-0.0012130737;
+					atlOffset=-0.099445343;
 				};
 			};
 			class Attributes
@@ -2224,7 +2226,7 @@ class Mission
 				};
 			};
 			id=1639;
-			atlOffset=-0.0013008118;
+			atlOffset=-0.11066437;
 		};
 		class Item29
 		{
@@ -2243,7 +2245,7 @@ class Mission
 			};
 			id=1641;
 			type="CUP_O_BRDM2_TKA";
-			atlOffset=-0.0034637451;
+			atlOffset=-0.11467361;
 		};
 		class Item30
 		{
@@ -2262,7 +2264,7 @@ class Mission
 			};
 			id=1644;
 			type="CUP_O_BRDM2_TKA";
-			atlOffset=-0.0028266907;
+			atlOffset=-0.093467712;
 		};
 		class Item31
 		{
@@ -2286,7 +2288,7 @@ class Mission
 					};
 					id=1655;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.0028305054;
+					atlOffset=-0.36437225;
 				};
 				class Item1
 				{
@@ -2303,7 +2305,7 @@ class Mission
 					};
 					id=1656;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.0028305054;
+					atlOffset=-0.36437225;
 				};
 				class Item2
 				{
@@ -2320,7 +2322,7 @@ class Mission
 					};
 					id=1658;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.00037384033;
+					atlOffset=-0.32496643;
 				};
 				class Item3
 				{
@@ -2337,7 +2339,7 @@ class Mission
 					};
 					id=1659;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.00037384033;
+					atlOffset=-0.32496643;
 				};
 				class Item4
 				{
@@ -2353,7 +2355,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1660;
-					atlOffset=0.0029373169;
+					atlOffset=-0.25920868;
 				};
 			};
 			class Attributes
@@ -2413,7 +2415,7 @@ class Mission
 				};
 			};
 			id=1653;
-			atlOffset=0.0028305054;
+			atlOffset=-0.36436462;
 		};
 		class Item32
 		{
@@ -2432,7 +2434,7 @@ class Mission
 			};
 			id=1654;
 			type="CUP_O_BRDM2_ATGM_TKA";
-			atlOffset=0.0028305054;
+			atlOffset=-0.36436462;
 		};
 		class Item33
 		{
@@ -2451,7 +2453,7 @@ class Mission
 			};
 			id=1657;
 			type="CUP_O_BRDM2_ATGM_TKA";
-			atlOffset=-0.00037384033;
+			atlOffset=-0.32501221;
 		};
 		class Item34
 		{
@@ -2477,7 +2479,7 @@ class Mission
 					};
 					id=1662;
 					type="CUP_O_TK_Soldier_SL";
-					atlOffset=0.00038528442;
+					atlOffset=0.035869598;
 				};
 				class Item1
 				{
@@ -2496,7 +2498,7 @@ class Mission
 					};
 					id=1663;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=0.0013809204;
+					atlOffset=0.036399841;
 				};
 				class Item2
 				{
@@ -2515,7 +2517,7 @@ class Mission
 					};
 					id=1664;
 					type="CUP_O_TK_Soldier_AT";
-					atlOffset=0.00026702881;
+					atlOffset=0.035629272;
 				};
 				class Item3
 				{
@@ -2534,7 +2536,7 @@ class Mission
 					};
 					id=1665;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=0.0023841858;
+					atlOffset=0.034435272;
 				};
 				class Item4
 				{
@@ -2553,7 +2555,7 @@ class Mission
 					};
 					id=1666;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=0.0013465881;
+					atlOffset=0.050415039;
 				};
 				class Item5
 				{
@@ -2572,7 +2574,7 @@ class Mission
 					};
 					id=1667;
 					type="CUP_O_TK_Soldier_LAT";
-					atlOffset=0.0033836365;
+					atlOffset=0.03143692;
 				};
 				class Item6
 				{
@@ -2590,7 +2592,7 @@ class Mission
 					};
 					id=1668;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=0.0033531189;
+					atlOffset=0.061462402;
 				};
 				class Item7
 				{
@@ -2608,7 +2610,7 @@ class Mission
 					};
 					id=1669;
 					type="CUP_O_TK_Soldier_AAT";
-					atlOffset=0.0034561157;
+					atlOffset=0.031215668;
 				};
 				class Item8
 				{
@@ -2626,7 +2628,7 @@ class Mission
 					};
 					id=1670;
 					type="CUP_O_TK_Soldier_AMG";
-					atlOffset=0.0034866333;
+					atlOffset=0.051280975;
 				};
 				class Item9
 				{
@@ -2642,14 +2644,14 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1671;
-					atlOffset=0.00033187866;
+					atlOffset=0.016784668;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1661;
-			atlOffset=0.00038528442;
+			atlOffset=0.035869598;
 		};
 		class Item35
 		{
@@ -2675,7 +2677,7 @@ class Mission
 					};
 					id=1673;
 					type="CUP_O_TK_Soldier_SL";
-					atlOffset=0.0017127991;
+					atlOffset=0.053527832;
 				};
 				class Item1
 				{
@@ -2692,7 +2694,7 @@ class Mission
 					};
 					id=1675;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.00025177002;
+					atlOffset=0.059993744;
 				};
 				class Item2
 				{
@@ -2711,7 +2713,7 @@ class Mission
 					};
 					id=1676;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=0.00074768066;
+					atlOffset=0.038383484;
 				};
 				class Item3
 				{
@@ -2730,7 +2732,7 @@ class Mission
 					};
 					id=1677;
 					type="CUP_O_TK_Soldier_AT";
-					atlOffset=-0.0027580261;
+					atlOffset=0.056858063;
 				};
 				class Item4
 				{
@@ -2749,7 +2751,7 @@ class Mission
 					};
 					id=1678;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.00025558472;
+					atlOffset=0.019382477;
 				};
 				class Item5
 				{
@@ -2768,7 +2770,7 @@ class Mission
 					};
 					id=1679;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0028381348;
+					atlOffset=0.048561096;
 				};
 				class Item6
 				{
@@ -2787,7 +2789,7 @@ class Mission
 					};
 					id=1680;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=-0.001247406;
+					atlOffset=-0.00067901611;
 				};
 				class Item7
 				{
@@ -2806,7 +2808,7 @@ class Mission
 					};
 					id=1681;
 					type="CUP_O_TK_Soldier_LAT";
-					atlOffset=-0.0018386841;
+					atlOffset=0.055885315;
 				};
 				class Item8
 				{
@@ -2824,7 +2826,7 @@ class Mission
 					};
 					id=1682;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.0022544861;
+					atlOffset=0.0011062622;
 				};
 				class Item9
 				{
@@ -2842,7 +2844,7 @@ class Mission
 					};
 					id=1683;
 					type="CUP_O_TK_Soldier_AMG";
-					atlOffset=-0.0008430481;
+					atlOffset=0.056880951;
 				};
 				class Item10
 				{
@@ -2858,7 +2860,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1684;
-					atlOffset=0.0017127991;
+					atlOffset=0.065689087;
 				};
 			};
 			class Attributes
@@ -2886,7 +2888,7 @@ class Mission
 				};
 			};
 			id=1672;
-			atlOffset=0.0017127991;
+			atlOffset=0.053527832;
 		};
 		class Item36
 		{
@@ -2905,7 +2907,7 @@ class Mission
 			};
 			id=1674;
 			type="CUP_O_V3S_Open_TKA";
-			atlOffset=-0.00030517578;
+			atlOffset=0.059986115;
 		};
 		class Item37
 		{
@@ -2931,7 +2933,7 @@ class Mission
 					};
 					id=1686;
 					type="CUP_O_TK_Soldier_SL";
-					atlOffset=-0.00207901;
+					atlOffset=0.18218613;
 				};
 				class Item1
 				{
@@ -2948,7 +2950,7 @@ class Mission
 					};
 					id=1688;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0023155212;
+					atlOffset=0.049922943;
 				};
 				class Item2
 				{
@@ -2965,7 +2967,7 @@ class Mission
 					};
 					id=1689;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0023155212;
+					atlOffset=0.049922943;
 				};
 				class Item3
 				{
@@ -2982,7 +2984,7 @@ class Mission
 					};
 					id=1691;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0024757385;
+					atlOffset=0.054244995;
 				};
 				class Item4
 				{
@@ -2999,7 +3001,7 @@ class Mission
 					};
 					id=1692;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0024757385;
+					atlOffset=0.054244995;
 				};
 				class Item5
 				{
@@ -3018,7 +3020,7 @@ class Mission
 					};
 					id=1693;
 					type="CUP_O_TK_Soldier_AT";
-					atlOffset=-0.0021057129;
+					atlOffset=0.22416306;
 				};
 				class Item6
 				{
@@ -3034,7 +3036,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1694;
-					atlOffset=-0.00019454956;
+					atlOffset=0.18387985;
 				};
 			};
 			class Attributes
@@ -3094,7 +3096,7 @@ class Mission
 				};
 			};
 			id=1685;
-			atlOffset=-0.00207901;
+			atlOffset=0.18218613;
 		};
 		class Item38
 		{
@@ -3113,7 +3115,7 @@ class Mission
 			};
 			id=1687;
 			type="CUP_O_UAZ_MG_TKA";
-			atlOffset=-0.0031890869;
+			atlOffset=0.048923492;
 		};
 		class Item39
 		{
@@ -3132,7 +3134,7 @@ class Mission
 			};
 			id=1690;
 			type="CUP_O_UAZ_AGS30_TKA";
-			atlOffset=-0.0033912659;
+			atlOffset=0.052761078;
 		};
 		class Item40
 		{
@@ -3158,7 +3160,7 @@ class Mission
 					};
 					id=1696;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.003616333;
+					atlOffset=-0.23944473;
 				};
 				class Item1
 				{
@@ -3175,7 +3177,7 @@ class Mission
 					};
 					id=1698;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0041351318;
+					atlOffset=-0.25709915;
 				};
 				class Item2
 				{
@@ -3194,7 +3196,7 @@ class Mission
 					};
 					id=1699;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=-0.0026321411;
+					atlOffset=-0.22896194;
 				};
 				class Item3
 				{
@@ -3212,7 +3214,7 @@ class Mission
 					};
 					id=1700;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0036849976;
+					atlOffset=-0.22740555;
 				};
 				class Item4
 				{
@@ -3228,7 +3230,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1701;
-					atlOffset=-0.0025215149;
+					atlOffset=-0.16682053;
 				};
 			};
 			class Attributes
@@ -3256,7 +3258,7 @@ class Mission
 				};
 			};
 			id=1695;
-			atlOffset=-0.003616333;
+			atlOffset=-0.23944473;
 		};
 		class Item41
 		{
@@ -3275,7 +3277,7 @@ class Mission
 			};
 			id=1697;
 			type="CUP_O_UAZ_Unarmed_TKA";
-			atlOffset=-0.00548172;
+			atlOffset=-0.25818253;
 		};
 		class Item42
 		{
@@ -3301,7 +3303,7 @@ class Mission
 					};
 					id=1703;
 					type="CUP_O_TK_Soldier_SL";
-					atlOffset=-0.0016479492;
+					atlOffset=0.059913635;
 				};
 				class Item1
 				{
@@ -3318,7 +3320,7 @@ class Mission
 					};
 					id=1705;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.00098419189;
+					atlOffset=0.039085388;
 				};
 				class Item2
 				{
@@ -3335,7 +3337,7 @@ class Mission
 					};
 					id=1706;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.00098419189;
+					atlOffset=0.039085388;
 				};
 				class Item3
 				{
@@ -3352,7 +3354,7 @@ class Mission
 					};
 					id=1707;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.00098419189;
+					atlOffset=0.039085388;
 				};
 				class Item4
 				{
@@ -3371,7 +3373,7 @@ class Mission
 					};
 					id=1708;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=0.00076293945;
+					atlOffset=-0.14866638;
 				};
 				class Item5
 				{
@@ -3390,7 +3392,7 @@ class Mission
 					};
 					id=1709;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=0.0012359619;
+					atlOffset=0.066184998;
 				};
 				class Item6
 				{
@@ -3409,7 +3411,7 @@ class Mission
 					};
 					id=1710;
 					type="CUP_O_TK_Soldier_AT";
-					atlOffset=0.0012817383;
+					atlOffset=-0.19002533;
 				};
 				class Item7
 				{
@@ -3428,7 +3430,7 @@ class Mission
 					};
 					id=1711;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=0.0010681152;
+					atlOffset=0.083312988;
 				};
 				class Item8
 				{
@@ -3446,7 +3448,7 @@ class Mission
 					};
 					id=1712;
 					type="CUP_O_TK_Soldier_LAT";
-					atlOffset=0.0012741089;
+					atlOffset=-0.2159729;
 				};
 				class Item9
 				{
@@ -3464,7 +3466,7 @@ class Mission
 					};
 					id=1713;
 					type="CUP_O_TK_Soldier_AAT";
-					atlOffset=6.1035156e-005;
+					atlOffset=0.10674286;
 				};
 				class Item10
 				{
@@ -3480,7 +3482,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1714;
-					atlOffset=-0.0036468506;
+					atlOffset=0.15905762;
 				};
 			};
 			class Attributes
@@ -3530,7 +3532,7 @@ class Mission
 				};
 			};
 			id=1702;
-			atlOffset=-0.0016479492;
+			atlOffset=0.059913635;
 		};
 		class Item43
 		{
@@ -3549,7 +3551,7 @@ class Mission
 			};
 			id=1704;
 			type="CUP_O_BMP2_TKA";
-			atlOffset=0.00061035156;
+			atlOffset=0.038406372;
 		};
 		class Item44
 		{
@@ -3575,7 +3577,7 @@ class Mission
 					};
 					id=1716;
 					type="CUP_O_TK_Soldier_SL";
-					atlOffset=0.0010147095;
+					atlOffset=0.10634613;
 				};
 				class Item1
 				{
@@ -3592,7 +3594,7 @@ class Mission
 					};
 					id=1718;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.0013046265;
+					atlOffset=0.10456848;
 				};
 				class Item2
 				{
@@ -3609,7 +3611,7 @@ class Mission
 					};
 					id=1719;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.0013046265;
+					atlOffset=0.10456848;
 				};
 				class Item3
 				{
@@ -3626,7 +3628,7 @@ class Mission
 					};
 					id=1720;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.0013046265;
+					atlOffset=0.10456848;
 				};
 				class Item4
 				{
@@ -3645,7 +3647,7 @@ class Mission
 					};
 					id=1721;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=-0.00018310547;
+					atlOffset=0.10275269;
 				};
 				class Item5
 				{
@@ -3664,7 +3666,7 @@ class Mission
 					};
 					id=1722;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.0013046265;
+					atlOffset=0.1219635;
 				};
 				class Item6
 				{
@@ -3683,7 +3685,7 @@ class Mission
 					};
 					id=1723;
 					type="CUP_O_TK_Soldier_AT";
-					atlOffset=-0.0011672974;
+					atlOffset=0.099769592;
 				};
 				class Item7
 				{
@@ -3701,7 +3703,7 @@ class Mission
 					};
 					id=1724;
 					type="CUP_O_TK_Soldier_MG";
-					atlOffset=-0.0013198853;
+					atlOffset=0.11489105;
 				};
 				class Item8
 				{
@@ -3720,7 +3722,7 @@ class Mission
 					};
 					id=1725;
 					type="CUP_O_TK_Soldier_GL";
-					atlOffset=-0.0019836426;
+					atlOffset=0.086769104;
 				};
 				class Item9
 				{
@@ -3739,7 +3741,7 @@ class Mission
 					};
 					id=1726;
 					type="CUP_O_TK_Soldier_LAT";
-					atlOffset=-0.0013046265;
+					atlOffset=0.11216736;
 				};
 				class Item10
 				{
@@ -3758,7 +3760,7 @@ class Mission
 					};
 					id=1727;
 					type="CUP_O_TK_Soldier";
-					atlOffset=-0.0009765625;
+					atlOffset=0.075042725;
 				};
 				class Item11
 				{
@@ -3774,7 +3776,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1728;
-					atlOffset=0.0026092529;
+					atlOffset=0.10028076;
 				};
 			};
 			class Attributes
@@ -3824,7 +3826,7 @@ class Mission
 				};
 			};
 			id=1715;
-			atlOffset=0.0010147095;
+			atlOffset=0.10634613;
 		};
 		class Item45
 		{
@@ -3843,7 +3845,7 @@ class Mission
 			};
 			id=1717;
 			type="CUP_O_BTR60_TK";
-			atlOffset=-0.0012893677;
+			atlOffset=0.10458374;
 		};
 		class Item46
 		{
@@ -3869,7 +3871,7 @@ class Mission
 					};
 					id=1730;
 					type="CUP_O_TK_SpecOps_TL";
-					atlOffset=0.0018472672;
+					atlOffset=0.10742378;
 				};
 				class Item1
 				{
@@ -3886,7 +3888,7 @@ class Mission
 					};
 					id=1732;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.003364563;
+					atlOffset=0.12914753;
 				};
 				class Item2
 				{
@@ -3903,7 +3905,7 @@ class Mission
 					};
 					id=1733;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.003364563;
+					atlOffset=0.12914753;
 				};
 				class Item3
 				{
@@ -3920,7 +3922,7 @@ class Mission
 					};
 					id=1734;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.003364563;
+					atlOffset=0.12914753;
 				};
 				class Item4
 				{
@@ -3939,7 +3941,7 @@ class Mission
 					};
 					id=1735;
 					type="CUP_O_TK_SpecOps_MG";
-					atlOffset=-0.00019550323;
+					atlOffset=0.11970329;
 				};
 				class Item5
 				{
@@ -3958,7 +3960,7 @@ class Mission
 					};
 					id=1736;
 					type="CUP_O_TK_SpecOps_MG";
-					atlOffset=0.0045318604;
+					atlOffset=0.13109779;
 				};
 				class Item6
 				{
@@ -3977,7 +3979,7 @@ class Mission
 					};
 					id=1737;
 					type="CUP_O_TK_SpecOps_MG";
-					atlOffset=-0.00014972687;
+					atlOffset=0.11775017;
 				};
 				class Item7
 				{
@@ -3996,7 +3998,7 @@ class Mission
 					};
 					id=1738;
 					type="CUP_O_TK_SpecOps";
-					atlOffset=0.0044975281;
+					atlOffset=0.17272377;
 				};
 				class Item8
 				{
@@ -4015,7 +4017,7 @@ class Mission
 					};
 					id=1739;
 					type="CUP_O_TK_SpecOps";
-					atlOffset=-0.00010490417;
+					atlOffset=0.13280773;
 				};
 				class Item9
 				{
@@ -4034,7 +4036,7 @@ class Mission
 					};
 					id=1740;
 					type="CUP_O_TK_SpecOps";
-					atlOffset=0.0044670105;
+					atlOffset=0.17045784;
 				};
 				class Item10
 				{
@@ -4053,7 +4055,7 @@ class Mission
 					};
 					id=1741;
 					type="CUP_O_TK_SpecOps";
-					atlOffset=-5.7220459e-005;
+					atlOffset=0.1262722;
 				};
 				class Item11
 				{
@@ -4069,7 +4071,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1742;
-					atlOffset=0.0035495758;
+					atlOffset=0.12279987;
 				};
 			};
 			class Attributes
@@ -4119,7 +4121,7 @@ class Mission
 				};
 			};
 			id=1729;
-			atlOffset=0.0018472672;
+			atlOffset=0.10742378;
 		};
 		class Item47
 		{
@@ -4138,7 +4140,7 @@ class Mission
 			};
 			id=1731;
 			type="CUP_O_BTR60_TK";
-			atlOffset=0.0032167435;
+			atlOffset=0.12900257;
 		};
 		class Item48
 		{
@@ -4451,7 +4453,7 @@ class Mission
 					};
 					id=1759;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.00016021729;
+					atlOffset=0.089817047;
 				};
 				class Item1
 				{
@@ -4468,7 +4470,7 @@ class Mission
 					};
 					id=1760;
 					type="CUP_O_TK_Crew";
-					atlOffset=-0.00016021729;
+					atlOffset=0.089817047;
 				};
 				class Item2
 				{
@@ -4485,7 +4487,7 @@ class Mission
 					};
 					id=1762;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.00078582764;
+					atlOffset=0.068702698;
 				};
 				class Item3
 				{
@@ -4502,7 +4504,7 @@ class Mission
 					};
 					id=1763;
 					type="CUP_O_TK_Crew";
-					atlOffset=0.00078582764;
+					atlOffset=0.068702698;
 				};
 				class Item4
 				{
@@ -4518,7 +4520,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1764;
-					atlOffset=-0.00016403198;
+					atlOffset=0.086761475;
 				};
 			};
 			class Attributes
@@ -4578,7 +4580,7 @@ class Mission
 				};
 			};
 			id=1757;
-			atlOffset=-0.00016021729;
+			atlOffset=0.089813232;
 		};
 		class Item52
 		{
@@ -4597,7 +4599,7 @@ class Mission
 			};
 			id=1758;
 			type="CUP_O_BRDM2_ATGM_TKA";
-			atlOffset=-0.00016021729;
+			atlOffset=0.089813232;
 		};
 		class Item53
 		{
@@ -4616,7 +4618,7 @@ class Mission
 			};
 			id=1761;
 			type="CUP_O_BRDM2_ATGM_TKA";
-			atlOffset=0.00071334839;
+			atlOffset=0.068683624;
 		};
 		class Item54
 		{
@@ -4644,6 +4646,7 @@ class Mission
 					};
 					id=1520;
 					type="CUP_B_FR_Soldier_TL";
+					atlOffset=0.05786562;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4692,6 +4695,7 @@ class Mission
 			{
 			};
 			id=1765;
+			atlOffset=0.05786562;
 		};
 		class Item55
 		{
@@ -4718,14 +4722,14 @@ class Mission
 					};
 					id=1525;
 					type="CUP_B_FR_Medic";
-					atlOffset=0.00052595139;
+					atlOffset=0.063830853;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1766;
-			atlOffset=0.00052595139;
+			atlOffset=0.063830853;
 		};
 		class Item56
 		{
@@ -4752,14 +4756,14 @@ class Mission
 					};
 					id=1522;
 					type="CUP_B_FR_Soldier_GL";
-					atlOffset=0.00054836273;
+					atlOffset=0.030232906;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1767;
-			atlOffset=0.00054836273;
+			atlOffset=0.030232906;
 		};
 		class Item57
 		{
@@ -4786,14 +4790,14 @@ class Mission
 					};
 					id=1521;
 					type="CUP_B_FR_Soldier_AR";
-					atlOffset=0.00052404404;
+					atlOffset=0.048493385;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1768;
-			atlOffset=0.00052404404;
+			atlOffset=0.048493385;
 		};
 		class Item58
 		{
@@ -4820,14 +4824,14 @@ class Mission
 					};
 					id=1523;
 					type="CUP_B_FR_Soldier_Marksman";
-					atlOffset=0.0005273819;
+					atlOffset=0.049733162;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1769;
-			atlOffset=0.0005273819;
+			atlOffset=0.049733162;
 		};
 		class Item59
 		{
@@ -4854,14 +4858,14 @@ class Mission
 					};
 					id=1524;
 					type="CUP_B_FR_Saboteur";
-					atlOffset=-0.00011253357;
+					atlOffset=0.010428429;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1770;
-			atlOffset=-0.00011253357;
+			atlOffset=0.010428429;
 		};
 		class Item60
 		{
@@ -4888,14 +4892,14 @@ class Mission
 					};
 					id=1532;
 					type="CUP_B_FR_Medic";
-					atlOffset=0.00047636032;
+					atlOffset=0.072606564;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1771;
-			atlOffset=0.00047636032;
+			atlOffset=0.072606564;
 		};
 		class Item61
 		{
@@ -4922,14 +4926,14 @@ class Mission
 					};
 					id=1529;
 					type="CUP_B_FR_Soldier_GL";
-					atlOffset=0.00051403046;
+					atlOffset=0.05507946;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1772;
-			atlOffset=0.00051403046;
+			atlOffset=0.05507946;
 		};
 		class Item62
 		{
@@ -4956,14 +4960,14 @@ class Mission
 					};
 					id=1528;
 					type="CUP_B_FR_Soldier_AR";
-					atlOffset=0.00048065186;
+					atlOffset=0.06661129;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1773;
-			atlOffset=0.00048065186;
+			atlOffset=0.06661129;
 		};
 		class Item63
 		{
@@ -4990,14 +4994,14 @@ class Mission
 					};
 					id=1530;
 					type="CUP_B_FR_Soldier_Marksman";
-					atlOffset=0.00047826767;
+					atlOffset=0.068087101;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1774;
-			atlOffset=0.00047826767;
+			atlOffset=0.068087101;
 		};
 		class Item64
 		{
@@ -5024,14 +5028,14 @@ class Mission
 					};
 					id=1531;
 					type="CUP_B_FR_Saboteur";
-					atlOffset=0.0005402565;
+					atlOffset=0.029581547;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1775;
-			atlOffset=0.0005402565;
+			atlOffset=0.029581547;
 		};
 		class Item65
 		{
@@ -5058,14 +5062,14 @@ class Mission
 					};
 					id=1527;
 					type="CUP_B_FR_Soldier_TL";
-					atlOffset=0.00017642975;
+					atlOffset=0.05770874;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1776;
-			atlOffset=0.00017642975;
+			atlOffset=0.05770874;
 		};
 		class Item66
 		{
@@ -5092,14 +5096,14 @@ class Mission
 					};
 					id=1538;
 					type="CUP_B_FR_Medic";
-					atlOffset=-0.0017385483;
+					atlOffset=0.0295825;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1777;
-			atlOffset=-0.0017385483;
+			atlOffset=0.0295825;
 		};
 		class Item67
 		{
@@ -5126,14 +5130,14 @@ class Mission
 					};
 					id=1536;
 					type="CUP_B_FR_Soldier_GL";
-					atlOffset=0.00024318695;
+					atlOffset=-0.010473251;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1778;
-			atlOffset=0.00024318695;
+			atlOffset=-0.010473251;
 		};
 		class Item68
 		{
@@ -5160,14 +5164,14 @@ class Mission
 					};
 					id=1535;
 					type="CUP_B_FR_Soldier_AR";
-					atlOffset=0.00054836273;
+					atlOffset=0.021227837;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1779;
-			atlOffset=0.00054836273;
+			atlOffset=0.021227837;
 		};
 		class Item69
 		{
@@ -5194,14 +5198,14 @@ class Mission
 					};
 					id=1537;
 					type="CUP_B_FR_Soldier_Marksman";
-					atlOffset=0.00055122375;
+					atlOffset=0.050400734;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1780;
-			atlOffset=0.00055122375;
+			atlOffset=0.050400734;
 		};
 		class Item70
 		{
@@ -5228,14 +5232,14 @@ class Mission
 					};
 					id=1534;
 					type="CUP_B_FR_Soldier_TL";
-					atlOffset=0.00054645538;
+					atlOffset=0.017140865;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1781;
-			atlOffset=0.00054645538;
+			atlOffset=0.017140865;
 		};
 		class Item71
 		{
@@ -5262,14 +5266,14 @@ class Mission
 					};
 					id=1544;
 					type="CUP_B_FR_Medic";
-					atlOffset=0.0005645752;
+					atlOffset=0.0077056885;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1782;
-			atlOffset=0.0005645752;
+			atlOffset=0.0077056885;
 		};
 		class Item72
 		{
@@ -5296,14 +5300,14 @@ class Mission
 					};
 					id=1542;
 					type="CUP_B_FR_Soldier_GL";
-					atlOffset=0.00053787231;
+					atlOffset=0.05021286;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1783;
-			atlOffset=0.00053787231;
+			atlOffset=0.05021286;
 		};
 		class Item73
 		{
@@ -5330,14 +5334,14 @@ class Mission
 					};
 					id=1541;
 					type="CUP_B_FR_Soldier_AR";
-					atlOffset=0.00050354004;
+					atlOffset=0.066544533;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1784;
-			atlOffset=0.00050354004;
+			atlOffset=0.066544533;
 		};
 		class Item74
 		{
@@ -5364,14 +5368,14 @@ class Mission
 					};
 					id=1543;
 					type="CUP_B_FR_Soldier_Marksman";
-					atlOffset=0.00050210953;
+					atlOffset=0.068379879;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1785;
-			atlOffset=0.00050210953;
+			atlOffset=0.068379879;
 		};
 		class Item75
 		{
@@ -5398,14 +5402,14 @@ class Mission
 					};
 					id=1540;
 					type="CUP_B_FR_Soldier_TL";
-					atlOffset=0.00050735474;
+					atlOffset=0.064222336;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1786;
-			atlOffset=0.00050735474;
+			atlOffset=0.064222336;
 		};
 		class Item76
 		{
@@ -5432,14 +5436,14 @@ class Mission
 					};
 					id=1550;
 					type="CUP_B_FR_Medic";
-					atlOffset=-0.0032625198;
+					atlOffset=0.036096096;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1787;
-			atlOffset=-0.0032625198;
+			atlOffset=0.036096096;
 		};
 		class Item77
 		{
@@ -5466,14 +5470,14 @@ class Mission
 					};
 					id=1548;
 					type="CUP_B_FR_Soldier_GL";
-					atlOffset=-0.0014152527;
+					atlOffset=0.023719311;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1788;
-			atlOffset=-0.0014152527;
+			atlOffset=0.023719311;
 		};
 		class Item78
 		{
@@ -5500,14 +5504,14 @@ class Mission
 					};
 					id=1547;
 					type="CUP_B_FR_Soldier_AR";
-					atlOffset=0.00056934357;
+					atlOffset=0.0059161186;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1789;
-			atlOffset=0.00056934357;
+			atlOffset=0.0059161186;
 		};
 		class Item79
 		{
@@ -5534,14 +5538,14 @@ class Mission
 					};
 					id=1549;
 					type="CUP_B_FR_Soldier_Marksman";
-					atlOffset=0.00057601929;
+					atlOffset=0.042665958;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1790;
-			atlOffset=0.00057601929;
+			atlOffset=0.042665958;
 		};
 		class Item80
 		{
@@ -5568,14 +5572,14 @@ class Mission
 					};
 					id=1546;
 					type="CUP_B_FR_Soldier_TL";
-					atlOffset=0.00055742264;
+					atlOffset=-0.014069557;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1791;
-			atlOffset=0.00055742264;
+			atlOffset=-0.014069557;
 		};
 		class Item81
 		{
@@ -5602,14 +5606,14 @@ class Mission
 					};
 					id=1556;
 					type="CUP_B_FR_Medic";
-					atlOffset=-0.00030088425;
+					atlOffset=0.040412426;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1792;
-			atlOffset=-0.00030088425;
+			atlOffset=0.040412426;
 		};
 		class Item82
 		{
@@ -5636,14 +5640,14 @@ class Mission
 					};
 					id=1554;
 					type="CUP_B_FR_Soldier_GL";
-					atlOffset=0.00056219101;
+					atlOffset=0.049645901;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1793;
-			atlOffset=0.00056219101;
+			atlOffset=0.049645901;
 		};
 		class Item83
 		{
@@ -5670,14 +5674,14 @@ class Mission
 					};
 					id=1553;
 					type="CUP_B_FR_Soldier_AR";
-					atlOffset=0.00052785873;
+					atlOffset=0.066299915;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1794;
-			atlOffset=0.00052785873;
+			atlOffset=0.066299915;
 		};
 		class Item84
 		{
@@ -5704,14 +5708,14 @@ class Mission
 					};
 					id=1555;
 					type="CUP_B_FR_Soldier_Marksman";
-					atlOffset=0.00052642822;
+					atlOffset=0.068141937;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1795;
-			atlOffset=0.00052642822;
+			atlOffset=0.068141937;
 		};
 		class Item85
 		{
@@ -5738,14 +5742,14 @@ class Mission
 					};
 					id=1552;
 					type="CUP_B_FR_Soldier_TL";
-					atlOffset=0.00053119659;
+					atlOffset=0.066127777;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=1796;
-			atlOffset=0.00053119659;
+			atlOffset=0.066127777;
 		};
 	};
 };
