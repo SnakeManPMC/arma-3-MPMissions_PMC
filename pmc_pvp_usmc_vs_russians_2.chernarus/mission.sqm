@@ -19,7 +19,7 @@ class EditorData
 		pos[]={9239.207,260.94879,11414.75};
 		dir[]={0,-0.70710659,0.70710707};
 		up[]={0,0.70710701,0.70710653};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -54,10 +54,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=16547842;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -80,7 +76,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC PvP USMC vs Russians 2 v0.1.2";
+		briefingName="PMC PvP USMC vs Russians 2 v0.1.3";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -105,7 +101,8 @@ class Mission
 			{
 				name="PMC_blufor_obj1";
 				text="PMC_blufor_objective1";
-				onActivation="PMC_blufor_obj1 = true; publicVariable ""PMC_blufor_obj1""; [""PMC_blufor_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_BLUFOR.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -123,7 +120,8 @@ class Mission
 			{
 				name="PMC_opfor_obj1";
 				text="PMC_opfor_objective1";
-				onActivation="PMC_opfor_obj1 = true; publicVariable ""PMC_opfor_obj1""; [""PMC_opfor_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_OPFOR.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -2936,6 +2934,7 @@ class Mission
 					};
 					id=3464;
 					type="CUP_O_RU_Soldier_MG";
+					atlOffset=7.6293945e-005;
 				};
 				class Item2
 				{
@@ -2955,6 +2954,7 @@ class Mission
 					};
 					id=3465;
 					type="CUP_O_RU_Soldier_MG";
+					atlOffset=7.6293945e-005;
 				};
 				class Item3
 				{
@@ -2973,6 +2973,7 @@ class Mission
 					};
 					id=3466;
 					type="CUP_O_RU_Soldier_GL";
+					atlOffset=7.6293945e-005;
 				};
 				class Item4
 				{
@@ -2991,6 +2992,7 @@ class Mission
 					};
 					id=3467;
 					type="CUP_O_RU_Soldier_AT";
+					atlOffset=7.6293945e-005;
 				};
 			};
 			class Attributes
@@ -3042,6 +3044,7 @@ class Mission
 					};
 					id=3470;
 					type="CUP_B_USMC_Soldier_MG";
+					atlOffset=0.00012207031;
 				};
 				class Item2
 				{
@@ -3061,6 +3064,7 @@ class Mission
 					};
 					id=3471;
 					type="CUP_B_USMC_Soldier_AR";
+					atlOffset=0.00012207031;
 				};
 				class Item3
 				{
@@ -3079,6 +3083,7 @@ class Mission
 					};
 					id=3472;
 					type="CUP_B_USMC_Soldier_LAT";
+					atlOffset=6.1035156e-005;
 				};
 			};
 			class Attributes

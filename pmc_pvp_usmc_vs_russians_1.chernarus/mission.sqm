@@ -19,7 +19,7 @@ class EditorData
 		pos[]={3401.0735,367.47577,6387.3115};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -54,10 +54,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=10962511;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -80,7 +76,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC PvP USMC vs Russians 1 v0.1.2";
+		briefingName="PMC PvP USMC vs Russians 1 v0.1.3";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -100,12 +96,13 @@ class Mission
 		class Item0
 		{
 			dataType="Trigger";
-			position[]={3708.9792,434.85675,5988.144};
+			position[]={3708.979,434.85699,5988.144};
 			class Attributes
 			{
 				name="PMC_blufor_obj1";
 				text="PMC_blufor_objective1";
-				onActivation="PMC_blufor_obj1 = true; publicVariable ""PMC_blufor_obj1""; [""PMC_blufor_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_BLUFOR.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -119,12 +116,13 @@ class Mission
 		class Item1
 		{
 			dataType="Trigger";
-			position[]={3714.563,402,5988.0757};
+			position[]={3714.563,402,5988.0762};
 			class Attributes
 			{
 				name="PMC_opfor_obj1";
 				text="PMC_opfor_objective1";
-				onActivation="PMC_opfor_obj1 = true; publicVariable ""PMC_opfor_obj1""; [""PMC_opfor_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_OPFOR.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -150,6 +148,7 @@ class Mission
 			};
 			id=3133;
 			type="EmptyDetector";
+			atlOffset=3.0517578e-005;
 		};
 		class Item3
 		{
@@ -167,6 +166,7 @@ class Mission
 			};
 			id=3134;
 			type="EmptyDetector";
+			atlOffset=3.0517578e-005;
 		};
 		class Item4
 		{
@@ -1464,6 +1464,7 @@ class Mission
 			};
 			id=3205;
 			type="HighCommand";
+			atlOffset=-0.0010070801;
 		};
 		class Item10
 		{
