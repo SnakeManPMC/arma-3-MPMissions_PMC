@@ -84,10 +84,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=16776560;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -109,7 +105,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Daoud Fight v0.2.2";
+		briefingName="PMC Daoud Fight v0.2.3";
 		startWeather=0.30000001;
 		startWind=0.1;
 		forecastWeather=0.30000001;
@@ -138,12 +134,13 @@ class Mission
 		class Item1
 		{
 			dataType="Trigger";
-			position[]={2445.4524,17.539661,37785.406};
+			position[]={2445.4519,17.539955,37785.406};
 			class Attributes
 			{
 				name="target1";
 				text="enemy dead";
-				onActivation="pmc_mcomplete = true; publicVariable ""pmc_mcomplete""; [""PMC_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective1.sqf"";}";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={60,120,240};
@@ -152,7 +149,7 @@ class Mission
 			};
 			id=2402;
 			type="EmptyDetector";
-			atlOffset=-0.23130989;
+			atlOffset=-0.2310009;
 		};
 		class Item2
 		{
