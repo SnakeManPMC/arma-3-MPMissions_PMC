@@ -1,5 +1,4 @@
 
-[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 [] execVM "PMC\PMC_Briefing.sqf";
 [] execVM "PMC\PMC_public_eventhandlers.sqf";
 
