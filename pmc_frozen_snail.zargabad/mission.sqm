@@ -80,10 +80,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=589953;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -105,7 +101,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Frozen Snail v0.1.3";
+		briefingName="PMC Frozen Snail v0.1.4";
 		startWeather=0.30000001;
 		startWind=0.1;
 		forecastWeather=0.30000001;
@@ -144,12 +140,13 @@ class Mission
 		class Item2
 		{
 			dataType="Trigger";
-			position[]={3941.2776,11.114247,2772.311};
+			position[]={3941.2781,11.114251,2772.311};
 			class Attributes
 			{
 				name="pmc_1";
 				text="PMC_objective1";
-				onActivation="pmc_obj1 = true; publicVariable ""pmc_obj1""; [""PMC_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective1.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -162,12 +159,13 @@ class Mission
 		class Item3
 		{
 			dataType="Trigger";
-			position[]={4233.4688,27.079611,4163.8335};
+			position[]={4233.4692,27.08,4163.833};
 			class Attributes
 			{
 				name="pmc_2";
 				text="PMC_objective2";
-				onActivation="pmc_obj2 = true; publicVariable ""pmc_obj2""; [""PMC_objective2"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective2.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -176,17 +174,18 @@ class Mission
 			};
 			id=1937;
 			type="EmptyDetector";
-			atlOffset=0.011013031;
+			atlOffset=0.010864258;
 		};
 		class Item4
 		{
 			dataType="Trigger";
-			position[]={3869.209,30.850559,6000.3193};
+			position[]={3869.209,30.850542,6000.3188};
 			class Attributes
 			{
 				name="pmc_3";
 				text="PMC_objective3";
-				onActivation="pmc_obj3 = true; publicVariable ""pmc_obj3""; [""PMC_objective3"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective3.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={3,5,7};
@@ -420,6 +419,7 @@ class Mission
 			};
 			id=1951;
 			type="CUP_B_HMMWV_SOV_USA";
+			atlOffset=-0.00015258789;
 		};
 		class Item18
 		{
@@ -430,13 +430,13 @@ class Mission
 				angles[]={0.042475242,4.0506902,0.014998405};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
 			};
 			id=1952;
 			type="CUP_B_LR_Special_CZ_W";
+			atlOffset=1.8471146;
 		};
 		class Item19
 		{
