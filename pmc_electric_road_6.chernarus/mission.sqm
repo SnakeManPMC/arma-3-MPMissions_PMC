@@ -19,7 +19,7 @@ class EditorData
 		pos[]={4755.3755,347.66409,5655.2842};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -84,10 +84,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=8665987;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -110,7 +106,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Electric Road 6 v1.0.3";
+		briefingName="PMC Electric Road 6 v1.0.4";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -130,12 +126,13 @@ class Mission
 		class Item0
 		{
 			dataType="Trigger";
-			position[]={2953.3489,232.30612,5426.9419};
+			position[]={2953.3491,232.306,5426.9419};
 			class Attributes
 			{
 				name="pmc_1";
 				text="PMC_objective1";
-				onActivation="pmc_obj1 = true; publicVariable ""pmc_obj1""; [""PMC_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective1.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -144,17 +141,18 @@ class Mission
 			};
 			id=2029;
 			type="EmptyDetector";
-			atlOffset=0.95611572;
+			atlOffset=0.95599365;
 		};
 		class Item1
 		{
 			dataType="Trigger";
-			position[]={2761.7349,206.99738,5283.0952};
+			position[]={2761.7351,206.99677,5283.0952};
 			class Attributes
 			{
 				name="pmc_2";
 				text="PMC_objective2";
-				onActivation="pmc_obj2 = true; publicVariable ""pmc_obj2""; [""PMC_objective2"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective2.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -167,12 +165,13 @@ class Mission
 		class Item2
 		{
 			dataType="Trigger";
-			position[]={2258.8557,176.60222,5194.9561};
+			position[]={2258.856,176.6022,5194.9561};
 			class Attributes
 			{
 				name="pmc_3";
 				text="PMC_objective3";
-				onActivation="pmc_obj3 = true; publicVariable ""pmc_obj3""; [""PMC_objective3"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective3.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -181,7 +180,6 @@ class Mission
 			};
 			id=2031;
 			type="EmptyDetector";
-			atlOffset=1.5258789e-005;
 		};
 		class Item3
 		{
@@ -428,7 +426,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4797.1216,324.23444,5678.4941};
-				angles[]={-0,5.1496711,0.0012918708};
+				angles[]={0,5.1496711,0.0012918708};
 			};
 			side="Empty";
 			flags=4;
@@ -804,7 +802,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2963.4688,231.32561,5389.2876};
-						angles[]={-0,0,6.2565341};
+						angles[]={0,0,6.2565341};
 					};
 					side="East";
 					flags=4;
@@ -838,7 +836,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2968.4688,231.19232,5384.2876};
-						angles[]={-0,0,6.2565341};
+						angles[]={0,0,6.2565341};
 					};
 					side="East";
 					flags=4;
@@ -848,6 +846,7 @@ class Mission
 					};
 					id=2070;
 					type="CUP_O_INS_Soldier";
+					atlOffset=6.1035156e-005;
 				};
 				class Item8
 				{
@@ -949,6 +948,7 @@ class Mission
 					};
 					id=2076;
 					type="CUP_O_INS_Soldier_AT";
+					atlOffset=1.5258789e-005;
 				};
 				class Item4
 				{
@@ -983,6 +983,7 @@ class Mission
 					};
 					id=2078;
 					type="CUP_O_INS_Soldier_AR";
+					atlOffset=7.6293945e-005;
 				};
 				class Item6
 				{
@@ -1017,6 +1018,7 @@ class Mission
 					};
 					id=2080;
 					type="CUP_O_INS_Soldier";
+					atlOffset=0.00010681152;
 				};
 				class Item8
 				{
@@ -1034,6 +1036,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=2081;
+					atlOffset=0.00039672852;
 				};
 			};
 			class Attributes
@@ -1065,6 +1068,7 @@ class Mission
 					};
 					id=2083;
 					type="CUP_O_INS_Officer";
+					atlOffset=3.0517578e-005;
 				};
 				class Item1
 				{
@@ -1209,6 +1213,7 @@ class Mission
 			{
 			};
 			id=2082;
+			atlOffset=3.0517578e-005;
 		};
 		class Item23
 		{
@@ -1568,6 +1573,7 @@ class Mission
 					};
 					id=2113;
 					type="CUP_O_INS_Officer";
+					atlOffset=0.00010681152;
 				};
 				class Item1
 				{
@@ -1586,6 +1592,7 @@ class Mission
 					};
 					id=2114;
 					type="CUP_O_INS_Soldier_MG";
+					atlOffset=0.0028533936;
 				};
 				class Item2
 				{
@@ -1621,6 +1628,7 @@ class Mission
 					};
 					id=2116;
 					type="CUP_O_INS_Soldier_AT";
+					atlOffset=0.003326416;
 				};
 				class Item4
 				{
@@ -1655,6 +1663,7 @@ class Mission
 					};
 					id=2118;
 					type="CUP_O_INS_Soldier_AR";
+					atlOffset=0.00030517578;
 				};
 				class Item6
 				{
@@ -1704,12 +1713,14 @@ class Mission
 					};
 					showWP="NEVER";
 					id=2121;
+					atlOffset=0.00010681152;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=2112;
+			atlOffset=0.00010681152;
 		};
 		class Item26
 		{

@@ -19,7 +19,7 @@ class EditorData
 		pos[]={2446.5583,213.41713,5208.0581};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -84,10 +84,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=14480017;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -110,7 +106,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Electric Road 7 v1.0.3";
+		briefingName="PMC Electric Road 7 v1.0.4";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -130,12 +126,13 @@ class Mission
 		class Item0
 		{
 			dataType="Trigger";
-			position[]={3997.9312,229.04146,4749.1519};
+			position[]={3997.9309,229.04146,4749.1519};
 			class Attributes
 			{
 				name="pmc_1";
 				text="PMC_objective1";
-				onActivation="pmc_obj1 = true; publicVariable ""pmc_obj1""; [""PMC_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective1.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -148,12 +145,13 @@ class Mission
 		class Item1
 		{
 			dataType="Trigger";
-			position[]={4374.7402,232,4644.5127};
+			position[]={4374.7402,232,4644.5132};
 			class Attributes
 			{
 				name="pmc_2";
 				text="PMC_objective2";
-				onActivation="pmc_obj2 = true; publicVariable ""pmc_obj2""; [""PMC_objective2"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective2.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -166,12 +164,13 @@ class Mission
 		class Item2
 		{
 			dataType="Trigger";
-			position[]={4570.6382,248.75114,4524.1182};
+			position[]={4570.6382,248.75101,4524.1182};
 			class Attributes
 			{
 				name="pmc_3";
 				text="PMC_objective3";
-				onActivation="pmc_obj3 = true; publicVariable ""pmc_obj3""; [""PMC_objective3"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective3.sqf"";}";
 				sizeA=100;
 				sizeB=100;
 				timeout[]={60,60,60};
@@ -180,7 +179,7 @@ class Mission
 			};
 			id=2152;
 			type="EmptyDetector";
-			atlOffset=15.551147;
+			atlOffset=15.55101;
 		};
 		class Item3
 		{
@@ -946,7 +945,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={4362.0562,230.94968,4590.3369};
-						angles[]={-0,0,6.2718282};
+						angles[]={0,0,6.2718282};
 					};
 					side="East";
 					flags=4;
@@ -956,6 +955,7 @@ class Mission
 					};
 					id=2197;
 					type="CUP_O_INS_Soldier_AT";
+					atlOffset=0.0029144287;
 				};
 				class Item4
 				{
@@ -990,6 +990,7 @@ class Mission
 					};
 					id=2199;
 					type="CUP_O_INS_Soldier_AR";
+					atlOffset=0.0004119873;
 				};
 				class Item6
 				{
@@ -1007,6 +1008,7 @@ class Mission
 					};
 					id=2200;
 					type="CUP_O_INS_Soldier_AK74";
+					atlOffset=-0.0016021729;
 				};
 				class Item7
 				{
@@ -1024,6 +1026,7 @@ class Mission
 					};
 					id=2201;
 					type="CUP_O_INS_Soldier";
+					atlOffset=0.0011138916;
 				};
 				class Item8
 				{
@@ -1073,6 +1076,7 @@ class Mission
 					};
 					id=2204;
 					type="CUP_O_INS_Officer";
+					atlOffset=-0.0045166016;
 				};
 				class Item1
 				{
@@ -1091,6 +1095,7 @@ class Mission
 					};
 					id=2205;
 					type="CUP_O_INS_Soldier_AR";
+					atlOffset=-0.0039978027;
 				};
 				class Item2
 				{
@@ -1126,6 +1131,7 @@ class Mission
 					};
 					id=2207;
 					type="CUP_O_INS_Soldier_AT";
+					atlOffset=-0.0037689209;
 				};
 				class Item4
 				{
@@ -1159,6 +1165,7 @@ class Mission
 					};
 					id=2209;
 					type="CUP_O_INS_Soldier_AR";
+					atlOffset=-0.0040893555;
 				};
 				class Item6
 				{
@@ -1192,6 +1199,7 @@ class Mission
 					};
 					id=2211;
 					type="CUP_O_INS_Soldier";
+					atlOffset=-0.0019378662;
 				};
 				class Item8
 				{
@@ -1209,13 +1217,14 @@ class Mission
 					};
 					showWP="NEVER";
 					id=2212;
-					atlOffset=7.6293945e-005;
+					atlOffset=0.00051879883;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=2203;
+			atlOffset=-0.0045166016;
 		};
 		class Item23
 		{
