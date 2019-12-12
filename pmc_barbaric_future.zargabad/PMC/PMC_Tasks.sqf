@@ -94,11 +94,3 @@
 	2,
 	true
 ] call BIS_fnc_taskCreate;
-
-/*
-	reference
-
-for opfor dead trigger add:
-["PMC_objective1", "succeeded"] call SHK_Taskmaster_Upd;
-
-*/

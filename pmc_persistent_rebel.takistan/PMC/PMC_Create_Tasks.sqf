@@ -19,7 +19,7 @@ if (missionNamespace getVariable "PMC_war_opfor") then
 //	_z setTriggerTimeout [0, 0, 0, false];
 	_z setTriggerStatements ["!PMC_war_opfor", "this = execVM ""PMC\PMC_Obj2.sqf"";", ""];
 
-/* old, we use shk_taskmaster now	
+/* old, we use shk.task.master now
 	PMC_objective2 = player createSimpleTask ["Defeat OPFOR"];
 	PMC_objective2 setSimpleTaskDescription ["Defeat <marker name='base_tk'>OPFOR</marker>", "Defeat OPFOR", "Defeat OPFOR"];
 	PMC_objective2 setSimpleTaskDestination (getMarkerPos "base_tk");
@@ -47,7 +47,7 @@ if (missionNamespace getVariable "PMC_war_blufor") then
 //	_z setTriggerTimeout [0, 0, 0, false];
 	_z setTriggerStatements ["!PMC_war_blufor", "this = execVM ""PMC\PMC_Obj1.sqf"";", ""];
 
-/*	
+/*
 	PMC_objective1 = player createSimpleTask ["Defeat BLUFOR"];
 	PMC_objective1 setSimpleTaskDescription ["Defeat <marker name='base_usa'>BLUFOR</marker>", "Defeat BLUFOR", "Defeat BLUFOR"];
 	PMC_objective1 setSimpleTaskDestination (getMarkerPos "base_usa");

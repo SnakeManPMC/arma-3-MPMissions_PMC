@@ -110,9 +110,9 @@ publicVariable "PMC_FARP_Count";
 // this doesnt work for clients on some reason?
 _m = format ["Field Operating Bases are setup:</br></br><marker name='PMC_FARP_text_%1'>FOB 0</marker></br>", PMC_FARP_Count];
 
-diag_log format["This should go to SHK: %1", _m];
+diag_log format["This should go to task.master: %1", _m];
 [[
 ],[
 	["FOB", _m]
-]] call compile preprocessFileLineNumbers "PMC\shk_taskmaster.sqf";
+]] call compile preprocessFileLineNumbers "PMC\shk.task.master.sqf"; <- renamed so powergrep woth catch it on searches heh :)
 */
