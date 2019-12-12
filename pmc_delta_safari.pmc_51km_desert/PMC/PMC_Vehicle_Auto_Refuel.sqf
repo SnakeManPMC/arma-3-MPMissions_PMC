@@ -16,11 +16,11 @@ Returns:
 
 */
 
-private _vehicle = _this select 1;
+private _vehicle = _this select 0;
 
 diag_log format["PMC_Vehicle_Auto_Refuel started for %1", _vehicle];
 
-while (alive _vehicle || canMove _vehicle) do
+while {alive _vehicle || canMove _vehicle} do
 {
 	if (fuel _vehicle < 0.25) then
 	{
