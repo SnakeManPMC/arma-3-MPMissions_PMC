@@ -19,7 +19,7 @@ class EditorData
 		pos[]={11258.499,108.30022,9616.6416};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -78,10 +78,6 @@ class AddonsMetaData
 	};
 };
 randomSeed=2196309;
-class ScenarioData
-{
-	author="PMC Since 1984";
-};
 class Intro
 {
 	class Intel
@@ -104,7 +100,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC PvP Armor 2 v1.0.3";
+		briefingName="PMC PvP Armor 2 v1.0.4";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -129,7 +125,8 @@ class Mission
 			{
 				name="PMC_blufor_obj1";
 				text="PMC_blufor_objective1";
-				onActivation="PMC_blufor_obj1 = true; publicVariable ""PMC_blufor_obj1""; [""PMC_blufor_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_BLUFOR.sqf"";}";
 				sizeA=500;
 				sizeB=500;
 				timeout[]={60,60,60};
@@ -147,7 +144,8 @@ class Mission
 			{
 				name="PMC_opfor_obj1";
 				text="PMC_opfor_objective1";
-				onActivation="PMC_opfor_obj1 = true; publicVariable ""PMC_opfor_obj1""; [""PMC_opfor_objective1"", ""succeeded""] call SHK_Taskmaster_Upd;";
+				condition="call{this}";
+				onActivation="call{0 = [] execVM ""PMC\PMC_Objective_OPFOR.sqf"";}";
 				sizeA=500;
 				sizeB=500;
 				timeout[]={60,60,60};
@@ -702,6 +700,7 @@ class Mission
 					};
 					id=2974;
 					type="CUP_O_RU_Medic";
+					atlOffset=-9.5367432e-007;
 				};
 			};
 			class Attributes
@@ -1654,7 +1653,7 @@ class Mission
 			};
 			id=3015;
 			type="CUP_B_M1A2_TUSK_MG_USMC";
-			atlOffset=-0.0023040771;
+			atlOffset=-0.0023117065;
 		};
 		class Item19
 		{
@@ -2565,7 +2564,7 @@ class Mission
 			};
 			id=3043;
 			type="CUP_B_AAV_USMC";
-			atlOffset=-0.00089263916;
+			atlOffset=0.024177551;
 		};
 		class Item26
 		{
@@ -2935,7 +2934,7 @@ class Mission
 			};
 			id=3061;
 			type="CUP_B_AAV_USMC";
-			atlOffset=-0.00067901611;
+			atlOffset=0.024299622;
 		};
 		class Item28
 		{
@@ -3783,7 +3782,7 @@ class Mission
 			};
 			id=3103;
 			type="CUP_O_T72_RU";
-			atlOffset=-0.01373291;
+			atlOffset=-0.013731956;
 		};
 		class Item37
 		{
@@ -3817,7 +3816,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={12637.947,16.149057,8390.3438};
-						angles[]={-0,0,6.1888003};
+						angles[]={0,0,6.1888003};
 					};
 					side="East";
 					flags=6;
@@ -3922,6 +3921,7 @@ class Mission
 					};
 					id=3118;
 					type="CUP_O_RU_Soldier_AT";
+					atlOffset=-9.5367432e-007;
 				};
 				class Item6
 				{
@@ -4061,7 +4061,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={12603.268,19.485878,8371.0869};
-						angles[]={-0,0,6.1808772};
+						angles[]={0,0,6.1808772};
 					};
 					side="East";
 					flags=4;
@@ -4078,7 +4078,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={12603.268,19.485878,8371.0869};
-						angles[]={-0,0,6.1808772};
+						angles[]={0,0,6.1808772};
 					};
 					side="East";
 					flags=4;
@@ -4095,7 +4095,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={12603.268,19.485878,8371.0869};
-						angles[]={-0,0,6.1808772};
+						angles[]={0,0,6.1808772};
 					};
 					side="East";
 					flags=4;
@@ -4236,7 +4236,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={12603.525,21.838293,8371.0469};
-				angles[]={-0,0,6.1808772};
+				angles[]={0,0,6.1808772};
 			};
 			side="East";
 			flags=4;
