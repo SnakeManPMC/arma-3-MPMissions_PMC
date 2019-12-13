@@ -6,6 +6,7 @@ PAPABEAR = [West,"HQ"];
 // debug on
 PMC_debug = true;
 publicVariable "PMC_debug";
+PMC_InfTransportUsed = 0;
 
 // number of created groups
 PMC_grpNum = 0;
