@@ -19,24 +19,6 @@ pmc_opforunits setTriggerActivation ["EAST", "PRESENT", true];
 pmc_opforunits setTriggerArea [6500, 6500, 0, true];
 pmc_opforunits setTriggerTimeout [0, 0, 0, true];
 
-// Weather Forecast radio call
-_z = createTrigger ["EmptyDetector", [6400, 6400, 0]];
-_z setTriggerActivation ["ALPHA", "PRESENT", true];
-_z setTriggerArea [0, 0, 0, true];
-_z setTriggerTimeout [0, 0, 0, true];
-_z setTriggerText "Weather Forecast";
-_z setTriggerStatements ["this", "this = execVM ""PMC\PMC_weather_forecast.sqf"";", ""];
-
-/* this needs to be disabled for release version too I'm afraid
-// Debug on/off radio call
-_z = createTrigger ["EmptyDetector", [6300, 6300, 0]];
-_z setTriggerActivation ["BRAVO", "PRESENT", true];
-_z setTriggerArea [0, 0, 0, true];
-_z setTriggerTimeout [0, 0, 0, true];
-_z setTriggerText "Debug ON";
-_z setTriggerStatements ["this", "if (PMC_debug) then { PMC_debug = false; 2 setRadioMsg ""Debug ON""; } else { PMC_debug = true; 2 setRadioMsg ""Debug OFF""; };", ""];
-*/
-
 // Mission End
 _z = createTrigger ["EmptyDetector", [6200, 6200, 0]];
 _z setTriggerActivation ["ANYBODY", "PRESENT", false];
@@ -44,24 +26,6 @@ _z setTriggerArea [0, 0, 0, true];
 _z setTriggerTimeout [0, 0, 0, true];
 _z setTriggerType "END1";
 _z setTriggerStatements ["pmc_mcomplete", "", ""];
-
-/* too debug for release version :)
-// Camera.sqs radio call
-_z = createTrigger ["EmptyDetector", [6200, 6200, 0]];
-_z setTriggerActivation ["CHARLIE", "PRESENT", true];
-_z setTriggerArea [0, 0, 0, true];
-_z setTriggerTimeout [0, 0, 0, true];
-_z setTriggerText "DEBUG start camera.sqs";
-_z setTriggerStatements ["this", "player exec ""camera.sqs"";", ""];
-*/
-
-// Set respawn here radio call
-_z = createTrigger ["EmptyDetector", [6200, 6200, 0]];
-_z setTriggerActivation ["JULIET", "PRESENT", true];
-_z setTriggerArea [0, 0, 0, true];
-_z setTriggerTimeout [0, 0, 0, true];
-_z setTriggerText "Set respawn here";
-_z setTriggerStatements ["this", """respawn_guer"" setMarkerPos getPosASL leader pmc_locals1; hint format[""Respawn marker set to: %1"", getPosASL leader pmc_locals1];", ""];
 
 // however this is created only when we have enough blufor and opfor units, so it wont activate too soon.
 waitUntil
@@ -98,15 +62,6 @@ repeating=1;
 interruptable=1;
 name="pmc_bluforunits";
 
-position[]={7154.2617,257.53467,7055.3975};
-a=0;
-b=0;
-activationBy="ALPHA";
-repeating=1;
-interruptable=1;
-text="Weather forecast";
-expActiv="this = execVM ""PMC\PMC_weather_forecast.sqf"";";
-
 position[]={7157.5171,258.62564,7052.4048};
 a=0;
 b=0;
@@ -123,24 +78,6 @@ interruptable=1;
 type="END1";
 text="END";
 expCond="pmc_mcomplete";
-
-position[]={7160.7251,259.81732,7049.5361};
-a=0;
-b=0;
-activationBy="CHARLIE";
-repeating=1;
-interruptable=1;
-text="DEBUG start camera.sqs";
-expActiv="player exec ""camera.sqs"";";
-
-position[]={7164.7207,261.4165,7046.3413};
-a=0;
-b=0;
-activationBy="JULIET";
-repeating=1;
-interruptable=1;
-text="Set respawn here";
-expActiv="""respawn_guer"" setMarkerPos getPosASL leader pmc_locals1; hint format[""Respawn marker set to: %1"", getPosASL leader pmc_locals1];";
 
 
 	Sector - Triggers
