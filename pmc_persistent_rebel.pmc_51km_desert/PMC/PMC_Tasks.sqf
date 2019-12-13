@@ -1,6 +1,6 @@
 
 [
-	guer,
+	resistance,
 	[
 		"t1"
 	],
@@ -16,7 +16,7 @@
 ] call BIS_fnc_taskCreate;
 
 [
-	guer,
+	resistance,
 	[
 		"t2"
 	],
