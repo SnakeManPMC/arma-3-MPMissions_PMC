@@ -87,14 +87,14 @@ _PMC_CreateConvoyVehicles =
 	_vcl addWeaponCargoGlobal ["Javelin", 1];
 	_vcl addWeaponCargoGlobal ["M136", 1];
 */
-	_vcl addWeaponCargoGlobal ["CUP_srifle_M14_Aim", 1];
+//	_vcl addWeaponCargoGlobal ["CUP_srifle_M14_Aim", 1];
+//	_vcl addWeaponCargoGlobal ["CUP_lmg_M60A4", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M24_des_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_m240_scoped_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M249_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M47Launcher_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M4A1_AIM_SD_camo", 1];
 	_vcl addWeaponCargoGlobal ["CUP_arifle_M4A1_M203_ACOG_Laser", 1];
-	_vcl addWeaponCargoGlobal ["CUP_lmg_M60A4", 1];
 	_vcl addWeaponCargoGlobal ["CUP_glaunch_M79", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M9SD", 1];
 	_vcl addWeaponCargoGlobal ["CUP_NVG_PVS7", 1];
