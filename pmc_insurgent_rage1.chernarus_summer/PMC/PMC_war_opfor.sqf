@@ -22,17 +22,17 @@ _sleeptime = (5 + random 2);
 // PMC_SelectStartPosit starting position selecting function
 call compile preProcessFileLineNumbers "PMC\PMC_SelectStartPosit.sqf";
 
-// PMC_Select_Target
+call compile preProcessFileLineNumbers "PMC\PMC_SetAISkill.sqf";
 call compile preProcessFileLineNumbers "PMC\PMC_Select_Target.sqf";
-
-// PMC_Create_Insurgent_Group
 call compile preProcessFileLineNumbers "PMC\PMC_Create_Insurgent_Group.sqf";
-
-// PMC_Create_Insurgent_Weapons_Group
 call compile preProcessFileLineNumbers "PMC\PMC_Create_Insurgent_Weapons_Group.sqf";
-
-// PMC_Create_Insurgent_Militia
 call compile preProcessFileLineNumbers "PMC\PMC_Create_Insurgent_Militia.sqf";
+
+// get server parameter enemy skill level
+private _skill = ["PMC_EnemySkillLevel", 0] call BIS_fnc_getParamValue;
+private _PMC_EnemySkillLevel = [_skill] call compile preProcessFileLineNumbers "PMC\PMC_Get_Skill_Level.sqf";
+// mission editor placed group skills
+[pmc_ins1, _PMC_EnemySkillLevel] call PMC_SetAISkill;
 
 // wait until mission starts and pmc_opforunits trigger is usable.
 waitUntil
@@ -73,6 +73,9 @@ while {PMC_opfor < _victoryCondition} do
 
 		// select target
 		_targetpoint = call PMC_Select_Target;
+
+		// set lower skill level
+		[_grp, _PMC_EnemySkillLevel] call PMC_SetAISkill;
 
 		{
 			_x addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
