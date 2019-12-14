@@ -78,20 +78,22 @@ _PMC_CreateConvoyVehicles =
 	_vcl addWeaponCargoGlobal ["Binocular", 1];
 	_vcl addWeaponCargoGlobal ["CUP_Binocular_Vector", 1];
 	_vcl addWeaponCargoGlobal ["CUP_Glock17_EP1", 1];
-	_vcl addWeaponCargoGlobal ["Javelin", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M107", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M110_NVG_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M110_TWS_EP1", 1];
+/*	_vcl addWeaponCargoGlobal ["Javelin", 1];
 	_vcl addWeaponCargoGlobal ["M136", 1];
-	_vcl addWeaponCargoGlobal ["CUP_M14_EP1", 1];
+*/
+	_vcl addWeaponCargoGlobal ["CUP_srifle_M14_Aim", 1];
+	_vcl addWeaponCargoGlobal ["CUP_lmg_M60A4", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M24_des_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_m240_scoped_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M249_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M47Launcher_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M4A1_AIM_SD_camo", 1];
-	_vcl addWeaponCargoGlobal ["M4A1_RCO_GL", 1];
-	_vcl addWeaponCargoGlobal ["CUP_M60A4_EP1", 1];
+/*	_vcl addWeaponCargoGlobal ["M4A1_RCO_GL", 1];
 	_vcl addWeaponCargoGlobal ["M79_EP1", 1];
+*/
 	_vcl addWeaponCargoGlobal ["CUP_M9SD", 1];
 	_vcl addWeaponCargoGlobal ["CUP_NVG_PVS7", 1];
 	_vcl addWeaponCargoGlobal ["CUP_SCAR_H_CQC_CCO_SD", 1];
