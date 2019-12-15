@@ -4,7 +4,6 @@
 skiptime (((paramsarray select 0) - daytime + 24) % 24);
 
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
-
 [] execVM "PMC\PMC_Tasks.sqf";
 
 // hmm isn't this obsolete? 9/Jul/2014 8:33
@@ -109,7 +108,7 @@ waitUntil
 	scriptDone _tmp;
 };
 
-// triggers for server too
+// triggers pmc_bluforunits and pmc_opforunits
 [] execVM "PMC\Triggers.sqf";
 
 // this is silly...
@@ -139,3 +138,5 @@ _respawnpoint = ["BLUFOR"] call PMC_SelectStartPosit;
 sleep 30;
 // small truck + security vehicle setup, loaded with goodies
 [[(_respawnpoint select 0)+50, (_respawnpoint select 1)+50, 0]] execVM "PMC\PMC_Trucks_Juicy_Load.sqf";
+
+[] execVM "PMC\PMC_Mission_End_Watch.sqf";

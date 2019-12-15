@@ -6,5 +6,4 @@ player sideChat "HOOYAH! We have defeated BLUFOR!";
 PMC_objective1_done = true;
 publicVariable "PMC_objective1_done";
 
-// debug for log ;)
-diag_log format["#### Objective 1 completed! time: %1", time];
+diag_log format["PMC_Obj1, Objective 1 completed! time: %1", time];

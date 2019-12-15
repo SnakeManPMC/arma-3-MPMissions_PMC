@@ -6,11 +6,8 @@
 // screen is black at start
 cutText ["", "BLACK FADED", 9999];
 
-// triggers for client
+// triggers pmc_bluforunits and pmc_opforunits
 [] execVM "PMC\Triggers.sqf";
-
-// create client objectives, these are just two triggers for blufor/opfor not present
-[] execVM "PMC\PMC_Create_Tasks.sqf";
 
 // player
 removeAllWeapons player;
