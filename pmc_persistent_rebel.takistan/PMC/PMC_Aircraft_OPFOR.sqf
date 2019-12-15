@@ -136,6 +136,11 @@ diag_log format["PMC_Aircraft_OPFOR: _vcl: %1, PMC_opfor: %2, PMC_grp_opfor: %3"
 		// and fps is high enough
 		((!alive _vcl || !canMove _vcl || !canFire _vcl) && (diag_fps > 15));
 	};
+
+	// downed aircraft debug
+	[_vcl] execVM "PMC\PMC_Aircraft_debug.sqf";
+	// destroy downed aircraft
+	[_vcl] execVM "PMC\PMC_Aircraft_Down.sqf";
 };
 
 // debug to show this script is running
