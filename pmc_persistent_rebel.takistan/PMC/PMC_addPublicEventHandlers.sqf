@@ -17,13 +17,13 @@
 	// ColorRed -> ColorKhaki -> ColorGrey -> ColorBlack -> DELETE
 	[_m] spawn
 	{
-		sleep 300;
+		sleep 600;
 		(_this select 0) setMarkerColorLocal "ColorKhaki";
-		sleep 300;
+		sleep 600;
 		(_this select 0) setMarkerColorLocal "ColorGrey";
-		sleep 300;
+		sleep 600;
 		(_this select 0) setMarkerColorLocal "ColorBlack";
-		sleep 300;
+		sleep 600;
 		deleteMarker (_this select 0);
 	};
 };
