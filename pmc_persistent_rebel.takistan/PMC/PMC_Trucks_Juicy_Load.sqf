@@ -46,24 +46,25 @@ _PMC_CreateConvoyVehicles =
 	_vcl = "CUP_B_MTVR_USA" createVehicle [(_respawnpoint select 0),(_respawnpoint select 1)-20];
 	_vcl addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
 
-	// clear cargo
-	clearMagazineCargo _vcl;
-	clearWeaponCargo _vcl;
-	// add magazines and weapons
-//	_vcl addMagazineCargoGlobal ["", 5];
-//	_vcl addWeaponCargoGlobal ["", 5];
+/*
+2019-12-16
+Checked in mission editor to make sure the truck wont overspill too much. Now its on just in the edge of
+overspilling, you cannot store any weapons or even magazines there, but why would you as the whole idea of
+JUICY truck is to take gear from it.
+*/
+
+// clear cargo
+	clearMagazineCargoGlobal _vcl;
+	clearWeaponCargoGlobal _vcl;
+	clearItemCargoGlobal _vcl;
+	clearBackpackCargoGlobal _vcl;
 
 // weapons
 	_vcl addWeaponCargoGlobal ["Binocular", 1];
 	_vcl addWeaponCargoGlobal ["CUP_Binocular_Vector", 1];
 	_vcl addWeaponCargoGlobal ["CUP_Glock17_EP1", 1];
-	_vcl addWeaponCargoGlobal ["CUP_srifle_M107_Desert", 1];
+	_vcl addWeaponCargoGlobal ["CUP_srifle_M107_LeupoldVX3", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M110_NVG_EP1", 1];
-/*
-	_vcl addWeaponCargoGlobal ["CUP_M110_TWS_EP1", 1]; // maybe one M110 is enough?
-	_vcl addWeaponCargoGlobal ["Javelin", 1];
-	_vcl addWeaponCargoGlobal ["M136", 1];
-*/
 	_vcl addWeaponCargoGlobal ["CUP_srifle_M14_DMR", 1];
 	_vcl addWeaponCargoGlobal ["CUP_M24_des_EP1", 1];
 	_vcl addWeaponCargoGlobal ["CUP_m240_scoped_EP1", 1];
@@ -78,7 +79,6 @@ _PMC_CreateConvoyVehicles =
 	_vcl addWeaponCargoGlobal ["CUP_SCAR_H_STD_EGLM_Spect", 1];
 	_vcl addWeaponCargoGlobal ["CUP_launch_Mk153Mod0_SMAWOptics", 1];
 	_vcl addWeaponCargoGlobal ["CUP_launch_FIM92Stinger", 1];
-
 // magazines
 	_vcl addMagazineCargoGlobal ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M", 5];
 	_vcl addMagazineCargoGlobal ["CUP_10Rnd_127x99_M107", 20];
@@ -89,19 +89,11 @@ _PMC_CreateConvoyVehicles =
 	_vcl addMagazineCargoGlobal ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249", 5];
 	_vcl addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_SCAR", 12];
 	_vcl addMagazineCargoGlobal ["CUP_20Rnd_762x51_DMR", 12];
-	_vcl addMagazineCargoGlobal ["CUP_20Rnd_762x51_B_SCAR", 12];
 	_vcl addMagazineCargoGlobal ["CUP_30Rnd_556x45_Stanag", 12];
 	_vcl addMagazineCargoGlobal ["CUP_5Rnd_762x51_M24", 12];
-/*
-	_vcl addMagazineCargoGlobal ["Dragon_EP1", 12];
-	_vcl addMagazineCargoGlobal ["Javelin", 11];
-	_vcl addMagazineCargoGlobal ["M136", 5];
-	_vcl addMagazineCargoGlobal ["CUP_MineE", 10];
-*/
-	_vcl addMagazineCargoGlobal ["CUP_PipeBomb_M", 10];
-	_vcl addMagazineCargoGlobal ["CUP_SMAW_HEAA_M", 5];
-	_vcl addMagazineCargoGlobal ["CUP_SMAW_HEDP_M", 5];
-//	_vcl addMagazineCargoGlobal ["CUP_Stinger_M", 12]; // 2019-12-15 its now disposable :(
+	_vcl addMagazineCargoGlobal ["CUP_PipeBomb_M", 5];
+	_vcl addMagazineCargoGlobal ["CUP_SMAW_HEDP_M", 3];
+	_vcl addMagazineCargoGlobal ["CUP_SMAW_HEAA_M", 3];
 
 	// get crew type for this vehicle
 	_crewType = getText (configFile >> "CfgVehicles" >> (typeOf _vcl) >> "Crew");
