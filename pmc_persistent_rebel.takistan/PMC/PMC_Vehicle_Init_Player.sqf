@@ -9,3 +9,4 @@ diag_log format["PMC_Vehicle_Init_Player, _vcl: %1", _vcl];
 
 clearWeaponCargoGlobal _vcl;
 clearMagazineCargoGlobal _vcl;
+clearItemCargoGlobal _vcl;
