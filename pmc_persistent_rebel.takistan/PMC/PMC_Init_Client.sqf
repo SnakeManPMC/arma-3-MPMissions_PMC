@@ -11,7 +11,9 @@ cutText ["", "BLACK FADED", 9999];
 
 // player
 removeAllWeapons player;
-player addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"; handle = _this execVM "PMC\PMC_respawnPlayer.sqf"}];
+// original with non working pmc_killed which requires pmc_corpses[]
+//player addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"; handle = _this execVM "PMC\PMC_respawnPlayer.sqf"}];
+player addEventHandler ["killed", {0 = _this execVM "PMC\PMC_respawnPlayer.sqf"}];
 
 cutText ["", "BLACK IN", 2];
 sleep 10;
