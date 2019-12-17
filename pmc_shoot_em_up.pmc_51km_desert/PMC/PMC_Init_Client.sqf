@@ -1,6 +1,4 @@
 
-[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
-
 // wait until server selects starting location for players
 waitUntil { !isNil "PMC_starting_position" };
 //player setPos _safePos;

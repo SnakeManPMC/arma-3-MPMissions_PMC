@@ -8,13 +8,14 @@
 skiptime (((paramsarray select 0) - daytime + 24) % 24);
 
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
-
 [] execVM "PMC\PMC_Tasks.sqf";
 
 PMC_loc = call compile preprocessFileLineNumbers "PMC\PMC_locationFinder.sqf";
 
 PMC_starting_position = [] call compile preprocessFileLineNumbers "PMC\Starting_Location.sqf";
 publicVariable "PMC_starting_position";
+
+"respawn_west" setMarkerPos PMC_starting_position;
 
 // the actual sides (except west as our mission editor placed player is west guy).
 [] execVM "PMC\Create_Sides.sqf";
