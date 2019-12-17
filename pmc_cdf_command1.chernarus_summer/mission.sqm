@@ -8,11 +8,11 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=356;
+		nextID=415;
 	};
 	class MarkerIDProvider
 	{
-		nextID=5;
+		nextID=6;
 	};
 	class Camera
 	{
@@ -92,6 +92,10 @@ class AddonsMetaData
 	};
 };
 randomSeed=2214891;
+class ScenarioData
+{
+	author="PMC Since 1984";
+};
 class Intro
 {
 	class Intel
@@ -114,7 +118,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC CDF Command 1 v0.1.7";
+		briefingName="PMC CDF Command 1 v0.1.8";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -130,7 +134,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=66;
+		items=98;
 		class Item0
 		{
 			dataType="Marker";
@@ -140,7 +144,6 @@ class Mission
 			type="mil_objective";
 			colorName="ColorRed";
 			id=0;
-			atlOffset=-0.00039672852;
 		};
 		class Item1
 		{
@@ -161,7 +164,6 @@ class Mission
 			type="mil_objective";
 			colorName="ColorRed";
 			id=2;
-			atlOffset=0.00067138672;
 		};
 		class Item3
 		{
@@ -200,7 +202,7 @@ class Mission
 			};
 			id=5;
 			type="EmptyDetector";
-			atlOffset=-0.0039672852;
+			atlOffset=-0.00021362305;
 		};
 		class Item6
 		{
@@ -237,6 +239,7 @@ class Mission
 			};
 			id=7;
 			type="EmptyDetector";
+			atlOffset=0.00015258789;
 		};
 		class Item8
 		{
@@ -279,14 +282,14 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=6;
+				items=1;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7012.3076,293.83569,7628.1777};
-						angles[]={6.2605257,0,0};
+						position[]={7012.3081,293.83569,7628.1777};
+						angles[]={6.2605309,0,0};
 					};
 					side="West";
 					flags=6;
@@ -294,107 +297,54 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						description="COMMANDER";
+						description="High Command role, must be a player for mission to work!";
 						isPlayer=1;
 						isPlayable=1;
 					};
 					id=11;
 					type="CUP_B_FR_Soldier_TL";
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
+					class CustomAttributes
 					{
-						position[]={7017.3076,293.63641,7623.2275};
-						angles[]={6.2418756,0,6.2818484};
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male09ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
 					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.46666664;
-						rank="SERGEANT";
-						isPlayable=1;
-					};
-					id=12;
-					type="CUP_B_FR_Soldier_AR";
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={7007.3076,293.64282,7623.2275};
-						angles[]={6.2418771,0,0};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.46666664;
-						rank="SERGEANT";
-						isPlayable=1;
-					};
-					id=13;
-					type="CUP_B_FR_Soldier_GL";
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={7022.3076,293.38287,7618.2275};
-						angles[]={6.2232561,0,6.2791886};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.46666664;
-						rank="SERGEANT";
-						isPlayable=1;
-					};
-					id=14;
-					type="CUP_B_FR_Soldier_Marksman";
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={7002.3076,293.40457,7618.2275};
-						angles[]={6.2245865,0,0};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.46666664;
-						rank="SERGEANT";
-						isPlayable=1;
-					};
-					id=15;
-					type="CUP_B_FR_Saboteur";
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={7027.3076,293.06287,7613.2275};
-						angles[]={6.2232561,0,6.2791886};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-						skill=0.46666664;
-						rank="SERGEANT";
-						isPlayable=1;
-					};
-					id=16;
-					type="CUP_B_FR_Medic";
 				};
 			};
 			class Attributes
@@ -433,7 +383,6 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						isPlayable=1;
 					};
 					id=19;
 					type="CUP_B_CDF_Soldier_TL";
@@ -452,7 +401,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=20;
 					type="CUP_B_CDF_Soldier_MG";
@@ -471,7 +419,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=21;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -490,7 +437,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=22;
 					type="CUP_B_CDF_Soldier_GL";
@@ -509,7 +455,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=23;
 					type="CUP_B_CDF_Soldier";
@@ -528,7 +473,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=24;
 					type="CUP_B_CDF_Soldier_MG";
@@ -546,7 +490,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=25;
 					type="CUP_B_CDF_Soldier_GL";
@@ -564,7 +507,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=26;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -582,7 +524,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=27;
 					type="CUP_B_CDF_Soldier";
@@ -600,7 +541,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=28;
 					type="CUP_B_CDF_Medic";
@@ -642,7 +582,6 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						isPlayable=1;
 					};
 					id=31;
 					type="CUP_B_CDF_Soldier_TL";
@@ -661,7 +600,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=32;
 					type="CUP_B_CDF_Soldier_MG";
@@ -680,7 +618,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=33;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -699,7 +636,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=34;
 					type="CUP_B_CDF_Soldier_GL";
@@ -718,7 +654,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=35;
 					type="CUP_B_CDF_Soldier";
@@ -737,7 +672,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=36;
 					type="CUP_B_CDF_Soldier_MG";
@@ -755,7 +689,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=37;
 					type="CUP_B_CDF_Soldier_GL";
@@ -773,7 +706,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=38;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -791,7 +723,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=39;
 					type="CUP_B_CDF_Soldier";
@@ -809,7 +740,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=40;
 					type="CUP_B_CDF_Medic";
@@ -841,7 +771,6 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						isPlayable=1;
 					};
 					id=42;
 					type="CUP_B_CDF_Soldier_TL";
@@ -860,7 +789,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=43;
 					type="CUP_B_CDF_Soldier_MG";
@@ -879,7 +807,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=44;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -898,7 +825,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=45;
 					type="CUP_B_CDF_Soldier_GL";
@@ -917,7 +843,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=46;
 					type="CUP_B_CDF_Soldier";
@@ -936,7 +861,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=47;
 					type="CUP_B_CDF_Soldier_MG";
@@ -954,7 +878,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=48;
 					type="CUP_B_CDF_Soldier_GL";
@@ -972,7 +895,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=49;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -990,7 +912,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=50;
 					type="CUP_B_CDF_Soldier";
@@ -1008,7 +929,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=51;
 					type="CUP_B_CDF_Medic";
@@ -1040,7 +960,6 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						isPlayable=1;
 					};
 					id=53;
 					type="CUP_B_CDF_Soldier_TL";
@@ -1059,7 +978,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=54;
 					type="CUP_B_CDF_Soldier_MG";
@@ -1078,7 +996,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=55;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1097,7 +1014,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=56;
 					type="CUP_B_CDF_Soldier_GL";
@@ -1116,7 +1032,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=57;
 					type="CUP_B_CDF_Soldier";
@@ -1135,7 +1050,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=58;
 					type="CUP_B_CDF_Soldier_MG";
@@ -1153,7 +1067,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=59;
 					type="CUP_B_CDF_Soldier_GL";
@@ -1171,7 +1084,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=60;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1189,7 +1101,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=61;
 					type="CUP_B_CDF_Soldier";
@@ -1207,7 +1118,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=62;
 					type="CUP_B_CDF_Medic";
@@ -1239,7 +1149,6 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						isPlayable=1;
 					};
 					id=64;
 					type="CUP_B_CDF_Soldier_TL";
@@ -1258,7 +1167,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=65;
 					type="CUP_B_CDF_Soldier_AR";
@@ -1277,7 +1185,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=66;
 					type="CUP_B_CDF_Soldier_MG";
@@ -1296,7 +1203,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=67;
 					type="CUP_B_CDF_Soldier_MG";
@@ -1315,7 +1221,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=68;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1334,7 +1239,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=69;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1352,7 +1256,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=70;
 					type="CUP_B_CDF_Soldier_GL";
@@ -1370,7 +1273,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=71;
 					type="CUP_B_CDF_Soldier_Marksman";
@@ -1402,7 +1304,6 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						isPlayable=1;
 					};
 					id=73;
 					type="CUP_B_CDF_Soldier_TL";
@@ -1421,7 +1322,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=74;
 					type="CUP_B_CDF_Soldier_AR";
@@ -1440,7 +1340,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=75;
 					type="CUP_B_CDF_Soldier_MG";
@@ -1459,7 +1358,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=76;
 					type="CUP_B_CDF_Soldier_MG";
@@ -1478,7 +1376,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=77;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1497,7 +1394,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=78;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1515,7 +1411,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=79;
 					type="CUP_B_CDF_Soldier_GL";
@@ -1533,7 +1428,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=80;
 					type="CUP_B_CDF_Soldier_Marksman";
@@ -1565,7 +1459,6 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						isPlayable=1;
 					};
 					id=82;
 					type="CUP_B_CDF_Soldier_TL";
@@ -1582,7 +1475,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=84;
 					type="CUP_B_CDF_Soldier";
@@ -1601,7 +1493,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=85;
 					type="CUP_B_CDF_Soldier_MG";
@@ -1620,7 +1511,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=86;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1639,7 +1529,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=87;
 					type="CUP_B_CDF_Soldier_GL";
@@ -1658,7 +1547,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=88;
 					type="CUP_B_CDF_Soldier";
@@ -1677,7 +1565,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=89;
 					type="CUP_B_CDF_Soldier_MG";
@@ -1695,7 +1582,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=90;
 					type="CUP_B_CDF_Soldier_GL";
@@ -1713,7 +1599,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=91;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1731,7 +1616,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=92;
 					type="CUP_B_CDF_Soldier";
@@ -1749,7 +1633,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=93;
 					type="CUP_B_CDF_Medic";
@@ -1821,7 +1704,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=95;
 					type="CUP_B_CDF_Soldier_GL";
@@ -1838,7 +1720,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=97;
 					type="CUP_B_CDF_Militia";
@@ -1856,7 +1737,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=98;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -1928,7 +1808,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=100;
 					type="CUP_B_CDF_Soldier_TL";
@@ -1945,7 +1824,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=102;
 					type="CUP_B_CDF_Militia";
@@ -1962,7 +1840,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=103;
 					type="CUP_B_CDF_Militia";
@@ -1979,7 +1856,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=105;
 					type="CUP_B_CDF_Militia";
@@ -1996,7 +1872,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=106;
 					type="CUP_B_CDF_Militia";
@@ -2014,7 +1889,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=107;
 					type="CUP_B_CDF_Soldier_MG";
@@ -2137,7 +2011,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=109;
 					type="CUP_B_CDF_Soldier_TL";
@@ -2154,7 +2027,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=111;
 					type="CUP_B_CDF_Militia";
@@ -2171,7 +2043,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=112;
 					type="CUP_B_CDF_Militia";
@@ -2188,7 +2059,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=114;
 					type="CUP_B_CDF_Militia";
@@ -2205,7 +2075,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=115;
 					type="CUP_B_CDF_Militia";
@@ -2223,7 +2092,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=116;
 					type="CUP_B_CDF_Soldier_MG";
@@ -2346,7 +2214,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=118;
 					type="CUP_B_CDF_Soldier_TL";
@@ -2363,7 +2230,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=120;
 					type="CUP_B_CDF_Soldier";
@@ -2380,7 +2246,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=121;
 					type="CUP_B_CDF_Soldier";
@@ -2397,7 +2262,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=123;
 					type="CUP_B_CDF_Soldier";
@@ -2414,7 +2278,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						isPlayable=1;
 					};
 					id=124;
 					type="CUP_B_CDF_Soldier";
@@ -2432,7 +2295,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=125;
 					type="CUP_B_CDF_Soldier_MG";
@@ -2797,7 +2659,6 @@ class Mission
 					};
 					id=141;
 					type="CUP_O_RU_Soldier_TL";
-					atlOffset=0.0012512207;
 				};
 				class Item1
 				{
@@ -2813,7 +2674,6 @@ class Mission
 					};
 					id=143;
 					type="CUP_O_RU_Soldier";
-					atlOffset=6.1035156e-005;
 				};
 				class Item2
 				{
@@ -2829,7 +2689,6 @@ class Mission
 					};
 					id=144;
 					type="CUP_O_RU_Soldier";
-					atlOffset=6.1035156e-005;
 				};
 				class Item3
 				{
@@ -2845,7 +2704,6 @@ class Mission
 					};
 					id=145;
 					type="CUP_O_RU_Soldier";
-					atlOffset=6.1035156e-005;
 				};
 				class Item4
 				{
@@ -2895,7 +2753,6 @@ class Mission
 					};
 					id=149;
 					type="CUP_O_RU_Soldier_MG";
-					atlOffset=6.1035156e-005;
 				};
 				class Item7
 				{
@@ -2914,7 +2771,6 @@ class Mission
 					};
 					id=150;
 					type="CUP_O_RU_Soldier_AT";
-					atlOffset=6.1035156e-005;
 				};
 				class Item8
 				{
@@ -2933,7 +2789,6 @@ class Mission
 					};
 					id=151;
 					type="CUP_O_RU_Soldier_GL";
-					atlOffset=-0.0026245117;
 				};
 				class Item9
 				{
@@ -2952,7 +2807,6 @@ class Mission
 					};
 					id=152;
 					type="CUP_O_RU_Soldier_Marksman";
-					atlOffset=6.1035156e-005;
 				};
 				class Item10
 				{
@@ -2971,7 +2825,6 @@ class Mission
 					};
 					id=153;
 					type="CUP_O_RU_Soldier_MG";
-					atlOffset=0.00015258789;
 				};
 				class Item11
 				{
@@ -2990,7 +2843,6 @@ class Mission
 					};
 					id=154;
 					type="CUP_O_RU_Soldier_AR";
-					atlOffset=9.1552734e-005;
 				};
 				class Item12
 				{
@@ -3008,7 +2860,6 @@ class Mission
 					};
 					id=155;
 					type="CUP_O_RU_Soldier_LAT";
-					atlOffset=0.001953125;
 				};
 				class Item13
 				{
@@ -3026,7 +2877,6 @@ class Mission
 					};
 					id=156;
 					type="CUP_O_RU_Soldier";
-					atlOffset=9.1552734e-005;
 				};
 				class Item14
 				{
@@ -3044,7 +2894,6 @@ class Mission
 					};
 					id=157;
 					type="CUP_O_RU_Soldier";
-					atlOffset=0.00064086914;
 				};
 				class Item15
 				{
@@ -3062,7 +2911,6 @@ class Mission
 					};
 					id=158;
 					type="CUP_O_RU_Soldier";
-					atlOffset=6.1035156e-005;
 				};
 				class Item16
 				{
@@ -3079,7 +2927,6 @@ class Mission
 					};
 					showWP="NEVER";
 					id=159;
-					atlOffset=-0.00024414063;
 				};
 			};
 			class Attributes
@@ -3150,7 +2997,6 @@ class Mission
 				};
 			};
 			id=140;
-			atlOffset=0.0012512207;
 		};
 		class Item34
 		{
@@ -3167,7 +3013,7 @@ class Mission
 			};
 			id=142;
 			type="CUP_O_GAZ_Vodnik_PK_RU";
-			atlOffset=1.0722961;
+			atlOffset=1.0702515;
 		};
 		class Item35
 		{
@@ -3374,7 +3220,6 @@ class Mission
 					};
 					id=169;
 					type="CUP_O_RU_Soldier_SL";
-					atlOffset=0.0002746582;
 				};
 				class Item1
 				{
@@ -3393,7 +3238,6 @@ class Mission
 					};
 					id=170;
 					type="CUP_O_RU_Soldier_MG";
-					atlOffset=0.00094604492;
 				};
 				class Item2
 				{
@@ -3412,7 +3256,6 @@ class Mission
 					};
 					id=171;
 					type="CUP_O_RU_Soldier_AT";
-					atlOffset=-0.0011291504;
 				};
 				class Item3
 				{
@@ -3431,7 +3274,6 @@ class Mission
 					};
 					id=172;
 					type="CUP_O_RU_Soldier_LAT";
-					atlOffset=0.0035400391;
 				};
 				class Item4
 				{
@@ -3450,7 +3292,6 @@ class Mission
 					};
 					id=173;
 					type="CUP_O_RU_Soldier_GL";
-					atlOffset=0.0048217773;
 				};
 				class Item5
 				{
@@ -3469,7 +3310,6 @@ class Mission
 					};
 					id=174;
 					type="CUP_O_RU_Soldier_Marksman";
-					atlOffset=0.0032958984;
 				};
 				class Item6
 				{
@@ -3488,7 +3328,6 @@ class Mission
 					};
 					id=175;
 					type="CUP_O_RU_Soldier_MG";
-					atlOffset=-0.0007019043;
 				};
 				class Item7
 				{
@@ -3507,7 +3346,6 @@ class Mission
 					};
 					id=176;
 					type="CUP_O_RU_Soldier_AT";
-					atlOffset=-0.00054931641;
 				};
 				class Item8
 				{
@@ -3525,7 +3363,6 @@ class Mission
 					};
 					id=177;
 					type="CUP_O_RU_Soldier_AR";
-					atlOffset=-0.00082397461;
 				};
 				class Item9
 				{
@@ -3543,7 +3380,6 @@ class Mission
 					};
 					id=178;
 					type="CUP_O_RU_Soldier_LAT";
-					atlOffset=0.0033569336;
 				};
 				class Item10
 				{
@@ -3561,7 +3397,6 @@ class Mission
 					};
 					id=179;
 					type="CUP_O_RU_Soldier_GL";
-					atlOffset=0.0013427734;
 				};
 				class Item11
 				{
@@ -3579,7 +3414,6 @@ class Mission
 					};
 					id=180;
 					type="CUP_O_RU_Soldier";
-					atlOffset=0.0034179688;
 				};
 				class Item12
 				{
@@ -3596,14 +3430,12 @@ class Mission
 					};
 					showWP="NEVER";
 					id=181;
-					atlOffset=0.00042724609;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=168;
-			atlOffset=0.0002746582;
 		};
 		class Item39
 		{
@@ -3629,7 +3461,6 @@ class Mission
 					};
 					id=183;
 					type="CUP_O_RU_Soldier_TL";
-					atlOffset=-0.00039672852;
 				};
 				class Item1
 				{
@@ -3646,7 +3477,6 @@ class Mission
 					};
 					id=185;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0016784668;
 				};
 				class Item2
 				{
@@ -3663,7 +3493,6 @@ class Mission
 					};
 					id=186;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0016784668;
 				};
 				class Item3
 				{
@@ -3680,7 +3509,6 @@ class Mission
 					};
 					id=187;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0016784668;
 				};
 				class Item4
 				{
@@ -3697,7 +3525,6 @@ class Mission
 					};
 					id=189;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0009765625;
 				};
 				class Item5
 				{
@@ -3714,7 +3541,6 @@ class Mission
 					};
 					id=190;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0009765625;
 				};
 				class Item6
 				{
@@ -3733,7 +3559,6 @@ class Mission
 					};
 					id=191;
 					type="CUP_O_RU_Soldier_MG";
-					atlOffset=-0.0018310547;
 				};
 				class Item7
 				{
@@ -3752,7 +3577,6 @@ class Mission
 					};
 					id=192;
 					type="CUP_O_RU_Soldier_AT";
-					atlOffset=0.0020141602;
 				};
 				class Item8
 				{
@@ -3771,7 +3595,6 @@ class Mission
 					};
 					id=193;
 					type="CUP_O_RU_Soldier_GL";
-					atlOffset=0.0028991699;
 				};
 				class Item9
 				{
@@ -3790,7 +3613,6 @@ class Mission
 					};
 					id=194;
 					type="CUP_O_RU_Soldier_Marksman";
-					atlOffset=-0.002746582;
 				};
 				class Item10
 				{
@@ -3809,7 +3631,6 @@ class Mission
 					};
 					id=195;
 					type="CUP_O_RU_Soldier_MG";
-					atlOffset=0.00042724609;
 				};
 				class Item11
 				{
@@ -3828,7 +3649,6 @@ class Mission
 					};
 					id=196;
 					type="CUP_O_RU_Soldier_AR";
-					atlOffset=-0.0021057129;
 				};
 				class Item12
 				{
@@ -3846,7 +3666,6 @@ class Mission
 					};
 					id=197;
 					type="CUP_O_RU_Soldier_LAT";
-					atlOffset=-0.0030517578;
 				};
 				class Item13
 				{
@@ -3864,7 +3683,6 @@ class Mission
 					};
 					id=198;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0014648438;
 				};
 				class Item14
 				{
@@ -3882,7 +3700,6 @@ class Mission
 					};
 					id=199;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0028991699;
 				};
 				class Item15
 				{
@@ -3900,7 +3717,6 @@ class Mission
 					};
 					id=200;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0018005371;
 				};
 				class Item16
 				{
@@ -3917,7 +3733,6 @@ class Mission
 					};
 					showWP="NEVER";
 					id=201;
-					atlOffset=-0.0035095215;
 				};
 			};
 			class Attributes
@@ -3988,7 +3803,6 @@ class Mission
 				};
 			};
 			id=182;
-			atlOffset=-0.00039672852;
 		};
 		class Item40
 		{
@@ -4007,7 +3821,7 @@ class Mission
 			};
 			id=184;
 			type="CUP_O_GAZ_Vodnik_PK_RU";
-			atlOffset=-0.0029602051;
+			atlOffset=-0.0013122559;
 		};
 		class Item41
 		{
@@ -4026,7 +3840,7 @@ class Mission
 			};
 			id=188;
 			type="CUP_O_GAZ_Vodnik_BPPU_RU";
-			atlOffset=-0.001953125;
+			atlOffset=-0.00091552734;
 		};
 		class Item42
 		{
@@ -4052,7 +3866,6 @@ class Mission
 					};
 					id=203;
 					type="CUP_O_RU_Soldier_TL";
-					atlOffset=-0.0014038086;
 				};
 				class Item1
 				{
@@ -4069,7 +3882,6 @@ class Mission
 					};
 					id=205;
 					type="CUP_O_RU_Soldier";
-					atlOffset=0.0038146973;
 				};
 				class Item2
 				{
@@ -4086,7 +3898,6 @@ class Mission
 					};
 					id=206;
 					type="CUP_O_RU_Soldier";
-					atlOffset=0.0038146973;
 				};
 				class Item3
 				{
@@ -4104,7 +3915,6 @@ class Mission
 					};
 					id=207;
 					type="CUP_O_RU_Soldier_AR";
-					atlOffset=-0.0013122559;
 				};
 				class Item4
 				{
@@ -4122,7 +3932,6 @@ class Mission
 					};
 					id=208;
 					type="CUP_O_RU_Soldier_AT";
-					atlOffset=-0.0023498535;
 				};
 				class Item5
 				{
@@ -4139,7 +3948,6 @@ class Mission
 					};
 					showWP="NEVER";
 					id=209;
-					atlOffset=0.0028686523;
 				};
 			};
 			class Attributes
@@ -4178,7 +3986,6 @@ class Mission
 				};
 			};
 			id=202;
-			atlOffset=-0.0014038086;
 		};
 		class Item43
 		{
@@ -4197,7 +4004,7 @@ class Mission
 			};
 			id=204;
 			type="CUP_O_GAZ_Vodnik_BPPU_RU";
-			atlOffset=0.0040893555;
+			atlOffset=0.00033569336;
 		};
 		class Item44
 		{
@@ -4996,7 +4803,6 @@ class Mission
 					};
 					id=253;
 					type="CUP_O_RU_Soldier_SL";
-					atlOffset=-0.0021362305;
 				};
 				class Item1
 				{
@@ -5015,7 +4821,6 @@ class Mission
 					};
 					id=254;
 					type="CUP_O_RU_Soldier_MG";
-					atlOffset=-0.0014343262;
 				};
 				class Item2
 				{
@@ -5034,7 +4839,7 @@ class Mission
 					};
 					id=255;
 					type="CUP_O_RU_Soldier_AT";
-					atlOffset=0.00088500977;
+					atlOffset=-0.011016846;
 				};
 				class Item3
 				{
@@ -5053,7 +4858,6 @@ class Mission
 					};
 					id=256;
 					type="CUP_O_RU_Soldier_LAT";
-					atlOffset=0.0014343262;
 				};
 				class Item4
 				{
@@ -5072,7 +4876,7 @@ class Mission
 					};
 					id=257;
 					type="CUP_O_RU_Soldier_GL";
-					atlOffset=-0.00039672852;
+					atlOffset=-0.010192871;
 				};
 				class Item5
 				{
@@ -5091,7 +4895,6 @@ class Mission
 					};
 					id=258;
 					type="CUP_O_RU_Soldier_Marksman";
-					atlOffset=0.00051879883;
 				};
 				class Item6
 				{
@@ -5110,7 +4913,7 @@ class Mission
 					};
 					id=259;
 					type="CUP_O_RU_Soldier_MG";
-					atlOffset=-0.0020446777;
+					atlOffset=-0.0031433105;
 				};
 				class Item7
 				{
@@ -5129,7 +4932,6 @@ class Mission
 					};
 					id=260;
 					type="CUP_O_RU_Soldier_AT";
-					atlOffset=0.00039672852;
 				};
 				class Item8
 				{
@@ -5147,7 +4949,7 @@ class Mission
 					};
 					id=261;
 					type="CUP_O_RU_Soldier_AR";
-					atlOffset=0.038635254;
+					atlOffset=-0.014282227;
 				};
 				class Item9
 				{
@@ -5165,7 +4967,6 @@ class Mission
 					};
 					id=262;
 					type="CUP_O_RU_Soldier_LAT";
-					atlOffset=0.0014648438;
 				};
 				class Item10
 				{
@@ -5183,7 +4984,6 @@ class Mission
 					};
 					id=263;
 					type="CUP_O_RU_Soldier_GL";
-					atlOffset=0.031494141;
 				};
 				class Item11
 				{
@@ -5201,7 +5001,6 @@ class Mission
 					};
 					id=264;
 					type="CUP_O_RU_Soldier";
-					atlOffset=0.00033569336;
 				};
 				class Item12
 				{
@@ -5218,14 +5017,12 @@ class Mission
 					};
 					showWP="NEVER";
 					id=265;
-					atlOffset=-0.00064086914;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=252;
-			atlOffset=-0.0021362305;
 		};
 		class Item51
 		{
@@ -5267,7 +5064,6 @@ class Mission
 					};
 					id=269;
 					type="CUP_O_RU_Soldier";
-					atlOffset=0.001953125;
 				};
 				class Item2
 				{
@@ -5284,7 +5080,6 @@ class Mission
 					};
 					id=270;
 					type="CUP_O_RU_Soldier";
-					atlOffset=0.001953125;
 				};
 				class Item3
 				{
@@ -5301,7 +5096,6 @@ class Mission
 					};
 					id=271;
 					type="CUP_O_RU_Soldier";
-					atlOffset=0.001953125;
 				};
 				class Item4
 				{
@@ -5318,7 +5112,6 @@ class Mission
 					};
 					id=273;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0012207031;
 				};
 				class Item5
 				{
@@ -5335,7 +5128,6 @@ class Mission
 					};
 					id=274;
 					type="CUP_O_RU_Soldier";
-					atlOffset=-0.0012207031;
 				};
 				class Item6
 				{
@@ -5372,7 +5164,6 @@ class Mission
 					};
 					id=276;
 					type="CUP_O_RU_Soldier_AT";
-					atlOffset=0.00088500977;
 				};
 				class Item8
 				{
@@ -5617,7 +5408,7 @@ class Mission
 			};
 			id=268;
 			type="CUP_O_GAZ_Vodnik_PK_RU";
-			atlOffset=0.0002746582;
+			atlOffset=-0.0017089844;
 		};
 		class Item53
 		{
@@ -5636,7 +5427,7 @@ class Mission
 			};
 			id=272;
 			type="CUP_O_GAZ_Vodnik_BPPU_RU";
-			atlOffset=-0.0050354004;
+			atlOffset=-0.0037536621;
 		};
 		class Item54
 		{
@@ -6595,7 +6386,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=337;
 					type="CUP_B_CDF_Soldier_TL";
@@ -6614,7 +6404,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=338;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -6633,7 +6422,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=339;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -6651,7 +6439,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=340;
 					type="CUP_B_CDF_Soldier_AR";
@@ -6683,7 +6470,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=342;
 					type="CUP_B_CDF_Soldier_TL";
@@ -6702,7 +6488,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=343;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -6721,7 +6506,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=344;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -6739,7 +6523,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=345;
 					type="CUP_B_CDF_Soldier_AR";
@@ -6771,7 +6554,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=347;
 					type="CUP_B_CDF_Soldier_TL";
@@ -6790,7 +6572,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=348;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -6809,7 +6590,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=349;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -6827,7 +6607,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=350;
 					type="CUP_B_CDF_Soldier_AR";
@@ -6859,7 +6638,6 @@ class Mission
 					{
 						skill=0.46666664;
 						rank="SERGEANT";
-						isPlayable=1;
 					};
 					id=352;
 					type="CUP_B_CDF_Soldier_TL";
@@ -6878,7 +6656,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=353;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -6897,7 +6674,6 @@ class Mission
 					{
 						skill=0.33333331;
 						rank="CORPORAL";
-						isPlayable=1;
 					};
 					id=354;
 					type="CUP_B_CDF_Soldier_LAT";
@@ -6915,7 +6691,6 @@ class Mission
 					class Attributes
 					{
 						skill=0.2;
-						isPlayable=1;
 					};
 					id=355;
 					type="CUP_B_CDF_Soldier_AR";
@@ -6925,6 +6700,962 @@ class Mission
 			{
 			};
 			id=351;
+		};
+		class Item66
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7017.3076,293.63641,7623.2275};
+						angles[]={6.2418756,0,6.2818484};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=12;
+					type="CUP_B_FR_Soldier_AR";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=356;
+		};
+		class Item67
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7007.3076,293.64282,7623.2275};
+						angles[]={6.2418771,0,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=13;
+					type="CUP_B_FR_Soldier_GL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=357;
+		};
+		class Item68
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7022.3076,293.38287,7618.2275};
+						angles[]={6.2232561,0,6.2791886};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=14;
+					type="CUP_B_FR_Soldier_Marksman";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=358;
+		};
+		class Item69
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7002.3076,293.40457,7618.2275};
+						angles[]={6.2245865,0,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=15;
+					type="CUP_B_FR_Saboteur";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=359;
+		};
+		class Item70
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7027.3076,293.06287,7613.2275};
+						angles[]={6.2232561,0,6.2791886};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.46666664;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=16;
+					type="CUP_B_FR_Medic";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=360;
+		};
+		class Item71
+		{
+			dataType="Marker";
+			position[]={7001.9912,293.02899,7611.9048};
+			name="respawn_west";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=25;
+			b=25;
+			id=361;
+			atlOffset=0.00021362305;
+		};
+		class Item72
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7018.7183,292.98715,7611.3564};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						skill=0.55000001;
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=363;
+					type="CUP_B_FR_Soldier_TL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=369;
+		};
+		class Item73
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7021.7183,292.62463,7606.3564};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=364;
+					type="CUP_B_FR_Soldier_AR";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=370;
+		};
+		class Item74
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7023.7183,292.61395,7606.3564};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=365;
+					type="CUP_B_FR_Soldier_GL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=371;
+		};
+		class Item75
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7025.7183,292.60327,7606.3564};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=366;
+					type="CUP_B_FR_Soldier_Marksman";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=372;
+		};
+		class Item76
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7027.7183,292.59,7606.3564};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=367;
+					type="CUP_B_FR_Saboteur";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=373;
+		};
+		class Item77
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7029.7183,292.57132,7606.3564};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=368;
+					type="CUP_B_FR_Medic";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=374;
+		};
+		class Item78
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7004.061,293.23004,7615.2529};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						skill=0.55000001;
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=376;
+					type="CUP_B_FR_Soldier_TL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=375;
+		};
+		class Item79
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7007.061,292.9122,7610.2529};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=378;
+					type="CUP_B_FR_Soldier_AR";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=377;
+		};
+		class Item80
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7009.061,292.9122,7610.2529};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=380;
+					type="CUP_B_FR_Soldier_GL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=379;
+		};
+		class Item81
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7011.061,292.9122,7610.2529};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=382;
+					type="CUP_B_FR_Soldier_Marksman";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=381;
+		};
+		class Item82
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7013.061,292.91147,7610.2529};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=384;
+					type="CUP_B_FR_Saboteur";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=383;
+		};
+		class Item83
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7015.061,292.90915,7610.2529};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=386;
+					type="CUP_B_FR_Medic";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=385;
+		};
+		class Item84
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6996.2998,292.91113,7610.3638};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						skill=0.55000001;
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=388;
+					type="CUP_B_FR_Soldier_TL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=387;
+		};
+		class Item85
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6999.2998,292.5517,7605.3638};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=390;
+					type="CUP_B_FR_Soldier_AR";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=389;
+		};
+		class Item86
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7001.2998,292.55969,7605.3638};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=392;
+					type="CUP_B_FR_Soldier_GL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=391;
+		};
+		class Item87
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7003.2998,292.56769,7605.3638};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=394;
+					type="CUP_B_FR_Soldier_Marksman";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=393;
+		};
+		class Item88
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7005.2998,292.57324,7605.3638};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=396;
+					type="CUP_B_FR_Saboteur";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=395;
+		};
+		class Item89
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7007.2998,292.57324,7605.3638};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=398;
+					type="CUP_B_FR_Medic";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=397;
+		};
+		class Item90
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7008.1538,292.32669,7602.2861};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						skill=0.55000001;
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=400;
+					type="CUP_B_FR_Soldier_TL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=399;
+		};
+		class Item91
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7011.1538,291.91577,7597.2861};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=402;
+					type="CUP_B_FR_Soldier_AR";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=401;
+		};
+		class Item92
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7013.1538,291.91617,7597.2861};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=404;
+					type="CUP_B_FR_Soldier_GL";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=403;
+		};
+		class Item93
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7015.1538,291.91083,7597.2861};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=406;
+					type="CUP_B_FR_Soldier_Marksman";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=405;
+		};
+		class Item94
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7017.1538,291.90552,7597.2861};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=408;
+					type="CUP_B_FR_Saboteur";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=407;
+		};
+		class Item95
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7019.1538,291.90018,7597.2861};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=410;
+					type="CUP_B_FR_Medic";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=409;
+		};
+		class Item96
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7015.1035,293.35345,7617.3564};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=412;
+					type="CUP_B_FR_Medic";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=411;
+		};
+		class Item97
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7012.3926,293.34412,7617.1973};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=414;
+					type="CUP_B_FR_Medic";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=413;
 		};
 	};
 	class Connections
