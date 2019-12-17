@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=130;
+		nextID=219;
 	};
 	class MarkerIDProvider
 	{
-		nextID=2;
+		nextID=3;
 	};
 	class Camera
 	{
-		pos[]={7067.062,153.2272,1918.6553};
+		pos[]={7074.4966,143.85245,1897.2588};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,0};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -116,7 +116,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Ninjas v0.1.3";
+		briefingName="PMC Ninjas v0.1.4";
 		startWind=0.1;
 		forecastWeather=1;
 		forecastWind=0.1;
@@ -128,7 +128,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=50;
+		items=65;
 		class Item0
 		{
 			dataType="Marker";
@@ -187,12 +187,12 @@ class Mission
 		class Item4
 		{
 			dataType="Trigger";
-			position[]={7191.7798,123.975,2326.7085};
+			position[]={7191.7798,123.97523,2326.708};
 			class Attributes
 			{
 				text="END";
-				condition="mcomplete";
-				onActivation="[] execVM ""movie.sqf"";";
+				condition="call{mcomplete}";
+				onActivation="call{0 = [] execVM ""movie.sqf"";}";
 				sizeA=0;
 				sizeB=0;
 				timeout[]={0,15,25};
@@ -200,7 +200,7 @@ class Mission
 			};
 			id=4;
 			type="EmptyDetector";
-			atlOffset=-0.027236938;
+			atlOffset=-0.027000427;
 		};
 		class Item5
 		{
@@ -1568,79 +1568,15 @@ class Mission
 		};
 		class Item26
 		{
-			dataType="Group";
-			side="West";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={7067.062,128.22855,1943.7051};
-						angles[]={5.8966646,0,6.2492037};
-					};
-					side="West";
-					flags=6;
-					class Attributes
-					{
-						skill=1;
-						rank="LIEUTENANT";
-						init="seals=group this; this addweapon ""binocular"";";
-						isPlayer=1;
-						isPlayable=1;
-					};
-					id=82;
-					type="CUP_B_US_SpecOps_SD";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male10ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1.04;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-			};
-			class Attributes
-			{
-			};
-			id=86;
+			dataType="Marker";
+			position[]={7071.813,128.198,1944.485};
+			name="respawn_west";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=25;
+			b=25;
+			id=130;
+			atlOffset=-0.00022888184;
 		};
 		class Item27
 		{
@@ -1654,20 +1590,19 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7072.062,126.04391,1938.755};
-						angles[]={5.8966646,0,6.2492037};
+						position[]={7071.9702,126.80637,1940.627};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="CORPORAL";
-						init="this addweapon ""binocular""";
-						isPlayable=1;
+						rank="SERGEANT";
+						init="call{seals=group this;}";
+						isPlayer=1;
 					};
-					id=83;
-					type="CUP_B_US_SpecOps_SD";
+					id=136;
+					type="CUP_B_US_SpecOps_TL";
+					atlOffset=-7.6293945e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1685,7 +1620,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male04ENG";
+									value="Male12ENG";
 								};
 							};
 						};
@@ -1715,7 +1650,8 @@ class Mission
 			class Attributes
 			{
 			};
-			id=87;
+			id=135;
+			atlOffset=-7.6293945e-006;
 		};
 		class Item28
 		{
@@ -1729,20 +1665,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7062.062,126.35236,1938.755};
-						angles[]={5.8966646,0,0.037978366};
+						position[]={7067.0601,126.05165,1938.3561};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="SERGEANT";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=84;
-					type="CUP_B_US_SpecOps_SD";
+					id=144;
+					type="CUP_B_US_SpecOps_Night";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1760,7 +1692,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male09ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -1779,7 +1711,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=1;
 								};
 							};
 						};
@@ -1790,7 +1722,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=88;
+			id=143;
 		};
 		class Item29
 		{
@@ -1804,18 +1736,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7077.062,123.57907,1933.755};
-						angles[]={5.8703623,0,6.1805425};
+						position[]={7070.5483,125.74597,1937.8965};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=85;
+					id=146;
 					type="CUP_B_US_SpecOps_SD";
 					class CustomAttributes
 					{
@@ -1834,7 +1763,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male03ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -1853,7 +1782,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.94999999;
 								};
 							};
 						};
@@ -1864,7 +1793,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=89;
+			id=145;
 		};
 		class Item30
 		{
@@ -1878,20 +1807,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7083.9829,126.75846,1945.2458};
-						angles[]={5.9270577,0,6.1372352};
+						position[]={7073.1177,125.63991,1937.8506};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="LIEUTENANT";
-						init="seals=group this; this addweapon ""binocular"";";
 						isPlayable=1;
 					};
-					id=91;
-					type="CUP_B_US_SpecOps_SD";
+					id=147;
+					type="CUP_B_US_SpecOps_Assault";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1909,7 +1834,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male10ENG";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -1928,7 +1853,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.99000001;
 								};
 							};
 						};
@@ -1939,7 +1864,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=90;
+			id=148;
 		};
 		class Item31
 		{
@@ -1953,20 +1878,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7088.9829,124.1614,1940.2958};
-						angles[]={5.9270577,0,6.1235604};
+						position[]={7076.606,125.24443,1937.7125};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="CORPORAL";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=93;
-					type="CUP_B_US_SpecOps_SD";
+					id=152;
+					type="CUP_B_US_SpecOps_Medic";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1984,7 +1905,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male04ENG";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -2003,7 +1924,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.98000002;
+									value=1;
 								};
 							};
 						};
@@ -2014,7 +1935,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=92;
+			id=151;
 		};
 		class Item32
 		{
@@ -2028,20 +1949,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7078.9829,125.76175,1940.2958};
-						angles[]={5.94385,0,6.1186905};
+						position[]={7065.3335,129.49184,1946.6648};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
 						rank="SERGEANT";
-						init="this addweapon ""binocular""";
-						isPlayable=1;
+						init="call{seals=group this;}";
 					};
-					id=95;
-					type="CUP_B_US_SpecOps_SD";
+					id=154;
+					type="CUP_B_US_SpecOps_TL";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2059,7 +1977,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male09ENG";
+									value="Male12ENG";
 								};
 							};
 						};
@@ -2078,7 +1996,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.98000002;
 								};
 							};
 						};
@@ -2089,7 +2007,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=94;
+			id=153;
 		};
 		class Item33
 		{
@@ -2103,19 +2021,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7093.9829,121.45815,1935.2958};
-						angles[]={5.9122081,0,6.1235604};
+						position[]={7060.4233,128.58504,1944.3939};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=97;
-					type="CUP_B_US_SpecOps_SD";
+					id=156;
+					type="CUP_B_US_SpecOps_Night";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2133,7 +2048,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male03ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -2152,7 +2067,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=1;
 								};
 							};
 						};
@@ -2163,7 +2078,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=96;
+			id=155;
 		};
 		class Item34
 		{
@@ -2177,19 +2092,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7050.3472,128.07761,1943.3193};
-						angles[]={5.9394107,0,6.272191};
+						position[]={7063.9116,128.42896,1943.9343};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="LIEUTENANT";
-						init="seals=group this; this addweapon ""binocular"";";
 						isPlayable=1;
 					};
-					id=99;
+					id=158;
 					type="CUP_B_US_SpecOps_SD";
 					class CustomAttributes
 					{
@@ -2208,7 +2119,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male10ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -2227,7 +2138,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.94999999;
 								};
 							};
 						};
@@ -2238,7 +2149,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=98;
+			id=157;
 		};
 		class Item35
 		{
@@ -2252,20 +2163,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7055.3472,126.25058,1938.3693};
-						angles[]={5.9394107,0,6.272191};
+						position[]={7066.481,128.32289,1943.8884};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="CORPORAL";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=101;
-					type="CUP_B_US_SpecOps_SD";
+					id=160;
+					type="CUP_B_US_SpecOps_Assault";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2283,7 +2190,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male04ENG";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -2302,7 +2209,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.98000002;
+									value=0.99000001;
 								};
 							};
 						};
@@ -2313,7 +2220,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=100;
+			id=159;
 		};
 		class Item36
 		{
@@ -2327,21 +2234,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7045.3472,125.9249,1938.3693};
-						angles[]={5.9104724,0,0.091738746};
+						position[]={7069.9692,128.08495,1943.7504};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="SERGEANT";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=103;
-					type="CUP_B_US_SpecOps_SD";
-					atlOffset=0.016548157;
+					id=162;
+					type="CUP_B_US_SpecOps_Medic";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2359,7 +2261,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male09ENG";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -2378,7 +2280,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=1;
 								};
 							};
 						};
@@ -2389,8 +2291,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=102;
-			atlOffset=0.016548157;
+			id=161;
 		};
 		class Item37
 		{
@@ -2404,20 +2305,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7060.3472,124.28436,1933.3693};
-						angles[]={5.9139466,0,6.272191};
+						position[]={7078.437,127.9548,1946.2521};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						init="this addweapon ""binocular""";
-						isPlayable=1;
+						rank="SERGEANT";
+						init="call{seals=group this;}";
 					};
-					id=105;
-					type="CUP_B_US_SpecOps_SD";
-					atlOffset=-7.6293945e-006;
+					id=164;
+					type="CUP_B_US_SpecOps_TL";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2435,7 +2333,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male03ENG";
+									value="Male12ENG";
 								};
 							};
 						};
@@ -2454,7 +2352,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.98000002;
 								};
 							};
 						};
@@ -2465,8 +2363,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=104;
-			atlOffset=-7.6293945e-006;
+			id=163;
 		};
 		class Item38
 		{
@@ -2480,20 +2377,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7068.2021,124.54462,1934.9469};
-						angles[]={5.8703671,0,6.2491999};
+						position[]={7073.5269,127.85343,1943.9812};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="LIEUTENANT";
-						init="seals=group this; this addweapon ""binocular"";";
 						isPlayable=1;
 					};
-					id=107;
-					type="CUP_B_US_SpecOps_SD";
+					id=166;
+					type="CUP_B_US_SpecOps_Night";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2511,7 +2404,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male10ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -2530,7 +2423,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=1;
 								};
 							};
 						};
@@ -2541,7 +2434,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=106;
+			id=165;
 		};
 		class Item39
 		{
@@ -2555,21 +2448,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7073.2021,122.20663,1929.9968};
-						angles[]={5.8703671,0,6.2491999};
+						position[]={7077.0151,127.22707,1943.5216};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="CORPORAL";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=109;
+					id=168;
 					type="CUP_B_US_SpecOps_SD";
-					atlOffset=8.392334e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2587,7 +2475,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male04ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -2606,7 +2494,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.98000002;
+									value=0.94999999;
 								};
 							};
 						};
@@ -2617,8 +2505,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=108;
-			atlOffset=8.392334e-005;
+			id=167;
 		};
 		class Item40
 		{
@@ -2632,20 +2519,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7063.2021,122.89594,1929.9968};
-						angles[]={5.9139466,0,6.1983914};
+						position[]={7079.5845,126.78431,1943.4757};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="SERGEANT";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=111;
-					type="CUP_B_US_SpecOps_SD";
+					id=170;
+					type="CUP_B_US_SpecOps_Assault";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2663,7 +2546,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male09ENG";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -2682,7 +2565,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.99000001;
 								};
 							};
 						};
@@ -2693,7 +2576,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=110;
+			id=169;
 		};
 		class Item41
 		{
@@ -2707,19 +2590,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7078.2021,119.6231,1924.9968};
-						angles[]={5.8300042,0,6.1805501};
+						position[]={7083.0728,126.18239,1943.3376};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=113;
-					type="CUP_B_US_SpecOps_SD";
+					id=172;
+					type="CUP_B_US_SpecOps_Medic";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2737,7 +2617,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male03ENG";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -2756,7 +2636,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=1;
 								};
 							};
 						};
@@ -2767,7 +2647,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=112;
+			id=171;
 		};
 		class Item42
 		{
@@ -2781,21 +2661,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7085.123,123.37495,1936.4877};
-						angles[]={5.9244251,0,6.1186905};
+						position[]={7068.041,124.6988,1935.2864};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="LIEUTENANT";
-						init="seals=group this; this addweapon ""binocular"";";
-						isPlayable=1;
+						rank="SERGEANT";
+						init="call{seals=group this;}";
 					};
-					id=115;
-					type="CUP_B_US_SpecOps_SD";
-					atlOffset=-7.6293945e-006;
+					id=174;
+					type="CUP_B_US_SpecOps_TL";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2813,7 +2689,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male10ENG";
+									value="Male12ENG";
 								};
 							};
 						};
@@ -2832,7 +2708,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.98000002;
 								};
 							};
 						};
@@ -2843,8 +2719,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=114;
-			atlOffset=-7.6293945e-006;
+			id=173;
 		};
 		class Item43
 		{
@@ -2858,20 +2733,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7090.123,120.66508,1931.5376};
-						angles[]={5.9244251,0,6.1099448};
+						position[]={7063.1309,124.07021,1933.0155};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="CORPORAL";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=117;
-					type="CUP_B_US_SpecOps_SD";
+					id=176;
+					type="CUP_B_US_SpecOps_Night";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2889,7 +2760,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male04ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -2908,7 +2779,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=0.98000002;
+									value=1;
 								};
 							};
 						};
@@ -2919,7 +2790,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=116;
+			id=175;
 		};
 		class Item44
 		{
@@ -2933,19 +2804,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7080.123,122.29258,1931.5376};
-						angles[]={5.8703671,0,6.1805511};
+						position[]={7066.6191,123.59583,1932.5559};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="SERGEANT";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=119;
+					id=178;
 					type="CUP_B_US_SpecOps_SD";
 					class CustomAttributes
 					{
@@ -2964,7 +2831,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male09ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -2983,7 +2850,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.94999999;
 								};
 							};
 						};
@@ -2994,7 +2861,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=118;
+			id=177;
 		};
 		class Item45
 		{
@@ -3008,19 +2875,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7095.123,117.91527,1926.5376};
-						angles[]={5.9244251,0,6.1099448};
+						position[]={7069.1885,123.4437,1932.51};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=121;
-					type="CUP_B_US_SpecOps_SD";
+					id=180;
+					type="CUP_B_US_SpecOps_Assault";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3038,7 +2902,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male03ENG";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -3057,7 +2921,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.99000001;
 								};
 							};
 						};
@@ -3068,7 +2932,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=120;
+			id=179;
 		};
 		class Item46
 		{
@@ -3082,21 +2946,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7051.4873,124.74594,1934.5612};
-						angles[]={5.8381186,0,0.078833602};
+						position[]={7072.6768,123.26472,1932.3719};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="LIEUTENANT";
-						init="seals=group this; this addweapon ""binocular"";";
 						isPlayable=1;
 					};
-					id=123;
-					type="CUP_B_US_SpecOps_SD";
-					atlOffset=0.038047791;
+					id=182;
+					type="CUP_B_US_SpecOps_Medic";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3114,7 +2973,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male10ENG";
+									value="Male01ENG";
 								};
 							};
 						};
@@ -3133,7 +2992,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=1;
 								};
 							};
 						};
@@ -3144,8 +3003,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=122;
-			atlOffset=0.038047791;
+			id=181;
 		};
 		class Item47
 		{
@@ -3159,21 +3017,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7056.4873,122.77987,1929.6111};
-						angles[]={5.8381186,0,0.078833602};
+						position[]={7080.4565,123.72472,1935.355};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="CORPORAL";
-						init="this addweapon ""binocular""";
-						isPlayable=1;
+						rank="SERGEANT";
+						init="call{seals=group this;}";
 					};
-					id=125;
-					type="CUP_B_US_SpecOps_SD";
-					atlOffset=0.038017273;
+					id=184;
+					type="CUP_B_US_SpecOps_TL";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3191,7 +3045,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male04ENG";
+									value="Male12ENG";
 								};
 							};
 						};
@@ -3221,8 +3075,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=124;
-			atlOffset=0.038017273;
+			id=183;
 		};
 		class Item48
 		{
@@ -3236,21 +3089,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7046.4873,121.96404,1929.6111};
-						angles[]={5.8381186,0,0.091738746};
+						position[]={7075.5464,123.44131,1933.0841};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						rank="SERGEANT";
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=127;
-					type="CUP_B_US_SpecOps_SD";
-					atlOffset=0.057815552;
+					id=186;
+					type="CUP_B_US_SpecOps_Night";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3268,7 +3116,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male09ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -3287,7 +3135,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=1;
 								};
 							};
 						};
@@ -3298,8 +3146,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=126;
-			atlOffset=0.057815552;
+			id=185;
 		};
 		class Item49
 		{
@@ -3313,20 +3160,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7061.4873,120.77285,1924.6111};
-						angles[]={5.8013201,0,0.078833602};
+						position[]={7079.0347,122.8808,1932.6245};
 					};
 					side="West";
-					flags=6;
+					flags=7;
 					class Attributes
 					{
-						skill=1;
-						init="this addweapon ""binocular""";
 						isPlayable=1;
 					};
-					id=129;
+					id=188;
 					type="CUP_B_US_SpecOps_SD";
-					atlOffset=0.041229248;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3344,7 +3187,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="Male03ENG";
+									value="Male08ENG";
 								};
 							};
 						};
@@ -3363,7 +3206,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1.04;
+									value=0.94999999;
 								};
 							};
 						};
@@ -3374,8 +3217,1074 @@ class Mission
 			class Attributes
 			{
 			};
-			id=128;
-			atlOffset=0.041229248;
+			id=187;
+		};
+		class Item50
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7081.604,122.49316,1932.5786};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=190;
+					type="CUP_B_US_SpecOps_Assault";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=189;
+		};
+		class Item51
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7085.0923,121.86237,1932.4406};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=192;
+					type="CUP_B_US_SpecOps_Medic";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=191;
+		};
+		class Item52
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7057.7837,126.91042,1940.2874};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="call{seals=group this;}";
+					};
+					id=194;
+					type="CUP_B_US_SpecOps_TL";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male12ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=193;
+		};
+		class Item53
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7052.8735,126.15147,1938.0165};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=196;
+					type="CUP_B_US_SpecOps_Night";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=195;
+		};
+		class Item54
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7056.3618,125.94862,1937.5569};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=198;
+					type="CUP_B_US_SpecOps_SD";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.94999999;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=197;
+		};
+		class Item55
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7058.9312,125.90277,1937.511};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=200;
+					type="CUP_B_US_SpecOps_Assault";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=199;
+		};
+		class Item56
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7062.4194,125.81096,1937.3729};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=202;
+					type="CUP_B_US_SpecOps_Medic";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=201;
+		};
+		class Item57
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7084.1973,125.09585,1940.8611};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="call{seals=group this;}";
+					};
+					id=204;
+					type="CUP_B_US_SpecOps_TL";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male12ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=203;
+		};
+		class Item58
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7079.2871,125.10917,1938.5902};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=206;
+					type="CUP_B_US_SpecOps_Night";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=205;
+		};
+		class Item59
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7082.7754,124.36797,1938.1306};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=208;
+					type="CUP_B_US_SpecOps_SD";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.94999999;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=207;
+		};
+		class Item60
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7085.3447,123.92521,1938.0847};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=210;
+					type="CUP_B_US_SpecOps_Assault";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=209;
+		};
+		class Item61
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7088.833,123.31164,1937.9467};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=212;
+					type="CUP_B_US_SpecOps_Medic";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=211;
+		};
+		class Item62
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7080.3237,121.44971,1929.6604};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=214;
+					type="CUP_B_US_SpecOps_Assault";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=213;
+		};
+		class Item63
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7077.7544,121.7345,1929.7063};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=216;
+					type="CUP_B_US_SpecOps_SD";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.94999999;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=215;
+		};
+		class Item64
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7064.0991,126.95483,1940.3279};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=218;
+					type="CUP_B_US_SpecOps_SD";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.94999999;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=217;
 		};
 	};
 };
