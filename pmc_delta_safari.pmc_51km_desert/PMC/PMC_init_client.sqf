@@ -13,7 +13,7 @@ if (!isNil "PMC_Setup_My_FOB") then
 {
 	// PMC_Setup_FOB is variable of the coords of our last FOB
 	"respawn_west" setMarkerPosLocal PMC_Setup_My_FOB;
-	diag_log format["!isNil: PMC_Setup_FOB: %1", PMC_Setup_My_FOB];
+	diag_log format["PMC_Init_Client; !isNil: PMC_Setup_FOB: %1", PMC_Setup_My_FOB];
 	
 	// place our player there
 	// this is stupid, why dont setpos pmc_setup_my_fob doesnt work?

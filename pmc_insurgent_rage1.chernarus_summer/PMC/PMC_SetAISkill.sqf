@@ -28,7 +28,7 @@ PMC_SetAISkill =
 	// max skill value we want to use
 	_skillValue = _this select 1;
 
-	diag_log format["PMC_SetAISkill, _grp: %1, _skillValue: %2", _grp, _skillValue];
+	diag_log format["PMC_SetAISkill; _grp: %1, _skillValue: %2", _grp, _skillValue];
 
 	_PMC_Process_Skills =
 	{

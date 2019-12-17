@@ -13,7 +13,7 @@ private
 while {true} do
 {
 	// starting hash heh
-	diag_log "##########################################################################";
+	diag_log "PMC_Server_RPT_Logger ######################################################";
 
 	_list =
 	format
@@ -77,7 +77,7 @@ while {true} do
 	diag_log _list;
 
 	// ending hash heh
-	diag_log "##########################################################################";
+	diag_log "PMC_Server_RPT_Logger ######################################################";
 	
 	// wait two minutes
 	sleep 120;

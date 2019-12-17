@@ -131,7 +131,7 @@ waitUntil
 };
 
 // log uah ;)
-diag_log "PMC MISSION OBJECTIVES COMPLETED! pmc_opforunits < 20";
+diag_log "PMC_war_opfor; PMC MISSION OBJECTIVES COMPLETED! pmc_opforunits < 20";
 
 // small delay that mission wont end immediately after last guy dies
 sleep 5;

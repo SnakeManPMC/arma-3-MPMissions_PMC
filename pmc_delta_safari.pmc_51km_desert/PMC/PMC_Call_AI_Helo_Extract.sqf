@@ -70,7 +70,7 @@ waitUntil
 };
 
 // just exit, no have any cool radio calls for player notifying him... but lets just exit from this script
-if (!alive _vcl) exitWith { diag_log "Tough luck, extract bird crashed heh"; };
+if (!alive _vcl) exitWith { diag_log "PMC_Call_AI_Helo_Extract; Tough luck, extract bird crashed heh"; };
 
 // land her
 _vcl land "get in";
@@ -108,7 +108,7 @@ waitUntil
 };
 
 // just exit, no have any cool radio calls for player notifying him... but lets just exit from this script
-if (!alive _vcl) exitWith { diag_log "Tough luck, extract bird crashed heh"; };
+if (!alive _vcl) exitWith { diag_log "PMC_Call_AI_Helo_Extract; Tough luck, extract bird crashed heh"; };
 
 // land and get the crew out
 _vcl land "get out";

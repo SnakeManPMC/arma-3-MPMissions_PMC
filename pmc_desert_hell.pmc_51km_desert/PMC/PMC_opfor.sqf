@@ -105,7 +105,7 @@ while { _a < _ForceLevel && _totalGroups < 287 } do
 		};
 	};
 	sleep 1;
-	//diag_log format["creating %1 PMC_opfor, %2 groups and %3 _a...", PMC_opfor, _totalGroups, _a];
+	//diag_log format["PMC_opfor; creating %1 PMC_opfor, %2 groups and %3 _a...", PMC_opfor, _totalGroups, _a];
 };
 
-diag_log format["OPFOR script exited with: %1 PMC_opfor, %2 groups created and %3 _a.", PMC_opfor, _totalGroups, _a];
+diag_log format["PMC_opfor; exited with: %1 PMC_opfor, %2 groups created and %3 _a.", PMC_opfor, _totalGroups, _a];

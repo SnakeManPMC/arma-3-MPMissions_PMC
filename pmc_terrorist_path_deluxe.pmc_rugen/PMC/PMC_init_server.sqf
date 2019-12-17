@@ -85,7 +85,7 @@ waitUntil
 	((PMC_blufor_detected > 0) || (PMC_opfor_detected > 0) );
 };
 
-diag_log format["PMC Terrorist Path WAR HAS STARTED AT %1", diag_tickTime];
+diag_log format["PMC_init_server; PMC Terrorist Path WAR HAS STARTED AT %1", diag_tickTime];
 
 [] execVM "PMC\PMC_war_blufor.sqf";
 // blufor_airlift_start

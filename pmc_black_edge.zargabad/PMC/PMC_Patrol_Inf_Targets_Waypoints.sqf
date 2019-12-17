@@ -60,7 +60,7 @@ PMC_Patrol_Inf_Targets_Waypoints =
 		_targetpoint = getPosASL _tlogic;
 		_wp = _wp + 1;
 
-//diag_log format["_grp: %1, _PMC_temp_targets: %2, _wp: %3", _grp, _tlogic, _wp];
+//diag_log format["PMC_Patrol_Inf_Targets_Waypoints; _grp: %1, _PMC_temp_targets: %2, _wp: %3", _grp, _tlogic, _wp];
 
 		_grp addWaypoint [_targetpoint, 0];
 		[_grp, _wp] setWaypointBehaviour "SAFE";
@@ -123,5 +123,5 @@ PMC_Patrol_Inf_Targets_Waypoints =
 	[_grp, _wp] setWaypointType "CYCLE";
 	[_grp, _wp] setWaypointTimeout [60*2, 0, 60*20];
 
-//diag_log format["_grp: %1, Targets WP creation is DONE! _wp: %2", _grp, _wp];
+//diag_log format["PMC_Patrol_Inf_Targets_Waypoints; _grp: %1, Targets WP creation is DONE! _wp: %2", _grp, _wp];
 };

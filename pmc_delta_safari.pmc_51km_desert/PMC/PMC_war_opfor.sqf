@@ -1,7 +1,7 @@
 
 private ["_a","_grp","_PMC_MaxUnits","_PMC_select_static_start_posit","_ran","_ran2","_respawnpoint","_PMC_temp_array"];
 
-diag_log "PMC_war_opfor.sqf - Started...";
+diag_log "PMC_war_opfor; Started...";
 
 _PMC_temp_array = PMC_targets;
 
@@ -123,7 +123,7 @@ while { _a < _PMC_MaxUnits } do
 
 	if (PMC_debug) then
 	{
-		diag_log format["_grp: %1, _a: %2, _ran: %3, _ran2: %4", _grp, _a, _ran, _ran2];
+		diag_log format["PMC_war_opfor; _grp: %1, _a: %2, _ran: %3, _ran2: %4", _grp, _a, _ran, _ran2];
 	};
 };
 
@@ -169,7 +169,7 @@ Camp2_TK_EP1
 
 	if (PMC_debug) then
 	{
-		diag_log format["Object Compisition created to: %1, its number %2", _respawnpoint, _a];
+		diag_log format["PMC_war_opfor; Object Compisition created to: %1, its number %2", _respawnpoint, _a];
 	};
 };
 
@@ -203,12 +203,12 @@ while { _a < 7 } do
 
 	if (PMC_debug) then
 	{
-		diag_log format["Support vehicles created to: %1, its number %2", _respawnpoint, _a];
+		diag_log format["PMC_war_opfor; Support vehicles created to: %1, its number %2", _respawnpoint, _a];
 	};
 };
 
 //player sidechat "exited pmc_war_opfor.sqf";
-diag_log format["PMC_war_opfor.sqf - Finished! %1 units created, roughly.", _mainUnitCount];
+diag_log format["PMC_war_opfor; Finished! %1 units created, roughly.", _mainUnitCount];
 
-PMC_Hint = format["PMC_war_opfor.sqf - Finished! %1 units created, roughly.", _mainUnitCount];
+PMC_Hint = format["PMC_war_opfor; Finished! %1 units created, roughly.", _mainUnitCount];
 publicVariable "PMC_Hint";

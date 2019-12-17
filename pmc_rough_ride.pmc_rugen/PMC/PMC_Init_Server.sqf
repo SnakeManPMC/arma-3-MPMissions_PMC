@@ -8,7 +8,7 @@ skiptime (((paramsarray select 0) - daytime + 24) % 24);
 // create city centers array
 PMC_CityCenters = call compile preprocessFileLineNumbers "PMC\PMC_locationFinder.sqf";
 
-diag_log format["PMC_CityCenters: %1", PMC_CityCenters];
+diag_log format["PMC_Init_Server; PMC_CityCenters: %1", PMC_CityCenters];
 
 // doesnt work in MP
 //[] execVM "PMC\PMC_Place_Editor_Units.sqf";

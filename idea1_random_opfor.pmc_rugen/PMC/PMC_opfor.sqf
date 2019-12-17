@@ -516,4 +516,4 @@ while { _a < _ForceLevel } do
 	*/
 };
 
-diag_log format["OPFOR script exited with: %1 units created.", PMC_opfor];
+diag_log format["PMC_opfor; exited with: %1 units created.", PMC_opfor];

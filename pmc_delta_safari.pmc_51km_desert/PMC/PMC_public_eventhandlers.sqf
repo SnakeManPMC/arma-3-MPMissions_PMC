@@ -19,7 +19,7 @@ Returns:
 {
 	[(_this select 1)] execVM "PMC\PMC_Setup_FOB.sqf";
 
-	diag_log format["PMC_Setup_My_FOB (eventhandler): %1 / %2", (_this select 0), (_this select 1)];
+	diag_log format["PMC_public_eventhandlers; PMC_Setup_My_FOB (eventhandler): %1 / %2", (_this select 0), (_this select 1)];
 };
 
 
@@ -28,7 +28,7 @@ Returns:
 {
 	[(_this select 1), (getMarkerPos "respawn_west")] execVM "PMC\PMC_Strike_Team_Target.sqf";
 
-	diag_log format["PMC_Strike_Team_Target (eventhandler): %1 / %2", (_this select 0), (_this select 1)];
+	diag_log format["PMC_public_eventhandlers; PMC_Strike_Team_Target (eventhandler): %1 / %2", (_this select 0), (_this select 1)];
 };
 
 
@@ -36,7 +36,7 @@ Returns:
 {
 	[(_this select 1), (getMarkerPos "respawn_west")] execVM "PMC\PMC_Airstrike_Target.sqf";
 
-	diag_log format["PMC_Airtstrike_Target (eventhandler): %1 / %2", (_this select 0), (_this select 1)];
+	diag_log format["PMC_public_eventhandlers; PMC_Airtstrike_Target (eventhandler): %1 / %2", (_this select 0), (_this select 1)];
 };
 */
 

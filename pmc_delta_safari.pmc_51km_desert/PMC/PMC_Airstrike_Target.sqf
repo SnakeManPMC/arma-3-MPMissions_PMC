@@ -21,8 +21,8 @@ private ["_p","_respawnpoint","_vcl","_grp","_a10pilot"];
 _p = _this select 1;
 _respawnpoint = getPos PMC_blufor_start_1;
 
-player sidechat format["PMC_Airstrike_Target (server side), _p: %1, _respawnpoint: %2", _p, _respawnpoint];
-diag_log format["PMC_Airstrike_Target (server side), _p: %1, _respawnpoint: %2", _p, _respawnpoint];
+player sidechat format["PMC_Airstrike_Target; (server side), _p: %1, _respawnpoint: %2", _p, _respawnpoint];
+diag_log format["PMC_Airstrike_Target; (server side), _p: %1, _respawnpoint: %2", _p, _respawnpoint];
 
 //_vcl = createVehicle ["CUP_B_A10_CAS_USA", _respawnpoint, [], 0, "FLY"];
 _vcl = createVehicle ["CUP_B_A10_DYN_USA", _respawnpoint, [], 0, "FLY"];
@@ -80,11 +80,11 @@ sleep 10;
 waitUntil
 {
 	sleep 2;
-	diag_log format["A10 airstrike closing in to target, distance: %1", (_vcl distance _p)];
+	diag_log format["PMC_Airstrike_Target; A10 airstrike closing in to target, distance: %1", (_vcl distance _p)];
 	( (!alive _vcl) || (unitReady _vcl) || (_vcl distance _p < 500) );
 };
 
-diag_log "A10 just reached _p!";
+diag_log "PMC_Airstrike_Target; A10 just reached _p!";
 PMC_Hint = "A10 in station!";
 publicVariable "PMC_Hint";
 _a10pilot sideChat "A10 on station, ready to attack!";
@@ -115,14 +115,14 @@ sleep 5;
 // just exit, no have any cool radio calls for player notifying him... but lets just exit from this script
 if (!alive _vcl) exitWith
 {
-	diag_log "Tough luck, PMC_Airstrike_Target bird crashed heh";
+	diag_log "PMC_Airstrike_Target; Tough luck, PMC_Airstrike_Target bird crashed heh";
 	player sideChat "Tough luck, PMC_Airstrike_Target bird crashed heh";
 };
 
 // tricky checks if they have completed their "mission"
 waitUntil
 {
-	diag_log format["looping while A10's strike some targets... %1", time];
+	diag_log format["PMC_Airstrike_Target; looping while A10's strike some targets... %1", time];
 	// very relaxed
 	sleep 10;
 	// they are:
@@ -131,17 +131,17 @@ waitUntil
 	( (!canMove _vcl) || (unitReady leader _grp) );
 };
 
-diag_log "Airstrike looping waituntil is done (one way or the other)";
+diag_log "PMC_Airstrike_Target; Airstrike looping waituntil is done (one way or the other)";
 _a10pilot sideChat "Airstrike looping waituntil is done (one way or the other)";
 
 // death check, assault is alive or dead
 if ( (!alive _vcl) || (!canMove _vcl) ) exitWith
 {
-	diag_log "A10 group is dead hehe.";
+	diag_log "PMC_Airstrike_Target; A10 group is dead hehe.";
 	player sideChat "A10 group is dead hehe.";
 };
 
-diag_log "Airstrike death checks done, alive!";
+diag_log "PMC_Airstrike_Target; Airstrike death checks done, alive!";
 _a10pilot sideChat "Airstrike death checks done, alive!";
 
 // move back to the starting point
@@ -164,7 +164,7 @@ waitUntil
 	( (!alive _vcl) || (unitReady _vcl) || (_vcl distance _respawnpoint < 100) );
 };
 
-diag_log "Airstrike A10 is either dead, ready or close enough in home base?";
+diag_log "PMC_Airstrike_Target; Airstrike A10 is either dead, ready or close enough in home base?";
 if (alive _a10pilot) then
 {
 	_a10pilot sideChat "I'm still alive baby! At home base, safe and sound. Thank you for your co-operation.";
@@ -177,7 +177,7 @@ else
 // just exit, no have any cool radio calls for player notifying him... but lets just exit from this script
 if (!alive _vcl) exitWith
 {
-	diag_log "Tough luck, A10 crashed heh";
+	diag_log "PMC_Airstrike_Target; Tough luck, A10 crashed heh";
 	player sideChat "Tough luck, A10 crashed heh";
 };
 
@@ -192,5 +192,5 @@ deleteVehicle _vcl;
 PMC_Hint = "A10 landing, mission complete!";
 publicVariable "PMC_Hint";
 
-diag_log "Airstrike mission is *COMPLETELY* done, all successfully completed, congrats! :-)";
+diag_log "PMC_Airstrike_Target; Airstrike mission is *COMPLETELY* done, all successfully completed, congrats! :-)";
 player sideChat "Airstrike mission is *COMPLETELY* done, all successfully completed, congrats! :-)";

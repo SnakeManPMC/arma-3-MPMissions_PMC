@@ -43,7 +43,7 @@ private _veh =
 	private _myVeh = selectRandom _veh;
 	private _safePos = [(selectRandom PMC_Locations), 0, 100, 30, 0, 20, 0] call BIS_fnc_findSafePos;
 
-	diag_log format["_myVeh: %1, _safePos: %2", _myVeh, _safePos];
+	diag_log format["PMC_Create_Civilian_Empty_Vehicles; _myVeh: %1, _safePos: %2", _myVeh, _safePos];
 
 	private _vcl = _myVeh createVehicle _safePos;
 } forEach PMC_Locations;

@@ -18,3 +18,5 @@ PMC_killedNum = 0;
 PMC_FARP_Count = 0;
 // FARP equipment creation function only on server
 call compile preProcessFileLineNumbers "PMC\PMC_Create_BLUFOR_Equipment_HQ.sqf";
+
+[51200, 10] execVM "PMC\PMC_Create_Sectors.sqf";

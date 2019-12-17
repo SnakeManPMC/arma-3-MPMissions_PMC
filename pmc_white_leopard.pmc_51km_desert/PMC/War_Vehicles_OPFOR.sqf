@@ -81,12 +81,12 @@ while {true} do
 
 		[_grp, _targetpoint, 100] call PMC_Guard_Vehicle_Waypoints;
 		
-		diag_log format["Created RU vehicles: %1, total: %2", ([_grp] call _countUnits), ('landVehicle' countType list pmc_opfor_list)];
+		diag_log format["War_Vehicles_OPFOR; Created RU vehicles: %1, total: %2", ([_grp] call _countUnits), ('landVehicle' countType list pmc_opfor_list)];
 	};
 /*
 	if (PMC_debug) then
 	{
-		diag_log format["PMC War_Vehicles_OPFOR.sqf 60 sleeper at %1", diag_tickTime];
+		diag_log format["War_Vehicles_OPFOR; 60 sleeper at %1", diag_tickTime];
 	};
 */
 	sleep (random 60 + 10);

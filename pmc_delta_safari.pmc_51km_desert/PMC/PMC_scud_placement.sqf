@@ -39,7 +39,7 @@ for [{_x = 1}, {_x <= _this select 0}, {_x = _x + 1}] do
 		{
 			if (PMC_debug) then
 			{
-				diag_log format["PMC_scud_placement Position: %1 is WATER.", _position];
+				diag_log format["PMC_scud_placement; Position: %1 is WATER.", _position];
 			};
 		};
 		
@@ -47,7 +47,7 @@ for [{_x = 1}, {_x <= _this select 0}, {_x = _x + 1}] do
 		{
 			if (PMC_debug) then
 			{
-				diag_log format["PMC_scud_placement Position: %1 has house closer than %2m!", _position, _this select 1];
+				diag_log format["PMC_scud_placement; Position: %1 has house closer than %2m!", _position, _this select 1];
 			};
 		};
 	};

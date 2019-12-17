@@ -21,7 +21,7 @@ _countUnits = compile preprocessFileLineNumbers "PMC\PMC_Count_Group_Units.sqf";
 while {_PMC_opfor < _victoryCondition} do
 {
 	// this is too often, few seconds
-	//diag_log format["evaluating OPFOR: %1", (count list pmc_opfor_list)];
+	//diag_log format["War_OPFOR; evaluating OPFOR: %1", (count list pmc_opfor_list)];
 	// new added feature is && (diag_fps > 15), hopefully it wont kill gameplay totally :)
 	if (('man' countType list pmc_opfor_list) < _Max_OPFOR_On_Map) then
 	{
@@ -73,7 +73,7 @@ while {_PMC_opfor < _victoryCondition} do
 			// add one group created.
 			PMC_grp_opfor = PMC_grp_opfor + 1;
 
-			diag_log format["Created new OPFOR group of : %1", (count units _grp)];
+			diag_log format["War_OPFOR; Created new OPFOR group of : %1", (count units _grp)];
 
 			// select target
 			_targetpoint = PMC_loc select (random (count PMC_loc));
@@ -107,9 +107,9 @@ while {_PMC_opfor < _victoryCondition} do
 		};
 	};
 
-	//if (PMC_debug) then { diag_log format["[(list pmc_opfor_list)] call PMC_countGroups: %1", ([(list pmc_opfor_list)] call PMC_countGroups)]; };
+	//if (PMC_debug) then { diag_log format["War_OPFOR; [(list pmc_opfor_list)] call PMC_countGroups: %1", ([(list pmc_opfor_list)] call PMC_countGroups)]; };
 
 	sleep _sleeptime;
 };
 
-diag_log "War_OPFOR has just exited!";
+diag_log "War_OPFOR; has just exited!";

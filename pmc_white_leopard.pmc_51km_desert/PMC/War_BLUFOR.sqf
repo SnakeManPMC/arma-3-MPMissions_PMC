@@ -21,7 +21,7 @@ _countUnits = compile preprocessFileLineNumbers "PMC\PMC_Count_Group_Units.sqf";
 while {_PMC_blufor < _victoryCondition} do
 {
 	// this is too often, few seconds
-	//diag_log format["evaluating BLUFOR: %1", (count list pmc_blufor_list)];
+	//diag_log format["War_BLUFOR; evaluating BLUFOR: %1", (count list pmc_blufor_list)];
 	// new added check is && (diag_fps > 15), hopefully it wont kill gameplay totally :)
 	if (('man' countType list pmc_blufor_list) < _Max_BLUFOR_On_Map) then
 	{
@@ -74,7 +74,7 @@ while {_PMC_blufor < _victoryCondition} do
 			// add one group created.
 			PMC_grp_blufor = PMC_grp_blufor + 1;
 
-			diag_log format["Created new BLUFOR group of : %1", (count units _grp)];
+			diag_log format["War_BLUFOR; Created new BLUFOR group of : %1", (count units _grp)];
 
 			// select target
 			_targetpoint = PMC_loc select (random (count PMC_loc));
@@ -107,9 +107,9 @@ while {_PMC_blufor < _victoryCondition} do
 		};
 	};
 
-	//if (PMC_debug) then { diag_log format["[(list pmc_blufor_list)] call PMC_countGroups: %1", ([(list pmc_blufor_list)] call PMC_countGroups)]; };
+	//if (PMC_debug) then { diag_log format["War_BLUFOR; [(list pmc_blufor_list)] call PMC_countGroups: %1", ([(list pmc_blufor_list)] call PMC_countGroups)]; };
 
 	sleep _sleeptime;
 };
 
-diag_log "War_BLUFOR has just exited!";
+diag_log "War_BLUFOR; has just exited!";

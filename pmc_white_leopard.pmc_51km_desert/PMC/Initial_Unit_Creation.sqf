@@ -6,7 +6,7 @@ private ["_grp","_a","_respawnpoint","_ran","_safePos", "_tmpLocations"];
 // tmp locations where we subtract
 _tmpLocations = [];
 _tmpLocations = PMC_loc;
-diag_log format["At start _tmpLocations is: %1.", count _tmpLocations];
+diag_log format["Initial_Unit_Creation; At start _tmpLocations is: %1.", count _tmpLocations];
 
 _a = 0;
 while {_a < 10 && (count _tmpLocations > 0)} do
@@ -112,4 +112,4 @@ while {_a < 10 && (count _tmpLocations > 0)} do
 	[_grp, leader _grp, 0] call PMC_Guard_Inf_Waypoints;
 };
 
-diag_log format["At end _tmpLocations is: %1.", count _tmpLocations];
+diag_log format["Initial_Unit_Creation; At end _tmpLocations is: %1.", count _tmpLocations];

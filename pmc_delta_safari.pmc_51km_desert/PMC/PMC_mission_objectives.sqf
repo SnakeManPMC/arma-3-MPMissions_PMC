@@ -13,7 +13,7 @@ waitUntil
 
 if (PMC_debug) then
 {
-	diag_log format["PMC_mission_objectives start, PMC_vips: %1, PMC_scuds: %2", count PMC_vips, count PMC_scuds];
+	diag_log format["PMC_mission_objectives; start, PMC_vips: %1, PMC_scuds: %2", count PMC_vips, count PMC_scuds];
 };
 
 private["_PMC_vip_1_dead", "_PMC_vip_2_dead", "_PMC_vip_3_dead", "_PMC_vip_4_dead", "_PMC_vip_5_dead", "_PMC_scud_1_dead", "_PMC_scud_2_dead", "_PMC_scud_3_dead", "_PMC_scud_4_dead", "_PMC_scud_5_dead"];
@@ -127,7 +127,7 @@ while { true } do
 	{
 		// just in case that we dont run this too quickly after the last objective is completed
 		sleep 40;
-		diag_log "*****\nPMC_mcomplete is true! All objectives completed! Mission is over!\n******";
+		diag_log "PMC_mission_objectives; *****\nPMC_mcomplete is true! All objectives completed! Mission is over!\n******";
 
 		// should run on all computers(?)
 		[["All objectives accomplished, great work!", "PLAIN", 1]] remoteExec ["titleText"];
@@ -139,6 +139,6 @@ while { true } do
 		["pmc_end1", true] remoteExecCall ['BIS_fnc_endMission', 0];
 	};
 
-	//diag_log format["PMC_mission_objectives loop, _PMC_vip_1_dead: %1, _PMC_vip_2_dead: %2, _PMC_vip_3_dead: %3, _PMC_vip_4_dead: %4, _PMC_vip_5_dead: %5, _PMC_scud_1_dead: %6, _PMC_scud_2_dead: %7, _PMC_scud_3_dead: %8, _PMC_scud_4_dead: %9, _PMC_scud_5_dead: %10",
+	//diag_log format["PMC_mission_objectives; loop, _PMC_vip_1_dead: %1, _PMC_vip_2_dead: %2, _PMC_vip_3_dead: %3, _PMC_vip_4_dead: %4, _PMC_vip_5_dead: %5, _PMC_scud_1_dead: %6, _PMC_scud_2_dead: %7, _PMC_scud_3_dead: %8, _PMC_scud_4_dead: %9, _PMC_scud_5_dead: %10",
 	//_PMC_vip_1_dead, _PMC_vip_2_dead, _PMC_vip_3_dead, _PMC_vip_4_dead, _PMC_vip_5_dead, _PMC_scud_1_dead, _PMC_scud_2_dead, _PMC_scud_3_dead, _PMC_scud_4_dead, _PMC_scud_5_dead];
 };

@@ -92,7 +92,7 @@ waitUntil
 	((EAST countSide (list pmc_opforunits)) < 20);
 };
 
-diag_log "PMC MISSION OBJECTIVES COMPLETED! pmc_opforuntis < 20";
+diag_log "PMC_war_opfor; PMC MISSION OBJECTIVES COMPLETED! pmc_opforuntis < 20";
 
 // and final check that both objectives are completed.
 waitUntil
@@ -101,7 +101,7 @@ waitUntil
 	(PMC_target1 && PMC_target2);
 };
 
-diag_log "PMC MISSION OBJECTIVES COMPLETED! PMC_target1 && PMC_target2";
+diag_log "PMC_war_opfor; PMC MISSION OBJECTIVES COMPLETED! PMC_target1 && PMC_target2";
 
 // declare mission over.
 PMC_mcomplete = true;

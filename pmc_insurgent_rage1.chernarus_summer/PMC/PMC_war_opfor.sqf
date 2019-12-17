@@ -14,7 +14,7 @@ _victoryCondition = (paramsarray select 3);
 
 // maximum number of opfor on the map at one time
 _Max_OPFOR_On_Map = (paramsarray select 2);
-//diag_log format["_victorycondition: %1, _Max_OPFOR_On_map: %2", _victoryCondition, _Max_OPFOR_On_Map];
+//diag_log format["PMC_war_opfor; _victorycondition: %1, _Max_OPFOR_On_map: %2", _victoryCondition, _Max_OPFOR_On_Map];
 
 // random sleep time
 _sleeptime = (5 + random 2);
@@ -117,7 +117,7 @@ waitUntil
 };
 
 // log uah ;)
-diag_log "PMC MISSION OBJECTIVES COMPLETED! pmc_opforunits < 20";
+diag_log "PMC_war_opfor; PMC MISSION OBJECTIVES COMPLETED! pmc_opforunits < 20";
 
 // small delay that mission wont end immediately after last guy dies
 sleep 5;

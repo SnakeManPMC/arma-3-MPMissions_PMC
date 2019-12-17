@@ -88,7 +88,7 @@ while {PMC_blufor < _victoryCondition} do
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_Army! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_Army! PMC_blufor: %1", PMC_blufor]; };
 
 				// select target
 				_targetpoint = call PMC_Select_Target;
@@ -108,7 +108,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_Army! PMC_bluf
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_patrol_vehicle_blufor! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_patrol_vehicle_blufor! PMC_blufor: %1", PMC_blufor]; };
 
 			};
 			case 2:
@@ -120,7 +120,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_patrol_vehicle_blufor! P
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_Army_Sniper! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_Army_Sniper! PMC_blufor: %1", PMC_blufor]; };
 
 				// select target
 				_targetpoint = call PMC_Select_Target;
@@ -140,7 +140,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_Army_Sniper! P
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_Army_Support! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_Army_Support! PMC_blufor: %1", PMC_blufor]; };
 
 				// select target
 				_targetpoint = call PMC_Select_Target;
@@ -160,7 +160,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_Army_Support! 
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_ArmyWeapons! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_ArmyWeapons! PMC_blufor: %1", PMC_blufor]; };
 
 				// select target
 				_targetpoint = call PMC_Select_Target;
@@ -180,7 +180,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_ArmyWeapons! P
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_DeltaForce! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_DeltaForce! PMC_blufor: %1", PMC_blufor]; };
 
 				// select target
 				_targetpoint = call PMC_Select_Target;
@@ -200,7 +200,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_US_DeltaForce! PM
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_ACR_Squad! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_ACR_Squad! PMC_blufor: %1", PMC_blufor]; };
 
 				// select target
 				_targetpoint = call PMC_Select_Target;
@@ -220,7 +220,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_ACR_Squad! PMC_bl
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_ACR_SpecialForcesTeam! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_ACR_SpecialForcesTeam! PMC_blufor: %1", PMC_blufor]; };
 
 				// select target
 				_targetpoint = call PMC_Select_Target;
@@ -240,7 +240,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_ACR_SpecialForces
 				_num = [_grp] call _countUnits;
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_GER_Infantry_KSKTeam! PMC_blufor: %1", PMC_blufor]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_GER_Infantry_KSKTeam! PMC_blufor: %1", PMC_blufor]; };
 
 				// select target
 				_targetpoint = call PMC_Select_Target;
@@ -268,26 +268,26 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Create_GER_Infantry_KSKT
 				//player sidechat format["blufor case 0, patrol inf waypoints. _grp: %1", _grp];
 				// PMC_Patrol_Inf_Waypoints
 				[_grp, _targetpoint, 100] call PMC_Patrol_Inf_Waypoints;
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Patrol_Inf_Waypoints.sqf, _grp: %1", _grp]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Patrol_Inf_Waypoints.sqf, _grp: %1", _grp]; };
 		    	};
 			case 1:
 			{
 				//player sidechat format["blufor case 1, guard inf waypoints. _grp: %1", _grp];
 				// PMC_Guard_Inf_Waypoints
 				[_grp, _targetpoint, 0] call PMC_Guard_Inf_Waypoints;
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Guard_Inf_Waypoints.sqf, _grp: %1", _grp]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Guard_Inf_Waypoints.sqf, _grp: %1", _grp]; };
 			};
 			case 2:
 			{
 				//player sidechat format["blufor case 3, sentry inf waypoints. _grp: %1", _grp];
 				// PMC_Sentry_Inf_Waypoints
 				[_grp, _targetpoint, 100] call PMC_Sentry_Inf_Waypoints;
-if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Sentry_Inf_Waypoints.sqf, _grp: %1", _grp]; };
+if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Sentry_Inf_Waypoints.sqf, _grp: %1", _grp]; };
 			};
 		};
 
 		// global once per loop announce ;)
-		if (PMC_debug) then { diag_log format["BLUFOR: %1 (%2), OPFOR: %3 (%4), KIA: %5, FPS: %6", PMC_blufor, PMC_grp_blufor, PMC_opfor, PMC_grp_opfor, PMC_killedNum, diag_fps]; };
+		if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: %1 (%2), OPFOR: %3 (%4), KIA: %5, FPS: %6", PMC_blufor, PMC_grp_blufor, PMC_opfor, PMC_grp_opfor, PMC_killedNum, diag_fps]; };
 	};
 	sleep _sleeptime;
 };
@@ -295,7 +295,7 @@ if (PMC_debug) then { diag_log format["BLUFOR: call PMC_Sentry_Inf_Waypoints.sqf
 // debug to see if the script is still running
 PMC_war_blufor = false;
 publicVariable "PMC_war_blufor";
-diag_log format["PMC_WAR_BLUFOR.SQF EXITED! PMC_blufor: %1. PMC_opfor: %2. time: %3", PMC_blufor, PMC_opfor, time];
+diag_log format["PMC_war_blufor; EXITED! PMC_blufor: %1. PMC_opfor: %2. time: %3", PMC_blufor, PMC_opfor, time];
 
 // shut down helicopter and aircraft scripts too
 PMC_aircraft_blufor_running = false;

@@ -76,5 +76,5 @@ if (!PMC_Disable_Friendly_Aircrafts) then
 
 if (PMC_debug) then
 {
-	diag_log format["PMC_VictoryCondition: %1", PMC_VictoryCondition];
+	diag_log format["PMC_Init_Server; PMC_VictoryCondition: %1", PMC_VictoryCondition];
 };

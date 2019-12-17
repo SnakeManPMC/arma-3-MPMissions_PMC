@@ -64,7 +64,7 @@ while {PMC_opfor < _victoryCondition} do
 	sleep _sleeptime;
 };
 
-diag_log "PMC_war_opfor.sqf ended! now we wait for friendly AI/players to mop up the remaining bad guys.";
+diag_log "PMC_war_opfor; ended! now we wait for friendly AI/players to mop up the remaining bad guys.";
 
 // small wait
 sleep 60;
@@ -77,7 +77,7 @@ waitUntil
 };
 
 // log uah ;)
-diag_log "PMC MISSION OBJECTIVES COMPLETED! pmc_opforuntis < 20";
+diag_log "PMC_war_opfor; PMC MISSION OBJECTIVES COMPLETED! pmc_opforuntis < 20";
 
 // small delay that mission wont end immediately after last guy dies
 sleep 5;
