@@ -5,21 +5,21 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=129;
+	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=122;
+		nextID=124;
 	};
 	class MarkerIDProvider
 	{
-		nextID=5;
+		nextID=6;
 	};
 	class Camera
 	{
 		pos[]={4978.2065,463.48233,8026.1406};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -128,7 +128,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC POW Camp v0.1.3";
+		briefingName="PMC POW Camp v0.1.4";
 		startWeather=0.49974999;
 		startWind=0.1;
 		forecastWeather=0.49974999;
@@ -143,7 +143,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=41;
+		items=42;
 		class Item0
 		{
 			dataType="Marker";
@@ -676,8 +676,8 @@ class Mission
 					{
 						skill=0.2;
 						rank="LIEUTENANT";
-						init="captives=group this;";
-						description="Must be a player!";
+						init="call{captives=group this;}";
+						description="POW captive 1 - Must be a player!";
 						isPlayable=1;
 					};
 					id=41;
@@ -740,7 +740,7 @@ class Mission
 					{
 						skill=0.2;
 						rank="SERGEANT";
-						description="Should be a player";
+						description="POW captive 2 - Should be a player";
 						isPlayable=1;
 					};
 					id=42;
@@ -1995,7 +1995,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8061.5244,32.230572,9915.8164};
+						position[]={8061.5239,32.230576,9915.8164};
 						angles[]={0,0,6.2791886};
 					};
 					side="West";
@@ -2005,11 +2005,54 @@ class Mission
 						skill=1;
 						rank="SERGEANT";
 						init="assault1=group this; {_x moveincargo helo} foreach units assault1;";
+						description="Assault team lead, must be a player for the mission to work!";
 						isPlayer=1;
 						isPlayable=1;
 					};
 					id=19;
 					type="CUP_B_USMC_Officer";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.95999998;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
@@ -2161,10 +2204,53 @@ class Mission
 						skill=1;
 						rank="SERGEANT";
 						init="assault2=group this; {_x moveincargo helo} foreach units assault2;";
+						description="Assault team 2 lead, should be a player";
 						isPlayable=1;
 					};
 					id=24;
 					type="CUP_B_USMC_Officer";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.05;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
@@ -2244,8 +2330,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4978.2065,438.48376,8051.1904};
-						angles[]={5.8175788,2.8797932,0.12340822};
+						position[]={4978.207,438.48386,8051.1909};
+						angles[]={5.8175836,2.8797932,0.12341223};
 					};
 					side="West";
 					flags=6;
@@ -2253,10 +2339,53 @@ class Mission
 					{
 						skill=1;
 						rank="CORPORAL";
+						description="Spotter - Should be a player (but not the expense of assault team)";
 						isPlayable=1;
 					};
-					id=45;
-					type="CUP_B_USMC_Soldier";
+					id=123;
+					type="CUP_B_USMC_Spotter";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
@@ -2276,8 +2405,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4984.9624,439.298,8051.1436};
-						angles[]={5.8175788,2.8797932,0.12340822};
+						position[]={4984.9619,439.29831,8051.144};
+						angles[]={5.8175836,2.8797932,0.12341223};
 					};
 					side="West";
 					flags=6;
@@ -2286,16 +2415,70 @@ class Mission
 						skill=1;
 						rank="SERGEANT";
 						init="snipers=group this;";
+						description="Sniper - Should be a player (but not the expense of assault team)";
 						isPlayable=1;
 					};
 					id=44;
 					type="CUP_B_USMC_Sniper_M40A3";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
 			{
 			};
 			id=121;
+		};
+		class Item41
+		{
+			dataType="Marker";
+			position[]={8053.7188,32.260357,9900.7412};
+			name="respawn_west";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=25;
+			b=25;
+			id=122;
 		};
 	};
 };

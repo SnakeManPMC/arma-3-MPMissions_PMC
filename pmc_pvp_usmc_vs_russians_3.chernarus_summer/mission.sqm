@@ -8,11 +8,11 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=3674;
+		nextID=3676;
 	};
 	class MarkerIDProvider
 	{
-		nextID=26;
+		nextID=27;
 	};
 	class Camera
 	{
@@ -35,13 +35,14 @@ addons[]=
 	"CUP_Weapons_AmmoBoxes",
 	"CUP_Creatures_Military_USMC",
 	"A3_Modules_F_Hc",
-	"CUP_Creatures_Military_Russia"
+	"CUP_Creatures_Military_Russia",
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=11;
+		items=12;
 		class Item0
 		{
 			className="CUP_AirVehicles_AH1Z";
@@ -99,9 +100,20 @@ class AddonsMetaData
 			className="CUP_Creatures_Military_Russia";
 			name="CUP_Creatures_Military_Russia";
 		};
+		class Item11
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=12333581;
+class ScenarioData
+{
+	author="PMC Since 1984";
+};
 class Intro
 {
 	class Intel
@@ -124,7 +136,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC PvP USMC vs Russians 3 v0.1.3";
+		briefingName="PMC PvP USMC vs Russians 3 v0.1.4";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -140,7 +152,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=39;
+		items=41;
 		class Item0
 		{
 			dataType="Trigger";
@@ -247,6 +259,7 @@ class Mission
 			};
 			id=3488;
 			type="CUP_B_AH64D_MR_USA";
+			atlOffset=2.0027161e-005;
 		};
 		class Item6
 		{
@@ -501,8 +514,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4768.9634,8.9535446,2517.4941};
-						angles[]={6.2698536,0,0.013332055};
+						position[]={4768.9629,8.9535389,2517.4941};
+						angles[]={6.2698507,0,0.013334315};
 					};
 					side="West";
 					flags=6;
@@ -510,12 +523,54 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						description="COMMANDER";
+						description="High Command role, must be a player for the mission to work!";
 						isPlayer=1;
 						isPlayable=1;
 					};
 					id=3503;
 					type="CUP_B_USMC_Soldier_SL";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item1
 				{
@@ -1777,8 +1832,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5435.8794,62.111744,3097.2041};
-						angles[]={6.148015,0,0.038647637};
+						position[]={5435.8789,62.111732,3097.2041};
+						angles[]={6.1480098,0,0.038641591};
 					};
 					side="East";
 					flags=6;
@@ -1786,11 +1841,54 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						description="COMMANDER";
+						description="High Command role, must be a player for the mission to work!";
 						isPlayable=1;
 					};
 					id=3575;
 					type="CUP_O_RU_Soldier_SL";
+					atlOffset=3.8146973e-006;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.01;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item1
 				{
@@ -2002,6 +2100,7 @@ class Mission
 			{
 			};
 			id=3574;
+			atlOffset=3.8146973e-006;
 		};
 		class Item27
 		{
@@ -3554,6 +3653,29 @@ class Mission
 			{
 			};
 			id=3669;
+		};
+		class Item39
+		{
+			dataType="Marker";
+			position[]={4727.8496,8.9686031,2540.145};
+			name="respawn_west";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=25;
+			b=25;
+			id=3674;
+		};
+		class Item40
+		{
+			dataType="Marker";
+			position[]={5427.105,58.638184,3077.8062};
+			name="respawn_east";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=25;
+			b=25;
+			id=3675;
+			atlOffset=-0.74448013;
 		};
 	};
 	class Connections

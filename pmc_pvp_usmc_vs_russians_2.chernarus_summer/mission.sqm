@@ -8,11 +8,11 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=3483;
+		nextID=3485;
 	};
 	class MarkerIDProvider
 	{
-		nextID=26;
+		nextID=28;
 	};
 	class Camera
 	{
@@ -27,13 +27,14 @@ addons[]=
 {
 	"CUP_Creatures_Military_USMC",
 	"A3_Modules_F_Hc",
-	"CUP_Creatures_Military_Russia"
+	"CUP_Creatures_Military_Russia",
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=3;
+		items=4;
 		class Item0
 		{
 			className="CUP_Creatures_Military_USMC";
@@ -51,9 +52,20 @@ class AddonsMetaData
 			className="CUP_Creatures_Military_Russia";
 			name="CUP_Creatures_Military_Russia";
 		};
+		class Item3
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=16547842;
+class ScenarioData
+{
+	author="PMC Since 1984";
+};
 class Intro
 {
 	class Intel
@@ -76,7 +88,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC PvP USMC vs Russians 2 v0.1.3";
+		briefingName="PMC PvP USMC vs Russians 2 v0.1.4";
 		startWeather=0.25;
 		startWind=0.1;
 		forecastWeather=0.25;
@@ -92,7 +104,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=24;
+		items=26;
 		class Item0
 		{
 			dataType="Trigger";
@@ -178,7 +190,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={9239.207,235.95024,11439.8};
-						angles[]={0.061255306,0,0.0039967569};
+						angles[]={0.061261058,0,0.0039968039};
 					};
 					side="West";
 					flags=6;
@@ -186,12 +198,54 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						description="COMMANDER";
+						description="High Command role, must be a player for the mission to work!";
 						isPlayer=1;
 						isPlayable=1;
 					};
 					id=3312;
 					type="CUP_B_USMC_Soldier_SL";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item1
 				{
@@ -1484,8 +1538,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={8045.1855,140.63864,12316.348};
-						angles[]={0.09570726,0,6.2392135};
+						position[]={8045.186,140.6386,12316.348};
+						angles[]={0.095713861,0,6.2392201};
 					};
 					side="East";
 					flags=6;
@@ -1493,11 +1547,53 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						description="COMMANDER";
+						description="High Command role, must be a player for the mission to work!";
 						isPlayable=1;
 					};
 					id=3384;
 					type="CUP_O_RU_Soldier_SL";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item1
 				{
@@ -3266,6 +3362,29 @@ class Mission
 			{
 			};
 			id=3478;
+		};
+		class Item24
+		{
+			dataType="Marker";
+			position[]={8039.5938,143.95503,12283.256};
+			name="respawn_east";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=25;
+			b=25;
+			id=3483;
+		};
+		class Item25
+		{
+			dataType="Marker";
+			position[]={9236.3301,238.22501,11399.912};
+			name="respawn_west";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=25;
+			b=25;
+			id=3484;
+			atlOffset=0.00036621094;
 		};
 	};
 	class Connections
