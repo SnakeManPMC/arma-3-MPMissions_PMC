@@ -73,7 +73,7 @@ JUICY truck is to take gear from it.
 	_vcl addWeaponCargoGlobal ["CUP_M4A1_AIM_SD_camo", 1];
 	_vcl addWeaponCargoGlobal ["CUP_arifle_M4A1_M203_ACOG_Laser", 1];
 	_vcl addWeaponCargoGlobal ["CUP_glaunch_M79", 1];
-	_vcl addWeaponCargoGlobal ["CUP_M9SD", 1];
+	_vcl addWeaponCargoGlobal ["CUP_hgun_M9_snds", 1];
 	_vcl addWeaponCargoGlobal ["CUP_NVG_PVS7", 1];
 	_vcl addWeaponCargoGlobal ["CUP_SCAR_H_CQC_CCO_SD", 1];
 	_vcl addWeaponCargoGlobal ["CUP_SCAR_H_STD_EGLM_Spect", 1];

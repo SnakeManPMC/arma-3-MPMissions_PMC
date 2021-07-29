@@ -94,7 +94,7 @@ _PMC_CreateConvoyVehicles =
 /*	_vcl addWeaponCargoGlobal ["M4A1_RCO_GL", 1];
 	_vcl addWeaponCargoGlobal ["M79_EP1", 1];
 */
-	_vcl addWeaponCargoGlobal ["CUP_M9SD", 1];
+	_vcl addWeaponCargoGlobal ["CUP_hgun_M9_snds", 1];
 	_vcl addWeaponCargoGlobal ["CUP_NVG_PVS7", 1];
 	_vcl addWeaponCargoGlobal ["CUP_SCAR_H_CQC_CCO_SD", 1];
 	_vcl addWeaponCargoGlobal ["CUP_SCAR_H_STD_EGLM_Spect", 1];
