@@ -1,4 +1,5 @@
 
+setDate [2010, 1, 1, 0, 0];
 [] execVM "PMC\PMC_Set_Mission_Time.sqf";
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 [] execVM "PMC\PMC_Tasks.sqf";
@@ -9,6 +10,9 @@ publicVariable "PMC_debug";
 PMC_blufor = 0;
 PMC_killedNum = 0;
 publicVariable "PMC_killedNum";
+
+// get server parameter enemy skill level
+call compile preProcessFileLineNumbers "PMC\PMC_SetAISkill.sqf";
 
 PMC_corpses = [];
 [50] execVM "PMC\PMC_corpses.sqf";

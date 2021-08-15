@@ -5,6 +5,9 @@
 */
 private ["_targetpoint","_PMC_MakeGuardInfOPFOR","_a","_p","_targetNum","_respawnpoint","_maxOPFORUnits"];
 
+private _skill = ["PMC_EnemySkillLevel", 0] call BIS_fnc_getParamValue;
+private _PMC_EnemySkillLevel = [_skill] call compile preProcessFileLineNumbers "PMC\PMC_Get_Skill_Level.sqf";
+
 _PMC_MakeGuardInfOPFOR =
 {
         private ["_grp","_respawnpoint","_targetpoint"];
@@ -30,6 +33,9 @@ _PMC_MakeGuardInfOPFOR =
 		_x addEventHandler ["killed", {[_this] execVM "PMC\PMC_killed.sqf"}];
 		_x allowFleeing 0;
 	} forEach units _grp;
+
+	// set group skills
+	[_grp, _PMC_EnemySkillLevel] call PMC_SetAISkill;
 
 	_grp setBehaviour "AWARE";
 	_grp setCombatMode "RED";
