@@ -55,3 +55,5 @@ private _PMC_EnemySkillLevel = [_skill] call compile preProcessFileLineNumbers "
 [group badguy44, _PMC_EnemySkillLevel] call PMC_SetAISkill;
 [group badguy45, _PMC_EnemySkillLevel] call PMC_SetAISkill;
 [group badguy46, _PMC_EnemySkillLevel] call PMC_SetAISkill;
+
+[] execVM "PMC\PMC_Objectives.sqf";
