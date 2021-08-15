@@ -11,7 +11,7 @@ private ["_grp","_respawnpoint","_targetpoint","_waypointRanPosit"];
 	waitUntil {!(isNull _grp)};
 	"CUP_B_FR_Soldier_AR" createUnit [_respawnpoint, _grp, "", 1, "SERGEANT"];
 	"CUP_B_FR_Soldier_Marksman" createUnit [_respawnpoint, _grp, "", 1, "CORPORAL"];
-	"CUP_B_FR_Soldier_Light" createUnit [_respawnpoint, _grp, "", 1, "CORPORAL"];
+	"CUP_B_FR_Soldier_TL" createUnit [_respawnpoint, _grp, "", 1, "CORPORAL"];
 	"CUP_B_FR_Saboteur" createUnit [_respawnpoint, _grp, "", 1, "PRIVATE"];
 	"CUP_B_FR_Soldier_Exp" createUnit [_respawnpoint, _grp, "", 1, "PRIVATE"];
 

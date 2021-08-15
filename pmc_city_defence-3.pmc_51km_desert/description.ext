@@ -1,19 +1,16 @@
-// VALUES: 0=None; 1=Bird; 2=Instant; 3=Base; 4=Group; (5=Side Which doesnt work)
+
 respawn = 3;
-// Time delay in seconds for respawn to occur  (NEVER use 0)
 respawndelay = 3;
 
 author = "Snake Man, PMC.";
 onLoadName = "Bayyan Hotel";
 onLoadMission = "Important building under attack!";
-onLoadMissionTime = 1;
 onLoadIntro = "http://www.pmctactical.org/";
-onLoadIntroTime = 1;
 disabledAI = 1;
-respawnOnStart = -1;
 overviewText = "Defend Bayyan city against russian scum assault. Friendly AI units are fighting with you, its not you alone in this one.";
 overviewPicture = "";
 
+respawnOnStart = -1;
 ReviveMode = 1;
 ReviveUnconsciousStateMode = 0;
 ReviveRequiredTrait = 0;
@@ -40,13 +37,34 @@ class Params
 		texts[] = {"0000","0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100","1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300", "Random"};
 		default = 6;
 	};
-
+ 
 	class PMC_WeatherSetting
 	{
-		title = "Weather setting";
+		title = "Weather Setting";
 		values[] = {1, 2, 3, 4, 5, 6, 7};
 		texts[] = {"Clear skies", "Overcast", "Cloudy", "Rain storm", "Rain storm with fog", "Random (Rainy - Jungles)", "Random (Dry - Deserts)"};
 		default = 7;
+	};
+ 
+	class PMC_Force_Level_BLUFOR
+	{
+		title = "Force Level BLUFOR";
+		values[] = { 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000 };
+		texts[] = { "50", "100", "150", "200", "250", "300", "350", "400", "450", "500", "550", "600", "650", "700", "750", "800", "850", "900", "950", "1000" };
+		default = "100";
+	};
+ 
+	class PMC_Force_Level_OPFOR: PMC_Force_Level_BLUFOR
+	{
+		title = "Force Level OPFOR";
+	};
+ 
+	class PMC_EnemySkillLevel
+	{
+		title = "Enemy Skill Level from 0 dumb to 1 super human ninja elite navy SEAL sniper killer";
+		values[] = {0, 1, 2, 3, 4, 5};
+		texts[] = {"Dumb 0.1", "Beginner 0.2", "Normal 0.33", "Good 0.5", "Elite 0.85", "SUPER SNIPER 1"};
+		default = 0;
 	};
 };
 
