@@ -6,6 +6,6 @@ player createDiaryRecord ["Diary", ["Command and Signal", ""]];
 player createDiaryRecord ["Diary", ["Support", ""]];
 player createDiaryRecord ["Diary", ["Execution", ""]];
 player createDiaryRecord ["Diary", ["Intel", ""]];
-player createDiaryRecord ["Diary", ["Mission", ""]];
-player createDiaryRecord ["Diary", ["Situation", ""]];
 */
+player createDiaryRecord ["Diary", ["Mission", "Defend city of Samir against russian scum attack. Do not leave the city area."]];
+//player createDiaryRecord ["Diary", ["Situation", ""]];

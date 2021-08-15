@@ -9,7 +9,23 @@
 		"Defend Samir",
 		""
 	],
-	objNull,
+	(getMarkerPos "defend"),
+	1,
+	2,
+	true
+] call BIS_fnc_taskCreate;
+
+[
+	west,
+	[
+		"t2"
+	],
+	[
+		"Annihilate every single russian attacking you.",
+		"Kill All Commies",
+		""
+	],
+	(getMarkerPos "defend"),
 	1,
 	2,
 	true
