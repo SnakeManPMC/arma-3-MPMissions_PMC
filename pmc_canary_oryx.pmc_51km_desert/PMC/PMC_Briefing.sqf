@@ -6,6 +6,6 @@ player createDiaryRecord ["Diary", ["Command and Signal", ""]];
 player createDiaryRecord ["Diary", ["Support", ""]];
 player createDiaryRecord ["Diary", ["Execution", ""]];
 player createDiaryRecord ["Diary", ["Intel", ""]];
-player createDiaryRecord ["Diary", ["Mission", ""]];
-player createDiaryRecord ["Diary", ["Situation", ""]];
 */
+player createDiaryRecord ["Diary", ["Mission", "Clear out all four objectives, then mop up stragglers."]];
+//player createDiaryRecord ["Diary", ["Situation", ""]];

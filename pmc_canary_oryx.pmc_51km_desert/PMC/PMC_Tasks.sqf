@@ -9,7 +9,7 @@
 		"Clear south entrance",
 		"target1"
 	],
-	objNull,
+	(getMarkerPos "target1"),
 	1,
 	2,
 	true
@@ -18,14 +18,14 @@
 [
 	west,
 	[
-		"t1"
+		"t2"
 	],
 	[
 		"Clear <marker name='target2'>north east</marker> of the city.",
 		"Clear north east",
 		"target2"
 	],
-	objNull,
+	(getMarkerPos "target2"),
 	1,
 	2,
 	true
@@ -34,14 +34,14 @@
 [
 	west,
 	[
-		"t1"
+		"t3"
 	],
 	[
 		"Clear <marker name='target3'>north side</marker> of the city.",
 		"Clear north side",
 		"target3"
 	],
-	objNull,
+	(getMarkerPos "target3"),
 	1,
 	2,
 	true
@@ -50,14 +50,14 @@
 [
 	west,
 	[
-		"t1"
+		"t4"
 	],
 	[
 		"Clear <marker name='target4'>west side</marker> of the city.",
 		"Clear west side",
 		"target4"
 	],
-	objNull,
+	(getMarkerPos "target4"),
 	1,
 	2,
 	true
@@ -66,14 +66,14 @@
 [
 	west,
 	[
-		"t1"
+		"t5"
 	],
 	[
 		"Clean rest of the enemy forces in the city.",
 		"Clean rest",
 		""
 	],
-	objNull,
+	(getMarkerPos "pmc_marker_rest"),
 	1,
 	2,
 	true
