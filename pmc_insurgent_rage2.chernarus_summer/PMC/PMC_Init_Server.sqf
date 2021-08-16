@@ -1,6 +1,5 @@
 
-[] execVM "PMC\PMC_weather.sqf";
-
+[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 [] execVM "PMC\PMC_Tasks.sqf";
 
 PMC_debug = false;
@@ -41,7 +40,6 @@ waitUntil
 	scriptDone _tmp;
 };
 
-// NVA war
 [] execVM "PMC\PMC_war_opfor.sqf";
 
 // mission editor placed guys:
