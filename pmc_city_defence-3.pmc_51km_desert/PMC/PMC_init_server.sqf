@@ -11,7 +11,11 @@ PMC_blufor = 0;
 PMC_killedNum = 0;
 publicVariable "PMC_killedNum";
 
-// get server parameter enemy skill level
+call compile preprocessFileLineNumbers "PMC\PMC_CreateConvoyVehicles.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_CreateOPFORVehicles.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_MakeSpecOpsBLUFOR.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_SelectStartPosit.sqf";
+call compile preprocessFileLineNumbers "PMC\PMC_SelectStartPositOPFOR.sqf";
 call compile preProcessFileLineNumbers "PMC\PMC_SetAISkill.sqf";
 
 PMC_corpses = [];

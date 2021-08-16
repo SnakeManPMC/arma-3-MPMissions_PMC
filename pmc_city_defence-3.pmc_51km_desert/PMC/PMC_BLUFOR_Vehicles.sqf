@@ -6,9 +6,6 @@
 
 private ["_grp","_respawnpoint","_targetpoint","_PMC_SelectStartPosit"];
 
-call compile preprocessFileLineNumbers "PMC\PMC_CreateConvoyVehicles.sqf";
-call compile preprocessFileLineNumbers "PMC\PMC_SelectStartPosit.sqf";
-
 while {true} do
 {
 	// choose one of the random starting locations
