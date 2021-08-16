@@ -5,8 +5,8 @@
 
 */
 
-skiptime (((paramsarray select 0) - daytime + 24) % 24);
-
+setDate [2009, 6, 8, 0, 0];
+[] execVM "PMC\PMC_Set_Mission_Time.sqf";
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 [] execVM "PMC\PMC_Tasks.sqf";
 
@@ -17,18 +17,12 @@ publicVariable "PMC_starting_position";
 
 "respawn_west" setMarkerPos PMC_starting_position;
 
-// the actual sides (except west as our mission editor placed player is west guy).
-[] execVM "PMC\Create_Sides.sqf";
-
 // create trigger for each side
 // pmc_all_units - anybody
 [] execVM "PMC\Triggers_For_Sides.sqf";
 
 // create gamelogic's for our stupid old script use ;)
 [] execVM "PMC\Gamelogics_For_Old_Scripts.sqf";
-
-// replace player randomly
-[] execVM "PMC\Player_Identity_Crisis.sqf";
 
 // corpse removal script
 PMC_corpses = [];
