@@ -1,7 +1,8 @@
 
+setDate [2008, 6, 20, 0, 0];
+PMCHQ = [ West, "BASE" ];
 [] execVM "PMC\PMC_Set_Mission_Time.sqf";
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
-
 [] execVM "PMC\PMC_Tasks.sqf";
 
 PMC_debug = true;

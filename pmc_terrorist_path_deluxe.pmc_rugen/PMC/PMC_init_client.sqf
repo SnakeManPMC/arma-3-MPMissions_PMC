@@ -1,11 +1,6 @@
 
-// not sure if this is needed, it might as PMC_playerStuff did not work for JIP
-waitUntil {!(isNull player)};
-waitUntil {player == player};
-
 [] execVM "PMC\PMC_Briefing.sqf";
 [] execVM "PMC\PMC_setViewdistance.sqf";
-//[] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 
 [player] execVM "PMC\PMC_playerStuff.sqf";
 
@@ -38,6 +33,6 @@ if ((PMC_blufor_detected == 0) && (PMC_opfor_detected == 0)) then
 		sleep 2;
 		((PMC_blufor_detected > 0) || (PMC_opfor_detected > 0) );
 	};
-	
+
 	titleText ["Our War has begin, congratulations bitch!", "plain down", 2];
 };
