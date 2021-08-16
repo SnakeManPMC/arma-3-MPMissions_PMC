@@ -17,7 +17,7 @@
 	["t2", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 	sleep 7;
 
-	"pmc_end1" call BIS_fnc_endMission;
+	"pmc_end1" call BIS_fnc_endMissionServer;
 };
 
 // trigger 2 I should say, is simple timeout of 30 min
@@ -31,5 +31,5 @@
 	["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 	sleep 7;
 	
-	"pmc_end1" call BIS_fnc_endMission;
+	"pmc_end1" call BIS_fnc_endMissionServer;
 };
