@@ -22,4 +22,4 @@ sleep 7;
 ["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 sleep 7;
 
-"pmc_end1" call BIS_fnc_endMission;
+"pmc_end1" call BIS_fnc_endMissionServer;

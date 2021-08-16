@@ -22,4 +22,4 @@ sleep 10;
 [["Thank you for playing, hope you had a great time!", "PLAIN", 1]] remoteExec ["titleText"];
 
 sleep 30;
-"pmc_end1" call BIS_fnc_endMission;
+"pmc_end1" call BIS_fnc_endMissionServer;

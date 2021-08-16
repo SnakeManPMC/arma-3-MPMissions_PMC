@@ -3,4 +3,4 @@
 "target1" setMarkerType "mil_dot";
 "target1" setMarkerColor "colorgreen";
 
-"PMC_end1" call BIS_fnc_endMission;
+"pmc_end1" call BIS_fnc_endMissionServer;

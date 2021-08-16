@@ -145,7 +145,7 @@ on activation: PMC_objective5 setTaskState "SUCCEEDED"; mcomplete=true;
 	["t5", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 
 	sleep 15;
-	"pmc_end1" call BIS_fnc_endMission;
+	"pmc_end1" call BIS_fnc_endMissionServer;
 };
 
 /*
