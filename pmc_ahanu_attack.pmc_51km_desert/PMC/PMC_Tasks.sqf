@@ -9,7 +9,7 @@
 		"Ahanu Airbase",
 		""
 	],
-	objNull,
+	(getMarkerPos "target1"),
 	1,
 	2,
 	true

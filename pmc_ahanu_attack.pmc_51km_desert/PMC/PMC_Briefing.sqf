@@ -6,6 +6,6 @@ player createDiaryRecord ["Diary", ["Command and Signal", ""]];
 player createDiaryRecord ["Diary", ["Support", ""]];
 player createDiaryRecord ["Diary", ["Execution", ""]];
 player createDiaryRecord ["Diary", ["Intel", ""]];
-player createDiaryRecord ["Diary", ["Mission", ""]];
-player createDiaryRecord ["Diary", ["Situation", ""]];
 */
+player createDiaryRecord ["Diary", ["Mission", "Attack Ahanu airbase and capture it from bad guys. Actually... this is just awesome explosions show mission not really something where you are supposed to attack and kill the enemy heh. (weird)."]];
+//player createDiaryRecord ["Diary", ["Situation", ""]];
