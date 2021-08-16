@@ -9,7 +9,7 @@
 		"Clear Ahanu Airbase",
 		"target1"
 	],
-	objNull,
+	(getMarkerPos "target1"),
 	1,
 	2,
 	true
