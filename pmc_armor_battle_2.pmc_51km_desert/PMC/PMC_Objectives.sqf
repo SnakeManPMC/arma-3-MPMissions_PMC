@@ -1,7 +1,6 @@
 
-// pmc_marker_3
-
-sleep 60;
+// very long sleep in the beginning so there are bad guys in trigger area when we check it
+sleep 60*15;
 waitUntil
 {
 	sleep 10;
