@@ -22,8 +22,27 @@ if (getDammage helo3 < 0.9) then
 	helo3 setdammage 0.9;
 };
 
-"1" objstatus "DONE";
-"2" objstatus "ACTIVE";
+["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+
+[] spawn
+{
+	sleep 3;
+	[
+		west,
+		[
+			"t2"
+		],
+		[
+			"Take command of the survivors and get them into Nogova <marker name = 'airbase'>Airbase</marker> area.",
+			"Escape",
+			"airbase"
+		],
+		(getMarkerPos "airbase"),
+		1,
+		2,
+		true
+	] call BIS_fnc_taskCreate;
+};
 
 leader aaguys1 move getpos helo3;
 leader aaguys2 move getpos helo3;
