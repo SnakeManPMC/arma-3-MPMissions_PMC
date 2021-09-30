@@ -17,7 +17,7 @@ if (leader assault2 distance leader captives < 15) then
 	{[_x] join assault2} foreach units captives;
 };
 
-"1" objstatus "DONE";
+["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 sleep 10;
 leader assault1 sideradio "Rcallhelo";
 cleared = true;
@@ -31,4 +31,4 @@ sleep 3;
 {_x setunitpos behave} foreach units snipers;
 {[_x] join assault1} foreach units snipers;
 
-"2" objstatus "DONE";
+["t2", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;

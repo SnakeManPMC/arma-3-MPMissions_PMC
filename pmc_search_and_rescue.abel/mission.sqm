@@ -216,7 +216,7 @@ class Mission
 			{
 				text="joining";
 				condition="alive survivor1 AND survivor1 distance leader rteam <30";
-				onActivation="[survivor1,survivor2] join rteam; survivor1 assignascargo evac; survivor2 assignascargo evac; survivor1 sideradio ""Rtakeushome""; ""2"" objstatus ""DONE"";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective2.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				effectTitleEffect="PLAIN DOWN";
@@ -233,7 +233,7 @@ class Mission
 			{
 				text="first contact";
 				condition="alive survivor1 AND survivor1 distance leader rteam <500";
-				onActivation="survivor1 sideradio ""Rcontact""; survivor1 fire [""throw"",""SmokeShellGreen"",""SmokeShellGreen""]; ""1"" objstatus ""DONE"";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective1.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				effectTitleEffect="PLAIN DOWN";
@@ -250,7 +250,7 @@ class Mission
 			{
 				text="healing";
 				condition="survivor1 distance doctor <3 OR survivor2 distance doctor <3";
-				onActivation="""3"" objstatus ""DONE""; leader rteam sideradio ""Rhealing""; mcomplete=true;";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective3.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				effectMusic="Track14_Close_Quarter_Combat";

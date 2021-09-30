@@ -5,6 +5,6 @@ eastdead4 = 1;
 
 sleep 15 + (random 10);
 PAPABEAR sideRadio "Rhqreply4";
-"4" objStatus "DONE";
+["t4", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 "target4" setMarkerType "mil_dot";
 "target4" setMarkerColor "colorgreen";

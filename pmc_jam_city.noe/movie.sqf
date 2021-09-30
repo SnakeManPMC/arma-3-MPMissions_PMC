@@ -130,7 +130,7 @@ titlecut ["","BLACK OUT",3];
 3 fademusic 0;
 sleep 3;
 
-"1" objstatus "FAILED";
+["t1", "FAILED", true] spawn BIS_fnc_taskSetState;
 
 // Destroy the camera
 camDestroy _camera;

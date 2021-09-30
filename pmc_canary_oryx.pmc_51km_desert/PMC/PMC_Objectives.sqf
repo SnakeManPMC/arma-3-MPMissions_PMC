@@ -3,7 +3,7 @@
 location: getMarkerPos "target1"
 activation: anybody
 condition: east countside thislist == 0 && ("man" countType thislist == west countSide thislist) && west countSide thislist > 0
-on activation: leader group (thislist select 0) sideChat "We have reached the objective 1, Over."; "target1" setMarkerColor "colorgreen"; PMC_objective1 setTaskState "SUCCEEDED";
+on activation: leader group (thislist select 0) sideChat "We have reached the objective 1, Over."; "target1" setMarkerColor "colorgreen"; PMC_objective1 set.TaskState "SUCCEEDED";
 */
 ["target1"] spawn
 {
@@ -34,7 +34,7 @@ objective 2
 location: getMarkerPos "target2"
 activation: anybody
 condition: east countside thislist == 0 && ("man" countType thislist == west countSide thislist) && west countSide thislist > 0
-on activation: leader group (thislist select 0) sideChat "We have reached the objective 2, Over."; "target2" setMarkerColor "colorgreen"; PMC_objective2 setTaskState "SUCCEEDED";
+on activation: leader group (thislist select 0) sideChat "We have reached the objective 2, Over."; "target2" setMarkerColor "colorgreen"; PMC_objective2 set.TaskState "SUCCEEDED";
 */
 ["target2"] spawn
 {
@@ -65,7 +65,7 @@ objective 3
 location: getMarkerPos "target3"
 activation: anybody
 condition: east countside thislist == 0 && ("man" countType thislist == west countSide thislist) && west countSide thislist > 0
-on activation: leader group (thislist select 0) sideChat "We have reached the objective 3, Over."; "target3" setMarkerColor "colorgreen"; PMC_objective3 setTaskState "SUCCEEDED";
+on activation: leader group (thislist select 0) sideChat "We have reached the objective 3, Over."; "target3" setMarkerColor "colorgreen"; PMC_objective3 set.TaskState "SUCCEEDED";
 */
 ["target3"] spawn
 {
@@ -96,7 +96,7 @@ objective 4
 location: getMarkerPos "target4"
 activation: anybody
 condition: east countside thislist == 0 && ("man" countType thislist == west countSide thislist) && west countSide thislist > 0
-on activation: leader group (thislist select 0) sideChat "We have reached the objective 4, Over."; "target4" setMarkerColor "colorgreen"; PMC_objective4 setTaskState "SUCCEEDED";
+on activation: leader group (thislist select 0) sideChat "We have reached the objective 4, Over."; "target4" setMarkerColor "colorgreen"; PMC_objective4 set.TaskState "SUCCEEDED";
 */
 ["target4"] spawn
 {
@@ -127,7 +127,7 @@ objective 5, aka mission completed
 location: n/a it "rest" heh
 activation: opfor, not present
 condition: this
-on activation: PMC_objective5 setTaskState "SUCCEEDED"; mcomplete=true;
+on activation: PMC_objective5 set.TaskState "SUCCEEDED"; mcomplete=true;
 */
 [] spawn
 {

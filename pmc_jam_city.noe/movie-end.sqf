@@ -105,7 +105,7 @@ titlecut ["","BLACK OUT",3];
 3 fademusic 0;
 sleep 3;
 
-"1" objstatus "DONE";
+["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 
 // destroy camera - if we use mission cutscene the end
 _camera cameraEffect ["terminate","back"];

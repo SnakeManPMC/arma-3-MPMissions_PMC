@@ -6,6 +6,5 @@ private _task = ["objective1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 
 sleep 15;
 PMCHQ sideChat "Roger that, good work. Over";
-//"1" objStatus "DONE";
 "target1" setMarkerType "mil_dot";
 "target1" setMarkerColor "colorgreen";

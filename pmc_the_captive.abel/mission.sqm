@@ -217,7 +217,7 @@ class Mission
 			class Attributes
 			{
 				text="Call Air Strike";
-				onActivation="leader seals sideradio ""Robjclear""; {_x setfuel 1} foreach units cobras; called=true; ""2"" objstatus ""DONE"";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective2.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				activationBy="ALPHA";
@@ -251,7 +251,7 @@ class Mission
 			{
 				text="Call for Blackhawks";
 				condition="this AND called";
-				onActivation="leader seals sideradio ""Rsecured""; called2=true; {_x setfuel 1} foreach units blackhawks; ""3"" objstatus ""DONE"";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective3.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				activationBy="BRAVO";
@@ -319,7 +319,7 @@ class Mission
 			{
 				text="shilka dead";
 				condition="!alive leader aaa";
-				onActivation="leader seals sideradio ""Raaadead""; ""1"" objstatus ""DONE"";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective1.sqf"";";
 				sizeA=0;
 				sizeB=0;
 			};
@@ -335,7 +335,7 @@ class Mission
 			{
 				text="complete";
 				condition="leader prisoners in biggie AND biggie distance usa < 500";
-				onActivation="mcomplete=true; ""4"" objstatus ""DONE"";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective4.sqf"";";
 				sizeA=0;
 				sizeB=0;
 			};
