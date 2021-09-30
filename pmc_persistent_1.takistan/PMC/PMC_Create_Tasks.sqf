@@ -66,7 +66,7 @@ else
 	PMC_objective2 = player createSimpleTask ["Clear objective 2"];
 	PMC_objective2 setSimpleTaskDescription ["Clear <marker name='pmc_target2'>objective 2</marker>","Clear objective 2","Clear objective 2"];
 	PMC_objective2 setSimpleTaskDestination (getMarkerPos "pmc_target2");
-	PMC_objective2 setTaskState "succeeded";
+	["PMC_objective2", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 
 	//player sidechat "PMC_target2 has been completed sucessfully, have a nice day.";
 };
@@ -108,7 +108,7 @@ else
 	PMC_objective1 = player createSimpleTask ["Clear objective 1"];
 	PMC_objective1 setSimpleTaskDescription ["Clear <marker name='pmc_target1'>objective 1</marker>","Clear objective 1","Clear objective 1"];
 	PMC_objective1 setSimpleTaskDestination (getMarkerPos "pmc_target1");
-	PMC_objective1 setTaskState "succeeded";
+	["PMC_objective1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 
 	//player sidechat "PMC_target1 has been completed sucessfully, have a nice day.";
 };

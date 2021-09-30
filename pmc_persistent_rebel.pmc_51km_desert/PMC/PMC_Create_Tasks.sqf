@@ -32,7 +32,6 @@ else
 	PMC_objective2 = player createSimpleTask ["Defeat OPFOR"];
 	PMC_objective2 setSimpleTaskDescription ["Defeat <marker name='base_tk'>OPFOR</marker>", "Defeat OPFOR", "Defeat OPFOR"];
 	PMC_objective2 setSimpleTaskDestination (getMarkerPos "base_tk");
-	PMC_objective2 setTaskState "succeeded";
 */
 };
 
@@ -60,6 +59,5 @@ else
 	PMC_objective1 = player createSimpleTask ["Defeat BLUFOR"];
 	PMC_objective1 setSimpleTaskDescription ["Defeat <marker name='base_usa'>BLUFOR</marker>", "Defeat BLUFOR", "Defeat BLUFOR"];
 	PMC_objective1 setSimpleTaskDestination (getMarkerPos "base_usa");
-	PMC_objective1 setTaskState "succeeded";
 */
 };

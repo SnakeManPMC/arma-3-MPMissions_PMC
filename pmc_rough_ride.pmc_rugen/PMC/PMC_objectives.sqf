@@ -26,7 +26,7 @@ _triggerString = [];
 	_z setTriggerActivation ["WEST SEIZED", "PRESENT", true];
 	_z setTriggerArea [_triggerArea, _triggerArea, 0, true];
 	_z setTriggerTimeout [0, (_triggerTimeout/2), _triggerTimeout, true];
-	_z setTriggerStatements ["this", format ["'pmc_objective_marker%1' setMarkerColor 'ColorGreen'; PMC_objective%1 setTaskState 'SUCCEEDED'; PMC_objectives_done set [%1, true];", _a], ""];
+	_z setTriggerStatements ["this", format ["'pmc_objective_marker%1' setMarkerColor 'ColorGreen'; ['PMC_objective%1', 'SUCCEEDED', true] spawn BIS_fnc_taskSetState; PMC_objectives_done set [%1, true];", _a], ""];
 
 	_m = format ["pmc_objective_marker%1", _a];
 	_markerobj = createMarker [_m, _x];
