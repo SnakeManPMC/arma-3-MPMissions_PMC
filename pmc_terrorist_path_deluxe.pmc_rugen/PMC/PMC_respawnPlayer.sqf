@@ -18,7 +18,7 @@ waitUntil
 if (PMC_debug) then { diag_log format["##############################  After waitUntil: %1", player]; };
 
 // human respawn bodies are removed also.
-player addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
+player addEventHandler ["killed", {0 = _this execVM "PMC\PMC_killed.sqf"; 0 = _this execVM "PMC\PMC_respawnPlayer.sqf"}];
 
 // he has to pickup weapons after respawn. perhaps too much trouble?
 removeAllWeapons player;

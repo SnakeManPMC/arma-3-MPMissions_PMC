@@ -9,6 +9,8 @@ waitUntil
 	!isNil "PMC_initial_lists";
 };
 
+diag_log format["PMC_Init_Client; time: %1, passed PMC_initial_lists waitUntil.", time];
+
 call compile preProcessFileLineNumbers "PMC\PMC_Time_Used_Update.sqf";
 
 [player, "PMC_Count_All_Units", nil, nil, ""] call BIS_fnc_addCommMenuItem;
