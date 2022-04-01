@@ -11,6 +11,9 @@ _PMC_temp_array = PMC_targets;
 // getting the max units from description.ext was so long code that it was nice to put on seprate sqf ;)
 _PMC_MaxUnits = call compile preprocessFileLineNumbers "PMC\PMC_Get_Max_Units.sqf";
 
+private _skill = ["PMC_EnemySkillLevel", 0] call BIS_fnc_getParamValue;
+private _PMC_EnemySkillLevel = [_skill] call compile preProcessFileLineNumbers "PMC\PMC_Get_Skill_Level.sqf";
+
 // chooses random location, removes it from selection.
 _PMC_select_static_start_posit =
 {
@@ -93,7 +96,7 @@ while { _a < _PMC_MaxUnits } do
 	[_grp] execVM "PMC\PMC_groupRecycle.sqf";
 
 	// run special low skills for them
-	[_grp] call PMC_setAISkill;
+	[_grp, _PMC_EnemySkillLevel] call PMC_SetAISkill;
 
 	//[_respawnpoint] call _createMarker;
 	_ran2 = floor (random 3);
@@ -184,7 +187,7 @@ while { _a < 7 } do
 	_grp = [_respawnpoint] call PMC_Create_Takistani_Militia_Support;
 
 	// low skills
-	[_grp] call PMC_setAISkill;
+	[_grp, _PMC_EnemySkillLevel] call PMC_SetAISkill;
 
 	_grp setbehaviour "SAFE";
 	_grp setcombatmode "GREEN";

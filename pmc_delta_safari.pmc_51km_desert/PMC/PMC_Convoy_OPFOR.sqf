@@ -54,6 +54,9 @@ PMC_opfor_vehicle_car_unarmed =
 	"CUP_C_Skoda_White_CIV"
 ];
 
+private _skill = ["PMC_EnemySkillLevel", 0] call BIS_fnc_getParamValue;
+private _PMC_EnemySkillLevel = [_skill] call compile preProcessFileLineNumbers "PMC\PMC_Get_Skill_Level.sqf";
+
 while {true} do
 {
 	// hard coded :(
@@ -175,6 +178,8 @@ while {true} do
 	_grp setCombatMode "YELLOW";
 	_grp setSpeedMode "NORMAL";
 	_grp setBehaviour "SAFE";
+
+	[_grp, _PMC_EnemySkillLevel] call PMC_SetAISkill;
 
 	// selecting the waypoint locations
 	_ptNum = count PMC_targets;
