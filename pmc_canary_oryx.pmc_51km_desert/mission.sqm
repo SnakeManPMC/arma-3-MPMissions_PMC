@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1889;
+		nextID=1890;
 	};
 	class MarkerIDProvider
 	{
-		nextID=11;
+		nextID=12;
 	};
 	class Camera
 	{
-		pos[]={22290.871,54.970001,32071.52};
-		dir[]={-0.00087057421,-0.38380888,0.92341787};
-		up[]={-0.00036176358,0.92341137,0.38381058};
-		aside[]={1.0000048,-2.9812782e-008,0.00094302424};
+		pos[]={22100.939,50.485989,31327.178};
+		dir[]={0.12476805,-0.39915064,-0.90835661};
+		up[]={0.054315671,0.91688538,-0.39543778};
+		aside[]={-0.9906981,0,-0.13607813};
 	};
 };
 binarizationWanted=0;
@@ -159,7 +159,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="PMC Canary Oryx v0.1.4";
+		briefingName="PMC Canary Oryx v0.1.5";
 		startWeather=0.12;
 		startWind=0.1;
 		forecastWeather=0.30000001;
@@ -175,14 +175,14 @@ class Mission
 	};
 	class Entities
 	{
-		items=144;
+		items=145;
 		class Item0
 		{
 			dataType="Marker";
-			position[]={22288.559,30,32112.281};
+			position[]={22288.561,30,32112.279};
 			name="target1";
 			text="Target 1";
-			type="mil_flag";
+			type="mil_objective";
 			colorName="ColorRed";
 			id=1287;
 		};
@@ -192,7 +192,7 @@ class Mission
 			position[]={23388.805,30,34044.359};
 			name="target2";
 			text="Target 2";
-			type="mil_flag";
+			type="mil_objective";
 			colorName="ColorRed";
 			id=1288;
 		};
@@ -202,7 +202,7 @@ class Mission
 			position[]={22007.592,30,34606.98};
 			name="target3";
 			text="Target 3";
-			type="mil_flag";
+			type="mil_objective";
 			colorName="ColorRed";
 			id=1289;
 		};
@@ -212,7 +212,7 @@ class Mission
 			position[]={21575.504,30,33348.621};
 			name="target4";
 			text="Target 4";
-			type="mil_flag";
+			type="mil_objective";
 			colorName="ColorRed";
 			id=1290;
 		};
@@ -11629,7 +11629,6 @@ class Mission
 					{
 						skill=1;
 						rank="SERGEANT";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=1675;
@@ -11757,10 +11756,53 @@ class Mission
 					{
 						skill=0.55000001;
 						rank="LIEUTENANT";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=1827;
 					type="CUP_B_FR_Soldier_TL_DES";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
@@ -12596,10 +12638,19 @@ class Mission
 		class Item143
 		{
 			dataType="Marker";
-			position[]={22401.523,30,33423.406};
+			position[]={22396.73,30,33431.59};
 			name="pmc_marker_rest";
 			type="mil_dot";
 			id=1888;
+		};
+		class Item144
+		{
+			dataType="Marker";
+			position[]={22356.061,30,32012.699};
+			name="pmc_marker_start";
+			type="mil_start";
+			colorName="ColorGreen";
+			id=1889;
 		};
 	};
 };

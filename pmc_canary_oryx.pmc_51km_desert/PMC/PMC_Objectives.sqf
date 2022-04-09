@@ -11,12 +11,17 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 	// some random sleep so each start at different time
 	sleep 3 + (random 5);
 
+	pmc_obj1 = 0;
+	_pmcmarker setMarkerColorLocal "ColorRed";
+	_pmcmarker setMarkerShapeLocal "ELLIPSE";
+	_pmcmarker setMarkerSizeLocal [10, 10];
+	_pmcmarker setMarkerType "mil_objective";
+
 	// wait until WEST has arrived
 	while { (count (units west inAreaArray _pmcmarker) == 0) } do
 	{
 		sleep 10;
 	};
-	player sideChat format["WEST has entered into %1.", _pmcmarker];
 	
 	// wait until EAST is dead
 	waitUntil
@@ -24,9 +29,19 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 		sleep 5;
 		(count (units EAST inAreaArray _pmcmarker) == 0);
 	};
-	player sideChat format["East/OPFOR is dead in %1.", _pmcmarker];
+
+	_pmcmarker setMarkerColorLocal "ColorGreen";
+	_pmcmarker setMarkerShapeLocal "icon";
+	_pmcmarker setMarkerSizeLocal [1, 1];
+	_pmcmarker setMarkerType "mil_dot";
+
+	"Objective 1 completed, good work!" remoteExec ["hint", 2];
+	sleep 3;
+	[["Objective 1 completed, good work!", "PLAIN", 1]] remoteExec ["titleText"];
+	sleep 5;
 
 	["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+	pmc_obj1 = 1;
 };
 
 /*
@@ -42,12 +57,17 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 	// some random sleep so each start at different time
 	sleep 3 + (random 5);
 
+	pmc_obj2 = 0;
+	_pmcmarker setMarkerColorLocal "ColorRed";
+	_pmcmarker setMarkerShapeLocal "ELLIPSE";
+	_pmcmarker setMarkerSizeLocal [100, 100];
+	_pmcmarker setMarkerType "mil_objective";
+
 	// wait until WEST has arrived
 	while { (count (units west inAreaArray _pmcmarker) == 0) } do
 	{
 		sleep 10;
 	};
-	player sideChat format["WEST has entered into %1.", _pmcmarker];
 	
 	// wait until EAST is dead
 	waitUntil
@@ -55,9 +75,14 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 		sleep 5;
 		(count (units EAST inAreaArray _pmcmarker) == 0);
 	};
-	player sideChat format["East/OPFOR is dead in %1.", _pmcmarker];
+
+	"Objective 2 completed, good work!" remoteExec ["hint", 2];
+	sleep 3;
+	[["Objective 2 completed, good work!", "PLAIN", 1]] remoteExec ["titleText"];
+	sleep 5;
 
 	["t2", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+	pmc_obj2 = 1;
 };
 
 /*
@@ -73,12 +98,17 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 	// some random sleep so each start at different time
 	sleep 3 + (random 5);
 
+	pmc_obj3 = 0;
+	_pmcmarker setMarkerColorLocal "ColorRed";
+	_pmcmarker setMarkerShapeLocal "ELLIPSE";
+	_pmcmarker setMarkerSizeLocal [100, 100];
+	_pmcmarker setMarkerType "mil_objective";
+
 	// wait until WEST has arrived
 	while { (count (units west inAreaArray _pmcmarker) == 0) } do
 	{
 		sleep 10;
 	};
-	player sideChat format["WEST has entered into %1.", _pmcmarker];
 	
 	// wait until EAST is dead
 	waitUntil
@@ -86,9 +116,14 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 		sleep 5;
 		(count (units EAST inAreaArray _pmcmarker) == 0);
 	};
-	player sideChat format["East/OPFOR is dead in %1.", _pmcmarker];
+
+	"Objective 3 completed, good work!" remoteExec ["hint", 2];
+	sleep 3;
+	[["Objective 3 completed, good work!", "PLAIN", 1]] remoteExec ["titleText"];
+	sleep 5;
 
 	["t3", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+	pmc_obj3 = 1;
 };
 
 /*
@@ -104,12 +139,17 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 	// some random sleep so each start at different time
 	sleep 3 + (random 5);
 
+	pmc_obj4 = 0;
+	_pmcmarker setMarkerColorLocal "ColorRed";
+	_pmcmarker setMarkerShapeLocal "ELLIPSE";
+	_pmcmarker setMarkerSizeLocal [100, 100];
+	_pmcmarker setMarkerType "mil_objective";
+
 	// wait until WEST has arrived
 	while { (count (units west inAreaArray _pmcmarker) == 0) } do
 	{
 		sleep 10;
 	};
-	player sideChat format["WEST has entered into %1.", _pmcmarker];
 	
 	// wait until EAST is dead
 	waitUntil
@@ -117,9 +157,14 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 		sleep 5;
 		(count (units EAST inAreaArray _pmcmarker) == 0);
 	};
-	player sideChat format["East/OPFOR is dead in %1.", _pmcmarker];
+
+	"Objective 4 completed, good work!" remoteExec ["hint", 2];
+	sleep 3;
+	[["Objective 4 completed, good work!", "PLAIN", 1]] remoteExec ["titleText"];
+	sleep 5;
 
 	["t4", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
+	pmc_obj4 = 1;
 };
 
 /*
@@ -134,13 +179,24 @@ on activation: PMC_objective5 set.TaskState "SUCCEEDED"; mcomplete=true;
 	// some random sleep so each start at different time
 	sleep 3 + (random 5);
 
+	// wait until other objectives are complete
+	waitUntil
+	{
+		sleep 60;
+		(pmc_obj1 == 1 && pmc_obj2 == 1 && pmc_obj3 == 1 && pmc_obj4 == 1);
+	};
+
 	// wait until EAST is dead
 	waitUntil
 	{
 		sleep 10;
 		(EAST countside allUnits == 0);
 	};
-	player sideChat "East/OPFOR is completely dead.";
+
+	"All objectives completed, good work!" remoteExec ["hint", 2];
+	sleep 3;
+	[["All objectives completed, good work!", "PLAIN", 1]] remoteExec ["titleText"];
+	sleep 5;
 
 	["t5", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 
