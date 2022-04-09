@@ -10,6 +10,10 @@ PMC_corpses = [];
 PMC_killedNum = 0;
 
 [] execVM "PMC\PMC_targets.sqf";
-waitUntil { count (missionNamespace getVariable "PMC_targets") > 0 };
+waitUntil
+{
+	sleep 1;
+	(!isNil "PMC_targets");
+};
 [] execVM "PMC\PMC_unit_arrays.sqf";
 [] execVM "PMC\PMC_opfor.sqf";
