@@ -76,6 +76,11 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 		(count (units EAST inAreaArray _pmcmarker) == 0);
 	};
 
+	_pmcmarker setMarkerColorLocal "ColorGreen";
+	_pmcmarker setMarkerShapeLocal "icon";
+	_pmcmarker setMarkerSizeLocal [1, 1];
+	_pmcmarker setMarkerType "mil_dot";
+
 	"Objective 2 completed, good work!" remoteExec ["hint", 2];
 	sleep 3;
 	[["Objective 2 completed, good work!", "PLAIN", 1]] remoteExec ["titleText"];
@@ -117,6 +122,11 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 		(count (units EAST inAreaArray _pmcmarker) == 0);
 	};
 
+	_pmcmarker setMarkerColorLocal "ColorGreen";
+	_pmcmarker setMarkerShapeLocal "icon";
+	_pmcmarker setMarkerSizeLocal [1, 1];
+	_pmcmarker setMarkerType "mil_dot";
+
 	"Objective 3 completed, good work!" remoteExec ["hint", 2];
 	sleep 3;
 	[["Objective 3 completed, good work!", "PLAIN", 1]] remoteExec ["titleText"];
@@ -157,6 +167,11 @@ on activation: leader group (thislist select 0) sideChat "We have reached the ob
 		sleep 5;
 		(count (units EAST inAreaArray _pmcmarker) == 0);
 	};
+
+	_pmcmarker setMarkerColorLocal "ColorGreen";
+	_pmcmarker setMarkerShapeLocal "icon";
+	_pmcmarker setMarkerSizeLocal [1, 1];
+	_pmcmarker setMarkerType "mil_dot";
 
 	"Objective 4 completed, good work!" remoteExec ["hint", 2];
 	sleep 3;
