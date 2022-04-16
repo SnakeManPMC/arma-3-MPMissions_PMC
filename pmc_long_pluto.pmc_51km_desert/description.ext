@@ -1,10 +1,14 @@
 
-respawn = "BAS";
+respawn = 3;
 respawndelay = 3;
 
-onLoadMission = "PMC Long Pluto";
-onLoadIntro = "https://www.pmctactical.org/";
+author = "Snake Man, PMC.";
+briefingName = "PMC Long Pluto v0.1.4";
 disabledAI = 1;
+onLoadIntro = "https://www.pmctactical.org/";
+onLoadMission = "PMC Long Pluto";
+overviewPicture = "";
+overviewText = "Clear 5xObj in Bayyan city filled with bad guys. Infantry, cobras, HMMWV and strykers.";
 
 class Header
 {
@@ -16,8 +20,7 @@ class Header
 
 class Params
 {
-// (paramsarray select 0)
-	class TimeOfDay
+	class PMC_Time_of_Day
 	{
 		title = "Time of Day";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
@@ -25,8 +28,6 @@ class Params
 		default = 8;
 	};
 
-// (paramsarray select 1)
-// please note that "Random" requires PMC\PMC_weather.sqf
 	class PMC_WeatherSetting
 	{
 		title = "Weather setting";
@@ -34,11 +35,15 @@ class Params
 		texts[] = {"Clear skies", "Overcast", "Cloudy", "Rain storm", "Rain storm with fog", "Random (Rainy - Jungles)", "Random (Dry - Deserts)"};
 		default = 7;
 	};
-};
 
-author = "Snake Man, PMC.";
-overviewText = "Clear 5xObj in Bayyan city filled with bad guys. Infantry, cobras, HMMWV and strykers.";
-overviewPicture = "";
+	class PMC_EnemySkillLevel
+	{
+		title = "Enemy Skill Level from 0 dumb to 1 super human ninja elite navy SEAL sniper killer";
+		values[] = {0, 1, 2, 3, 4, 5};
+		texts[] = {"Dumb 0.1", "Beginner 0.2", "Normal 0.33", "Good 0.5", "Elite 0.85", "SUPER SNIPER 1"};
+		default = 0;
+	};
+};
 
 class CfgDebriefing
 {
