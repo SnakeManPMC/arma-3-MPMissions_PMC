@@ -18,7 +18,7 @@
 [
 	west,
 	[
-		"t1"
+		"t2"
 	],
 	[
 		"You need to clean <marker name='target2'>north side</marker> of the city.",
@@ -34,7 +34,7 @@
 [
 	west,
 	[
-		"t1"
+		"t3"
 	],
 	[
 		"Clear <marker name='target3'>north side</marker> of the city.",
@@ -50,7 +50,7 @@
 [
 	west,
 	[
-		"t1"
+		"t4"
 	],
 	[
 		"Clear <marker name='target4'>west side</marker> of the city.",
@@ -66,7 +66,7 @@
 [
 	west,
 	[
-		"t1"
+		"t5"
 	],
 	[
 		"Clean rest of the enemy forces in the city.",
