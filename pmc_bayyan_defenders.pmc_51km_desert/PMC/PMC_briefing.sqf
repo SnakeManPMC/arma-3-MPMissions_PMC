@@ -7,7 +7,7 @@ switch (side player) do
 	{
 		player createDiaryRecord ["Diary",["SERVICE AND SUPPORT","Friendly forces are approaching from east."]];
 
-		player createDiaryRecord ["Diary",["ORDERS","1-1-A team <marker name='start'>start</marker> from city. Defend this city at all cost. Mission is accomplished when all enemies have been neutralized."]];
+		player createDiaryRecord ["Diary",["ORDERS","1-1-A team <marker name='start'>start</marker> from Bayyan. Defend this city at all cost. Mission is accomplished when all enemies have been neutralized."]];
 
 		player createDiaryRecord ["Diary",["INTEL","Enemy composition and strenght is unknown at this time, sorry. Expect heavy attack."]];
 

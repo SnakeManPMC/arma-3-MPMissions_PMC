@@ -5,8 +5,8 @@
 		"t1"
 	],
 	[
-		"Defend <marker name='start'>city</marker> at all cost.",
-		"Defend City",
+		"Defend <marker name='start'>Waseem</marker> at all cost.",
+		"Defend Waseem",
 		"start"
 	],
 	objNull,
