@@ -2,9 +2,9 @@
 	PMC VIP placement
 	
 Syntax:
-[number of locations, distance to houses, map size] execVM "PMC\PMC_vip_placement.sqf";
+[number of locations, distance to houses, terrain size] execVM "PMC\PMC_vip_placement.sqf";
 
-Note that map size is counted from 0,0 bottom left corner to X,X top right corner.
+Note that terrain size is counted from 0,0 bottom left corner to X,X top right corner.
 
 Example:
 [5, 500, 12800] execVM "PMC\PMC_vip_placement.sqf";
@@ -17,9 +17,9 @@ Returns:
 
 */
 
-private ["_PMC_Create_VIP","_position","_mapSize","_x"];
+private ["_PMC_Create_VIP","_position","_worldSize","_x"];
 
-_mapSize = _this select 2;
+_worldSize = _this select 2;
 //_createMarker = compile preprocessFileLineNumbers "PMC\PMC_Create_Marker.sqf";
 _PMC_Create_VIP = compile preprocessFileLineNumbers "PMC\PMC_Create_VIP.sqf";
 
@@ -28,12 +28,12 @@ PMC_vips = [];
 
 for [{_x = 1}, {_x <= _this select 0}, {_x = _x + 1}] do
 {
-	_position = [(random _mapSize), (random _mapSize)];
+	_position = [(random _worldSize), (random _worldSize)];
 
 	// choose new position while we have water OR houses closer than 100 meters.
 	while { ( surfaceIsWater _position || (count (_position nearObjects ["house", _this select 1]) <= 2) ) } do
 	{
-		_position = [(random _mapSize), (random _mapSize), 0];
+		_position = [(random _worldSize), (random _worldSize), 0];
 
 		if (surfaceIsWater _position) then
 		{

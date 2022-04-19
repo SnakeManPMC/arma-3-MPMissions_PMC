@@ -2,9 +2,9 @@
 	PMC SCUD launcher placement script
 	
 Syntax:
-[number of locations, distance to houses, map size] execVM "PMC\PMC_scud_placement.sqf";
+[number of locations, distance to houses, terrain size] execVM "PMC\PMC_scud_placement.sqf";
 
-Note that map size is counted from 0,0 bottom left corner to X,X top right corner.
+Note that terrain size is counted from 0,0 bottom left corner to X,X top right corner.
 
 Example:
 [5, 500, 12800] execVM "PMC\PMC_scud_placement.sqf";
@@ -17,9 +17,9 @@ Returns:
 
 */
 
-private ["_PMC_Create_SCUD_launcher","_position","_mapSize","_x","_grp"];
+private ["_PMC_Create_SCUD_launcher","_position","_worldSize","_x","_grp"];
 
-_mapSize = _this select 2;
+_worldSize = _this select 2;
 //_createMarker = compile preprocessFileLineNumbers "PMC\PMC_Create_Marker.sqf";
 _PMC_Create_SCUD_launcher = compile preprocessFileLineNumbers "PMC\PMC_Create_SCUD_launcher.sqf";
 
@@ -28,12 +28,12 @@ PMC_scuds = [];
 
 for [{_x = 1}, {_x <= _this select 0}, {_x = _x + 1}] do
 {
-	_position = [(random _mapSize), (random _mapSize)];
+	_position = [(random _worldSize), (random _worldSize)];
 
 	// choose new position while we have water OR houses closer than 100 meters.
 	while { ( surfaceIsWater _position || (count (_position nearObjects ["house", _this select 1]) > 0) ) } do
 	{
-		_position = [(random _mapSize), (random _mapSize), 0];
+		_position = [(random _worldSize), (random _worldSize), 0];
 
 		if (surfaceIsWater _position) then
 		{

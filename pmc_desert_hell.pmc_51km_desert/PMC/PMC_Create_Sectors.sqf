@@ -3,7 +3,7 @@
 	Create sector markers
 
 Syntax:
-[mapsize, number_of_sectors] execVM "PMC\PMC_Create_Sectors.sqf";
+[terrainSize, number_of_sectors] execVM "PMC\PMC_Create_Sectors.sqf";
 
 Requires:
 PMC\PMC_Create_Killbox_Triggers.sqf
@@ -17,7 +17,7 @@ private
 [
 	"_a",
 	"_divider",
-	"_mapsize",
+	"_terrainSize",
 	"_mk",
 	"_PMC_create_marker",
 	"_posmarker_x",
@@ -51,15 +51,15 @@ _PMC_create_marker =
 	[[_posmarker_x,_posmarker_y], _a, _marker, _divider, 3] execVM "PMC\PMC_Create_Killbox_Triggers.sqf";
 };
 
-_mapsize = _this select 0;
-_divider = _mapsize / (_this select 1);
+_terrainSize = _this select 0;
+_divider = _terrainSize / (_this select 1);
 _posmarker_x = _divider;
 _posmarker_y = _divider;
 
 _a = 0;
-while {_posmarker_y < _mapsize} do
+while {_posmarker_y < _terrainSize} do
 {
-	while {_posmarker_x < _mapsize} do
+	while {_posmarker_x < _terrainSize} do
 	{
 		_a = _a + 1;
 		_mk = format["pmc_sector%1", _a];
