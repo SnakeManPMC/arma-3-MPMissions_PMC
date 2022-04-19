@@ -55,8 +55,8 @@ waitUntil
 	(!isNil "pmc_opforunits");
 };
 
-// first base defence for airbase
-[] execVM "PMC\PMC_Base_Defence_OPFOR.sqf";
+// first base defense for airbase
+[] execVM "PMC\PMC_Base_defense_OPFOR.sqf";
 sleep 1;
 
 while {PMC_opfor < _victoryCondition} do

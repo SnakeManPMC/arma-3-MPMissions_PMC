@@ -64,8 +64,8 @@ waitUntil
 	(!isNil "pmc_bluforunits");
 };
 
-// first base defence for airbase
-[] execVM "PMC\PMC_Base_Defence_BLUFOR.sqf";
+// first base defense for airbase
+[] execVM "PMC\PMC_Base_defense_BLUFOR.sqf";
 sleep 1;
 
 while {PMC_blufor < _victoryCondition} do
