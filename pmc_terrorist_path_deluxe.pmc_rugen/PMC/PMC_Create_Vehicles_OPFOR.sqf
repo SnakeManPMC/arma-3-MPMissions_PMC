@@ -13,7 +13,7 @@ diag_log format["PMC_Create_Vehicles_OPFOR _pos: %1", _pos];
 
 while {PMC_CreatingVehiclesOPFOR} do
 {
-	if ( ('landVehicle' countType list pmc_opfor_list) < 20 ) then
+	if ( ('landVehicle' countType (EAST countSide allUnits)) < 20 ) then
 	{
 		_safePos = [_pos, 0, 500, 30, 0, 20, 0] call BIS_fnc_findSafePos;
 

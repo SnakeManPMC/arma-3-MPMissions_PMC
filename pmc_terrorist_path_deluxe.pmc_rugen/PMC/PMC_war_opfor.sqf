@@ -19,7 +19,7 @@ _sleeptime = (360 + random 360);
 
 while {true} do
 {
-	if (count (list pmc_opfor_list) < _Max_OPFOR_On_Map) then
+	if (count ((EAST countSide allUnits)) < _Max_OPFOR_On_Map) then
 	{
 		// random starting location
 		//_respawnpoint = ["OPFOR"] call PMC_SelectStartPosit;

@@ -4,6 +4,7 @@ PMCHQ = [ West, "BASE" ];
 [] execVM "PMC\PMC_Set_Mission_Time.sqf";
 [] execVM "PMC\PMC_weather_with_mp_parameter.sqf";
 [] execVM "PMC\PMC_Tasks.sqf";
+[] execVM "PMC\PMC_Objectives.sqf";
 
 PMC_debug = true;
 publicVariable "PMC_debug";
@@ -18,20 +19,15 @@ publicVariable "PMC_PlayerRespawns";
 PMC_InfTransportUsed = 0;
 publicVariable "PMC_InfTransportUsed";
 
-waitUntil
-{
-	(count list pmc_opfor_list > 0);
-};
-
 PMC_initial_lists =
 [
-	count list pmc_opfor_list,
-	west countSide list pmc_opfor_list,
-	east countSide list pmc_opfor_list,
-	('tank' countType list pmc_opfor_list),
-	('car' countType list pmc_opfor_list),
-	('air' countType list pmc_opfor_list),
-	('man' countType list pmc_opfor_list)
+	count allUnits,
+	west countSide allUnits,
+	east countSide allUnits,
+	('tank' countType allUnits),
+	('car' countType allUnits),
+	('air' countType allUnits),
+	('man' countType allUnits)
 ];
 publicVariable "PMC_initial_lists";
 
@@ -51,10 +47,7 @@ publicVariable "PMC_corpses";
 // add killed script to each of the mission editor placed units
 {
 	_x addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
-} forEach list pmc_opfor_list;
-{
-	_x addEventHandler ["killed", {handle = _this execVM "PMC\PMC_killed.sqf"}];
-} forEach list pmc_blufor_list;
+} forEach allUnits;
 
 // count for opfor
 PMC_opfor = 0;

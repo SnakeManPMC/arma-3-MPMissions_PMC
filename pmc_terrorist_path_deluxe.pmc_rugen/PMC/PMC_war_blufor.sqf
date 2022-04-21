@@ -19,7 +19,7 @@ _sleeptime = (360 + random 360);
 
 while {true} do
 {
-	if (count (list pmc_blufor_list) < _Max_BLUFOR_On_Map) then
+	if (count ((WEST countSide allUnits)) < _Max_BLUFOR_On_Map) then
 	{
 		// random starting location
 		//_respawnpoint = ["BLUFOR"] call PMC_SelectStartPosit;
