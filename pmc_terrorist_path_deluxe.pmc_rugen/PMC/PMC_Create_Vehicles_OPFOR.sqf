@@ -24,7 +24,7 @@ while {PMC_CreatingVehiclesOPFOR} do
 			case 0:
 			{
 				_grp = [_safePos, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Armored" >> "RU_TankPlatoon")] call BIS_fnc_spawnGroup;
-				diag_log format["PMC_Create_Vehicles_OPFOR: TANKS!!!! _grp: %1", _grp];
+				diag_log format["PMC_Create_Vehicles_OPFOR: RU_TankPlatoon, _grp: %1", _grp];
 			};
 			case 1:
 			{
@@ -49,17 +49,17 @@ while {PMC_CreatingVehiclesOPFOR} do
 			case 6:
 			{
 				_grp = [_safePos, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Armored" >> "RU_TankPlatoon")] call BIS_fnc_spawnGroup;
-				diag_log format["PMC_Create_Vehicles_OPFOR: TANKS!!!! _grp: %1", _grp];
+				diag_log format["PMC_Create_Vehicles_OPFOR: RU_TankPlatoon, _grp: %1", _grp];
 			};
 			case 7:
 			{
 				_grp = [_safePos, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Armored" >> "RU_TankPlatoon")] call BIS_fnc_spawnGroup;
-				diag_log format["PMC_Create_Vehicles_OPFOR: TANKS!!!! _grp: %1", _grp];
+				diag_log format["PMC_Create_Vehicles_OPFOR: RU_TankPlatoon, _grp: %1", _grp];
 			};
 			case 8:
 			{
 				_grp = [_safePos, EAST, (configFile >> "CfgGroups" >> "East" >> "CUP_O_RU" >> "Armored" >> "RU_TankPlatoon")] call BIS_fnc_spawnGroup;
-				diag_log format["PMC_Create_Vehicles_OPFOR: TANKS!!!! _grp: %1", _grp];
+				diag_log format["PMC_Create_Vehicles_OPFOR: RU_TankPlatoon, _grp: %1", _grp];
 			};
 		};
 
