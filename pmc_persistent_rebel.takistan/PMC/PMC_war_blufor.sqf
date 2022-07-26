@@ -74,6 +74,7 @@ while {PMC_blufor < _victoryCondition} do
 	{
 		// random starting location
 		_respawnpoint = ["BLUFOR"] call PMC_SelectStartPosit;
+		_targetpoint = call PMC_Select_Target;
 
 		_ran = floor (random 9);
 		switch (_ran) do
@@ -89,9 +90,6 @@ while {PMC_blufor < _victoryCondition} do
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
 if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_Army! PMC_blufor: %1", PMC_blufor]; };
-
-				// select target
-				_targetpoint = call PMC_Select_Target;
 
 				// create helicopter to ferry them into target, if far enough
 				if (_respawnpoint distance _targetpoint > 1000) then
@@ -122,9 +120,6 @@ if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_patrol_v
 				publicVariable "PMC_blufor";
 if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_Army_Sniper! PMC_blufor: %1", PMC_blufor]; };
 
-				// select target
-				_targetpoint = call PMC_Select_Target;
-
 				// create helicopter to ferry them into target, if far enough
 				if (_respawnpoint distance _targetpoint > 1000) then
 				{
@@ -141,9 +136,6 @@ if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_U
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
 if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_Army_Support! PMC_blufor: %1", PMC_blufor]; };
-
-				// select target
-				_targetpoint = call PMC_Select_Target;
 
 				// create helicopter to ferry them into target, if far enough
 				if (_respawnpoint distance _targetpoint > 1000) then
@@ -162,9 +154,6 @@ if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_U
 				publicVariable "PMC_blufor";
 if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_ArmyWeapons! PMC_blufor: %1", PMC_blufor]; };
 
-				// select target
-				_targetpoint = call PMC_Select_Target;
-
 				// create helicopter to ferry them into target, if far enough
 				if (_respawnpoint distance _targetpoint > 1000) then
 				{
@@ -181,9 +170,6 @@ if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_U
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
 if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_US_DeltaForce! PMC_blufor: %1", PMC_blufor]; };
-
-				// select target
-				_targetpoint = call PMC_Select_Target;
 
 				// create helicopter to ferry them into target, if far enough
 				if (_respawnpoint distance _targetpoint > 1000) then
@@ -202,9 +188,6 @@ if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_U
 				publicVariable "PMC_blufor";
 if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_ACR_Squad! PMC_blufor: %1", PMC_blufor]; };
 
-				// select target
-				_targetpoint = call PMC_Select_Target;
-
 				// create helicopter to ferry them into target, if far enough
 				if (_respawnpoint distance _targetpoint > 1000) then
 				{
@@ -222,9 +205,6 @@ if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_A
 				publicVariable "PMC_blufor";
 if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_ACR_SpecialForcesTeam! PMC_blufor: %1", PMC_blufor]; };
 
-				// select target
-				_targetpoint = call PMC_Select_Target;
-
 				// create helicopter to ferry them into target, if far enough
 				if (_respawnpoint distance _targetpoint > 1000) then
 				{
@@ -241,9 +221,6 @@ if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_A
 				PMC_blufor = PMC_blufor + _num;
 				publicVariable "PMC_blufor";
 if (PMC_debug) then { diag_log format["PMC_war_blufor; BLUFOR: call PMC_Create_GER_Infantry_KSKTeam! PMC_blufor: %1", PMC_blufor]; };
-
-				// select target
-				_targetpoint = call PMC_Select_Target;
 
 				// create helicopter to ferry them into target, if far enough
 				if (_respawnpoint distance _targetpoint > 1000) then
