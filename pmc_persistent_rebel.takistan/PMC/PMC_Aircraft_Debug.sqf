@@ -1,7 +1,7 @@
-private ["_vcl", "_grp"];
 
-_vcl = _this select 0;
-_grp = group (crew _vcl select 0);
+private _vcl = _this select 0;
+private _crew = crew _vcl;
+private _grp = group (_crew select 0);
 
 diag_log "";
 diag_log format
@@ -18,18 +18,7 @@ diag_log format
 	diag_fps
 ];
 
-/* useless debug
-diag_log format
-[
-	"Weapons: %1", weapons _vcl
-];
-diag_log format
-[
-	"magazines: %1", magazines _vcl
-];
-*/
 diag_log "";
 
-// public variable thing
 PMC_Downed_Aircraft = _vcl;
 publicVariable "PMC_Downed_Aircraft";
